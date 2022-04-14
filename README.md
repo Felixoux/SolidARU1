@@ -18,6 +18,12 @@ Ceci est le site repertoriant tous les évenements liés à la solidarité au se
 
 - composer v2.3.5
 
+- Altorouter 2.0.2
+
+- Var-dumper symfony v6.0.6
+
+- Filp/whoops v2.14.5
+
 ## Credits 
 
 Ce projet à été créé par Georgeault Felix en compagnie de l'ASBL "les amis ARU1". 
