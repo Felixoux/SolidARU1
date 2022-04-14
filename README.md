@@ -1,6 +1,6 @@
 # Site de la Solidarité
 
-**Version 1.0.0
+**Version 1.0.1
 
 ## Description
 
@@ -17,6 +17,12 @@ Ceci est le site repertoriant tous les évenements liés à la solidarité au se
 - NodesJs v17.9.0
 
 - composer v2.3.5
+
+- Altorouter 2.0.2
+
+- Var-dumper symfony v6.0.6
+
+- Filp/whoops v2.14.5
 
 ## Credits 
 
