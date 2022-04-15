@@ -1,0 +1,15 @@
+nav.navbar, .nav-links ul{
+    @extend %flex;
+    position: relative;
+    z-index: 100;
+}
+
+nav.navbar {
+    height: 120px;
+    background: $bg-dark;
+    z-index: 100;
+}
+
+.nav-links ul li{
+    margin-right: 60px;
+}   

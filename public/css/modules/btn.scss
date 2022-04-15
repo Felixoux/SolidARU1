@@ -1,0 +1,29 @@
+.btn {
+    width: fit-content;
+    padding: $space $space * 2.5;
+    border-radius: 3px;
+    transition: all .3s ease-out;
+}
+
+.btn-full {
+    background: $primary_b;
+    border : 1px solid transparent;
+    color: $bg-light;
+
+    &:hover {
+        background: none;
+        border: 1px solid $primary_b;
+        color: $primary_b;
+    }
+}
+
+.btn-swap {
+    border: 1px solid $primary_b;
+    color: $primary_b;
+
+    &:hover {
+        background: $primary_b;
+        border: 1px solid transparent;
+        color: $bg-light;
+    }    
+}
