@@ -2,7 +2,8 @@
 $pageTitle = "Mon blog";
 ?>
 
-<div class="banner"></div>
+<img src="img/banner.jpg" alt="banner" width="1920">
+<!-- <div class="banner"></div> -->
 
 <section class="container home-little-grid">
     <div class="card home-card-big relative">
@@ -23,7 +24,7 @@ $pageTitle = "Mon blog";
             Comment ça <strong>fonctionne</strong> ? 
         </h2>
         <h4 class="silent">
-            Ce strong est en quelque sorte un journal des événements. 
+            Ce site est en quelque sorte un journal des événements. 
             De nombreux posts vont être ajoutés au fil du temps pour en garder une trace.
              Dans ces posts il y aura du texte, photos, vidéos voire même documents.
         </h4>
