@@ -1,32 +1,71 @@
 /*
-    sass --watch public/css/app.scss:public/css/style
+    sass --watch public/css/app.scss:public/css/style.css
 */
 // ==== BG ==== 
-$bg-light: #FAFAFA;
-$bg-medium : #6E7D8C;
-$bg-dark:#585D62 ; 
-
+$bg-card: #1E2552;
+$bg-light : #1A1F42;
+$bg-dark:#151938 ; 
 
 // ==== FONTS COLORS ====
-$dark-text: #2B3036;
-$normal-text:#414A53; 
-$light-text:#818F9C; 
+$silent-text: #8893C4;
+$text:#D4DCFF; 
+$bright-text:#EBF1FF; 
 
 // ==== COSMETICS ====
-$primary: #0C7FF3;
-$primary25: #0c7ff321;
+$primary_b: #A3FCFF;
+$primary_b25: rgba(163, 252, 255, 0.12);
+$primary_o:#FF883D;
+$primary_o25:rgba(255, 136, 61, 0.12);
 $alert:#C83F3F;
 $alert25:#c83f3f21;
-$border:#EBEBEB;
+$border:#282F5C;
+$shadow: 10px 10px 3px -7px rgba(0, 0, 0, 0.25);
 
+// == Spaces ==
+$gap:24px;
+$space:8px;
+$space-section:160px;
+$card-padding:16px;
 
-// ==== TOOLS ====
+// === scrollBar === 
+::-webkit-scrollbar{width: 13.5px;}
+::-webkit-scrollbar-thumb{height: 7px;background: $border;border: 3px solid transparent;border-radius: 8px;background-clip: content-box;}
+::-webkit-scrollbar-corner {background: $bg-light ;}
+::-webkit-resizer {background:$border ;}
+::-webkit-scrollbar-track {background:transparent; padding: 1px;}
+html {scrollbar-width: 8px;scrollbar-color: $border transparent;}
 
+// ==== Tools  ==== 
 
-// ==== GENERIC ====
+@import "tools/reset.scss";
+@import "tools/mixins.scss";
+@import "tools/fonts.scss";
+@import "tools/layout.scss";
+// @import "tools/animations.scss";
 
+// ==== Generic ==== 
+body {
+	font-family: $font;
+	font-size: 16px;
+	color: $text;
+	line-height: 1.4;
+	background: $bg-light;
+	scroll-margin: 100px 0 0 0;
+	word-break: break-word;
+}
+body.dark {
+	background:$bg-dark;
+}
+::selection {
+	background: $primary_b;
+	color: $bg-light;
+}
 
-// ==== MODULES ====
+// ==== Modules ====  
+@import 'modules/navbar.scss';
+@import 'modules/btn.scss';
+@import 'modules/card.scss';
 
+// ==== Pages ==== 
+@import 'views/home.scss';
 
-// ==== VIEWS ====
