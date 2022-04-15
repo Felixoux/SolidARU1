@@ -1,28 +1,27 @@
-// .banner {
-//     width: 100%;
-//     height: 128px;
-//     background: url(../img/banner.jpg) no-repeat center ; 
-//     background-size:100%;
-// }
-// 
-// @include up(1000) {
-//     .banner {
-//         width: 100%;
-//         height: 496px;
-//         background:  url(../img/banner.jpg); 
-//         background-size: 2433px 496px;
-//         margin-top: -120px;
-//     }
-// }
+.banner {
+    width: 100%;
+    height: 128px;
+    background: url(../img/banner.jpg) no-repeat center ; 
+    background-size:100%;
+}
 
-.home-little-grid {
-    margin: $space-section 0;
-
-    .home-card-big {
-        margin-bottom: $gap * 3;
+@include up(775) {
+    .banner {
+        width: 100%;
+        height: 496px;
+        background:  url(../img/banner.jpg); 
+        background-size: 2433px 496px;
+        margin-top: -120px;
     }
 }
 
+.home-little-grid {
+    margin-bottom: $space-section;
+
+    & > div {
+        margin-top:$gap * 3;
+    }
+}
 
 @include up(775) {
     .home-little-grid {
@@ -33,6 +32,7 @@
     }
 
     .home-card-big {
+        margin-bottom: 0 !important;
         grid-column: 1 / 3;
         grid-row: 1 / 3;
         z-index:10;

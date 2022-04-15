@@ -2,8 +2,8 @@
 $pageTitle = "Mon blog";
 ?>
 
-<img src="img/banner.jpg" alt="banner" width="1920">
-<!-- <div class="banner"></div> -->
+<img class="mobile-only" src="img/banner.jpg" alt="banner" width="1920">
+<div class="banner mobile-hidden"></div>
 
 <section class="container home-little-grid">
     <div class="card home-card-big relative">
