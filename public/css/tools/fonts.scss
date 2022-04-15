@@ -97,6 +97,17 @@ h3 {font-family: $font-semi;  font-size: 27px;  }
 
 h4 {font-family: $font-m;  font-size: 20px;}
 
+@include down(500) {
+    h1 {font-size:30px;}
+
+    h2 {font-size: 25px;}
+
+    h3 {font-size: 22px;} 
+    
+    h4 {font-size: 20px;}
+}
+
+
 ::placeholder { // Chrome, Firefox, Opera, Safari
 color: $silent-text;  opacity: 1; // Opacity for firefox !
 }
