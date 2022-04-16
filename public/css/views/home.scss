@@ -58,6 +58,7 @@
 }
 
 section.event {
+    border-top: 1px solid $silent-text;
     background: $bg-dark;
     padding-top: calc($space-section / 2);
     padding-bottom: calc($space-section / 2);

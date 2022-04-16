@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-<div class="page-wrapper">
+<div class="page-wrapper relative">
     <nav class="header flex">
         <ul class="header__nav flex">
             <li><h4><a class="underline" href="#">Accueil</a></h4></li>
@@ -48,6 +48,7 @@
             </li>
         </ul>
     </nav>
+    <div class="triangle-shape"></div>
     <?= $content ?>
     <footer>
         <!-- <div class="container">
