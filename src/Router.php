@@ -12,7 +12,6 @@ class Router {
     */
     private $router; 
 
-    
     public function __construct(string $viewPath)
     {
         $this->viewPath = $viewPath;
@@ -37,9 +36,6 @@ class Router {
 
         return $this;
     }
-
-
-
 
 }
 

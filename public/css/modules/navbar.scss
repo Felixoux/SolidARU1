@@ -1,0 +1,115 @@
+.header {
+    height: 120px;
+    background: $bg-dark;
+    z-index: 100;
+
+    &__nav {
+        height: 20px;
+        justify-content:flex-start;
+        flex-wrap: wrap;
+        overflow: hidden;
+        line-height: 1;
+    }
+
+    &__nav li {
+        height: 20px;
+        @extend %flex;
+        margin-right: $gap * 2.5;
+    }
+}
+
+.header-phone {
+    position: relative;
+
+    .header__nav {
+        @extend %card;
+        display: grid !important;
+        grid-gap: 4 * $gap;
+        grid-template-columns: 1fr;
+        justify-items: center;
+        align-content: center;
+        position: fixed;
+        background: #1a1f42f1 !important;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 100vh;
+        transition: opacity .3s;
+        z-index: 3;
+        padding: $space * 2;
+    }
+
+    .header__nav li{
+        margin-right: 0;
+    }
+
+    .header__side {
+        position: fixed;
+        top: $space * 3;
+        right: $space * 2;
+        z-index: 4;
+    }
+}
+
+.search-button {
+    height: 20px;
+
+    svg{
+        transition: all .3s ease-out;
+        fill:$text;
+    
+        &:hover {
+            fill: $primary_o;
+        }
+    }
+}
+
+#js-burger  {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    margin-left: $gap;
+
+    span {
+        font-size: 0;
+        text-indent: -3000px;
+    }
+
+    span, span::before, span::after {
+        content: "";
+        display: block;
+        width: 18px;
+        height: 3px;
+        background: currentColor;
+        position: relative;
+        transition: .3s;
+        transition-property: all;
+        transition-property: top,bottom,transform;
+    }
+
+    span::before {
+        bottom: -7px;
+    }
+
+    span::after {
+        top: -10px;
+    }
+}
+
+@include up(700) {
+    #js-burger {
+        display: none;
+    }
+}
+
+.triangle-shape {
+    width: 100%;
+    height: 90px;
+    top: 120px;
+    left: 0;
+    background-color: $bg-dark;
+    clip-path: polygon(0 0, 100% 90%, 100% 0);
+}
