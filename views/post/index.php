@@ -6,7 +6,7 @@ $pageTitle = "Mon blog";
 <div class="banner mobile-hidden"></div>
 
 <section class="container home-little-grid">
-    <div class="card home-card-big relative">
+    <div class="home-card-big relative">
         <h1>Bienvenue sur le site de la solidarité 
             de l’athénée Royal d’Uccle 1    
         </h1>
@@ -19,7 +19,7 @@ $pageTitle = "Mon blog";
             la semaine de la solidarité ou encore les shoeboxs.
         </h4>
     </div>
-    <div class="card home-card-little">
+    <div class="home-card-little">
         <h2>
             Comment ça <strong>fonctionne</strong> ? 
         </h2>

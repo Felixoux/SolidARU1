@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
+<div class="page-wrapper">
     <nav class="header flex">
         <ul class="header__nav flex">
             <li><h4><a class="underline" href="#">Accueil</a></h4></li>
@@ -55,6 +56,7 @@
             <?php endif ?> 
         </div> -->
     </footer>
-    <script src="js/app.js"></script>
+</div>
+<script src="js/app.js"></script>
 </body>
 </html>

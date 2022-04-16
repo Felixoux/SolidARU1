@@ -19,6 +19,7 @@
     margin-bottom: $space-section;
 
     & > div {
+        @extend %card;
         margin-top:$gap * 3;
     }
 }
@@ -26,8 +27,7 @@
 @include up(775) {
     .home-little-grid {
         display: grid;
-        grid-template-columns:11.5fr 0.3fr 7.5fr;
-        //grid-template-rows: 10.5fr 9.8fr 2.5fr;
+        grid-template-columns: 1fr 0.03fr .7fr;
         grid-template-rows: minmax(200px, 1fr) minmax(185px, .9fr) minmax(45px, .2fr);
         margin-top: -($gap * 5);
 
@@ -35,6 +35,10 @@
             margin-top: 0;
             padding: $gap * 1.5;
             padding-top: $gap * .7;
+        }
+
+        .home-card-little {
+            padding-left: $gap * 2;
         }
     }
 
@@ -55,8 +59,8 @@
 
 section.event {
     background: $bg-dark;
-    padding-top: $space-section;
-    padding-bottom: $space-section;
+    padding-top: calc($space-section / 2);
+    padding-bottom: calc($space-section / 2);
 }
 
 .big-grid-event {
