@@ -4,17 +4,24 @@
     z-index: 100;
 
     &__nav {
-        height: 20px;
+        height: 22px;
         justify-content:flex-start;
         flex-wrap: wrap;
         overflow: hidden;
-        line-height: 1;
     }
 
     &__nav li {
         height: 20px;
         @extend %flex;
         margin-right: $gap * 2.5;
+    }
+
+    &__side {
+        width: fit-content;
+
+        svg {
+            margin-left: -($gap * 2);
+        }
     }
 }
 
@@ -66,12 +73,9 @@
 }
 
 #js-burger  {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @extend %flex-center;
     width: 32px;
     height: 32px;
-    margin-left: $gap;
 
     span {
         font-size: 0;

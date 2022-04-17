@@ -97,6 +97,7 @@ h3 {font-family: $font-semi;  font-size: 27px;  }
 
 h4 {font-family: $font-m;  font-size: 20px;}
 
+// Little title for phone size
 @include down(500) {
     h1 {font-size:30px;}
 

@@ -417,6 +417,11 @@ header, section, main, footer, nav, .container, .header, .footer, .main {
   padding-right: calc(50% - var(--container-width) / 2);
 }
 
+section.event, .big-section {
+  background: #151938;
+  border-top: 1px solid #8893C4;
+}
+
 .ratio {
   height: 0;
   padding-bottom: 56.25%;
@@ -457,7 +462,7 @@ header, section, main, footer, nav, .container, .header, .footer, .main {
   align-items: stretch;
 }
 
-.flex-center {
+.flex-center, #js-burger {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -755,13 +760,13 @@ body .ml5 {
   margin-left: 40px;
 }
 
-@media (min-width: 700px) {
+@media (min-width: 775px) {
   .mobile-only {
     display: none;
   }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 775px) {
   .mobile-hidden {
     display: none;
   }
@@ -792,15 +797,20 @@ body.dark {
   z-index: 100;
 }
 .header__nav {
-  height: 20px;
+  height: 22px;
   justify-content: flex-start;
   flex-wrap: wrap;
   overflow: hidden;
-  line-height: 1;
 }
 .header__nav li {
   height: 20px;
   margin-right: 60px;
+}
+.header__side {
+  width: fit-content;
+}
+.header__side svg {
+  margin-left: -48px;
 }
 
 .header-phone {
@@ -845,12 +855,8 @@ body.dark {
 }
 
 #js-burger {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 32px;
   height: 32px;
-  margin-left: 24px;
 }
 #js-burger span {
   font-size: 0;
@@ -942,7 +948,7 @@ button {
     height: 496px;
     background: url(../img/banner.jpg);
     background-size: 2433px 496px;
-    margin-top: -120px;
+    margin-top: -192px;
   }
 }
 .home-little-grid {
@@ -956,8 +962,8 @@ button {
   .home-little-grid {
     display: grid;
     grid-template-columns: 1fr 0.03fr 0.7fr;
-    grid-template-rows: minmax(200px, 1fr) minmax(185px, 0.9fr) minmax(45px, 0.2fr);
-    margin-top: -120px;
+    grid-template-rows: 1fr 0.8fr 0.5fr;
+    margin-top: -96px;
   }
   .home-little-grid > div {
     margin-top: 0;
@@ -983,8 +989,6 @@ button {
   }
 }
 section.event {
-  border-top: 1px solid #8893C4;
-  background: #151938;
   padding-top: 80px;
   padding-bottom: 80px;
 }
