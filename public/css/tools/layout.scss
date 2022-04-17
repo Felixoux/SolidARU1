@@ -63,6 +63,11 @@
     width: var(--container-width);
   }
 
+  %big-section, .big-section {
+    background: $bg-dark;
+    border-top: 1px solid $silent-text;
+  }
+
   // Ratios
   // ==================
   .ratio {
@@ -111,7 +116,7 @@
     align-items: stretch;
   }
   
-  .flex-center {
+  .flex-center, %flex-center {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -225,13 +230,13 @@
   }
   
   .mobile-only {
-    @include up(700) {
+    @include up(775) {
       display: none;
     }
   }
   
   .mobile-hidden {
-    @include down(700) {
+    @include down(775) {
       display: none;
     }
   }

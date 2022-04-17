@@ -48,7 +48,7 @@
             </li>
         </ul>
     </nav>
-    <div class="triangle-shape"></div>
+    <div class="triangle-shape mobile-hidden"></div>
     <?= $content ?>
     <footer>
         <!-- <div class="container">

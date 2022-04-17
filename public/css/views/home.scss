@@ -11,7 +11,7 @@
         height: 496px;
         background:  url(../img/banner.jpg); 
         background-size: 2433px 496px;
-        margin-top: -120px;
+        margin-top: -($space-section * 1.2);
     }
 }
 
@@ -28,8 +28,8 @@
     .home-little-grid {
         display: grid;
         grid-template-columns: 1fr 0.03fr .7fr;
-        grid-template-rows: minmax(200px, 1fr) minmax(185px, .9fr) minmax(45px, .2fr);
-        margin-top: -($gap * 5);
+        grid-template-rows: 1fr .8fr .5fr;
+        margin-top: -($gap * 4);
 
         & > div {
             margin-top: 0;
@@ -58,8 +58,7 @@
 }
 
 section.event {
-    border-top: 1px solid $silent-text;
-    background: $bg-dark;
+    @extend %big-section;
     padding-top: calc($space-section / 2);
     padding-bottom: calc($space-section / 2);
 }

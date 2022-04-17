@@ -5,10 +5,9 @@ $pageTitle = "Mon blog";
 <img class="mobile-only" src="img/banner.jpg" alt="banner" width="1920">
 <div class="banner mobile-hidden"></div>
 
-<section class="container home-little-grid">
+<section class="home-little-grid">
     <div class="home-card-big relative">
-        <h1>Bienvenue sur le site de la solidarité 
-            de l’athénée Royal d’Uccle 1    
+        <h1>Bienvenue sur le site de solid<strong>ARU1</strong>
         </h1>
         <h2>
             Que vais-je trouver sur ce <strong>blog</strong> ?  
