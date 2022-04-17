@@ -258,7 +258,7 @@ a {
   cursor: pointer;
 }
 a:hover, a a.active {
-  color: #A3FCFF;
+  color: #FF883D;
 }
 a .link-hr a {
   position: relative;
