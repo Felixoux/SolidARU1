@@ -32,7 +32,7 @@ $pageTitle = "Mon blog";
 
 <section class="event">
     <div class="header-section flex">
-        <h2 id="event">Voici les <strong>derniers</strong> évènements</h2>
+        <h2 id="event">Voici les <strong>différents</strong> évènements</h2>
         <p class="mobile-hidden">Mis à jour le 02/03/2022</p>
     </div>
     <div class="big-grid-event">
