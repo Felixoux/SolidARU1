@@ -20,7 +20,7 @@ class URL {
     {
         $param = self::getInt($name, $default);
         if($param !== null && $param <= 0) {
-            throw new Exception("Le paramètre $name n'est pas un entier positif");
+            throw new Exception("Le paramètre '$name' n'est pas un entier positif");
         }
         return $param;
     }
