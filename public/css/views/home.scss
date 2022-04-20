@@ -56,8 +56,6 @@
 
 section.event {
     @extend %big-section;
-    padding-top: calc($space-section / 2);
-    padding-bottom: calc($space-section / 2);
 }
 
 .big-grid-event {

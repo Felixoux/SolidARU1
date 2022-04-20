@@ -1,11 +1,11 @@
-.btn {
+.btn, %btn {
     width: fit-content;
     padding: $space $space * 2.5;
     border-radius: 3px;
     transition: all .3s ease-out;
 }
 
-.btn-full {
+.btn-primary, %btn-primary {
     background: $primary_b;
     border : 1px solid transparent;
     color: $bg-light;
@@ -17,7 +17,7 @@
     }
 }
 
-.btn-swap {
+.btn-swap, %btn-swap {
     border: 1px solid $primary_b;
     color: $primary_b;
 
