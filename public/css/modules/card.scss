@@ -9,7 +9,6 @@
     @extend %card-design;
     display: flex;
     flex-direction:column;
-    position: relative;
 
     &__body, &__footer {
         padding: $space * 2.3;
