@@ -27,4 +27,5 @@ $router
     ->get('/blog/[*:slug]-[i:id]', 'post/show', 'post')
     ->get('/category/[*:slug]', 'category/show', 'category')
     ->get('/', 'category/index',  'home')
+    ->get('/blog', 'post/index', 'posts')
     ->run();

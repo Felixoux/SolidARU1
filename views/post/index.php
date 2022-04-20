@@ -1,12 +1,7 @@
 <?php 
 require dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'vendor/autoload.php';
 
-use App\Connection;
-use App\Helpers;
-use App\Helpers\Text;
-use App\Model\Category;
-use App\Model\Post;
-use App\URL;
+use App\{Connection, Helpers\Text, Model\Category, Model\Post, URL};
 
 $pageTitle = "Mon blog";
 $pdo = Connection::getPDO();
@@ -14,7 +9,7 @@ $pdo = Connection::getPDO();
 $currentPage = URL::getPositiveInt('page', 1);
 
 $count = (int)$pdo->query("SELECT COUNT(id) FROM post")->fetch(PDO::FETCH_NUM)[0];
-$per_page = 2;
+$per_page = 4;
 $offset = $per_page * ($currentPage - 1) ;
 $pages = ceil($count / $per_page);
 if($currentPage > $pages) {
@@ -23,7 +18,7 @@ if($currentPage > $pages) {
 $query = $pdo->query("SELECT * FROM post LIMIT $per_page OFFSET $offset");
 $posts = $query->fetchAll(PDO::FETCH_CLASS, Post::class);
 ?>
-
+<div class="triangle-shape mobile-hidden"></div>
 <img class="mobile-only" src="img/banner.jpg" alt="banner" width="1920">
 <div class="banner mobile-hidden"></div>
 
@@ -71,14 +66,14 @@ $posts = $query->fetchAll(PDO::FETCH_CLASS, Post::class);
 <footer class="mb4 mt4">
     <?php if($currentPage > 1): ?>
         <?php 
-            $link = $router->url('home');
+            $link = $router->url('posts');
             if($currentPage > 2) $link .= '?page=' . ($currentPage - 1); 
         ?>
         <a href="<?= $link ?>"><button class="btn btn-swap">Page précédente</button></a>
     <?php endif ?>
     <?php if($currentPage < $pages): ?>
         <?php 
-            $link = $router->url('home');
+            $link = $router->url('posts');
             if($currentPage < $pages) $link .= '?page=' . ($currentPage + 1); 
         ?>
         <a href="<?= $link ?>"><button class="btn btn-swap">Page suivante</button></a>

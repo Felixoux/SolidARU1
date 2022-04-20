@@ -34,6 +34,7 @@ class Router {
     public function run ()
     {
         $match = $this->router->match();
+        $params = $match['params'];
         $view = $match['target'];
         $router = $this;
         ob_start();
