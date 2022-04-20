@@ -35,6 +35,8 @@ $card-padding:16px;
 ::-webkit-scrollbar-track {background:transparent; padding: 1px;}
 html {scrollbar-width: 8px;scrollbar-color: $border transparent;}
 
+
+
 // ==== Tools  ==== 
 
 @import "tools/reset.scss";
@@ -57,8 +59,8 @@ body.dark {
 	background:$bg-dark;
 }
 ::selection {
-	background: $primary_b;
-	color: $bg-light;
+	background: $primary_o;
+	color: $bright-text;
 }
 
 // ==== Modules ====  
