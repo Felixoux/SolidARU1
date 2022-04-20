@@ -284,12 +284,12 @@ h1, h2 {
 
 h1 {
   font-size: 45.5px;
-  margin-bottom: 32px;
+  margin-bottom: 14.4px;
 }
 
 h2 {
   font-size: 35px;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
 }
 
 h3, h4 {
@@ -937,12 +937,40 @@ button {
   font-size: inherit;
 }
 
-.card, .home-little-grid > div, .header-phone .header__nav {
+.card, .header-phone .header__nav {
   background: #1E2552;
-  padding: 18.4px;
   border: 1px solid #282F5C;
   border-radius: 3px;
   box-shadow: 10px 10px 3px -7px rgba(0, 0, 0, 0.25);
+}
+
+.card, .header-phone .header__nav {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.card__body, .card__footer {
+  padding: 18.4px;
+}
+.card__footer {
+  padding-top: 0;
+}
+.card__title {
+  font-weight: 700;
+  color: #D4DCFF;
+}
+.card__content {
+  color: #8893C4;
+  max-height: 180px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.stack {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-content: flex-start;
+  grid-gap: 16px;
 }
 
 .banner {
@@ -972,30 +1000,27 @@ button {
   .home-little-grid {
     display: grid;
     grid-template-columns: 1fr 0.03fr 0.7fr;
-    grid-template-rows: 1fr 0.8fr 0.5fr;
+    grid-template-rows: repeat(20, 0.1fr);
     margin-top: -96px;
   }
   .home-little-grid > div {
     margin-top: 0;
-    padding: 36px;
-    padding-top: 16.8px;
+    padding: 9.6px;
+    padding-top: 9.6px;
   }
   .home-little-grid .home-card-little {
-    padding-left: 48px;
+    padding-left: 24px;
   }
 
   .home-card-big {
     grid-column: 1/3;
-    grid-row: 1/3;
+    grid-row: 1/14;
     z-index: 10;
-  }
-  .home-card-big h1 {
-    margin-bottom: 48px;
   }
 
   .home-card-little {
     grid-column: 2/4;
-    grid-row: 2/4;
+    grid-row: 7/17;
   }
 }
 section.event {

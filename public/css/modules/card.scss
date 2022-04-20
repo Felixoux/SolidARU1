@@ -1,7 +1,37 @@
-.card, %card {
+%card-design {
     background:$bg-card;
-    padding: $space * 2.3;
     border: 1px solid $border;
     border-radius: 3px;
     box-shadow: $shadow;
 }
+
+.card, %card {
+    @extend %card-design;
+    display: flex;
+    flex-direction:column;
+    position: relative;
+
+    &__body, &__footer {
+        padding: $space * 2.3;
+    }
+    &__footer {
+        padding-top: 0;
+    }
+    &__title {
+        font-weight: 700;
+        color: $text;
+    }
+    &__content {
+        color: $silent-text;
+        max-height: 180px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+    .stack, %stack {
+        display:grid;
+        grid-template-columns: 1fr;
+        align-content: flex-start;
+        grid-gap: 2 * $space;
+    }

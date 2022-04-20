@@ -11,6 +11,6 @@ define('DEBUG_TIME', microtime(true));
 $router = new App\Router(VIEW_PATH);
 
 $router
-->get('/blog', 'post/index')
-->get('/blog/category', 'category/show')
+->get('/', 'post/index',  'home')
+->get('/category', 'category/show', 'category')
 ->run();
