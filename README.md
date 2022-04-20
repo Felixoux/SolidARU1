@@ -8,7 +8,7 @@ Ceci est le site repertoriant tous les évenements liés à la solidarité au se
 
 ## Technologies utilisées 
 
-- Php v7.4       
+- Php v7.4.28       
 
 - dart-sass v1.50.0
 

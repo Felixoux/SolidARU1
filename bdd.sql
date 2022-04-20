@@ -10,6 +10,7 @@ CREATE TABLE post (
 CREATE TABLE category (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     name VARCHAR (255) NOT NULL,
+    summary TEXT (1000) NOT NULL,
     slug VARCHAR (255) NOT NULL,
     PRIMARY KEY (id)
 )
@@ -30,7 +31,7 @@ CREATE TABLE post_category (
             ON UPDATE RESTRICT 
 )
 
-CREATE TABLE admin (
+CREATE TABLE user (
     username VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL
 )
