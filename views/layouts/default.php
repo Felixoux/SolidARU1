@@ -49,8 +49,7 @@
             </li>
         </ul>
     </nav>
-    <div class="triangle-shape mobile-hidden"></div>
-        <?= $content ?>
+    <?= $content ?>
     <footer>
         <!-- <div class="container">
             <?php if(defined('DEBUG_TIME')) : ?>
