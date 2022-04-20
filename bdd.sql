@@ -10,6 +10,7 @@ CREATE TABLE post (
 CREATE TABLE category (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     name VARCHAR (255) NOT NULL,
+    summary TEXT (1000) NOT NULL,
     slug VARCHAR (255) NOT NULL,
     PRIMARY KEY (id)
 )

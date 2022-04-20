@@ -1,14 +1,49 @@
 <?php 
 require dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'vendor/autoload.php';
+use App\Helpers;
+use App\Helpers\Text;
+use App\Model\Category;
+use App\Model\Post;
+
+$pageTitle = "Mon blog";
+$text = new Text();
+$post = new Post();
 $pdo = new PDO("mysql:host=localhost;dbname=solidaru1", "root", "", [
     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
 ]);
+$page = $_GET['page'] ?? 1;
 
-$query = $pdo->query('SELECT * FROM post');
-$posts = $query->fetchAll();
+if(!filter_var($page, FILTER_VALIDATE_INT)) {
+    throw new Exception('Le numéro de page n\'est pas valide');
+}
 
-$pageTitle = "Mon blog";
+if($page === '1') {
+    header('Location: ' . $router->url('home'));
+    http_response_code(301);
+    exit();
+}
+
+
+
+
+
+
+$currentPage = (int)($_GET['page'] ?? 1);
+if($currentPage <= 0) {
+    throw new Exception('Le numéro de page est invalide');
+}
+
+$count = (int)$pdo->query("SELECT COUNT(id) FROM category")->fetch(PDO::FETCH_NUM)[0];
+$per_page = 2;
+$offset = $per_page * ($currentPage - 1) ;
+$pages = ceil($count / $per_page);
+if($currentPage > $pages) {
+    throw new Exception('Cette page n\'existe pas');
+}
+$query = $pdo->query("SELECT * FROM category LIMIT $per_page OFFSET $offset");
+$categories = $query->fetchAll(PDO::FETCH_CLASS, Category::class);
+
 ?>
 
 <img class="mobile-only" src="img/banner.jpg" alt="banner" width="1920">
@@ -45,27 +80,32 @@ $pageTitle = "Mon blog";
 
 <section class="event">
     <div class="header-section flex">
-        <h2 id="event">Voici les <strong>différents</strong> évènements</h2>
+        <h2 id="event">Voici les différents <strong>types</strong> d'évènements</h2>
         <p class="mobile-hidden">Mis à jour le 02/03/2022</p>
     </div>
     <div class="big-grid-event">
-        <?php foreach($posts as $post): ?>
-            <article class="card card-article">
-                <div class="card__body stack">
-                    <h4 class="card__title">
-                        <?= $post['name'] ?>
-                    </h4>
-                    <p class="card__content">
-                        <?= $post['content'] ?>
-                    </p>
-                </div>
-                <div class="card__footer">
-                    <a href="#"><button class="btn btn-swap f-right">Bouton</button></a>
-                </div>
-            </article>   
+        <?php foreach($categories as $category): ?>
+            <?php require VIEW_PATH . '/category/card.php'; ?>
         <?php endforeach ?>
     </div>
 </section>
+
+<footer class="mb4 mt4">
+    <?php if($currentPage > 1): ?>
+        <?php 
+            $link = $router->url('home');
+            if($currentPage > 2) $link .= '?page=' . ($currentPage - 1); 
+        ?>
+        <a href="<?= $link ?>"><button class="btn btn-swap">Page précédente</button></a>
+    <?php endif ?>
+    <?php if($currentPage < $pages): ?>
+        <?php 
+            $link = $router->url('home');
+            if($currentPage < $pages) $link .= '?page=' . ($currentPage + 1); 
+        ?>
+        <a href="<?= $link ?>"><button class="btn btn-swap">Page suivante</button></a>
+    <?php endif ?>
+</footer>
 
 
 

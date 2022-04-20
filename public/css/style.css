@@ -961,7 +961,6 @@ button {
 }
 .card__content {
   color: #8893C4;
-  max-height: 180px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
