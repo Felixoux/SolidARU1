@@ -419,9 +419,9 @@ header, section, main, footer, nav, .container, .header, .footer, .main {
 
 .article, section.event, .big-section {
   background: #151938;
-  border-top: 1px solid #8893C4;
+  border-top: 1px solid #282F5C;
   padding-top: 80px;
-  padding-bottom: 80px;
+  padding-bottom: 40px;
 }
 
 .ratio {
@@ -443,12 +443,12 @@ header, section, main, footer, nav, .container, .header, .footer, .main {
   display: inline;
 }
 
-.flex, .header__nav li {
+.flex, .card, .header-phone .header__nav, .header__nav li {
   display: flex !important;
   align-items: center;
   justify-content: space-between;
 }
-.flex > *, .header__nav li > * {
+.flex > *, .card > *, .header-phone .header__nav > *, .header__nav li > * {
   min-width: 0;
 }
 
@@ -458,6 +458,10 @@ header, section, main, footer, nav, .container, .header, .footer, .main {
 
 .flex-end {
   justify-content: flex-end;
+}
+
+.ml-a {
+  margin-left: auto;
 }
 
 .stretch {
@@ -493,6 +497,12 @@ header, section, main, footer, nav, .container, .header, .footer, .main {
 
 .w100 {
   width: 100%;
+}
+
+.grid {
+  display: -moz-inline-grid;
+  grid-template-columns: 1fr;
+  justify-content: flex-start;
 }
 
 .article,
@@ -948,14 +958,12 @@ button {
 }
 
 .card, .header-phone .header__nav {
-  display: flex;
   flex-direction: column;
-}
-.card__body, .card__footer {
+  align-items: flex-end;
   padding: 18.4px;
 }
 .card__footer {
-  padding-top: 0;
+  padding-top: 18.4px;
 }
 .card__title {
   font-weight: 700;
@@ -965,6 +973,7 @@ button {
   color: #8893C4;
   overflow: hidden;
   text-overflow: ellipsis;
+  min-height: 100%;
 }
 
 .stack {
@@ -972,6 +981,12 @@ button {
   grid-template-columns: 1fr;
   align-content: flex-start;
   grid-gap: 16px;
+}
+
+.footer-links {
+  display: inline-flex;
+  width: 100%;
+  margin: 1rem 0;
 }
 
 .banner {
@@ -987,7 +1002,7 @@ button {
     height: 496px;
     background: url(../img/banner.jpg);
     background-size: 2433px 496px;
-    margin-top: -192px;
+    margin-top: -128px;
   }
 }
 .home-little-grid {
@@ -995,6 +1010,7 @@ button {
 }
 .home-little-grid > div {
   margin-top: 72px;
+  padding: 31.2px;
 }
 
 @media (min-width: 775px) {
@@ -1002,15 +1018,16 @@ button {
     display: grid;
     grid-template-columns: 1fr 0.03fr 0.7fr;
     grid-template-rows: repeat(20, 0.1fr);
-    margin-top: -96px;
+    margin-top: -72px;
   }
   .home-little-grid > div {
     margin-top: 0;
-    padding: 9.6px;
-    padding-top: 9.6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .home-little-grid .home-card-little {
-    padding-left: 24px;
+    padding-left: 48px;
   }
 
   .home-card-big {
@@ -1025,7 +1042,7 @@ button {
   }
 }
 .big-grid-event {
-  margin: 64px 0;
+  margin: 45.7142857143px 0;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(325px, 1fr));
   gap: 60px;

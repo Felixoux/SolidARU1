@@ -7,15 +7,15 @@
 
 .card, %card {
     @extend %card-design;
-    display: flex;
-    flex-direction:column;
+    @extend %flex;
+    flex-direction : column;
+    align-items:flex-end;
+    padding:$space * 2.3 ;
 
-    &__body, &__footer {
-        padding: $space * 2.3;
-    }
     &__footer {
-        padding-top: 0;
+        padding-top:$space * 2.3;
     }
+
     &__title {
         font-weight: 700;
         color: $text;
@@ -24,6 +24,7 @@
         color: $silent-text;
         overflow: hidden;
         text-overflow: ellipsis;
+        min-height: 100%;
     }
 }
 

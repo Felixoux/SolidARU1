@@ -65,9 +65,9 @@
 
   %big-section, .big-section {
     background: $bg-dark;
-    border-top: 1px solid $silent-text;
+    border-top: 1px solid $border;
     padding-top: calc($space-section / 2);
-    padding-bottom: calc($space-section / 2);
+    padding-bottom: calc($space-section / 4);
   }
 
   // Ratios
@@ -113,7 +113,11 @@
   .flex-end {
     justify-content: flex-end;
   }
-  
+
+  .ml-a {
+    margin-left: auto;
+  }
+
   .stretch {
     align-items: stretch;
   }
@@ -149,6 +153,12 @@
 
   // grilles 
   // ========================
+  %grid, .grid {
+    display: -moz-inline-grid;
+    grid-template-columns: 1fr;
+    justify-content: flex-start;
+  }
+
   %grid-text-vertical,
   .grid-text-vertical {
     display: grid;
