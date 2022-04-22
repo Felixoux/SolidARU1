@@ -19,7 +19,7 @@ class Category {
 
     public function getName (): ?string
     {
-        return htmlentities($this->name);
+        return $this->name;
     }
 
     public function getExerpt(int $limit = 60): ?string

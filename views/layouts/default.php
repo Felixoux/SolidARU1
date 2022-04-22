@@ -12,8 +12,8 @@
 <div class="page-wrapper relative">
     <nav class="header flex">
         <ul class="header__nav flex">
-            <li><h4><a class="underline" href="#">Accueil</a></h4></li>
-            <li><h4><a href="/blog#event">Blog</a></h4></li>
+            <li><h4><a class="underline" href="<?=  $router->url('home') ?>">Accueil</a></h4></li>
+            <li><h4><a href="<?=  $router->url('home') ?>#event">Blog</a></h4></li>
             <li><h4><a href="#">A propos</a></h4></li>
             <li><h4><a href="#">Contact</a></h4></li>
         </ul>

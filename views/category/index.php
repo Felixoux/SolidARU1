@@ -6,29 +6,24 @@ use App\Helpers;
 use App\Helpers\Text;
 use App\Model\Category;
 use App\Model\Post;
+use App\paginatedQuery;
 use App\URL;
-
 $pageTitle = "Mon blog";
-$pdo = Connection::getPDO();
-
-$currentPage = URL::getPositiveInt('page', 1);
-
-$count = (int)$pdo->query("SELECT COUNT(id) FROM category")->fetch(PDO::FETCH_NUM)[0];
-$per_page = 2;
-$offset = $per_page * ($currentPage - 1) ;
-$pages = ceil($count / $per_page);
-if($currentPage > $pages) {
-    throw new Exception('Cette page n\'existe pas');
-}
-$query = $pdo->query("SELECT * FROM category LIMIT $per_page OFFSET $offset");
-$categories = $query->fetchAll(PDO::FETCH_CLASS, Category::class);
+$paginatedQuery = new paginatedQuery(
+    "SELECT * FROM category",
+    "SELECT COUNT(id) FROM category",
+    Category::class, 
+    4
+);
+$categories = $paginatedQuery->getItems();
+$link = $router->url('home');
 ?>
 
 <img class="mobile-only" src="img/banner.jpg" alt="banner" width="1920">
 <div class="banner mobile-hidden"></div>
 
 <section class="home-little-grid">
-    <div class="card home-card-big">
+    <div class="card home-card-big stack">
         <div class="card__body stack">
             <h1 class="card__title">Bienvenue sur le site de solid<strong>ARU1</strong>
             </h1>
@@ -58,7 +53,7 @@ $categories = $query->fetchAll(PDO::FETCH_CLASS, Category::class);
 
 <section class="event">
     <div class="header-section flex">
-        <h2 id="event">Voici les différents <strong>types</strong> d'évènements</h2>
+        <h2 id="event">Voici les différents <strong>thèmes</strong></h2>
         <p class="mobile-hidden">Mis à jour le 02/03/2022</p>
     </div>
     <div class="big-grid-event">
@@ -66,24 +61,13 @@ $categories = $query->fetchAll(PDO::FETCH_CLASS, Category::class);
             <?php require VIEW_PATH . '/category/card.php'; ?>
         <?php endforeach ?>
     </div>
+
+    <div class="footer-links">
+        <?= $paginatedQuery->previousLink($link) ?>
+        <?= $paginatedQuery->nextLink($link) ?>
+    </div>
 </section>
 
-<footer class="mb4 mt4">
-    <?php if($currentPage > 1): ?>
-        <?php 
-            $link = $router->url('home');
-            if($currentPage > 2) $link .= '?page=' . ($currentPage - 1); 
-        ?>
-        <a href="<?= $link ?>"><button class="btn btn-swap">Page précédente</button></a>
-    <?php endif ?>
-    <?php if($currentPage < $pages): ?>
-        <?php 
-            $link = $router->url('home');
-            if($currentPage < $pages) $link .= '?page=' . ($currentPage + 1); 
-        ?>
-        <a href="<?= $link ?>"><button class="btn btn-swap">Page suivante</button></a>
-    <?php endif ?>
-</footer>
 
 
 

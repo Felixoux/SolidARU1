@@ -20,12 +20,12 @@ class Post {
 
     public function getName (): ?string
     {
-        return e($this->name);
+        return htmlentities($this->name);
     }
 
     public function getFormattedContent (): ?string
     {
-        return nl2br(e($this->content));
+        return nl2br(htmlentities($this->content));
     }
 
     public function getExerpt(int $limit = 60): ?string
@@ -33,7 +33,7 @@ class Post {
         if($this->content === null) {
             return $this->content;
         }
-        return e(Text::exerpt($this->content, $limit));
+        return Text::exerpt($this->content, $limit);
     }
 
     public function getCreatedAt (): DateTime

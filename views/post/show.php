@@ -1,7 +1,6 @@
 <?php
-$pageTitle = 'post';
 require dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'vendor/autoload.php';
-use App\{Connection, Model\Post, Helpers\Text};
+use App\{Connection, Model\Post, Helpers\Text, Model\Category};
 
 $id = (int)$params['id'];
 $slug = $params['slug'];
@@ -13,6 +12,7 @@ $query->setFetchMode(PDO::FETCH_CLASS, Post::class);
 /** @var Post|false */
 $post = $query->fetch();
 
+
 if($post === false) {
     throw new Exception('Aucun post ne correspond a cet ID');
 }
@@ -22,6 +22,8 @@ if($post->getSlug() !== $slug) {
     header('Location: ' . $url);
     exit();
 }
+
+$pageTitle = $post->getName();
 
 ?>
 
