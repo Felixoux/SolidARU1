@@ -5,6 +5,7 @@ $whoops = new \Whoops\Run;
 $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
 $whoops->register();
 
+// ICI ON A LE BUG DES DEUX PREMIERS CATEGORIES
 if(isset($_GET['page']) && $_GET['page'] === '1') {
     $uri = explode('?', $_SERVER['REQUEST_URI'])[0];
     $get = $_GET;
@@ -25,7 +26,6 @@ $router = new App\Router(VIEW_PATH);
 
 $router
     ->get('/blog/[*:slug]-[i:id]', 'post/show', 'post')
-    ->get('/category/[*:slug]', 'category/show', 'category')
+    ->get('/category/[*:slug]-[i:id]', 'category/show', 'category')
     ->get('/', 'category/index',  'home')
-    ->get('/blog', 'post/index', 'posts')
     ->run();
