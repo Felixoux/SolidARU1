@@ -30,6 +30,11 @@ class Category {
         return htmlentities(Text::exerpt($this->summary, $limit));
     }
 
+    public function getSummary(): ?string
+    {
+        return htmlentities($this->summary);
+    }
+
     public function getSlug() : ?string
     {
         return $this->slug;

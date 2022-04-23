@@ -1,13 +1,8 @@
 <?php 
 require dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'vendor/autoload.php';
 
-use App\Connection;
-use App\Helpers;
-use App\Helpers\Text;
 use App\Model\Category;
-use App\Model\Post;
 use App\paginatedQuery;
-use App\URL;
 $pageTitle = "Mon blog";
 $paginatedQuery = new paginatedQuery(
     "SELECT * FROM category",

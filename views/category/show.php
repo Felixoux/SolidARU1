@@ -42,6 +42,7 @@ $link = $router->url('category', ['id' => $category->getID(), 'slug' => $categor
         <h2 id="event">Voici les posts liés au thème <strong><?= e($category->getName()) ?></strong></h2>
         <p class="mobile-hidden silent">Mis à jour le 02/03/2022</p>
     </div>
+    <p><?= e($category->getSummary()) ?></p>
     <div class="big-grid-event">
     <?php foreach ($posts as $post): ?>
         <?php require VIEW_PATH . '/post/card.php'; ?>
