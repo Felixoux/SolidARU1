@@ -49,7 +49,7 @@ $link = $router->url('home');
             </h4>
         </div>
     </div>
-    <svg class="welcome-mascott" version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+    <svg class="welcome-mascott mobile-hidden" version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
         viewBox="0 0 171.1 141.5" xml:space="preserve">
         <style type="text/css">
             .st0{fill:#40332C;}
