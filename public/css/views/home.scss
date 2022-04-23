@@ -16,7 +16,7 @@
 }
 
 .home-little-grid {
-    margin-bottom: $space-section;
+    margin-bottom: $space-section / 2.5;
 
     & > div {
         margin-top:$gap * 3;
@@ -29,7 +29,7 @@
         display: grid;
         grid-template-columns: 1fr 0.03fr .7fr;
         grid-template-rows: repeat(20, .1fr);
-        margin-top: -($gap * 3);
+        margin-top: -($gap * 4.3);
 
         & > div {
             margin-top: 0;
@@ -53,6 +53,15 @@
         grid-column: 2 / 4;
         grid-row:7 / 17;
     }
+}
+
+.welcome-mascott {
+    position: absolute;
+    top: 322.5px;
+    left: -120px;
+    width: 500px;
+    z-index: -25;
+    transform: rotate(10deg);
 }
 
 section.event {

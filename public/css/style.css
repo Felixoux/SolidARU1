@@ -961,6 +961,7 @@ button {
   flex-direction: column;
   align-items: flex-end;
   padding: 18.4px;
+  animation: ease 0.4s card_animation;
 }
 .card__footer {
   padding-top: 18.4px;
@@ -983,6 +984,14 @@ button {
   grid-gap: 16px;
 }
 
+@keyframes card_animation {
+  from {
+    transform: translate(0, -50px);
+  }
+  to {
+    transform: translate(0, 0px);
+  }
+}
 .footer-links {
   display: inline-flex;
   width: 100%;
@@ -1006,7 +1015,7 @@ button {
   }
 }
 .home-little-grid {
-  margin-bottom: 160px;
+  margin-bottom: 64px;
 }
 .home-little-grid > div {
   margin-top: 72px;
@@ -1018,7 +1027,7 @@ button {
     display: grid;
     grid-template-columns: 1fr 0.03fr 0.7fr;
     grid-template-rows: repeat(20, 0.1fr);
-    margin-top: -72px;
+    margin-top: -103.2px;
   }
   .home-little-grid > div {
     margin-top: 0;
@@ -1041,6 +1050,15 @@ button {
     grid-row: 7/17;
   }
 }
+.welcome-mascott {
+  position: absolute;
+  top: 322.5px;
+  left: -120px;
+  width: 500px;
+  z-index: -25;
+  transform: rotate(10deg);
+}
+
 .big-grid-event {
   margin: 45.7142857143px 0;
   display: grid;
