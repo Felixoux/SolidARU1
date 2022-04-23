@@ -11,6 +11,7 @@
     flex-direction : column;
     align-items:flex-end;
     padding:$space * 2.3 ;
+    animation: ease .4s card_animation;
 
     &__footer {
         padding-top:$space * 2.3;
@@ -28,9 +29,18 @@
     }
 }
 
-    .stack, %stack {
-        display:grid;
-        grid-template-columns: 1fr;
-        align-content: flex-start;
-        grid-gap: 2 * $space;
+.stack, %stack {
+    display:grid;
+    grid-template-columns: 1fr;
+    align-content: flex-start;
+    grid-gap: 2 * $space;
+}
+
+@keyframes card_animation {
+    from{
+        transform: translate(0, -50px);
     }
+    to {
+        transform: translate(0, 0px);
+    }
+}
