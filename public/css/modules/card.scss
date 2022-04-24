@@ -8,8 +8,7 @@
 .card, %card {
     @extend %card-design;
     @extend %flex;
-    flex-direction : column;
-    align-items:flex-end;
+    
     padding:$space * 2.3 ;
     animation: ease .4s card_animation;
 
@@ -27,6 +26,11 @@
         text-overflow: ellipsis;
         min-height: 100%;
     }
+}
+
+.card-exerpt {
+    flex-direction : column;
+    align-items:flex-end;
 }
 
 .stack, %stack {

@@ -20,6 +20,7 @@ if(isset($_GET['page']) && $_GET['page'] === '1') {
 }
 
 define('VIEW_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR . 'views');
+define('ROOT_PATH', dirname(__DIR__));
 define('DEBUG_TIME', microtime(true));
 
 $router = new App\Router(VIEW_PATH);
@@ -28,4 +29,5 @@ $router
     ->get('/blog/[*:slug]-[i:id]', 'post/show', 'post')
     ->get('/category/[*:slug]-[i:id]', 'category/show', 'category')
     ->get('/', 'category/index',  'home')
+    ->get('/admin', 'admin/post/index',  'admin_posts')
     ->run();
