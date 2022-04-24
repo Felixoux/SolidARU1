@@ -992,12 +992,18 @@ button {
     transform: translate(0, 0px);
   }
 }
-.footer-links {
-  display: inline-flex;
-  width: 100%;
-  margin: 1rem 0;
+.footer-links > a:first-child {
+  display: inline-block;
+  margin-bottom: 2rem;
 }
 
+@media (min-width: 380px) {
+  .footer-links {
+    display: inline-flex;
+    width: 100%;
+    margin: 1rem 0;
+  }
+}
 .banner {
   width: 100%;
   height: 128px;
