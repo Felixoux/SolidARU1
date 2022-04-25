@@ -1,4 +1,4 @@
-<article class="card card-article">
+<article class="card card-exerpt card-article">
     <div class="card__body stack">
         <h4 class="card__title">
             <?= $post->getName() ?>

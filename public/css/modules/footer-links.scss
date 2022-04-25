@@ -1,5 +1,15 @@
-.footer-links {
-    display: inline-flex;
-    width: 100%;
-    margin: 1rem 0;
+.footer-links  {
+    > a:first-child {
+        display: inline-block;
+        margin-bottom: 2rem;
+    }
 }
+
+@include up(380) {
+    .footer-links {
+        display: inline-flex;
+        width: 100%;
+        margin: 1rem 0;
+    }
+}
+

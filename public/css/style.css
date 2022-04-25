@@ -258,7 +258,7 @@ a {
   cursor: pointer;
 }
 a:hover, a a.active {
-  color: #FF883D;
+  color: #A3FCFF;
 }
 a .link-hr a {
   position: relative;
@@ -410,6 +410,7 @@ h4 {
   overflow: hidden;
 }
 
+.admin-wrapper,
 header, section, main, footer, nav, .container, .header, .footer, .main {
   box-sizing: border-box;
   width: 100%;
@@ -945,12 +946,20 @@ body.dark {
   color: #1A1F42;
 }
 
+.btn-alert {
+  background: #C83F3F;
+  border: 1px solid #C83F3F;
+}
+.btn-alert:hover {
+  background: transparent;
+}
+
 button {
   cursor: pointer;
   font-size: inherit;
 }
 
-.card, .header-phone .header__nav {
+.card, .header-phone .header__nav, .card-design {
   background: #1E2552;
   border: 1px solid #282F5C;
   border-radius: 3px;
@@ -958,8 +967,6 @@ button {
 }
 
 .card, .header-phone .header__nav {
-  flex-direction: column;
-  align-items: flex-end;
   padding: 18.4px;
   animation: ease 0.4s card_animation;
 }
@@ -977,6 +984,11 @@ button {
   min-height: 100%;
 }
 
+.card-exerpt {
+  flex-direction: column;
+  align-items: flex-end;
+}
+
 .stack {
   display: grid;
   grid-template-columns: 1fr;
@@ -992,12 +1004,18 @@ button {
     transform: translate(0, 0px);
   }
 }
-.footer-links {
-  display: inline-flex;
-  width: 100%;
-  margin: 1rem 0;
+.footer-links > a:first-child {
+  display: inline-block;
+  margin-bottom: 2rem;
 }
 
+@media (min-width: 380px) {
+  .footer-links {
+    display: inline-flex;
+    width: 100%;
+    margin: 1rem 0;
+  }
+}
 .banner {
   width: 100%;
   height: 128px;
@@ -1072,6 +1090,33 @@ button {
 
 .article {
   margin-top: 80px;
+}
+.admin-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 35px 1fr;
+  margin-top: 48px;
+  gap: 24px;
+}
+.admin-wrapper > a:first-child {
+  grid-row: 1/2;
+}
+
+.post-listing {
+  grid-row: 2/3;
+}
+.post-listing__header, .post-listing__body > div {
+  display: grid;
+  grid-template-columns: 50px 4fr 1fr;
+  grid-template-rows: 1fr;
+  align-items: center;
+  margin-bottom: 8px;
+  padding: 1rem;
+  text-align: left !important;
+}
+.post-listing .admin-card__option a:first-child {
+  display: inline-block;
+  margin-right: 1rem;
 }
 
 /*# sourceMappingURL=style.css.map */

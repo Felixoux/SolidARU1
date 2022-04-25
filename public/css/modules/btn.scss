@@ -28,6 +28,14 @@
     }    
 }
 
+.btn-alert {
+    background: $alert;
+    border: 1px solid $alert;
+    &:hover  {
+        background:transparent;
+    }
+}
+
 button {
     cursor: pointer;
     font-size: inherit;

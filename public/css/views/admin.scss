@@ -1,0 +1,33 @@
+.admin-wrapper {
+    @extend %container;
+    display: grid;
+    grid-template-columns:1fr;
+    grid-template-rows: 35px 1fr;
+    margin-top: $gap * 2;
+    gap: $gap;
+
+    > a:first-child {
+        grid-row: 1 / 2;
+    }
+}
+
+
+.post-listing {
+    grid-row: 2 / 3;
+      
+    &__header, &__body > div {
+        display: grid ;
+        grid-template-columns:50px 4fr 1fr;
+        grid-template-rows: 1fr;
+        align-items: center;
+        margin-bottom: $space;
+        padding: 1rem;
+        text-align: left !important;
+    }
+    
+
+    .admin-card__option a:first-child{
+        display: inline-block;
+        margin-right: 1rem;
+    }
+}

@@ -12,6 +12,10 @@ class Category {
 
     private $slug; 
 
+    private $post_id;
+
+    private $post;
+
     public function getID(): ?int
     {
         return $this->id;
@@ -30,9 +34,24 @@ class Category {
         return htmlentities(Text::exerpt($this->summary, $limit));
     }
 
+    public function getSummary(): ?string
+    {
+        return htmlentities($this->summary);
+    }
+
     public function getSlug() : ?string
     {
         return $this->slug;
+    }
+
+    public function getPostID(): ?int
+    {
+        return $this->post_id;
+    }
+
+    public function setPost(Post $post): void
+    {
+        $this->post = $post;
     }
 
     

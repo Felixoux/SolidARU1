@@ -1,38 +1,23 @@
 <?php
-require dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'vendor/autoload.php';
-use App\{Connection, Model\Post, Helpers\Text, Model\Category, paginatedQuery, URL};
+require AUTOLOAD_PATH;
+use App\{Connection, Table\PostTable, Table\CategoryTable};
+use App\Model\Category;
+use App\Model\Post;
 
 $id = (int)$params['id'];
 $slug = $params['slug'];
-
 $pdo = Connection::getPDO();
-$query = $pdo->prepare("SELECT * FROM category WHERE id = :id");
-$query->execute(['id' => $id]);
-$query->setFetchMode(PDO::FETCH_CLASS, Category::class);
-/** @var Category|false */
-$category = $query->fetch();
+$category = (new CategoryTable($pdo))->find($id);
 
-if($category === false) {
-    throw new Exception('Aucun post ne correspond a cet ID');
-}
-if($category->getSlug() !== $slug) {
-    $url = $router->url('category', ['id' => $category->getID(), 'slug' => $category->getSlug()]);
-    http_response_code(301);
-    header('Location: ' . $url);
-    exit();
-}
-$pageTitle = $category->getName();
 
-$paginatedQuery = new paginatedQuery(
-    "SELECT p.*
-        FROM post p
-        JOIN post_category pc ON pc.post_id = p.id
-        WHERE pc.category_id = {$category->getID()}
-        ORDER BY created_at DESC",
-    "SELECT COUNT(category_id) FROM post_category WHERE category_id = {$category->getID()}",
-    Post::class
-);
-$posts = $paginatedQuery->getItems();
+ if($category->getSlug() !== $slug) {
+     $url = $router->url('category', ['id' => $category->getID(), 'slug' => $category->getSlug()]);
+     http_response_code(301);
+     header('Location: ' . $url);
+     exit();
+ }
+ 
+[$posts, $pagination] = (new PostTable($pdo))->findPaginatedForCategory($category->getID());
 
 $link = $router->url('category', ['id' => $category->getID(), 'slug' => $category->getSlug()]);
 ?>
@@ -42,14 +27,15 @@ $link = $router->url('category', ['id' => $category->getID(), 'slug' => $categor
         <h2 id="event">Voici les posts liés au thème <strong><?= e($category->getName()) ?></strong></h2>
         <p class="mobile-hidden silent">Mis à jour le 02/03/2022</p>
     </div>
+    <p><?= e($category->getSummary()) ?></p>
     <div class="big-grid-event">
     <?php foreach ($posts as $post): ?>
         <?php require VIEW_PATH . '/post/card.php'; ?>
     <?php endforeach ?>
     </div>
     <div class="footer-links">
-    <?= $paginatedQuery->previousLink($link) ?>
-    <?= $paginatedQuery->nextLink($link) ?>
+    <?= $pagination->previousLink($link) ?>
+    <?= $pagination->nextLink($link) ?>
     </div>
 </section>
    

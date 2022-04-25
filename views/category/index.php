@@ -1,21 +1,15 @@
-<?php 
-require dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'vendor/autoload.php';
-
+<?php
 use App\Connection;
-use App\Helpers;
-use App\Helpers\Text;
-use App\Model\Category;
-use App\Model\Post;
-use App\paginatedQuery;
-use App\URL;
-$pageTitle = "Mon blog";
-$paginatedQuery = new paginatedQuery(
-    "SELECT * FROM category",
-    "SELECT COUNT(id) FROM category",
-    Category::class, 
-    4
-);
-$categories = $paginatedQuery->getItems();
+use App\Table\CategoryTable;
+
+require AUTOLOAD_PATH;
+
+
+$pdo = Connection::getPDO();
+
+$table = new CategoryTable($pdo);
+[$categories, $pagination] = $table->findPaginated();
+
 $link = $router->url('home');
 ?>
 
@@ -144,8 +138,8 @@ $link = $router->url('home');
     </div>
 
     <div class="footer-links">
-        <?= $paginatedQuery->previousLink($link) ?>
-        <?= $paginatedQuery->nextLink($link) ?>
+        <?= $pagination->previousLink($link) ?>
+        <?= $pagination->nextLink($link) ?>
     </div>
 </section>
 
