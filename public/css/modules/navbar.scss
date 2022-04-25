@@ -1,6 +1,6 @@
 .header {
     height: 120px;
-    background: $bg-dark;
+    background: var(--bg-dark);
     z-index: 100;
 
     &__nav {
@@ -13,14 +13,14 @@
     &__nav li {
         height: 20px;
         @extend %flex;
-        margin-right: $gap * 2.5;
+        margin-right: calc(var(--gap) * 2.5);
     }
 
     &__side {
         width: fit-content;
 
         svg {
-            margin-left: -($gap * 2);
+            margin-left: calc(var(--gap) * -2);
         }
     }
 }
@@ -31,7 +31,7 @@
     .header__nav {
         @extend %card;
         display: grid !important;
-        grid-gap: 4 * $gap;
+        grid-gap: calc(var(--gap) * 4);
         grid-template-columns: 1fr;
         justify-items: center;
         align-content: center;
@@ -44,7 +44,7 @@
         height: 100vh;
         transition: opacity .3s;
         z-index: 3;
-        padding: $space * 2;
+        padding: calc(var(--space) * 2);
     }
 
     .header__nav li{
@@ -53,8 +53,8 @@
 
     .header__side {
         position: fixed;
-        top: $space * 3;
-        right: $space * 2;
+        top: calc(var(--space) * 3);
+        right: calc(var(--space) * 2);
         z-index: 4;
     }
 }
@@ -64,10 +64,10 @@
 
     svg{
         transition: all .3s ease-out;
-        fill:$text;
+        fill:var(--text);
     
         &:hover {
-            fill: $primary_o;
+            fill: var(--primary_o);
         }
     }
 }
@@ -124,6 +124,6 @@
     height: 90px;
     top: 120px;
     left: 0;
-    background-color: $bg-dark;
+    background-color: var(--bg-dark);
     clip-path: polygon(0 0, 100% 90%, 100% 0);
 }

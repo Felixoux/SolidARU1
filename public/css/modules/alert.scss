@@ -1,5 +1,6 @@
 .alert {
-  color: $bright-text;
+  @extend %container;
+  color: var(--bright-text);
   padding: 1em;
   margin-top: 2rem;
   border-radius:3px;
@@ -7,11 +8,11 @@
 }
 
 .alert-danger {
-  background: $alert25;
-  border: 1px solid $alert;
+  background: var(--alert25);
+  border: 1px solid var(--alert);
 }
 
 .alert-success {
-  background: $success25;
-  border: 1px solid $success;
+  background: var(--success25);
+  border: 1px solid var(--success);
 }

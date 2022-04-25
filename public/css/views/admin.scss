@@ -3,8 +3,8 @@
     display: grid;
     grid-template-columns:1fr;
     grid-template-rows: 40px 1fr;
-    margin-top: $gap * 2;
-    gap: $gap;
+    margin-top: calc(var(--gap) * 2);
+    gap: var(--gap);
 
     .new-article {
         grid-row: 1 / 2;
@@ -20,7 +20,7 @@
         grid-template-columns:50px 4fr 1fr;
         grid-template-rows: 1fr;
         align-items: center;
-        margin-bottom: $space;
+        margin-bottom: var(--space);
         padding: 1rem;
         text-align: left !important;
     }

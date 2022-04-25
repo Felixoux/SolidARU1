@@ -1,43 +1,38 @@
 .btn, %btn {
     width: fit-content;
-    padding: $space $space * 2.5;
+    padding: .5em 1em;
     border-radius: 3px;
     transition: all .3s ease-out;
 }
 
 .btn-primary, %btn-primary {
-    background: $primary_b;
+    background: var(--primary_b);
     border : 1px solid transparent;
-    color: $bg-light;
+    color: var(--bg-light);
 
     &:hover {
         background: none;
-        border: 1px solid $primary_b;
-        color: $primary_b;
+        border: 1px solid var(--primary_b);
+        color: var(--primary_b);
     }
 }
 
 .btn-swap, %btn-swap {
-    border: 1px solid $primary_b;
-    color: $primary_b;
+    border: 1px solid var(--primary_b);
+    color: var(--primary_b);
 
     &:hover {
-        background: $primary_b;
+        background: var(--primary_b);
         border: 1px solid transparent;
-        color: $bg-light;
+        color: var(--bg-light);
     }    
 }
 
 .btn-alert {
-    background: $alert;
-    border: 1px solid $alert;
+    background: var(--alert);
+    border: 1px solid var(--alert);
     &:hover  {
         background:transparent;
-        color: $alert;
+        color: var(--alert);
     }
-}
-
-button {
-    cursor: pointer;
-    font-size: inherit;
 }

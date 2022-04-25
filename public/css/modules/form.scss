@@ -1,0 +1,27 @@
+form {
+  @extend %grid-text-vertical;
+  label {
+    color: var(--bright-text);
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+  input {
+    background: var(--bg-card);
+    border: none;
+    border-radius: 3px;
+    padding: 1rem;
+    width:100%;
+  }
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+input, select, textarea {
+  color: var(--text);
+}
+
