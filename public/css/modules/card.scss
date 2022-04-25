@@ -1,27 +1,26 @@
 %card-design, .card-design {
-    background:$bg-card;
-    border: 1px solid $border;
+    background:var(--bg-card);
+    border: 1px solid var(--border);
     border-radius: 3px;
-    box-shadow: $shadow;
+    box-shadow: var(--shadow);
 }
 
 .card, %card {
     @extend %card-design;
     @extend %flex;
     
-    padding:$space * 2.3 ;
-    animation: ease .4s card_animation;
+    padding:calc(var(--space) * 2.3) ;
 
     &__footer {
-        padding-top:$space * 2.3;
+        padding-top:calc(var(--space) * 2.3);
     }
 
     &__title {
         font-weight: 700;
-        color: $text;
+        color: var(--text);
     }
     &__content {
-        color: $muted-text;
+        color: var(--muted-text);
         overflow: hidden;
         text-overflow: ellipsis;
         min-height: 100%;
@@ -37,14 +36,5 @@
     display:grid;
     grid-template-columns: 1fr;
     align-content: flex-start;
-    grid-gap: 2 * $space;
-}
-
-@keyframes card_animation {
-    from{
-        transform: translate(0, -50px);
-    }
-    to {
-        transform: translate(0, 0px);
-    }
+    grid-gap: calc(var(--space) * 2);
 }

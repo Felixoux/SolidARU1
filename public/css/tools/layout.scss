@@ -1,16 +1,16 @@
 // Conteneur
 // ==================
 :root {
-    --container-padding: 20px;
-    --container-width: calc(100vw - var(--container-padding) * 2);
+  --container-padding: 20px;
+  --container-width: calc(100vw - var(--container-padding) * 2);
   }
-  
+
   @media only screen and (min-width: 900px) {
     :root {
       --container-padding: 32px;
     }
   }
-  
+
   @media only screen and (min-width: 1540px) {
     :root {
       --container-padding: 20px;
@@ -49,8 +49,7 @@
   
   // Container
   // ==============
-  %container,
-  header, section, main, footer, nav, .container, .header, .footer, .main {
+  %container, header, section, main, footer, nav, .container, .header, .footer, .main, .alert {
     box-sizing: border-box;
     width: 100%;
     padding-left: calc(50% - var(--container-width) / 2);
@@ -64,10 +63,10 @@
   }
 
   %big-section, .big-section {
-    background: $bg-dark;
-    border-top: 1px solid $border;
-    padding-top: calc($space-section / 2);
-    padding-bottom: calc($space-section / 4);
+    background: var(--bg-dark);
+    border-top: 1px solid var(--border);
+    padding-top: calc(var(--space-section) / 2);
+    padding-bottom: calc(var(--space-section) / 4);
   }
 
   // Ratios
@@ -162,20 +161,20 @@
   %grid-text-vertical,
   .grid-text-vertical {
     display: grid;
-    gap: $gap;
+    gap: var(--gap);
   }
 
   %grid-fit,
   .grid-fit {
     display: grid;
-    gap: $gap * 2;
+    gap: calc(var(--gap) * 2);
     grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
   }
 
   %grid-fill,
   .grid-fill {
     display: grid;
-    gap: $gap * 2;
+    gap: calc(var(--gap) * 2);
     grid-template-columns: repeat(auto-fill, minmax(245px, 1fr));
   }
   
@@ -188,55 +187,55 @@
   @for $i from 0 through 5 {
     body {
       .p#{$i} {
-        padding: $space * $i;
+        padding: calc(var(--space) * $i);
       }
   
       .pt#{$i} {
-        padding-top: $space * $i;
+        padding-top: calc(var(--space) * $i);
       }
   
       .pb#{$i} {
-        padding-bottom: $space * $i;
+        padding-bottom: calc(var(--space) * $i);
       }
   
       .px#{$i} {
-        padding-left: $space * $i;
-        padding-right: $space * $i;
+        padding-left: calc(var(--space) * $i);
+        padding-right: calc(var(--space) * $i);
       }
   
       .py#{$i} {
-        padding-top: $space * $i;
-        padding-bottom: $space * $i;
+        padding-top: calc(var(--space) * $i);
+        padding-bottom: calc(var(--space) * $i);
       }
   
       .my#{$i} {
-        margin-top: $space * $i;
-        margin-bottom: $space * $i;
+        margin-top: calc(var(--space) * $i);
+        margin-bottom: calc(var(--space) * $i);
       }
   
       .m#{$i} {
-        margin: $space * $i;
+        margin: calc(var(--space) * $i);
       }
   
       .mx#{$i} {
-        margin-left: $space * $i;
-        margin-right: $space * $i;
+        margin-left: calc(var(--space) * $i);
+        margin-right: calc(var(--space) * $i);
       }
   
       .mt#{$i} {
-        margin-top: $space * $i;
+        margin-top: calc(var(--space) * $i);
       }
   
       .mb#{$i} {
-        margin-bottom: $space * $i;
+        margin-bottom: calc(var(--space) * $i);
       }
   
       .mr#{$i} {
-        margin-right: $space * $i;
+        margin-right: calc(var(--space) * $i);
       }
   
       .ml#{$i} {
-        margin-left: $space * $i;
+        margin-left: calc(var(--space) * $i);
       }
     }
   }
