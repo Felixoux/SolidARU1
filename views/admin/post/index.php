@@ -16,28 +16,29 @@ $posts = $query->fetchAll(PDO::FETCH_CLASS, Post::class);
     <a href="#">
         <button class="btn btn-swap">Ajouter un article</button>
     </a>
-    <aside class="admin-aside">
-        <div><a href="#">Page article</a></div>
-        <div><a href="#">Page catégorie</a></div>
-        <div><a href="#">Page sécurité</a></div>
-    </aside>
-    <table class="post-listing">
-        <thead>
-            <tr>
-                <th><h3>#</h3></th>
-                <th><h3>Titre</h3></th>
-                <th><h3>Action</h3></th>
-            </tr>
-        </thead>
-        <tbody>
+    <section class="post-listing">
+        <div class="post-listing__header">
+            <h3>#</h3>
+            <h3>Titre</h3>
+            <h3>Action</h3>
+        </div>
+        <section class="post-listing__body">
             <?php foreach($posts as $post): ?>
-            <tr>
-                <td><?= e($post->getID()) ?></td>
-                <td><?= e($post->getName()) ?></td>
-                <td>Salut</td>
-            </tr>
+            <div class="card-design admin-card">
+                <h4 class="admin-card__id"><?= e($post->getID()) ?></h4>  
+                <h3 class="admin-card__itle"><?= e($post->getName()) ?></h3>   
+                <div class="admin-card__option">
+                    <a href="#">
+                        <button class="btn btn-primary">Éditer</button>
+                    </a>
+                    <a href="#">
+                        <button class="btn btn-alert">Supprimer</button>
+                    </a>
+                </div>
+            </div>  
             <?php endforeach ?>
-        </tbody>
-    </table>
+        </section>
+        
+    </section>
 </div>
 

@@ -1,50 +1,30 @@
 .admin-wrapper {
     @extend %container;
     display: grid;
-    grid-template-columns:300px 1fr;
-    grid-template-rows: 35px 150px 1fr;
+    grid-template-columns:1fr;
+    grid-template-rows: 35px 1fr;
     margin-top: $gap * 2;
     gap: $gap;
 
     > a:first-child {
-        grid-area: 1 / 2 / 2 / 3;
+        grid-row: 1 / 2;
     }
 }
 
-.admin-aside {
-    display: grid;
-    grid-template: 1fr;
-    grid-template-rows: repeat(3, 1fr);
-    grid-area: 2 / 1 / 3 / 2;
-    border: 1px solid $border;
-
-    > div {
-        @extend %flex-center;
-        &:hover {
-            border-top: 1px solid $border;
-            border-bottom: 1px solid $border;
-        }
-    }
-
-    > :nth-child(2n) {
-        background-color: $bg-card;
-    }
-}
 
 .post-listing {
-    grid-area: 2 / 2 / 4 / 3;
-    thead {
-    }
-    tr {
-        display: grid;
+    grid-row: 2 / 3;
+      
+    &__header, &__body > div {
+        display: grid ;
         grid-template-columns:50px 4fr 1fr;
         grid-template-rows: 1fr;
-        text-align: left;
+        align-items: center;
+        margin-bottom: $space;
         padding: 1rem;
-        border-bottom: 1px solid $border;
+        text-align: left !important;
     }
-
-   
+    
 
     .admin-card__option a:first-child{
         display: inline-block;

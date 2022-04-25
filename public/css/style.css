@@ -469,7 +469,7 @@ header, section, main, footer, nav, .container, .header, .footer, .main {
   align-items: stretch;
 }
 
-.flex-center, .admin-aside > div, #js-burger {
+.flex-center, #js-burger {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -959,7 +959,7 @@ button {
   font-size: inherit;
 }
 
-.card, .header-phone .header__nav {
+.card, .header-phone .header__nav, .card-design {
   background: #1E2552;
   border: 1px solid #282F5C;
   border-radius: 3px;
@@ -1093,40 +1093,26 @@ button {
 }
 .admin-wrapper {
   display: grid;
-  grid-template-columns: 300px 1fr;
-  grid-template-rows: 35px 150px 1fr;
+  grid-template-columns: 1fr;
+  grid-template-rows: 35px 1fr;
   margin-top: 48px;
   gap: 24px;
 }
 .admin-wrapper > a:first-child {
-  grid-area: 1/2/2/3;
-}
-
-.admin-aside {
-  display: grid;
-  grid-template: 1fr;
-  grid-template-rows: repeat(3, 1fr);
-  grid-area: 2/1/3/2;
-  border: 1px solid #282F5C;
-}
-.admin-aside > div:hover {
-  border-top: 1px solid #282F5C;
-  border-bottom: 1px solid #282F5C;
-}
-.admin-aside > :nth-child(2n) {
-  background-color: #1E2552;
+  grid-row: 1/2;
 }
 
 .post-listing {
-  grid-area: 2/2/4/3;
+  grid-row: 2/3;
 }
-.post-listing tr {
+.post-listing__header, .post-listing__body > div {
   display: grid;
   grid-template-columns: 50px 4fr 1fr;
   grid-template-rows: 1fr;
-  text-align: left;
+  align-items: center;
+  margin-bottom: 8px;
   padding: 1rem;
-  border-bottom: 1px solid #282F5C;
+  text-align: left !important;
 }
 .post-listing .admin-card__option a:first-child {
   display: inline-block;
