@@ -6,8 +6,7 @@ Auth::check();
 $pageTitle = 'Administration du site';
 $pdo = Connection::getPDO();
 $link = $router->url('admin_posts');
-try {
-    [$posts, $pagination] = (new PostTable($pdo))->findPaginated();
+[$posts, $pagination] = (new PostTable($pdo))->findPaginated();
 
 ?>
 <?php if(isset($_GET['delete'])): ?>
@@ -18,7 +17,6 @@ try {
     </div>
 <?php endif ?>
 <div class="admin-wrapper">
-
     <a href="#" class="btn btn-primary new-article">Ajouter un article</a>
     <section class="post-listing">
         <div class="post-listing__header">
