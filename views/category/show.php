@@ -25,7 +25,7 @@ $link = $router->url('category', ['id' => $category->getID(), 'slug' => $categor
 <section class="event">
     <div class="header-section flex">
         <h2 id="event">Voici les posts liés au thème <strong><?= e($category->getName()) ?></strong></h2>
-        <p class="mobile-hidden silent">Mis à jour le 02/03/2022</p>
+        <p class="mobile-hidden muted">Mis à jour le 02/03/2022</p>
     </div>
     <p><?= e($category->getSummary()) ?></p>
     <div class="big-grid-event">

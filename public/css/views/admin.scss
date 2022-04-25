@@ -2,11 +2,11 @@
     @extend %container;
     display: grid;
     grid-template-columns:1fr;
-    grid-template-rows: 35px 1fr;
+    grid-template-rows: 40px 1fr;
     margin-top: $gap * 2;
     gap: $gap;
 
-    > a:first-child {
+    .new-article {
         grid-row: 1 / 2;
     }
 }

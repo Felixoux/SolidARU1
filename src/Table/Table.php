@@ -5,7 +5,7 @@ use App\Table\Exception\NotFoundException;
 
 abstract class Table {
 
-    protected $pdo;
+    protected PDO $pdo;
     protected $table = null;
     protected $class = null; 
 
@@ -14,7 +14,10 @@ abstract class Table {
         $this->pdo = $pdo;
     }
 
-    public function find(int $id) 
+    /**
+     * @throws NotFoundException
+     */
+    public function find(int $id)
     {
         $query = $this->pdo->prepare('SELECT * FROM ' . $this->table . ' WHERE id = :id');
         $query->execute(['id' => $id]);

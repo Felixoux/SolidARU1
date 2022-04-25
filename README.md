@@ -1,6 +1,6 @@
 # Site de la Solidarité
 
-** Version 1.0.7 
+** Version 1.0.8
 
 ## Description
 
@@ -23,6 +23,9 @@ Ceci est le site repertoriant tous les évenements liés à la solidarité au se
 - Var-dumper symfony v6.0.6
 
 - Filp/whoops v2.14.5
+
+## Editeur
+- PhpStorm v2022.1
 
 ## Credits 
 
