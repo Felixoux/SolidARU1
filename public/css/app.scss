@@ -7,7 +7,7 @@ $bg-light : #1A1F42;
 $bg-dark:#151938 ; 
 
 // ==== FONTS COLORS ====
-$silent-text: #8893C4;
+$muted-text: #8893C4;
 $text:#D4DCFF; 
 $bright-text:#EBF1FF; 
 
@@ -18,6 +18,8 @@ $primary_o:#FF883D;
 $primary_o25:rgba(255, 136, 61, 0.12);
 $alert:#C83F3F;
 $alert25:#c83f3f21;
+$success:#41CF7C;
+$success25: rgba(65, 207, 124, 0.13);
 $border:#282F5C;
 $shadow: 10px 10px 3px -7px rgba(0, 0, 0, 0.25);
 
@@ -33,7 +35,7 @@ $card-padding:16px;
 ::-webkit-scrollbar-corner {background: $bg-light ;}
 ::-webkit-resizer {background:$border ;}
 ::-webkit-scrollbar-track {background:transparent; padding: 1px;}
-html {scrollbar-width: 8px;scrollbar-color: $border transparent;}
+html {scrollbar-width:auto;scrollbar-color: $border transparent;}
 
 
 
@@ -68,7 +70,7 @@ body.dark {
 @import 'modules/btn.scss';
 @import 'modules/card.scss';
 @import 'modules/footer-links.scss';
-
+@import 'modules/alert.scss';
 // ==== Pages ==== 
 @import 'views/home.scss';
 @import 'views/article.scss';

@@ -50,7 +50,7 @@ class paginatedQuery {
         if ($currentPage <= 1) return null;
         if($currentPage > 2) $link .= "?page=" . ($currentPage - 1);
         return <<<HTML
-        <a href="{$link}"><button class="btn btn-swap">&lt;&nbsp; Page précédente</button></a>
+        <a href="{$link}" class="btn btn-swap">&lt;&nbsp; Page précédente</a>
         HTML;
     }
 

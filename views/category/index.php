@@ -129,7 +129,7 @@ $link = $router->url('home');
 <section class="event">
     <div class="header-section flex">
         <h2 id="event">Voici les différents <strong>thèmes</strong></h2>
-        <p class="mobile-hidden">Mis à jour le 02/03/2022</p>
+        <p class="mobile-hidden muted">Mis à jour le 02/03/2022</p>
     </div>
     <div class="big-grid-event">
         <?php foreach($categories as $category): ?>

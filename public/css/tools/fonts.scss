@@ -110,13 +110,13 @@ h4 {font-family: $font-m;  font-size: 20px;}
 
 
 ::placeholder { // Chrome, Firefox, Opera, Safari
-color: $silent-text;  opacity: 1; // Opacity for firefox !
+color: $muted-text;  opacity: 1; // Opacity for firefox !
 }
 :-ms-input-placeholder { // Internet explorer
-color: $silent-text;
+color: $muted-text;
 }
 ::-ms-input-placeholder { // Edge
-color: $silent-text;
+color: $muted-text;
 }
 
 // Alignements
@@ -131,6 +131,6 @@ color: $silent-text;
 
 .danger {color: $alert;}
 
-.silent {color:$silent-text;}
+.muted {color:$muted-text;}
 
 .text-truncate {overflow: hidden;  text-overflow: ellipsis;}

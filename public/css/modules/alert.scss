@@ -1,0 +1,17 @@
+.alert {
+  color: $bright-text;
+  padding: 1em;
+  margin-top: 2rem;
+  border-radius:3px;
+  font-size: 18px;
+}
+
+.alert-danger {
+  background: $alert25;
+  border: 1px solid $alert;
+}
+
+.alert-success {
+  background: $success25;
+  border: 1px solid $success;
+}

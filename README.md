@@ -24,6 +24,9 @@ Ceci est le site repertoriant tous les évenements liés à la solidarité au se
 
 - Filp/whoops v2.14.5
 
+## Editeur
+- PhpStorm v2022.1
+
 ## Credits 
 
 Ce projet à été créé par Georgeault Felix en compagnie de l'ASBL "les amis ARU1". 

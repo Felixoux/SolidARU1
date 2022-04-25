@@ -33,6 +33,7 @@
     border: 1px solid $alert;
     &:hover  {
         background:transparent;
+        color: $alert;
     }
 }
 
