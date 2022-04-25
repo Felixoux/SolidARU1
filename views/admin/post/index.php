@@ -11,9 +11,7 @@ $link = $router->url('admin_posts');
 ?>
 <?php if(isset($_GET['delete'])): ?>
     <div class="container">
-        <div class="alert alert-success container">
-            L'enregistrement à bien été supprimé !
-        </div>
+        <p class="alert alert-success">L'article a bien été supprimé</p>
     </div>
 <?php endif ?>
 <div class="admin-wrapper">

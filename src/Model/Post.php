@@ -6,21 +6,33 @@ use \DateTime;
 
 class Post {
 
-    private $id;
+    private ?int $id;
 
-    private $name;
+    private ?string $name;
 
-    private $content;
+    private ?string $content;
     
-    private $slug;
+    private ?string $slug;
 
     private $created_at;
 
-    private $categories;
+    private array $categories;
 
     public function getName (): ?string
     {
         return htmlentities($this->name);
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+        return $this;
+    }
+
+    public function setContent(string $content): self
+    {
+        $this->content = $content;
+        return $this;
     }
 
     public function getFormattedContent (): ?string
