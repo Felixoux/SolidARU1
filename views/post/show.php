@@ -1,5 +1,5 @@
 <?php
-require dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'vendor/autoload.php';
+require AUTOLOAD_PATH;
 use App\{Connection, Model\Post, Helpers\Text, Model\Category};
 
 $id = (int)$params['id'];

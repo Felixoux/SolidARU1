@@ -21,20 +21,23 @@ $posts = $query->fetchAll(PDO::FETCH_CLASS, Post::class);
         <div><a href="#">Page catégorie</a></div>
         <div><a href="#">Page sécurité</a></div>
     </aside>
-    <section class="post-listing">
-        <?php foreach($posts as $post): ?>
-            <div class="card admin-card">
-                <h3 class="admin-card__title"><?= $post->getName() ?></h3>
-                <div class="admin-card__option">
-                    <a href="#">
-                        <button class="btn btn-primary">Éditer</button>
-                    </a>
-                    <a href="#">
-                        <button class="btn btn-alert">Supprimer</button>
-                    </a>
-                </div>
-            </div>
-        <?php endforeach ?>
-    </section>
+    <table class="post-listing">
+        <thead>
+            <tr>
+                <th><h3>#</h3></th>
+                <th><h3>Titre</h3></th>
+                <th><h3>Action</h3></th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach($posts as $post): ?>
+            <tr>
+                <td><?= e($post->getID()) ?></td>
+                <td><?= e($post->getName()) ?></td>
+                <td>Salut</td>
+            </tr>
+            <?php endforeach ?>
+        </tbody>
+    </table>
 </div>
 
