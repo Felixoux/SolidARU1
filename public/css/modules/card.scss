@@ -32,9 +32,3 @@
     align-items:flex-end;
 }
 
-.stack, %stack {
-    display:grid;
-    grid-template-columns: 1fr;
-    align-content: flex-start;
-    grid-gap: calc(var(--space) * 2);
-}

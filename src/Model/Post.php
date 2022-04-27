@@ -7,21 +7,12 @@ use \DateTime;
 class Post {
 
     private ?int $id;
-
     private ?string $name;
-
     private ?string $content;
-    
     private ?string $slug;
-
     private $created_at;
 
     private array $categories;
-
-    public function getName (): ?string
-    {
-        return htmlentities($this->name);
-    }
 
     public function setName(string $name): self
     {
@@ -29,10 +20,20 @@ class Post {
         return $this;
     }
 
+    public function getName (): ?string
+    {
+        return htmlentities($this->name);
+    }
+
     public function setContent(string $content): self
     {
         $this->content = $content;
         return $this;
+    }
+
+    public function getContent(): string
+    {
+        return htmlentities($this->content);
     }
 
     public function getFormattedContent (): ?string
@@ -48,14 +49,26 @@ class Post {
         return Text::exerpt($this->content, $limit);
     }
 
-    public function getCreatedAt (): DateTime
+    public function setSlug(string $slug): self
     {
-        return new DateTime($this->created_at);
+        $this->slug = $slug;
+        return $this;
     }
 
     public function getSlug() : ?string
     {
         return $this->slug;
+    }
+
+    public function setCreatedAt(string $date): self
+    {
+        $this->created_at = $date;
+        return $this;
+    }
+
+    public function getCreatedAt (): DateTime
+    {
+        return new DateTime($this->created_at);
     }
 
     public function getID(): ?int
@@ -73,7 +86,4 @@ class Post {
         $this->categories[] = $category;
         $category->setPost($this);
     }
-
-
-
 }
