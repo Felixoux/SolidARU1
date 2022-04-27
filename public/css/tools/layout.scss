@@ -49,7 +49,7 @@
   
   // Container
   // ==============
-  %container, header, section, main, footer, nav, .container, .header, .footer, .main, .alert {
+  %container, header, section, main, footer, nav, .container, .header, .footer, .main {
     box-sizing: border-box;
     width: 100%;
     padding-left: calc(50% - var(--container-width) / 2);
@@ -177,6 +177,13 @@
     gap: calc(var(--gap) * 2);
     grid-template-columns: repeat(auto-fill, minmax(245px, 1fr));
   }
+
+.stack, %stack {
+  display:grid;
+  grid-template-columns: 1fr;
+  align-content: flex-start;
+  grid-gap: calc(var(--space) * 2);
+}
   
   // Spaces
   // =============

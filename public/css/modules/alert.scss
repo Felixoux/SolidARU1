@@ -1,5 +1,5 @@
 .alert {
-  @extend %container;
+  @extend %container-margin;
   color: var(--bright-text);
   padding: 1em;
   margin-top: 2rem;
@@ -15,4 +15,13 @@
 .alert-success {
   background: var(--success25);
   border: 1px solid var(--success);
+}
+
+.form-group > .alert-danger{
+  display: none;
+}
+.form-group > .is_invalid {
+ display: block;
+margin-bottom:1em;
+  margin-top: 0;
 }

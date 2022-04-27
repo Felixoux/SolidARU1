@@ -442,11 +442,17 @@ h4 {
   overflow: hidden;
 }
 
-.admin-wrapper, header, section, main, footer, nav, .container, .header, .footer, .main, .alert {
+.admin-wrapper, header, section, main, footer, nav, .container, .header, .footer, .main {
   box-sizing: border-box;
   width: 100%;
   padding-left: calc(50% - var(--container-width) / 2);
   padding-right: calc(50% - var(--container-width) / 2);
+}
+
+.alert {
+  margin-left: auto;
+  margin-right: auto;
+  width: var(--container-width);
 }
 
 .article, section.event, .big-section {
@@ -553,6 +559,13 @@ h4 {
   display: grid;
   gap: calc(var(--gap) * 2);
   grid-template-columns: repeat(auto-fill, minmax(245px, 1fr));
+}
+
+.stack, form {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-content: flex-start;
+  grid-gap: calc(var(--space) * 2);
 }
 
 .mla {
@@ -1015,13 +1028,6 @@ body.dark {
   align-items: flex-end;
 }
 
-.stack {
-  display: grid;
-  grid-template-columns: 1fr;
-  align-content: flex-start;
-  grid-gap: calc(var(--space) * 2);
-}
-
 .footer-links > a:first-child {
   display: inline-block;
   margin-bottom: 2rem;
@@ -1052,13 +1058,26 @@ body.dark {
   border: 1px solid var(--success);
 }
 
+.form-group > .alert-danger {
+  display: none;
+}
+
+.form-group > .is_invalid {
+  display: block;
+  margin-bottom: 1em;
+  margin-top: 0;
+}
+
+form {
+  gap: calc(var(--gap) * 2);
+}
 form label {
   color: var(--bright-text);
   font-size: 20px;
   font-weight: 500;
   margin-bottom: 1rem;
 }
-form input {
+form input, form textarea {
   background: var(--bg-card);
   border: none;
   border-radius: 3px;
