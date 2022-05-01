@@ -1,8 +1,11 @@
-<?php 
+<?php
+
 namespace App\Model;
+
 use App\Helpers\Text;
 
-class Category {
+class Category
+{
 
     private ?int $id = null;
     private ?string $name = null;
@@ -23,7 +26,7 @@ class Category {
         return $this;
     }
 
-    public function getName (): ?string
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -34,7 +37,7 @@ class Category {
         return $this;
     }
 
-    public function getSlug() : ?string
+    public function getSlug(): ?string
     {
         return $this->slug;
     }
@@ -58,7 +61,7 @@ class Category {
 
     public function getExerpt(int $limit = 60): ?string
     {
-        if($this->content === null) {
+        if ($this->content === null) {
             return $this->content;
         }
         return htmlentities(Text::exerpt($this->content, $limit));

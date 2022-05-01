@@ -1,5 +1,6 @@
 <?php
-use App\{Table\PostTable, Connection, Auth};
+
+use App\{Auth, Connection, Table\PostTable};
 
 Auth::check();
 

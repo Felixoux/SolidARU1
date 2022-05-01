@@ -49,14 +49,14 @@
   
   // Container
   // ==============
-  %container, header, section, main, footer, nav, .container, .header, .footer, .main {
+  %container, header, section, main, footer, nav, .container, .header, .footer, .main, form {
     box-sizing: border-box;
     width: 100%;
     padding-left: calc(50% - var(--container-width) / 2);
     padding-right: calc(50% - var(--container-width) / 2);
   }
   
-  %container-margin {
+  %container-margin, .container-margin {
     margin-left: auto;
     margin-right: auto;
     width: var(--container-width);

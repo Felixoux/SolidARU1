@@ -1,16 +1,18 @@
 <?php
-use App\{HTML\Form, Connection, Table\CategoryTable, Validators\CategoryValidator, Model\Category,  Auth};
+
+use App\{Auth, Connection, HTML\Form, Model\Category, Table\CategoryTable, Validators\CategoryValidator};
+
 Auth::check();
 $success = false;
 $errors = [];
 $item = new Category();
-if(!empty($_POST)) {
+if (!empty($_POST)) {
     $pdo = Connection::getPDO();
     $table = new CategoryTable($pdo);
     $v = new CategoryValidator($_POST, $table);
     (new App\ObjectHelper)->hydrate($item, $_POST, ['name', 'slug', 'content']);
 
-    if($v->validate()) {
+    if ($v->validate()) {
         $table->create([
             'name' => $item->getName(),
             'slug' => $item->getSlug(),

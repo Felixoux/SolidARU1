@@ -8,6 +8,8 @@
         </p>
     </div>
     <div class="card__footer">
-        <a href="<?= $router->url('post', ['id' => $post->getID(), 'slug' => $post->getSlug()]) ?>"><button class="btn btn-swap f-right">Voir plus</button></a>
+        <a href="<?= $router->url('post', ['id' => $post->getID(), 'slug' => $post->getSlug()]) ?>">
+            <button class="btn btn-swap f-right">Voir plus</button>
+        </a>
     </div>
 </article>   

@@ -1,5 +1,7 @@
 <?php
-use App\{Connection, Table\CategoryTable, Auth};
+
+use App\{Auth, Connection, Table\CategoryTable};
+
 require ROOT_PATH . '/vendor/autoload.php';
 Auth::check();
 $pageTitle = 'Gestion des catégories';
@@ -7,10 +9,10 @@ $pdo = Connection::getPDO();
 $link = $router->url('admin_categories');
 $items = (new CategoryTable($pdo))->all();
 ?>
-<?php if(isset($_GET['delete'])): ?>
+<?php if (isset($_GET['delete'])): ?>
     <p class="alert alert-success">La catégorie a bien été supprimé</p>
 <?php endif ?>
-<?php if(isset($_GET['created'])): ?>
+<?php if (isset($_GET['created'])): ?>
     <p class="alert alert-success">La catégorie a bien été créé</p>
 <?php endif ?>
 <div class="admin-wrapper">
@@ -22,17 +24,22 @@ $items = (new CategoryTable($pdo))->all();
             <h3>Actions</h3>
         </div>
         <section class="post-listing__body">
-            <?php foreach($items as $item): ?>
-            <div class="card-design admin-card">
-                <h4 class="admin-card__id"><?= e($item->getID()) ?></h4>
-                <h3 class="admin-card__title"><a href="<?= $router->url('admin_category', ['id' => $item->getID()]) ?>"><?= e($item->getName()) ?></a></h3>
-                <div class="admin-card__option">
-                    <a href="<?= $router->url('admin_category', ['id' => $item->getID()]) ?>" class="btn btn-primary">Éditer</a>
-                    <form style="display: inline;" method="POST" action="<?= $router->url('admin_category_delete', ['id' => $item->getID()]) ?>" onsubmit="return confirm('Voulez vous vraiment supprimer la catégorie ?')">
-                        <button type="submit" class="btn btn-alert">Supprimer</button>
-                    </form>
+            <?php foreach ($items as $item): ?>
+                <div class="card-design admin-card">
+                    <h4 class="admin-card__id"><?= e($item->getID()) ?></h4>
+                    <h3 class="admin-card__title"><a
+                                href="<?= $router->url('admin_category', ['id' => $item->getID()]) ?>"><?= e($item->getName()) ?></a>
+                    </h3>
+                    <div class="admin-card__option">
+                        <a href="<?= $router->url('admin_category', ['id' => $item->getID()]) ?>"
+                           class="btn btn-primary">Éditer</a>
+                        <form style="display: inline;" method="POST"
+                              action="<?= $router->url('admin_category_delete', ['id' => $item->getID()]) ?>"
+                              onsubmit="return confirm('Voulez vous vraiment supprimer la catégorie ?')">
+                            <button type="submit" class="btn btn-alert">Supprimer</button>
+                        </form>
+                    </div>
                 </div>
-            </div>  
             <?php endforeach ?>
         </section
     </section>

@@ -1,10 +1,13 @@
-<?php 
+<?php
+
 namespace App\Table;
-use App\{paginatedQuery, Model\Post};
 
-class PostTable extends Table{
+use App\{Model\Post, paginatedQuery};
 
-    protected $table = "post"; 
+class PostTable extends Table
+{
+
+    protected $table = "post";
     protected $class = Post::class;
 
     public function updatePost(Post $post): void
@@ -26,6 +29,15 @@ class PostTable extends Table{
             'created_at' => $post->getCreatedAt()->format("Y-m-d H:i:s")
         ]);
         $post->setID($id);
+    }
+
+    public function attachCategories(int $id, array $categories): void
+    {
+        $this->pdo->exec("DELETE FROM post_category WHERE post_id = " . $id);
+        $query = $this->pdo->prepare("INSERT INTO post_category SET post_id = ?, category_id = ?");
+        foreach ($categories as $category) {
+            $query->execute([$id, $category]);
+        }
     }
 
     public function findPaginated(): array

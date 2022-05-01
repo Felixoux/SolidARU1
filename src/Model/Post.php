@@ -1,18 +1,19 @@
 <?php
+
 namespace App\Model;
 
 use App\Helpers\Text;
-use \DateTime;
+use DateTime;
 
-class Post {
+class Post
+{
 
     private ?int $id = null;
     private ?string $name = null;
     private ?string $content = null;
     private ?string $slug = null;
     private $created_at;
-
-    private array $categories;
+    private array $categories = [];
 
     public function setID($id): self
     {
@@ -31,7 +32,7 @@ class Post {
         return $this;
     }
 
-    public function getName (): ?string
+    public function getName(): ?string
     {
         return htmlentities($this->name) ?? null;
     }
@@ -47,14 +48,14 @@ class Post {
         return htmlentities($this->content) ?? null;
     }
 
-    public function getFormattedContent (): ?string
+    public function getFormattedContent(): ?string
     {
         return nl2br(htmlentities($this->content));
     }
 
     public function getExerpt(int $limit = 60): ?string
     {
-        if($this->content === null) {
+        if ($this->content === null) {
             return $this->content;
         }
         return Text::exerpt($this->content, $limit);
@@ -66,7 +67,7 @@ class Post {
         return $this;
     }
 
-    public function getSlug() : ?string
+    public function getSlug(): ?string
     {
         return $this->slug ?? null;
     }
@@ -77,15 +78,30 @@ class Post {
         return $this;
     }
 
-    public function getCreatedAt (): DateTime
+    public function getCreatedAt(): DateTime
     {
         return new DateTime($this->created_at);
     }
 
     /** @return Category[] */
-    public function getCategories(): array
+    public function getCategories()
     {
         return $this->categories;
+    }
+
+    public function setCategories(array $categories): self
+    {
+        $this->categories = $categories;
+        return $this;
+    }
+
+    public function getCategoriesIds(): array
+    {
+        $ids = [];
+        foreach ($this->categories as $category) {
+            $ids[] = $category->getID();
+        }
+        return $ids;
     }
 
     public function addCategory(Category $category): void

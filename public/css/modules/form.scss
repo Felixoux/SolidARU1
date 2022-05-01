@@ -2,18 +2,28 @@ form {
   @extend %stack;
   gap: calc(var(--gap) * 2);
   @extend %grid-text-vertical;
+
   label {
     color: var(--bright-text);
     font-size: 20px;
     font-weight: 500;
     margin-bottom: 1rem;
   }
-  input,  textarea{
+
+  input, textarea, select {
     background: var(--bg-card);
     border: none;
     border-radius: 3px;
     padding: 1rem;
-    width:100%;
+    width: 100%;
+  }
+
+  textarea {
+    min-height: 300px;
+  }
+
+  select {
+    min-height: 150px;
   }
 }
 

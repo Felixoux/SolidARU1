@@ -1,13 +1,16 @@
-<?php 
-namespace App\Table;
-use PDO;
-use App\Table\Exception\NotFoundException;
+<?php
 
-abstract class Table {
+namespace App\Table;
+
+use App\Table\Exception\NotFoundException;
+use PDO;
+
+abstract class Table
+{
 
     protected PDO $pdo;
     protected $table = null;
-    protected $class = null; 
+    protected $class = null;
 
     public function __construct(PDO $pdo)
     {
@@ -23,7 +26,7 @@ abstract class Table {
         $query->execute(['id' => $id]);
         $query->setFetchMode(PDO::FETCH_CLASS, $this->class);
         $result = $query->fetch();
-        if($result === false) {
+        if ($result === false) {
             throw new NotFoundException($this->table, $id);
         }
         return $result;
@@ -37,8 +40,8 @@ abstract class Table {
     public function exists(string $field, $value, ?int $except = null): bool
     {
         $sql = "SELECT COUNT(id) FROM $this->table WHERE $field = ?";
-        $params= [$value];
-        if($except !== null){
+        $params = [$value];
+        if ($except !== null) {
             $sql .= " AND id != ?";
             $params[] = $except;
         }
@@ -57,8 +60,8 @@ abstract class Table {
     {
         $query = $this->pdo->prepare("DELETE FROM $this->table WHERE id = ?");
         $ok = $query->execute([$id]);
-        if($ok === false) {
-            throw new \Exception('Impossible de supprimer l\'enregistrement' . $id  . 'dans la table' .  $this->table);
+        if ($ok === false) {
+            throw new \Exception('Impossible de supprimer l\'enregistrement' . $id . 'dans la table' . $this->table);
         }
     }
 
@@ -70,8 +73,8 @@ abstract class Table {
         }
         $query = $this->pdo->prepare("INSERT INTO $this->table SET " . implode(", ", $sqlFields));
         $ok = $query->execute($data);
-        if($ok === false) {
-            throw new \Exception('Impossible de créer l\'enregistrement dans la table' .  $this->table);
+        if ($ok === false) {
+            throw new \Exception('Impossible de créer l\'enregistrement dans la table' . $this->table);
         }
         return (int)$this->pdo->lastInsertId();
     }
@@ -84,8 +87,8 @@ abstract class Table {
         }
         $query = $this->pdo->prepare("UPDATE $this->table SET " . implode(", ", $sqlFields) . " WHERE id = :id");
         $ok = $query->execute(array_merge($data, ['id' => $id]));
-        if($ok === false) {
-            throw new \Exception('Impossible de modifier l\'enregistrement dans la table' .  $this->table);
+        if ($ok === false) {
+            throw new \Exception('Impossible de modifier l\'enregistrement dans la table' . $this->table);
         }
         return (int)$this->pdo->lastInsertId();
     }

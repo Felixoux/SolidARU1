@@ -12,8 +12,8 @@
 <div class="page-wrapper relative">
     <nav class="header flex">
         <ul class="header__nav flex">
-            <li><h4><a class="underline" href="<?=  $router->url('home') ?>">Accueil</a></h4></li>
-            <li><h4><a href="<?=  $router->url('home') ?>#event">Blog</a></h4></li>
+            <li><h4><a class="underline" href="<?= $router->url('home') ?>">Accueil</a></h4></li>
+            <li><h4><a href="<?= $router->url('home') ?>#event">Blog</a></h4></li>
             <li><h4><a href="#">A propos</a></h4></li>
             <li><h4><a href="#">Contact</a></h4></li>
         </ul>
@@ -22,12 +22,12 @@
                 <div class="search-button">
                     <button>
                         <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-                        width="20" height="20" viewBox="0 0 512.000000 512.000000"
-                        preserveAspectRatio="xMidYMid meet">
+                             width="20" height="20" viewBox="0 0 512.000000 512.000000"
+                             preserveAspectRatio="xMidYMid meet">
 
-                        <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
-                        stroke="none">
-                        <path d="M1851 5109 c-657 -74 -1219 -432 -1555 -989 -138 -229 -223 -463
+                            <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
+                               stroke="none">
+                                <path d="M1851 5109 c-657 -74 -1219 -432 -1555 -989 -138 -229 -223 -463
                         -273 -745 -26 -151 -23 -500 5 -655 120 -657 508 -1187 1087 -1487 310 -160
                         591 -228 945 -227 431 0 785 107 1145 345 l119 79 696 -693 c469 -468 708
                         -700 735 -713 54 -25 167 -25 215 0 120 63 175 193 135 317 -17 51 -54 91
@@ -37,13 +37,13 @@
                         -127 -282 -325 -409 -409 -512 -341 -1143 -359 -1664 -47 -376 224 -641 602
                         -728 1039 -32 160 -32 414 0 574 90 451 367 835 767 1062 267 152 604 223 903
                         190z"/>
-                        </g>
+                            </g>
                         </svg>
                     </button>
                 </div>
             </li>
             <li>
-                <button id="js-burger" >
+                <button id="js-burger">
                     <span>Afficher le menu</span>
                 </button>
             </li>
@@ -52,12 +52,12 @@
     <?= $content ?>
     <footer>
         <!-- <div class="container">
-            <?php if(defined('DEBUG_TIME')) : ?>
+            <?php if (defined('DEBUG_TIME')) : ?>
                 Page générée en <?= round(1000 * (microtime(true) - DEBUG_TIME)) ?> ms
             <?php endif ?> 
         </div> -->
     </footer>
 </div>
-<script src=<?= "/js/app.js"?>></script>
+<script src=<?= "/js/app.js" ?>></script>
 </body>
 </html>

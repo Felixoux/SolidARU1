@@ -16,11 +16,12 @@ class Form
     public function input(string $key, string $label): string
     {
         $value = $this->getValue($key);
+        $type = $key === "password" ? 'password' : 'text';
         return <<<HTML
         <div class="form-group">
             <p class="{$this->getInputClass($key)}">{$this->getErrorFeedback($key)}</p>
             <label for="$key">$label</label>
-            <input type="text" name="$key" id="$key" value="$value" required>
+            <input type="$type" name="$key" id="$key" value="$value" required>
         </div>
         HTML;
     }
@@ -32,20 +33,39 @@ class Form
         <div class="form-group">
             <p class="{$this->getInputClass($key)}">{$this->getErrorFeedback($key)}</p>
             <label for="$key">$label</label>
-            <textarea type="text" name="$key" id="$key" value="$value" required>$value</textarea>
+            <textarea type="text" name="$key" id="$key" required>$value</textarea>
         </div>
         HTML;
     }
 
-    private function getValue(string $key): ?string
+    public function select(string $key, string $label, array $options = []): string
+    {
+        $optionsHTML = [];
+        $value = $this->getValue($key);
+        foreach ($options as $k => $v) {
+            $selected = in_array($k, $value) ? ' selected' : '';
+            $optionsHTML[] = "<option value=\"$k\"$selected>$v</option>";
+        }
+
+        $optionsHTML = implode('', $optionsHTML);
+        return <<<HTML
+        <div class="form-group">
+            <p class="{$this->getInputClass($key)}">{$this->getErrorFeedback($key)}</p>
+            <label for="$key">$label</label>
+            <select name="{$key}[]" id="$key" required multiple>$optionsHTML</select>
+        </div>
+        HTML;
+    }
+
+    private function getValue(string $key)
     {
 
-        if(is_array($this->data)) {
+        if (is_array($this->data)) {
             return $this->data[$key] ?? null;
         }
         $method = 'get' . str_replace(' ', '', ucwords(str_replace('_', ' ', $key)));
-        $value =  $this->data->$method();
-        if($value instanceof \DateTimeInterface){
+        $value = $this->data->$method();
+        if ($value instanceof \DateTimeInterface) {
             return $value->format("Y-m-d H:i:s");
         }
         return $value;
@@ -54,7 +74,7 @@ class Form
     public function getInputClass(string $key): string
     {
         $alertClass = 'alert alert-danger';
-        if(isset($this->errors[$key])) {
+        if (isset($this->errors[$key])) {
             $alertClass .= ' is_invalid';
         }
         return $alertClass;
@@ -63,7 +83,7 @@ class Form
     public function getErrorFeedback(string $key)
     {
         $error_value = null;
-        if(isset($this->errors[$key])) {
+        if (isset($this->errors[$key])) {
             $error_value = $this->errors[$key][0];
         }
         return $error_value;

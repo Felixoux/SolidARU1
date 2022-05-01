@@ -442,14 +442,14 @@ h4 {
   overflow: hidden;
 }
 
-.admin-wrapper, header, section, main, footer, nav, .container, .header, .footer, .main {
+.admin-wrapper, header, section, main, footer, nav, .container, .header, .footer, .main, form {
   box-sizing: border-box;
   width: 100%;
   padding-left: calc(50% - var(--container-width) / 2);
   padding-right: calc(50% - var(--container-width) / 2);
 }
 
-.alert {
+.alert, .container-margin {
   margin-left: auto;
   margin-right: auto;
   width: var(--container-width);
@@ -1077,12 +1077,18 @@ form label {
   font-weight: 500;
   margin-bottom: 1rem;
 }
-form input, form textarea {
+form input, form textarea, form select {
   background: var(--bg-card);
   border: none;
   border-radius: 3px;
   padding: 1rem;
   width: 100%;
+}
+form textarea {
+  min-height: 300px;
+}
+form select {
+  min-height: 150px;
 }
 
 .form-group {

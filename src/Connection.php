@@ -1,9 +1,11 @@
 <?php
+
 namespace App;
 
 use PDO;
 
-class Connection {
+class Connection
+{
 
     public static function getPDO(): PDO
     {

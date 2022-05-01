@@ -1,5 +1,6 @@
 <?php
-use App\{Table\CategoryTable, Connection, Auth};
+
+use App\{Auth, Connection, Table\CategoryTable};
 
 Auth::check();
 
