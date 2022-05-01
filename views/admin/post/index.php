@@ -12,8 +12,11 @@ $link = $router->url('admin_posts');
 <?php if(isset($_GET['delete'])): ?>
     <p class="alert alert-success">L'article a bien été supprimé</p>
 <?php endif ?>
+<?php if(isset($_GET['created'])): ?>
+    <p class="alert alert-success">L'article a bien été créé</p>
+<?php endif ?>
 <div class="admin-wrapper">
-    <a href="#" class="btn btn-primary new-article">Ajouter un article</a>
+    <a href="<?= $router->url('admin_post_new') ?>" class="btn btn-primary new-article">Ajouter un article</a>
     <section class="post-listing">
         <div class="post-listing__header">
             <h3>#</h3>
