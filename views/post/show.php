@@ -1,6 +1,7 @@
 <?php
 require AUTOLOAD_PATH;
-use App\{Connection, Model\Post, Helpers\Text, Model\Category};
+
+use App\{Connection, Helpers\Text, Model\Post};
 
 $id = (int)$params['id'];
 $slug = $params['slug'];
@@ -13,10 +14,10 @@ $query->setFetchMode(PDO::FETCH_CLASS, Post::class);
 $post = $query->fetch();
 
 
-if($post === false) {
+if ($post === false) {
     throw new Exception('Aucun post ne correspond a cet ID');
 }
-if($post->getSlug() !== $slug) {
+if ($post->getSlug() !== $slug) {
     $url = $router->url('post', ['slug' => $post->getSlug(), 'id' => $id]);
     http_response_code(301);
     header('Location: ' . $url);
@@ -34,7 +35,7 @@ $pageTitle = $post->getName();
     <p class="article__content">
         <?= $post->getFormattedContent() ?>
     </p>
-    
+
     <a href="#">
         <button class="article__button f-right">Revenir aux articles</button>
     </a>

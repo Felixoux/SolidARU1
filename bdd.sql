@@ -5,15 +5,15 @@ CREATE TABLE post (
     content TEXT(65000) NOT NULL,
     created_at DATETIME NOT NULL,
     PRIMARY KEY (id)
-)
+);
 
 CREATE TABLE category (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     name VARCHAR (255) NOT NULL,
-    summary TEXT (1000) NOT NULL,
+    content TEXT (1000) NOT NULL,
     slug VARCHAR (255) NOT NULL,
     PRIMARY KEY (id)
-)
+);
 
 CREATE TABLE post_category (
     post_id INT UNSIGNED NOT NULL,
@@ -29,9 +29,9 @@ CREATE TABLE post_category (
             REFERENCES category (id)
             ON DELETE CASCADE 
             ON UPDATE RESTRICT 
-)
+);
 
 CREATE TABLE user (
     username VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL
-)
+);

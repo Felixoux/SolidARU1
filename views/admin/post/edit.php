@@ -1,18 +1,27 @@
 <?php
-use App\{HTML\Form, Connection, Table\PostTable, Validators\PostValidator, ObjectHelper};
 
+use App\{Auth, Connection, HTML\Form, ObjectHelper, Table\CategoryTable, Table\PostTable, Validators\PostValidator};
+
+Auth::check();
 $pdo = Connection::getPDO();
 $postTable = new PostTable($pdo);
+$categoryTable = new CategoryTable($pdo);
+$categories = $categoryTable->list();
 $post = $postTable->find($params['id']);
+$categoryTable->hydratePosts([$post]);
 $success = false;
 
 $errors = [];
-if(!empty($_POST)) {
-    $v = new PostValidator($_POST, $postTable, $post->getID());
+if (!empty($_POST)) {
+    $v = new PostValidator($_POST, $postTable, $post->getID(), $categories);
     ObjectHelper::hydrate($post, $_POST, ['name', 'content', 'slug', 'created_at']);
 
-    if($v->validate()) {
-        $postTable->update($post);
+    if ($v->validate()) {
+        $pdo->beginTransaction();
+        $postTable->updatePost($post);
+        $postTable->attachCategories($post->getID(), $_POST['categories_ids']);
+        $categoryTable->hydratePosts([$post]);
+        $pdo->commit();
         $success = true;
     } else {
         $errors = $v->errors();
@@ -22,9 +31,9 @@ if(!empty($_POST)) {
 
 $form = new Form($post, $errors);
 ?>
-<?php if($success): ?>
-<p class="alert alert-success">L'article a bien été modifié</p>
+<?php if ($success): ?>
+    <p class="alert alert-success">L'article a bien été modifié</p>
 <?php endif ?>
-<h1 class="container mt4 mb4">Editer l'article "<?= e($post->getName()) ?>"</h1>
+<h2 class="mt4 mb4">Editer l'article "<?= e($post->getName()) ?>"</h2>
 
 <?php require '_form.php' ?>

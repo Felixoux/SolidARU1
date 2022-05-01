@@ -1,6 +1,6 @@
 # Site de la Solidarité
 
-** Version 1.1.1
+** Version 1.1.4
 
 ## Description
 
@@ -18,11 +18,15 @@ Ceci est le site repertoriant tous les évenements liés à la solidarité au se
 
 - composer v2.3.5
 
-- Altorouter 2.0.2
+- altorouter/altorouter 2.0.2
 
-- Var-dumper symfony v6.0.6
+- symfony/var-dumper v-5.4
 
 - Filp/whoops v2.14.5
+
+- fzaninotto/faker v-1.9
+
+- vlucas/valitron v-1.4
 
 ## Editeur
 - PhpStorm v2022.1

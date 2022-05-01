@@ -1,13 +1,15 @@
-<?php 
+<?php
+
 namespace App\Table;
-use PDO;
+
 use App\Model\Category;
-use App\Table\Exception\NotFoundException;
 use App\paginatedQuery;
+use PDO;
 
-class CategoryTable extends Table{
+class CategoryTable extends Table
+{
 
-    protected $table = "category"; 
+    protected $table = "category";
     protected $class = Category::class;
 
     public function findPaginated()
@@ -24,7 +26,8 @@ class CategoryTable extends Table{
     public function hydratePosts(array $posts): void
     {
         $postByID = [];
-        foreach($posts as $post) {
+        foreach ($posts as $post) {
+            $post->setCategories([]);
             $postByID[$post->getID()] = $post;
         }
         $categories = $this->pdo
@@ -34,9 +37,23 @@ class CategoryTable extends Table{
                 JOIN category c ON c.id = pc.category_id
                 WHERE pc.post_id IN (' . implode(',', array_keys($postByID)) . ')'
             )->fetchAll(PDO::FETCH_CLASS, Category::class);
-        foreach($categories as $category) {
+        foreach ($categories as $category) {
             $postByID[$category->getPostID()]->addCategory($category);
         }
     }
 
+    public function all(): array
+    {
+        return $this->queryAndFetchALl("SELECT * FROM $this->table ORDER BY id DESC");
+    }
+
+    public function list(): array
+    {
+        $categories = $this->queryAndFetchALl("SELECT * FROM $this->table ORDER BY name ASC");
+        $results = [];
+        foreach ($categories as $category) {
+            $results[$category->getID()] = $category->getName();
+        }
+        return $results;
+    }
 }

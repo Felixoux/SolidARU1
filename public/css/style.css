@@ -24,6 +24,7 @@
   --space:8px;
   --space-section:160px;
   --card-padding:16px;
+  --page-height:calc(100Vh - 120px);
 }
 
 ::-webkit-scrollbar {
@@ -415,10 +416,14 @@ h4 {
 }
 .page-wrapper {
   min-height: 100vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  width: 100%;
-  overflow: hidden;
+}
+
+.fill-page {
+  min-height: var(--page-height);
+  box-sizing: border-box;
 }
 
 .relative {
@@ -435,31 +440,31 @@ h4 {
 }
 
 .page-wrapper {
-  min-height: 100vh;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
-  width: 100%;
   overflow: hidden;
 }
 
-.admin-wrapper, header, section, main, footer, nav, .container, .header, .footer, .main {
+header, section, main, footer, nav, .container, .header, .footer, .main, form {
   box-sizing: border-box;
   width: 100%;
   padding-left: calc(50% - var(--container-width) / 2);
   padding-right: calc(50% - var(--container-width) / 2);
 }
 
-.alert {
+.container-404, .alert, .container-margin {
   margin-left: auto;
   margin-right: auto;
   width: var(--container-width);
 }
 
-.article, section.event, .big-section {
+section.event, .big-section {
   background: var(--bg-dark);
   border-top: 1px solid var(--border);
   padding-top: calc(var(--space-section) / 2);
   padding-bottom: calc(var(--space-section) / 4);
+  height: 100%;
 }
 
 .ratio {
@@ -851,7 +856,7 @@ body.dark {
 
 .header {
   height: 120px;
-  background: var(--bg-dark);
+  background: var(--bg-light);
   z-index: 100;
 }
 .header__nav {
@@ -1077,12 +1082,18 @@ form label {
   font-weight: 500;
   margin-bottom: 1rem;
 }
-form input, form textarea {
+form input, form textarea, form select {
   background: var(--bg-card);
   border: none;
   border-radius: 3px;
   padding: 1rem;
   width: 100%;
+}
+form textarea {
+  min-height: 300px;
+}
+form select {
+  min-height: 150px;
 }
 
 .form-group {
@@ -1170,17 +1181,6 @@ input, select, textarea {
 .article {
   margin-top: calc(var(--space-section) / 2);
 }
-.admin-wrapper {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 40px 1fr;
-  margin-top: calc(var(--gap) * 2);
-  gap: var(--gap);
-}
-.admin-wrapper .new-article {
-  grid-row: 1/2;
-}
-
 .post-listing {
   grid-row: 2/3;
 }
@@ -1196,6 +1196,37 @@ input, select, textarea {
 .post-listing .admin-card__option a:first-child {
   display: inline-block;
   margin-right: 1rem;
+}
+
+.container-404 {
+  background: var(--bg-dark);
+  padding: calc(var(--gap) * 3);
+  margin-top: calc(var(--space-section) / 2);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  box-shadow: var(--shadow);
+}
+
+.mascott-404 svg {
+  max-width: 500px;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.div-404 h1 {
+  color: var(--alert);
+}
+
+@media (min-width: 1000px) {
+  .container-404 {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .div-404 {
+    margin-left: calc(var(--gap) * 2);
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

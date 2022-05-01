@@ -31,6 +31,7 @@
 	--space:8px;
 	--space-section:160px;
 	--card-padding:16px;
+	--page-height:calc(100Vh - 120px);
 }
 
 // === scrollBar ===
@@ -78,4 +79,5 @@ body.dark {
 @import 'views/home.scss';
 @import 'views/article.scss';
 @import 'views/admin.scss';
+@import 'views/e404.scss';
 

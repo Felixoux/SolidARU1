@@ -20,10 +20,14 @@
 
   .page-wrapper {
     min-height: 100vh;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    width: 100%;
-    overflow: hidden;
+  }
+
+  .fill-page {
+    min-height: var(--page-height);
+    box-sizing: border-box;
   }
   
   .relative {
@@ -40,23 +44,22 @@
   }
   
   .page-wrapper {
-    min-height: 100vh;
+    min-height: 100%;
     display: flex;
     flex-direction: column;
-    width: 100%;
     overflow: hidden;
   }
   
   // Container
   // ==============
-  %container, header, section, main, footer, nav, .container, .header, .footer, .main {
+  %container, header, section, main, footer, nav, .container, .header, .footer, .main, form {
     box-sizing: border-box;
     width: 100%;
     padding-left: calc(50% - var(--container-width) / 2);
     padding-right: calc(50% - var(--container-width) / 2);
   }
   
-  %container-margin {
+  %container-margin, .container-margin {
     margin-left: auto;
     margin-right: auto;
     width: var(--container-width);
@@ -67,6 +70,7 @@
     border-top: 1px solid var(--border);
     padding-top: calc(var(--space-section) / 2);
     padding-bottom: calc(var(--space-section) / 4);
+    height:100%;
   }
 
   // Ratios

@@ -2,10 +2,21 @@
 
 namespace App;
 
+use App\Security\ForbidenException;
+
 class Auth
 {
+
+    /**
+     * @throws ForbidenException
+     */
     public static function check()
     {
-        // check if user is connected
+        if(session_status() === PHP_SESSION_NONE){
+            session_start();
+        }
+        if(!isset($_SESSION['auth'])) {
+            throw new ForbidenException();
+        }
     }
 }

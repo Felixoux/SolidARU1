@@ -1,47 +1,70 @@
-<?php 
+<?php
+
 namespace App\Model;
+
 use App\Helpers\Text;
 
-class Category {
+class Category
+{
 
-    private $id; 
-
-    private $name;
-
-    private $summary;
-
-    private $slug; 
-
+    private ?int $id = null;
+    private ?string $name = null;
+    private ?string $slug = null;
+    private ?string $content = null;
     private $post_id;
-
     private $post;
+
 
     public function getID(): ?int
     {
         return $this->id;
     }
 
-    public function getName (): ?string
+    public function setID($slug): self
+    {
+        $this->id = $slug;
+        return $this;
+    }
+
+    public function getName(): ?string
     {
         return $this->name;
     }
 
-    public function getExerpt(int $limit = 60): ?string
+    public function setName($name): self
     {
-        if($this->summary === null) {
-            return $this->summary;
-        }
-        return htmlentities(Text::exerpt($this->summary, $limit));
+        $this->name = $name;
+        return $this;
     }
 
-    public function getSummary(): ?string
-    {
-        return htmlentities($this->summary);
-    }
-
-    public function getSlug() : ?string
+    public function getSlug(): ?string
     {
         return $this->slug;
+    }
+
+    public function setSlug($slug): self
+    {
+        $this->slug = $slug;
+        return $this;
+    }
+
+    public function getContent(): ?string
+    {
+        return htmlentities($this->content);
+    }
+
+    public function setContent($content): self
+    {
+        $this->content = $content;
+        return $this;
+    }
+
+    public function getExerpt(int $limit = 60): ?string
+    {
+        if ($this->content === null) {
+            return $this->content;
+        }
+        return htmlentities(Text::exerpt($this->content, $limit));
     }
 
     public function getPostID(): ?int
@@ -53,8 +76,4 @@ class Category {
     {
         $this->post = $post;
     }
-
-    
-
-
 }
