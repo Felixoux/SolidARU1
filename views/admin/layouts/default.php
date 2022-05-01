@@ -29,7 +29,9 @@
             </li>
         </ul>
     </nav>
-    <?= $content ?>
+    <div class="container big-section">
+        <?= $content ?>
+    </div>
     <footer>
         <!-- <div class="container">
             <?php if (defined('DEBUG_TIME')) : ?>

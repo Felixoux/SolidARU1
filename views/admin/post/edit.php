@@ -34,6 +34,6 @@ $form = new Form($post, $errors);
 <?php if ($success): ?>
     <p class="alert alert-success">L'article a bien été modifié</p>
 <?php endif ?>
-<h1 class="container mt4 mb4">Editer l'article "<?= e($post->getName()) ?>"</h1>
+<h2 class="mt4 mb4">Editer l'article "<?= e($post->getName()) ?>"</h2>
 
 <?php require '_form.php' ?>

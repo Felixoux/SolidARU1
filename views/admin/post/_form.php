@@ -1,4 +1,4 @@
-<section class="big-section">
+<section>
     <form action="" method="POST">
         <?= $form->input('name', 'Titre') ?>
         <?= $form->input('slug', 'URL') ?>
