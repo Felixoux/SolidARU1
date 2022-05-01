@@ -566,7 +566,7 @@ header, section, main, footer, nav, .container, .header, .footer, .main, form {
   grid-template-columns: repeat(auto-fill, minmax(245px, 1fr));
 }
 
-.stack, form {
+.stack, .article__content, form {
   display: grid;
   grid-template-columns: 1fr;
   align-content: flex-start;
@@ -1176,6 +1176,10 @@ input, select, textarea {
 
 .event-card p {
   margin: var(--gap) 0;
+}
+
+.article li {
+  list-style-type: circle;
 }
 
 .post-listing {

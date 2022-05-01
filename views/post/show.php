@@ -34,9 +34,10 @@ $pageTitle = $post->getName();
         </h1>
         <p class="mobile-hidden muted"><?= e($post->getCreatedAt()->format("d/m/Y")) ?></p>
     </div>
-    <p class="article__content">
-        <?= $post->getFormattedContent() ?>
-    </p>
+    <hr>
+    <div class="article__content">
+        <?= $post->getBody() ?>
+    </div>
 
     <a href="#">
         <button class="article__button f-right">Revenir aux articles</button>

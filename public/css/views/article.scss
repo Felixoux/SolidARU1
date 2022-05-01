@@ -6,4 +6,11 @@
         @extend %btn;
         @extend %btn-swap;
     }
+
+    &__content {
+        @extend %stack;
+    }
+    li {
+        list-style-type: circle;
+    }
 }

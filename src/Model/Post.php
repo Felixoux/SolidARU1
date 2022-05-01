@@ -15,6 +15,8 @@ class Post
     private $created_at;
     private array $categories = [];
 
+
+
     public function setID($id): self
     {
         $this->id = $id;
@@ -45,20 +47,18 @@ class Post
 
     public function getContent(): ?string
     {
-        return htmlentities($this->content) ?? null;
+        return $this->content;
     }
 
-    public function getFormattedContent(): ?string
+    public function getBody(): string
     {
-        return nl2br(htmlentities($this->content));
+        return Text::parseDown($this->content);
     }
 
-    public function getExerpt(int $limit = 60): ?string
+    public function getExerpt(int $limit = 60): string
     {
-        if ($this->content === null) {
-            return $this->content;
-        }
-        return Text::exerpt($this->content, $limit);
+        $summary = Text::exerpt($this->content, $limit);
+        return Text::parseDown($summary);
     }
 
     public function setSlug(string $slug): self
