@@ -1,6 +1,6 @@
 .article  {
+    @extend %big-section;
     @extend %grid-text-vertical;
-    margin-top: calc(var(--space-section) / 2);
 
     &__button{
         @extend %btn;

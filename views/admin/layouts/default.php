@@ -21,7 +21,7 @@
             <li>
                 <h4>
                     <form action="<?= $router->url('logout') ?>" method="POST" style="display: inline">
-                        <button class="nav__link" type="submit">Se déconnecter</button>
+                        <button class="nav__link" type="submit"><a>Se déconnecter</a></button>
                     </form>
                 </h4>
             </li>
