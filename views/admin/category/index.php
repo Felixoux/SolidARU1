@@ -15,7 +15,7 @@ $items = (new CategoryTable($pdo))->all();
 <?php if (isset($_GET['created'])): ?>
     <p class="alert alert-success">La catégorie a bien été créé</p>
 <?php endif ?>
-    <section class="post-listing">
+    <section class="post-listing fill-page">
         <div class="post-listing__header">
             <h3>#</h3>
             <h3>Titre</h3>
