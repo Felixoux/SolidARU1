@@ -10,8 +10,9 @@ class Router {
     /*
     * @var altorouter 
     */
-    private $router; 
+    private $router;
 
+    public $layout = "layouts/default.php";
     public function __construct(string $viewPath)
     {
         $this->viewPath = $viewPath;
@@ -51,10 +52,12 @@ class Router {
         $params = $match['params'];
         $view = $match['target'];
         $router = $this;
+        $isAdmin = strpos($view, 'admin/') !== false;
+        $this->layout = $isAdmin ? 'admin/layouts/default' : 'layouts/default';
         ob_start();
         require $this->viewPath . DIRECTORY_SEPARATOR . $view . '.php';
         $content = ob_get_clean();
-        require $this->viewPath . DIRECTORY_SEPARATOR . 'layouts/default.php';
+        require $this->viewPath . DIRECTORY_SEPARATOR . $this->layout . '.php';
 
         return $this;
     }

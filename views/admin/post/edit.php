@@ -1,6 +1,6 @@
 <?php
-use App\{HTML\Form, Connection, Table\PostTable, Validators\PostValidator, ObjectHelper};
-
+use App\{HTML\Form, Connection, Table\PostTable, Validators\PostValidator, ObjectHelper, Auth};
+Auth::check();
 $pdo = Connection::getPDO();
 $postTable = new PostTable($pdo);
 $post = $postTable->find($params['id']);
@@ -12,7 +12,7 @@ if(!empty($_POST)) {
     ObjectHelper::hydrate($post, $_POST, ['name', 'content', 'slug', 'created_at']);
 
     if($v->validate()) {
-        $postTable->update($post);
+        $postTable->updatePost($post);
         $success = true;
     } else {
         $errors = $v->errors();

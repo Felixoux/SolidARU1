@@ -1,9 +1,8 @@
 <?php
 use App\{Connection, Table\PostTable, Auth};
-
 require ROOT_PATH . '/vendor/autoload.php';
 Auth::check();
-$pageTitle = 'Administration du site';
+$pageTitle = 'Gestion des articles';
 $pdo = Connection::getPDO();
 $link = $router->url('admin_posts');
 [$posts, $pagination] = (new PostTable($pdo))->findPaginated();
