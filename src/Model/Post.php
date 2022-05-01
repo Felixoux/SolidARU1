@@ -6,13 +6,24 @@ use \DateTime;
 
 class Post {
 
-    private ?int $id;
-    private ?string $name;
-    private ?string $content;
-    private ?string $slug;
+    private ?int $id = null;
+    private ?string $name = null;
+    private ?string $content = null;
+    private ?string $slug = null;
     private $created_at;
 
     private array $categories;
+
+    public function setID($id): self
+    {
+        $this->id = $id;
+        return $this;
+    }
+
+    public function getID(): ?int
+    {
+        return $this->id ?? null;
+    }
 
     public function setName(string $name): self
     {
@@ -22,7 +33,7 @@ class Post {
 
     public function getName (): ?string
     {
-        return htmlentities($this->name);
+        return htmlentities($this->name) ?? null;
     }
 
     public function setContent(string $content): self
@@ -31,9 +42,9 @@ class Post {
         return $this;
     }
 
-    public function getContent(): string
+    public function getContent(): ?string
     {
-        return htmlentities($this->content);
+        return htmlentities($this->content) ?? null;
     }
 
     public function getFormattedContent (): ?string
@@ -57,7 +68,7 @@ class Post {
 
     public function getSlug() : ?string
     {
-        return $this->slug;
+        return $this->slug ?? null;
     }
 
     public function setCreatedAt(string $date): self
@@ -71,10 +82,6 @@ class Post {
         return new DateTime($this->created_at);
     }
 
-    public function getID(): ?int
-    {
-        return $this->id;
-    }
     /** @return Category[] */
     public function getCategories(): array
     {
