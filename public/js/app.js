@@ -11,4 +11,3 @@ let burgerAnimation = function () {
 
 burger.addEventListener('click', burgerAnimation);
 
-

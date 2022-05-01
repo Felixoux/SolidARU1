@@ -15,13 +15,28 @@ class Form
 
     public function input(string $key, string $label): string
     {
-        $value = $this->getValue($key);
         $type = $key === "password" ? 'password' : 'text';
+        if($type === 'password') {
+            $value = '';
+        }
+        $value = $type === "password" ? '': $this->getValue($key);
         return <<<HTML
         <div class="form-group">
             <p class="{$this->getInputClass($key)}">{$this->getErrorFeedback($key)}</p>
             <label for="$key">$label</label>
             <input type="$type" name="$key" id="$key" value="$value" required>
+        </div>
+        HTML;
+    }
+
+    public function inputSecurity(string $key, string $label): string
+    {
+        $type = $key === 'current_password' ? 'text': 'password';
+        return <<<HTML
+        <div class="form-group">
+            <p class="{$this->getInputClass($key)}">{$this->getErrorFeedback($key)}</p>
+            <label for="$key">$label</label>
+            <input type="$type" name="$key" id="$key" required>
         </div>
         HTML;
     }

@@ -14,7 +14,6 @@ $link = $router->url('admin_posts');
 <?php if (isset($_GET['created'])): ?>
     <p class="alert alert-success">L'article a bien été créé</p>
 <?php endif ?>
-
     <section class="post-listing">
         <div class="post-listing__header">
             <h3>#</h3>

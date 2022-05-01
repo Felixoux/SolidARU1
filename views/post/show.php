@@ -29,9 +29,13 @@ $pageTitle = $post->getName();
 ?>
 
 <section class="article">
-    <h1 class="article__title">
-        <?= Text::strong(3, $post->getName()) ?>
-    </h1>
+
+    <div class="header-section flex">
+        <h1 class="article__title">
+            <?= Text::strong(3, $post->getName()) ?>
+        </h1>
+        <p class="mobile-hidden muted">Mis à jour le rien</p>
+    </div>
     <p class="article__content">
         <?= $post->getFormattedContent() ?>
     </p>

@@ -79,7 +79,7 @@ abstract class Table
         return (int)$this->pdo->lastInsertId();
     }
 
-    public function update(array $data, int $id)
+    public function update(array $data, ?int $id = null)
     {
         $sqlFields = [];
         foreach ($data as $key => $value) {
