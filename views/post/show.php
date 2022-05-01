@@ -26,7 +26,7 @@ $pageTitle = $post->getName();
 
 ?>
 
-<section class="article fill-page">
+<section class="article">
 
     <div class="header-section flex">
         <h1 class="article__title">
@@ -34,7 +34,6 @@ $pageTitle = $post->getName();
         </h1>
         <p class="mobile-hidden muted"><?= e($post->getCreatedAt()->format("d/m/Y")) ?></p>
     </div>
-    <hr>
     <div class="article__content">
         <?= $post->getBody() ?>
     </div>
