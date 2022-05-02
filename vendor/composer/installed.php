@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '9af27dcfbed2a4139ff1dac797641bc794e42d7e',
+        'reference' => 'b7c76278acb994a1c52abc8e0e95bd9c74eb700a',
         'name' => '__root__',
         'dev' => true,
     ),
@@ -16,7 +16,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '9af27dcfbed2a4139ff1dac797641bc794e42d7e',
+            'reference' => 'b7c76278acb994a1c52abc8e0e95bd9c74eb700a',
             'dev_requirement' => false,
         ),
         'altorouter/altorouter' => array(
@@ -26,6 +26,15 @@
             'install_path' => __DIR__ . '/../altorouter/altorouter',
             'aliases' => array(),
             'reference' => 'f6fede4f94ced7c22ba63a9b8af0bf2dc38e3cb2',
+            'dev_requirement' => false,
+        ),
+        'erusev/parsedown' => array(
+            'pretty_version' => '1.7.4',
+            'version' => '1.7.4.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../erusev/parsedown',
+            'aliases' => array(),
+            'reference' => 'cb17b6477dfff935958ba01325f2e8a2bfa6dab3',
             'dev_requirement' => false,
         ),
         'filp/whoops' => array(

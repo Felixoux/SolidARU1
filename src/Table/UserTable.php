@@ -2,7 +2,7 @@
 
 namespace App\Table;
 
-use App\{Model\User, Table\Exception\NotFoundException};
+use App\{Model\Post, Model\User, Table\Exception\NotFoundException};
 use PDO;
 
 class UserTable extends Table
@@ -20,5 +20,12 @@ class UserTable extends Table
             throw new NotFoundException($this->table, $username);
         }
         return $result;
+    }
+
+    public function updateUser(User $user, string $password): void
+    {
+        $password = password_hash($password, PASSWORD_BCRYPT);
+        $query = $this->pdo->prepare('UPDATE ' . $this->table . ' SET password = :password');
+        $query->execute(['password' => $password]);
     }
 }

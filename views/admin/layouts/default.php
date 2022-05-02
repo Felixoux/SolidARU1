@@ -12,15 +12,18 @@
 <div class="page-wrapper relative">
     <nav class="header flex">
         <ul class="header__nav flex">
+            <li><h4><a href="<?= $router->url('home') ?>">Accueil</a></h4></li>
             <li><h4><a href="<?= $router->url('admin_posts') ?>">Posts</a></h4></li>
             <li><h4><a href="<?= $router->url('admin_categories') ?>">Catégorie</a></h4></li>
-            <li><h4><a href="#">Sécurité</a></h4></li>
+            <li><h4><a href="<?= $router->url('security') ?>">Sécurité</a></h4></li>
         </ul>
         <ul class="header__side flex">
             <li>
-                <form action="<?= $router->url('logout') ?>" method="POST" style="display: inline">
-                    <button class="nav__link" type="submit">Se déconnecter</button>
-                </form>
+                <h4>
+                    <form action="<?= $router->url('logout') ?>" method="POST" style="display: inline">
+                        <button class="nav__link" type="submit"><a>Se déconnecter</a></button>
+                    </form>
+                </h4>
             </li>
             <li>
                 <button id="js-burger">

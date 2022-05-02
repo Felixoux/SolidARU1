@@ -1,19 +1,41 @@
 .post-listing {
-    grid-row: 2 / 3;
-      
     &__header, &__body > div {
-        display: grid ;
-        grid-template-columns:50px 4fr 1fr;
-        grid-template-rows: 1fr;
-        align-items: center;
         margin-bottom: var(--space);
         padding: 1rem;
-        text-align: left !important;
     }
-    
+
+    &__header {
+        padding: 1rem 0;
+        h3{
+            display: none;
+        }
+    }
 
     .admin-card__option a:first-child{
         display: inline-block;
         margin-right: 1rem;
+    }
+
+    .admin-card {
+        @extend %stack;
+    }
+}
+
+@include up(1225) {
+    .post-listing {
+        &__header, &__body > div {
+            display: grid ;
+            grid-template-columns:50px 4fr 1fr !important;
+            grid-template-rows: 1fr;
+            align-items: center;
+        }
+
+        &__header {
+            padding: 1rem;
+            h3 {
+                display: block;
+            }
+        }
+
     }
 }

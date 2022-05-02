@@ -27,5 +27,12 @@ class Text
         return $sentence;
     }
 
+    public static function parseDown(string $content): string
+    {
+        $parseDown = new \Parsedown();
+        $parseDown->setSafeMode(true);
+        return $parseDown->text($content);
+    }
+
 
 }

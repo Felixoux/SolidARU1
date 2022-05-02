@@ -1,9 +1,16 @@
 .article  {
-    @extend %grid-text-vertical;
-    margin-top: calc(var(--space-section) / 2);
+    @extend %big-section;
+    @extend %stack;
 
     &__button{
         @extend %btn;
         @extend %btn-swap;
+    }
+
+    &__content {
+        @extend %stack;
+    }
+    li {
+        list-style-type: circle;
     }
 }
