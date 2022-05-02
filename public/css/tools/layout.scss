@@ -75,6 +75,12 @@
 
   // Ratios
   // ==================
+ @include up(700) {
+   .parent-ratio {
+     width: 650px;
+   }
+ }
+
   .ratio {
     height: 0;
     padding-bottom: 56.25%;

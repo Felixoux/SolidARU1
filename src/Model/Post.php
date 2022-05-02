@@ -15,8 +15,6 @@ class Post
     private $created_at;
     private array $categories = [];
 
-
-
     public function setID($id): self
     {
         $this->id = $id;
@@ -52,7 +50,13 @@ class Post
 
     public function getBody(): string
     {
-        return Text::parseDown($this->content);
+        $content = $this->content;
+        if(str_contains($content, 'youtube.com/')) {
+            $content = preg_replace("/\s*[a-zA-Z\/\/:\.]*youtube.com\/watch\?v=([a-zA-Z0-9\-_]+)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.]*)/i","<div class='parent-ratio'><div class='ratio'><iframe src=\"//www.youtube.com/embed/$1\" allow='accelerometer;clipboard-write; encrypted-media;gyroscope; picture-in-picture' allowfullscreen></iframe></div></div>",$content);
+            return Text::parseDown($content);
+        } else {
+            return Text::parseDown($content);
+        }
     }
 
     public function getExerpt(int $limit = 60): string

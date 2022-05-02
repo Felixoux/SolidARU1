@@ -467,6 +467,11 @@ header, section, main, footer, nav, .container, .header, .footer, .main, form {
   height: 100%;
 }
 
+@media (min-width: 700px) {
+  .parent-ratio {
+    width: 650px;
+  }
+}
 .ratio {
   height: 0;
   padding-bottom: 56.25%;

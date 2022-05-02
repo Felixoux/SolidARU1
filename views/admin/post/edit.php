@@ -13,7 +13,8 @@ $success = false;
 
 $errors = [];
 if (!empty($_POST)) {
-    $v = new PostValidator($_POST, $postTable, $post->getID(), $categories);
+
+    $v = new PostValidator(array_merge($_POST, $_FILES), $postTable, $post->getID(), $categories);
     ObjectHelper::hydrate($post, $_POST, ['name', 'content', 'slug', 'created_at']);
 
     if ($v->validate()) {
@@ -37,3 +38,4 @@ $form = new Form($post, $errors);
 <h2 class="mt4 mb4">Editer l'article "<?= e($post->getName()) ?>"</h2>
 
 <?php require '_form.php' ?>
+
