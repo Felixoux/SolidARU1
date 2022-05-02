@@ -13,5 +13,12 @@
       "ext-pdo": "*",
         "vlucas/valitron": "^1.4",
         "erusev/parsedown": "^1.7"
-    }
+    },
+    "authors": [
+      {
+        "name": "Felix Georgeault",
+        "email": "georgeault.felix@gmail.com",
+        "role": "Developer"
+      }
+    ]
 }

@@ -162,12 +162,6 @@
     justify-content: flex-start;
   }
 
-  %grid-text-vertical,
-  .grid-text-vertical {
-    display: grid;
-    gap: var(--gap);
-  }
-
   %grid-fit,
   .grid-fit {
     display: grid;

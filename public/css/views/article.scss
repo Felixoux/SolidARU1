@@ -1,6 +1,6 @@
 .article  {
     @extend %big-section;
-    @extend %grid-text-vertical;
+    @extend %stack;
 
     &__button{
         @extend %btn;

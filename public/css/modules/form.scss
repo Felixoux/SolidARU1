@@ -1,7 +1,7 @@
 form {
   @extend %stack;
   gap: calc(var(--gap) * 2);
-  @extend %grid-text-vertical;
+  @extend %stack;
 
   label {
     color: var(--bright-text);
