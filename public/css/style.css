@@ -336,7 +336,7 @@ h3 {
 
 h4 {
   font-family: var(--font-m);
-  font-size: 20px;
+  font-size: 18px;
 }
 
 @media (max-width: 500px) {
@@ -852,22 +852,28 @@ body.dark {
   height: 120px;
   background: var(--bg-light);
   z-index: 100;
+  line-height: 1;
+}
+.header ul {
+  display: flex;
+  align-items: center;
 }
 .header__nav {
-  height: 22px;
   justify-content: flex-start;
+  height: 26px;
+  margin-top: -5px;
+  margin-bottom: -5px;
   flex-wrap: wrap;
   overflow: hidden;
 }
 .header__nav li {
-  height: 20px;
+  height: 26px;
+  white-space: nowrap;
   margin-right: calc(var(--gap) * 2.5);
 }
-.header__side {
-  width: fit-content;
-}
-.header__side svg {
-  margin-left: calc(var(--gap) * -2);
+.header .logout-button svg {
+  width: 18px;
+  margin-left: calc(-5 * var(--space));
 }
 
 .header-phone {
@@ -901,7 +907,7 @@ body.dark {
 }
 
 .search-button {
-  height: 20px;
+  height: 18px;
 }
 .search-button svg {
   transition: all 0.3s ease-out;
@@ -957,7 +963,7 @@ body.dark {
   height: 90px;
   top: 120px;
   left: 0;
-  background-color: var(--bg-dark);
+  background-color: var(--bg-light);
   clip-path: polygon(0 0, 100% 90%, 100% 0);
 }
 

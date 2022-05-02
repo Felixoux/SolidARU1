@@ -98,7 +98,7 @@ h3, h4 {color: var(--text);}
 
 h3 {font-family: var(--font-semi);  font-size: 27px;  }
 
-h4 {font-family: var(--font-m);  font-size: 20px;}
+h4 {font-family: var(--font-m);  font-size: 18px;}
 
 // Little title for phone size
 @include down(500) {
