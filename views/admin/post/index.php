@@ -2,6 +2,7 @@
 use App\{Auth, Connection, Table\PostTable};
 require ROOT_PATH . '/vendor/autoload.php';
 
+
 Auth::check();
 $pageTitle = 'Gestion des articles';
 $pdo = Connection::getPDO();

@@ -7,6 +7,9 @@
     <title>Solidarité | <?= isset($pageTitle) ? e($pageTitle) : 'Blog' ?></title>
     <link rel="shortcut icon" href="img/svg/logo.svg">
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="themes/bootstrap-theme/ej.web.all.min.css" />
+    <script src="scripts/external/jquery-3.1.1.min.js"></script>
+    <script src="scripts/web/ej.web.all.min.js"> </script>
 </head>
 <body>
 <div class="page-wrapper relative">
