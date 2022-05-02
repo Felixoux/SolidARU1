@@ -2,26 +2,32 @@
     height: 120px;
     background: var(--bg-light);
     z-index: 100;
+    line-height: 1;
+
+    ul {
+        display: flex;
+        align-items: center;
+    }
 
     &__nav {
-        height: 22px;
-        justify-content:flex-start;
+        justify-content: flex-start;
+        height: 26px;
+        margin-top: -5px;
+        margin-bottom: -5px;
         flex-wrap: wrap;
         overflow: hidden;
     }
 
     &__nav li {
-        height: 20px;
         @extend %flex;
+        height: 26px;
+        white-space: nowrap;
         margin-right: calc(var(--gap) * 2.5);
     }
 
-    &__side {
-        width: fit-content;
-
-        svg {
-            margin-left: calc(var(--gap) * -2);
-        }
+    .logout-button svg {
+        width: 18px;
+        margin-left: calc(-5 * var(--space));
     }
 }
 
@@ -59,8 +65,8 @@
     }
 }
 
-.search-button {
-    height: 20px;
+.search-button{
+    height: 18px;
 
     svg{
         transition: all .3s ease-out;
@@ -124,6 +130,6 @@
     height: 90px;
     top: 120px;
     left: 0;
-    background-color: var(--bg-dark);
+    background-color: var(--bg-light);
     clip-path: polygon(0 0, 100% 90%, 100% 0);
 }

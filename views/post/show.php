@@ -37,7 +37,6 @@ $pageTitle = $post->getName();
     <div class="article__content">
         <?= $post->getBody() ?>
     </div>
-
     <a href="#">
         <button class="article__button f-right">Revenir aux articles</button>
     </a>

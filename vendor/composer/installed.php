@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'b7c76278acb994a1c52abc8e0e95bd9c74eb700a',
+        'reference' => 'a9cca18b542f95d5cee8aa8951a6129a83e0b5df',
         'name' => '__root__',
         'dev' => true,
     ),
@@ -16,7 +16,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'b7c76278acb994a1c52abc8e0e95bd9c74eb700a',
+            'reference' => 'a9cca18b542f95d5cee8aa8951a6129a83e0b5df',
             'dev_requirement' => false,
         ),
         'altorouter/altorouter' => array(
@@ -83,12 +83,12 @@
             'dev_requirement' => false,
         ),
         'symfony/var-dumper' => array(
-            'pretty_version' => 'v5.4.6',
-            'version' => '5.4.6.0',
+            'pretty_version' => 'v5.4.8',
+            'version' => '5.4.8.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/var-dumper',
             'aliases' => array(),
-            'reference' => '294e9da6e2e0dd404e983daa5aa74253d92c05d0',
+            'reference' => 'cdcadd343d31ad16fc5e006b0de81ea307435053',
             'dev_requirement' => false,
         ),
         'vlucas/valitron' => array(

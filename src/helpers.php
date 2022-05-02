@@ -1,6 +1,6 @@
 <?php 
 
-function e (string $string): string
+function e(string $string): string
 {
-    return htmlentities($string);
+    return htmlentities($string, ENT_QUOTES);
 }

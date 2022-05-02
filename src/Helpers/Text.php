@@ -30,9 +30,14 @@ class Text
     public static function parseDown(string $content): string
     {
         $parseDown = new \Parsedown();
-        $parseDown->setSafeMode(true);
+        $parseDown->setSafeMode(false);
         return $parseDown->text($content);
     }
 
-
+    public static function replaceByIframe(string $content): string
+    {
+        return <<<HTML
+        <iframe width="560" height="315" src="https://www.youtube.com/watch?v=BURRD_nWJh0" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+HTML;
+    }
 }
