@@ -10,7 +10,7 @@ form {
     margin-bottom: 1rem;
   }
 
-  input, textarea, select {
+  input, textarea, select, input[type=date]{
     background: var(--bg-card);
     border: none;
     border-radius: 3px;

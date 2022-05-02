@@ -1082,7 +1082,7 @@ form label {
   font-weight: 500;
   margin-bottom: 1rem;
 }
-form input, form textarea, form select {
+form input, form textarea, form select, form input[type=date] {
   background: var(--bg-card);
   border: none;
   border-radius: 3px;
