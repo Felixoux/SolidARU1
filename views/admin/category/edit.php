@@ -8,7 +8,7 @@ $table = new CategoryTable($pdo);
 $item = $table->find($params['id']);
 $success = false;
 $errors = [];
-$fields = ['name', 'slug'];
+$fields = ['name', 'slug', 'content'];
 if (!empty($_POST)) {
     $v = new CategoryValidator($_POST, $table, $item->getID());
     ObjectHelper::hydrate($item, $_POST, $fields);
