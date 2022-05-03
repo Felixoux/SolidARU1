@@ -1,130 +1,137 @@
 .header {
-    height: 120px;
-    background: var(--bg-light);
-    z-index: 100;
+    @extend %flex;
+    position: relative;
+    font-weight: 500;
     line-height: 1;
-
-    ul {
+    padding-top: calc(6 * var(--space));
+    padding-bottom: calc(6 * var(--space));
+    z-index: 100;
+    background: var(--bg-light);
+    &__home {
+        margin-left:0 !important;
+    }
+    &__search, &__logout {
+        height: 16px;
+        align-items: center;
+        justify-content: flex-start;
+        padding-right: calc(1 * var(--space));
+        border-right: 1px solid var(--border);
+    }
+    &__burger {
+        margin-left: calc(1 * var(--space));
+    }
+    &__burger button {
         display: flex;
         align-items: center;
+        justify-content: center;
+        width: 25px;
+        height: 25px;
     }
-
-    &__nav {
-        justify-content: flex-start;
-        height: 26px;
-        margin-top: -5px;
-        margin-bottom: -5px;
-        flex-wrap: wrap;
-        overflow: hidden;
+    &__burger span {
+        font-size: 0;
+        text-indent: -3000px;
+        &::before{
+            bottom: -6px;
+        }
+        &::after {
+            top: -8px;
+        }
     }
-
-    &__nav li {
-        @extend %flex;
-        height: 26px;
-        white-space: nowrap;
-        margin-right: calc(var(--gap) * 2.5);
+    &__burger span, &__burger span::before, &__burger span::after {
+        content: "";
+        display: block;
+        width: 14px;
+        height: 2px;
+        background: currentColor;
+        position: relative;
     }
-
-    .logout-button svg {
-        width: 18px;
-        margin-left: calc(-5 * var(--space));
-    }
-}
-
-.header-phone {
-    position: relative;
-
-    .header__nav {
-        @extend %card;
-        display: grid !important;
-        grid-gap: calc(var(--gap) * 4);
-        grid-template-columns: 1fr;
-        justify-items: center;
-        align-content: center;
-        position: fixed;
-        background: #1a1f42f1 !important;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        height: 100vh;
-        transition: opacity .3s;
-        z-index: 3;
-        padding: calc(var(--space) * 2);
-    }
-
-    .header__nav li{
-        margin-right: 0;
-    }
-
-    .header__side {
-        position: fixed;
-        top: calc(var(--space) * 3);
-        right: calc(var(--space) * 2);
-        z-index: 4;
-    }
-}
-
-.search-button{
-    height: 18px;
-
-    svg{
-        transition: all .3s ease-out;
-        fill:var(--text);
-    
+    &__burger span::before, &__burger span::after {transition: .3s;}
+    svg {
+        width: 16px;
+        height: 16px;
+        margin-right: calc(1 * var(--space));
         &:hover {
-            fill: var(--primary_o);
+            fill: var(--primary_b);
         }
     }
 }
-
-#js-burger  {
-    @extend %flex-center;
-    width: 32px;
-    height: 32px;
-
-    span {
-        font-size: 0;
-        text-indent: -3000px;
-    }
-
-    span, span::before, span::after {
-        content: "";
-        display: block;
-        width: 18px;
-        height: 3px;
-        background: currentColor;
-        position: relative;
-        transition: .3s;
-        transition-property: all;
-        transition-property: top,bottom,transform;
-    }
-
-    span::before {
-        bottom: -7px;
-    }
-
-    span::after {
-        top: -10px;
+.header ul, .header-nav li {
+    display: flex; align-items: center;
+}
+.header-nav {
+    height: 26px;
+    margin-top: -5px;
+    margin-bottom: -5px;
+    flex-wrap: wrap;
+    overflow: hidden;
+    li {
+        height: 26px;
+        white-space: nowrap;
+        margin-left: calc(6 * var(--space));
     }
 }
-
+.header-side {
+    margin-right: calc(-1 * var(--space));
+    margin-left: var(--space);
+    > li {
+        margin-right: var(--space);
+    }
+}
+// When open
+.header.is-open .header-nav {
+    @extend %stack;
+    grid-gap: calc(4 * var(--space));
+    justify-items: center;
+    align-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    background: #1a1f42f1 ;
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 4px var(--shadow);
+    border-radius: 3px;
+    transition: opacity .3s;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+    padding: calc(2 * var(--space));
+    li {
+        display: block;
+        width: 200px;
+        margin-left: 0;
+        font-size: 22px!important;
+    }
+}
+.header.is-open .header-side {
+    position: fixed;
+    top: calc(3 * var(--space));
+    right: calc(2 * var(--space));
+    z-index: 150;
+}
 @include up(700) {
     #js-burger {
         display: none;
     }
+    .header-side .header__search, .header-side .header__logout {
+        border-right: none;
+        padding: 0;
+        margin: 0;
+    }
 }
-
+// Burger animation
 .burger-span {
     background: transparent !important;
     &::before {
-        transform: translate(0, -7px) rotate(45deg);
+        transform: translate(0, -5px) rotate(45deg);
     }
 
     &::after {
         transform: translate(0, 7px) rotate(-45deg);
     }
 }
+// Triangle shape
 .triangle-shape {
     width: 100%;
     height: 90px;

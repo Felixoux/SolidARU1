@@ -25,7 +25,8 @@ $link = $router->url('category', ['id' => $category->getID(), 'slug' => $categor
     <div class="header-section flex">
         <h2 id="event">Voici les posts liés au thème <strong><?= e($category->getName()) ?></strong></h2>
     </div>
-    <p><?= e($category->getContent()) ?></p>
+    <p class="js-hide"><?= $category->getContent() ?></p>
+    <a class="button-js-hide">Voir plus</a>
     <div class="big-grid-event">
         <?php foreach ($posts as $post): ?>
             <?php require VIEW_PATH . '/post/card.php'; ?>

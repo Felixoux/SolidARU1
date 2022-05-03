@@ -1,7 +1,10 @@
+// burger animation
 $('#js-burger').click(function () {
-    $('.header').toggleClass('header-phone');
+    $('.header').toggleClass('is-open');
     $('#js-burger span').toggleClass('burger-span');
 })
+
+// text-hide
 
 
 
