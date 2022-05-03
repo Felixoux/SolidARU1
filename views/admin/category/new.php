@@ -25,6 +25,7 @@ if (!empty($_POST)) {
 }
 $form = new Form($item, $errors);
 ?>
-<h1 class="container mt4 mb4">Créer une catégorie</h1>
+<h2 class="container mt4 medium-title">Créer une catégorie</h2>
+<hr>
 
 <?php require('_form.php'); ?>

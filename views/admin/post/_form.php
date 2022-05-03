@@ -1,4 +1,4 @@
-<section>
+<section class="mt4">
     <form action="" method="POST" enctype="multipart/form-data">
         <?= $form->input('name', 'Titre') ?>
         <?= $form->input('slug', 'URL') ?>

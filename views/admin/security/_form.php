@@ -3,7 +3,7 @@
         <?= $form->inputSecurity('current_password', 'Mot de passe actuel') ?>
         <?= $form->inputSecurity('new_password', 'Nouveau mot de passe') ?>
         <?= $form->inputSecurity('new_password2', 'Verification nouveau mot de passe') ?>
-        <button><a class="btn-secondary">Modifier</a></button>
+        <button><a class="btn-primary">Modifier</a></button>
     </form>
 </section>
 

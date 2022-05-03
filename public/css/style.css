@@ -6,7 +6,7 @@
   --container-width: calc(100vw - var(--container-padding) * 2);
   --bg-card: #1E2552;
   --bg-light: #1A1F42;
-  --bg-dark:#151938 ;
+  --bg-dark:#151938;
   --muted-text: #8893C4;
   --text:#D4DCFF;
   --bright-text:#EBF1FF;
@@ -234,7 +234,8 @@ textarea {
 hr {
   height: 1px;
   background: var(--border);
-  margin: 0;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   padding: 0;
   border: none;
 }
@@ -354,6 +355,10 @@ h5 {
 
 .section-title {
   font-family: var(--font-semi);
+}
+
+.medium-title {
+  font-family: var(--font-m);
 }
 
 ::placeholder {
@@ -1004,6 +1009,11 @@ body.dark {
     margin: 0;
   }
 }
+.header-admin {
+  background: var(--bg-dark);
+  border-bottom: 1px solid var(--border);
+}
+
 .burger-span {
   background: transparent !important;
 }

@@ -142,6 +142,11 @@
         margin: 0;
     }
 }
+// Admin
+.header-admin {
+    background: var(--bg-dark);
+    border-bottom: 1px solid var(--border);
+}
 // Burger animation
 .burger-span {
     background: transparent !important;

@@ -10,7 +10,7 @@
 </head>
 <body>
 <div class="page-wrapper relative">
-    <nav class="header">
+    <nav class="header header-admin">
         <ul class="header-nav">
             <li class="header__home"><a class="underline" href="<?= $router->url('home') ?>">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" fill="#EBF1FF" id="home">
@@ -54,7 +54,7 @@ l1016 0 51 25 c72 36 106 90 111 175 4 81 -23 140 -87 185 l-43 30 -1021 5
             </li>
         </ul>
     </nav>
-    <div class="container big-section">
+    <div class="container mb4">
         <?= $content ?>
     </div>
 </div>

@@ -25,8 +25,6 @@ if(!empty($_POST)) {
         }
     }
 }
-
-
 $form = new Form($user, $errors);
 ?>
 <?php if ($errors): ?>
@@ -36,6 +34,6 @@ $form = new Form($user, $errors);
     <p class="alert alert-success"><?= $success ?></p>
 <?php endif ?>
 
-<h2 class="mt4 mb4">Changer le mot de passe</h2>
-
+<h2 class="mt4 medium-title">Changer le mot de passe</h2>
+<hr>
 <?php require '_form.php' ?>

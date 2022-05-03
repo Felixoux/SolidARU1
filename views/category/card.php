@@ -5,7 +5,7 @@
         </h2>
         <div class="card__description muted-text">
             <p>
-                <?= $category->getExerpt(300) ?>
+                <?= $category->getExerpt(380) ?>
             </p>
         </div>
         <a href="<?= $router->url('category', ['id' => $category->getID(), 'slug' => $category->getSlug()]) ?>" class="card__link"></a>

@@ -41,17 +41,6 @@ class Form
         HTML;
     }
 
-    public function url(string $key, string $label): string
-    {
-        return <<<HTML
-        <div class="form-group">
-            <p class="{$this->getInputClass($key)}">{$this->getErrorFeedback($key)}</p>
-            <label for="$key">$label</label>
-            <input type="url" name="$key" id="$key">
-        </div>
-        HTML;
-    }
-
     public function inputSecurity(string $key, string $label): string
     {
         $type = $key === 'current_password' ? 'text': 'password';
@@ -70,7 +59,7 @@ class Form
         <div class="form-group">
             <p class="{$this->getInputClass($key)}">{$this->getErrorFeedback($key)}</p>
             <label for="$key">$label</label>
-            <textarea type="text" name="$key" id="$key" required>$value</textarea>
+            <textarea type="text" name="$key" id="$key" placeholder="$label" required>$value</textarea>
         </div>
         HTML;
     }
