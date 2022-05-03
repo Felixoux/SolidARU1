@@ -11,11 +11,21 @@ form {
   }
 
   input, textarea, select, input[type=date]{
-    background: var(--bg-card);
-    border: none;
+    background: var(--bg-dark);
+    padding: .8em;
+    border: 1px solid var(--border);
     border-radius: 3px;
-    padding: 1rem;
+    color: var(--text);
+    display: block;
     width: 100%;
+    outline: 0;
+    min-height: 48px;
+  }
+
+
+  input:focus {
+    border-color: var(--primary_b);
+    box-shadow: 0 0 0 3px var(--primary_b25);
   }
 
   textarea {

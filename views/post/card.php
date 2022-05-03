@@ -1,15 +1,13 @@
-<article class="card card-exerpt card-article">
+<article class="card">
     <div class="card__body stack">
-        <h4 class="card__title">
-            <?= $post->getName() ?>
-        </h4>
-        <p class="card__content">
-            <?= $post->getExerpt(250) ?>
-        </p>
+        <h2 class="card__title">
+                <?= $post->getName() ?>
+        </h2>
+        <div class="card__description muted-text">
+            <p>
+                <?= $post->getExerpt(300) ?>
+            </p>
+        </div>
+        <a href="<?= $router->url('post', ['id' => $post->getID(), 'slug' => $post->getSlug()]) ?>" class="card__link"></a>
     </div>
-    <div class="card__footer">
-        <a href="<?= $router->url('post', ['id' => $post->getID(), 'slug' => $post->getSlug()]) ?>">
-            <button class="btn btn-swap f-right">Voir plus</button>
-        </a>
-    </div>
-</article>   
+</article>

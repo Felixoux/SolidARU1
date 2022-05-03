@@ -32,7 +32,7 @@ $link = $router->url('admin_posts');
                 </h4>
                 <div class="admin-card__option">
                     <a href="<?= $router->url('admin_post', ['id' => $post->getID()]) ?>"
-                       class="btn btn-primary">Éditer</a>
+                       class="btn-primary">Éditer</a>
                     <form style="display: inline;" method="POST"
                           action="<?= $router->url('admin_post_delete', ['id' => $post->getID()]) ?>"
                           onsubmit="return confirm('Voulez vous vraiment supprimer l\'article ?')">

@@ -3,33 +3,43 @@
     border: 1px solid var(--border);
     border-radius: 3px;
     box-shadow: var(--shadow);
+    transition: .3s;
 }
 
 .card, %card {
+    position: relative;
     @extend %card-design;
-    @extend %flex;
-    
-    padding:calc(var(--space) * 2.3) ;
+    display: flex;
+    flex-direction: column;
 
+    &__body {
+        padding:calc(var(--space) * 2.3) ;
+    }
     &__footer {
         padding-top:calc(var(--space) * 2.3);
     }
 
     &__title {
-        font-weight: 700;
-        color: var(--text);
+        font-family: var(--font-semi);
+        line-height: 1.3;
+        font-size: 16px;
     }
-    &__content {
+    &__description p{
         color: var(--muted-text);
-        overflow: hidden;
-        text-overflow: ellipsis;
-        min-height: 100%;
     }
-}
 
-.card-exerpt {
-    flex-direction : column;
-    align-items:flex-end;
+    &__link {
+        display: block;
+        @extend %absolute;
+        z-index: 2 !important;
+        border: 1px solid transparent;
+        transition: .3s;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+    &__link:hover {
+        border: 1px solid var(--primary_b);
+    }
 }
 
 

@@ -1,12 +1,18 @@
 .header {
     @extend %flex;
     position: relative;
-    font-weight: 500;
     line-height: 1;
     padding-top: calc(6 * var(--space));
     padding-bottom: calc(6 * var(--space));
     z-index: 100;
     background: var(--bg-light);
+    a  {
+        font-family: var(--font-semi);
+        &:hover {
+            color: var(--primary_b);
+        }
+    }
+
     &__home {
         margin-left:0 !important;
     }
