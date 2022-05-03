@@ -172,7 +172,6 @@ $link = $router->url('home');
     </svg>
 </section>
 
-
 <section class="event">
     <div class="header-section flex">
         <h2 id="event">Voici les différents <strong>thèmes</strong></h2>

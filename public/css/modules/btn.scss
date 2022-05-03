@@ -1,3 +1,14 @@
+button {
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    background: 0 0;
+    font-size: inherit;
+    &:hover {
+        color: var(--primary_b);
+    }
+}
+
 .btn, %btn {
     width: fit-content;
     padding: .5em 1em;
