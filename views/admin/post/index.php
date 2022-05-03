@@ -19,9 +19,9 @@ $link = $router->url('admin_posts');
 <?php endif ?>
 <section class="post-listing">
     <div class="post-listing__header">
-        <h3 class="mobile-hidden">#</h3>
-        <h3 class="mobile-hidden">Titre</h3>
-        <a href="<?= $router->url('admin_post_new') ?>" class="btn btn-primary new-article">Ajouter un article</a>
+        <h3 class="mobile-hidden section-title">#</h3>
+        <h3 class="mobile-hidden section-title">Titre</h3>
+        <a href="<?= $router->url('admin_post_new') ?>" class="btn btn-secondary new-article">Ajouter un article</a>
     </div>
     <section class="post-listing__body">
         <?php foreach ($posts as $post): ?>
@@ -32,7 +32,7 @@ $link = $router->url('admin_posts');
                 </h4>
                 <div class="admin-card__option">
                     <a href="<?= $router->url('admin_post', ['id' => $post->getID()]) ?>"
-                       class="btn-primary">Éditer</a>
+                       class="btn-primary section-title">Éditer</a>
                     <form style="display: inline;" method="POST"
                           action="<?= $router->url('admin_post_delete', ['id' => $post->getID()]) ?>"
                           onsubmit="return confirm('Voulez vous vraiment supprimer l\'article ?')">

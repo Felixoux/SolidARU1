@@ -65,3 +65,9 @@ button {
     background: var(--alert);
     border: var(--alert);
 }
+
+.btn-alert-success {
+    @extend %btn;
+    background: var(--success);
+    border: var(--success);
+}

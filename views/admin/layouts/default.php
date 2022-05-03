@@ -12,7 +12,10 @@
 <div class="page-wrapper relative">
     <nav class="header">
         <ul class="header-nav">
-            <li class="header__home"><h4><a href="<?= $router->url('home') ?>">Accueil</a></h4></li>
+            <li class="header__home"><a class="underline" href="<?= $router->url('home') ?>">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" fill="#EBF1FF" id="home">
+                        <path fill="currentColor" d="M0 4v7a1 1 0 001 1h3V8h4v4h3a1 1 0 001-1V4L6 0 0 4z"></path>
+                    </svg></a></li>
             <li><h4><a href="<?= $router->url('admin_posts') ?>">Posts</a></h4></li>
             <li><h4><a href="<?= $router->url('admin_categories') ?>">Catégorie</a></h4></li>
             <li><h4><a href="<?= $router->url('security') ?>">Sécurité</a></h4></li>
