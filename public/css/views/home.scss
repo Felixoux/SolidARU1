@@ -68,14 +68,24 @@
 
 section.event {
     @extend %big-section;
+    .category_svg {
+        width: 26px!important;
+        margin-left: 1rem;
+    }
+}
+@include down(415) {
+    section.event .category_svg {
+        margin-left: 0;
+    }
 }
 
 .big-grid-event {
     margin: calc(var(--space-section) / 3.5) 0;
     display: grid;
     grid-template-columns:repeat(auto-fill, minmax(325px, 1fr));
-    gap: 30px;
+    gap: var(--gap);
 }
+
 
 .event-card {
     p {
