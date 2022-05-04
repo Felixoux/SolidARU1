@@ -6,13 +6,21 @@
     padding-bottom: calc(6 * var(--space));
     z-index: 100;
     background: var(--bg-light);
+
     a  {
         font-family: var(--font-semi);
         &:hover {
             color: var(--primary_b);
+            svg {fill: var(--primary_b)}
         }
-    }
 
+    }
+    svg {
+        width: 16px;
+        height: 16px;
+        margin-right: calc(1 * var(--space));
+        transition: .3s;
+    }
     &__home {
         display: flex;
         height: 26px;
@@ -23,9 +31,6 @@
             margin-left: 0!important;
         }
     }
-
-
-
     &__search, &__logout, &__home {
         height: 16px;
         align-items: center;
@@ -62,14 +67,7 @@
         position: relative;
     }
     &__burger span::before, &__burger span::after {transition: .3s;}
-    svg {
-        width: 16px;
-        height: 16px;
-        margin-right: calc(1 * var(--space));
-        &:hover {
-            fill: var(--primary_b);
-        }
-    }
+
 }
 .header ul, .header-nav li {
     display: flex; align-items: center;

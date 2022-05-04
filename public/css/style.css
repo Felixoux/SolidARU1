@@ -876,6 +876,15 @@ body.dark {
 .header a:hover {
   color: var(--primary_b);
 }
+.header a:hover svg {
+  fill: var(--primary_b);
+}
+.header svg {
+  width: 16px;
+  height: 16px;
+  margin-right: calc(1 * var(--space));
+  transition: 0.3s;
+}
 .header__home {
   display: flex;
   height: 26px;
@@ -923,14 +932,6 @@ body.dark {
 }
 .header__burger span::before, .header__burger span::after {
   transition: 0.3s;
-}
-.header svg {
-  width: 16px;
-  height: 16px;
-  margin-right: calc(1 * var(--space));
-}
-.header svg:hover {
-  fill: var(--primary_b);
 }
 
 .header ul, .header-nav li {
