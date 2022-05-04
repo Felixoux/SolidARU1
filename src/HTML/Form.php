@@ -12,6 +12,14 @@ class Form
         $this->data = $data;
         $this->errors = $errors;
     }
+    
+    public function reset(): string
+    {
+        return <<<HTML
+    <input type="reset">
+HTML;
+
+    }
 
     public function input(string $key, string $label): string
     {

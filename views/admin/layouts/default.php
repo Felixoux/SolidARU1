@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
+<div id="pre-loader" class="active flex-center">
+    <div class="loader"></div>
+</div>
 <div class="page-wrapper relative">
     <nav class="header header-admin">
         <ul class="header-nav">

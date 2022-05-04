@@ -47,3 +47,19 @@ input, select, textarea {
   color: var(--text);
 }
 
+.form-card {
+  @extend %container-margin;
+  @extend %flex-center;
+  margin-top: calc(var(--space-section) / 2);
+  max-width: 450px;
+  flex-direction: column;
+  &__title {
+    font-family: var(--font-semi);
+    margin-bottom: 2rem;
+  }
+  > form {
+    @extend %card;
+    padding: calc(var(--card-padding) * 1.3);
+  }
+}
+

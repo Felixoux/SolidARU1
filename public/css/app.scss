@@ -16,7 +16,6 @@
 	--bright-text:#EBF1FF;
 
 	// ==== COSMETICS ====
-	//--primary_b: #A3FCFF;
 	--primary_b: #54aae8;
 	--primary_b25: rgba(163, 252, 255, 0.12);
 	--primary_o:#FF883D;
@@ -69,7 +68,9 @@ body.dark {
 	color: var(--bright-text);
 }
 
-// ==== Modules ====  
+
+// ==== Modules ====
+@import 'modules/loader.scss';
 @import 'modules/navbar.scss';
 @import 'modules/btn.scss';
 @import 'modules/card.scss';
@@ -78,8 +79,10 @@ body.dark {
 @import 'modules/form.scss';
 
 // ==== Pages ====
+@import 'views/e404.scss';
 @import 'views/home.scss';
 @import 'views/article.scss';
 @import 'views/admin.scss';
-@import 'views/e404.scss';
+@import 'views/login.scss';
+
 
