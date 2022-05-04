@@ -5,6 +5,7 @@
   --container-padding: 20px;
   --container-width: calc(100vw - var(--container-padding) * 2);
   --bg-card: #1E2552;
+  --bg-card-footer:#1B1F44;
   --bg-light: #1A1F42;
   --bg-dark:#151938;
   --muted-text: #8893C4;
@@ -1122,7 +1123,11 @@ button {
   padding: calc(var(--space) * 2.3);
 }
 .card__footer {
-  padding-top: calc(var(--space) * 2.3);
+  min-height: 36px;
+  margin-top: auto;
+  padding: 0 calc(var(--space) * 2.3);
+  background: var(--bg-card-footer);
+  font-size: 0.9rem;
 }
 .card__title {
   font-family: var(--font-semi);

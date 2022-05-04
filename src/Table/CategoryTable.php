@@ -3,6 +3,7 @@
 namespace App\Table;
 
 use App\Model\Category;
+use App\Model\Post;
 use App\paginatedQuery;
 use PDO;
 
@@ -55,5 +56,18 @@ class CategoryTable extends Table
             $results[$category->getID()] = $category->getName();
         }
         return $results;
+    }
+
+    public function countByCategoryID(int $categoryID): int
+    {
+        $paginatedQuery = new paginatedQuery(
+            "SELECT p.*
+                FROM $this->table p
+                JOIN post_category pc ON pc.post_id = p.id
+                WHERE pc.category_id = $categoryID",
+            "SELECT COUNT(category_id) FROM post_category WHERE category_id = $categoryID",
+        );
+        $posts = $paginatedQuery->getItems(Post::class);
+        return dd($posts);
     }
 }

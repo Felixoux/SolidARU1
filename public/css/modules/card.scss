@@ -12,11 +12,15 @@
     display: flex;
     flex-direction: column;
 
-    &__body {
-        padding:calc(var(--space) * 2.3) ;
+    &__body{
+        padding:calc(var(--space) * 2.3);
     }
     &__footer {
-        padding-top:calc(var(--space) * 2.3);
+        min-height: 36px;
+        margin-top: auto;
+        padding: 0 calc(var(--space) * 2.3);
+        background: var(--bg-card-footer);
+        font-size: .9rem;
     }
 
     &__title {

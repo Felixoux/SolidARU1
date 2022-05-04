@@ -8,7 +8,7 @@
     <meta name="keywords" content="ARU1 aru1 solidaru1 solidarité felixoux alwaysdata site">
     <meta name="google-site-verification" content="-UejOj4iwCE1xZZHO3O9gncUUfsEczIaQIitaMI3z-w" />
     <title>Solidarité | <?= isset($pageTitle) ? e($pageTitle) : 'Blog' ?></title>
-    <link rel="shortcut icon" href="img/svg/logo.svg">
+    <link rel="shortcut icon" href="/img/svg/logo.svg">
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
@@ -71,7 +71,7 @@
             </h4></li>
             <li><h4>
                     <a href="#">
-                        <svg fill="#D4DCFF" baseProfile="tiny" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 31.41"><path d="M1.05 1.51L6.94.04c.64-.16 1.3.2 1.56.85l2.72 6.87c.24.6.08 1.31-.39 1.72L7.4 12.52c2.04 4.7 5.6 8.62 10.04 10.87l2.81-3.72c.39-.51 1.03-.68 1.59-.42l6.34 2.94c.61.29.94 1 .79 1.69l-1.36 6.38c-.14.66-.69 1.14-1.33 1.14C11.78 31.41 0 18.68 0 2.95c0-.69.44-1.29 1.05-1.44z"/>
+                        <svg fill="#D4DCFF" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 31.41"><path d="M1.05 1.51L6.94.04c.64-.16 1.3.2 1.56.85l2.72 6.87c.24.6.08 1.31-.39 1.72L7.4 12.52c2.04 4.7 5.6 8.62 10.04 10.87l2.81-3.72c.39-.51 1.03-.68 1.59-.42l6.34 2.94c.61.29.94 1 .79 1.69l-1.36 6.38c-.14.66-.69 1.14-1.33 1.14C11.78 31.41 0 18.68 0 2.95c0-.69.44-1.29 1.05-1.44z"/>
                         </svg>Contact
                     </a>
             </h4></li>

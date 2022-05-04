@@ -21,7 +21,7 @@ $items = (new CategoryTable($pdo))->all();
         <div class="post-listing__header">
             <h3>#</h3>
             <h3>Titre</h3>
-            <a href="<?= $router->url('admin_category_new') ?>" class="btn btn-primary new-article">Ajouter une catégorie</a>
+            <a href="<?= $router->url('admin_category_new') ?>" class="btn btn-secondary new-article">Ajouter une catégorie</a>
         </div>
         <section class="post-listing__body">
             <?php foreach ($items as $item): ?>

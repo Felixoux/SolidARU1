@@ -42,7 +42,7 @@ class paginatedQuery
                 throw new Exception('Cette page n\'existe pas');
             }
             $offset = $this->perPage * ($currentPage - 1);
-            $this->items = $this->pdo->query($this->query . " LIMIT {$this->perPage} OFFSET $offset")
+            $this->items = $this->pdo->query($this->query . " LIMIT {$this->perPage} OFFSET {$offset}")
                 ->fetchAll(PDO::FETCH_CLASS, $classMapping);
         }
         return $this->items;

@@ -28,7 +28,7 @@ class Category
 
     public function getName(): ?string
     {
-        return $this->name;
+        return e($this->name);
     }
 
     public function setName($name): self

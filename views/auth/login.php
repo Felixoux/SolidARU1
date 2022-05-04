@@ -25,7 +25,7 @@ if (!empty($_POST)) {
 $form = new Form($user, $errors);
 ?>
 <div class="big-section fill-page">
-    <h1 class="container-margin mt2 mb4">Se connecter</h1>
+    <h1 class="container-margin mt2 mb4 section-title">Se connecter</h1>
     <?php if (isset($_GET['forbidden'])): ?>
         <p class="alert alert-danger mb4">Vous ne pouvez pas accéder à cette page</p>
     <?php endif ?>

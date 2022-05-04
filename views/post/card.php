@@ -8,6 +8,6 @@
                 <?= $post->getExerpt(300) ?>
             </p>
         </div>
-        <a href="<?= $router->url('post', ['id' => $post->getID(), 'slug' => $post->getSlug()]) ?>" class="card__link"></a>
+        <a href="<?= $router->url('post', ['id' => $post->getID(), 'slug' => $post->getSlug()]) ?>" class="card__link" title="<?= $post->getName() ?>"></a>
     </div>
 </article>

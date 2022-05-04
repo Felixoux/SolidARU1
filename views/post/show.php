@@ -21,9 +21,7 @@ if ($post->getSlug() !== $slug) {
     header('Location: ' . $url);
     exit();
 }
-
 $pageTitle = $post->getName();
-
 ?>
 
 <section class="article">
