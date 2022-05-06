@@ -15,11 +15,13 @@ $items = (new CategoryTable($pdo))->all();
 <?php if (isset($_GET['created'])): ?>
     <p class="alert alert-success">La catégorie a bien été créé</p>
 <?php endif ?>
-    <section class="post-listing fill-page">
+<h2 class="medium-title mt2">Page catégorie</h2>
+<hr>
+<section class="post-listing fill-page">
         <div class="post-listing__header">
             <h3>#</h3>
             <h3>Titre</h3>
-            <a href="<?= $router->url('admin_category_new') ?>" class="btn btn-primary new-article">Ajouter une catégorie</a>
+            <a href="<?= $router->url('admin_category_new') ?>" class="btn btn-secondary new-article">Ajouter une catégorie</a>
         </div>
         <section class="post-listing__body">
             <?php foreach ($items as $item): ?>

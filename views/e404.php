@@ -50,8 +50,8 @@ http_response_code(404);
 </svg>
     </div sty   >
     <div class="div-404 stack">
-        <h1>Erreur 404 !</h1>
-        <h2>Oups... la page recherchée n’existe pas</h2>
+        <h1 class="big-title">Erreur 404 !</h1>
+        <h2 class="section-title">Oups... la page recherchée n’existe pas</h2>
         <h4>Vous pouvez revenir sur l’accueil en <a href="<?= $router->url('home') ?>">cliquant ici !</a> <br>
             Vous pouvez aussi nous contacter si le problème persiste au <a href="mailto:lesamisaru1@gmail.com">lesamisaru1@gmail.com</a>
         </h4>

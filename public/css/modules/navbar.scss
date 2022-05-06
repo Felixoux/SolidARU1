@@ -1,16 +1,37 @@
 .header {
     @extend %flex;
     position: relative;
-    font-weight: 500;
     line-height: 1;
     padding-top: calc(6 * var(--space));
     padding-bottom: calc(6 * var(--space));
     z-index: 100;
     background: var(--bg-light);
-    &__home {
-        margin-left:0 !important;
+
+    a  {
+        font-family: var(--font-semi);
+        &:hover {
+            color: var(--primary_b);
+            svg {fill: var(--primary_b)}
+        }
+
     }
-    &__search, &__logout {
+    svg {
+        width: 16px;
+        height: 16px;
+        margin-right: calc(1 * var(--space));
+        transition: .3s;
+    }
+    &__home {
+        display: flex;
+        height: 26px;
+        border-right: 1px solid var(--border);
+        margin-right: calc(2 * var(--space));
+        padding-right: calc(1 * var(--space));
+        &, & + li {
+            margin-left: 0!important;
+        }
+    }
+    &__search, &__logout, &__home {
         height: 16px;
         align-items: center;
         justify-content: flex-start;
@@ -46,14 +67,7 @@
         position: relative;
     }
     &__burger span::before, &__burger span::after {transition: .3s;}
-    svg {
-        width: 16px;
-        height: 16px;
-        margin-right: calc(1 * var(--space));
-        &:hover {
-            fill: var(--primary_b);
-        }
-    }
+
 }
 .header ul, .header-nav li {
     display: flex; align-items: center;
@@ -80,7 +94,7 @@
 // When open
 .header.is-open .header-nav {
     @extend %stack;
-    grid-gap: calc(4 * var(--space));
+    grid-gap: calc(3 * var(--gap));
     justify-items: center;
     align-content: center;
     position: fixed;
@@ -101,7 +115,9 @@
         display: block;
         width: 200px;
         margin-left: 0;
-        font-size: 22px!important;
+        a {
+            font-size: 25px;
+        }
     }
 }
 .header.is-open .header-side {
@@ -109,6 +125,10 @@
     top: calc(3 * var(--space));
     right: calc(2 * var(--space));
     z-index: 150;
+}
+
+.header.is-open .header-nav .header__home {
+    display: none;
 }
 @include up(700) {
     #js-burger {
@@ -119,6 +139,11 @@
         padding: 0;
         margin: 0;
     }
+}
+// Admin
+.header-admin {
+    background: var(--bg-dark);
+    border-bottom: 1px solid var(--border);
 }
 // Burger animation
 .burger-span {

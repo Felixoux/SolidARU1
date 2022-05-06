@@ -6,8 +6,9 @@
 	--container-width: calc(100vw - var(--container-padding) * 2);
 	// ==== BG ====
 	--bg-card: #1E2552;
+	--bg-card-footer:#1B1F44;
 	--bg-light : #1A1F42;
-	--bg-dark:#151938 ;
+	--bg-dark:#151938;
 
 	// ==== FONTS COLORS ====
 	--muted-text: #8893C4;
@@ -15,7 +16,7 @@
 	--bright-text:#EBF1FF;
 
 	// ==== COSMETICS ====
-	--primary_b: #A3FCFF;
+	--primary_b: #54aae8;
 	--primary_b25: rgba(163, 252, 255, 0.12);
 	--primary_o:#FF883D;
 	--primary_o25:rgba(255, 136, 61, 0.12);
@@ -67,7 +68,9 @@ body.dark {
 	color: var(--bright-text);
 }
 
-// ==== Modules ====  
+
+// ==== Modules ====
+@import 'modules/loader.scss';
 @import 'modules/navbar.scss';
 @import 'modules/btn.scss';
 @import 'modules/card.scss';
@@ -76,8 +79,10 @@ body.dark {
 @import 'modules/form.scss';
 
 // ==== Pages ====
+@import 'views/e404.scss';
 @import 'views/home.scss';
 @import 'views/article.scss';
 @import 'views/admin.scss';
-@import 'views/e404.scss';
+@import 'views/login.scss';
+
 

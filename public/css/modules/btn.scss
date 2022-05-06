@@ -1,49 +1,73 @@
 button {
+    width: fit-content;
     padding: 0;
     border: none;
     cursor: pointer;
     background: 0 0;
     font-size: inherit;
+}
+%btn {
+    text-decoration: none !important;
+    padding: .5em .8em;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    box-shadow: 0 1px 2px rgba(36,57,141,.4);
+    border-radius: 4px;
+    line-height: 1.6;
+    font-family: var(--inter-semi);
+    color: var(--bright-text);
+    cursor: pointer;
+    transition: filter .3s,background .3s,color .3s;
+    font-size: .9em;
+    filter: brightness(1);
+    white-space: nowrap;
+    width: fit-content;
     &:hover {
-        color: var(--primary_b);
+        filter: brightness(1.2);
     }
 }
-
-.btn, %btn {
-    width: fit-content;
-    padding: .5em 1em;
-    border-radius: 3px;
-    transition: all .3s ease-out;
-}
-
 .btn-primary, %btn-primary {
     background: var(--primary_b);
-    border : 1px solid transparent;
-    color: var(--bg-light);
-
-    &:hover {
-        background: none;
-        border: 1px solid var(--primary_b);
-        color: var(--primary_b);
-    }
+    border: 1px solid var(--primary_b25);
+    @extend %btn;
 }
 
-.btn-swap, %btn-swap {
+.btn-primary-outline {
+    @extend %btn;
     border: 1px solid var(--primary_b);
     color: var(--primary_b);
-
+    box-shadow: none;
     &:hover {
+        filter: none;
         background: var(--primary_b);
-        border: 1px solid transparent;
-        color: var(--bg-light);
-    }    
+        color: var(--bright-text);
+    }
 }
 
-.btn-alert {
-    background: var(--alert);
-    border: 1px solid var(--alert);
-    &:hover  {
-        background:transparent;
-        color: var(--alert);
+.btn-card {
+    @extend %btn;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    &:hover {
+        background: var(--primary_b);
+        filter: none;
     }
+}
+
+.btn-secondary {
+    @extend %btn;
+    background: #323d70;
+    border:1px solid #323d70;
+}
+.btn-alert {
+    @extend %btn;
+    background: var(--alert);
+    border: var(--alert);
+}
+
+.btn-alert-success {
+    @extend %btn;
+    background: var(--success);
+    border: var(--success);
 }

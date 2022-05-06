@@ -31,6 +31,6 @@ $form = new Form($item, $errors);
 <?php if ($success): ?>
     <p class="alert alert-success">La catégorie a bien été modifié</p>
 <?php endif ?>
-<h2 class="mt4 mb4">Editer la catégorie "<?= e($item->getName()) ?>"</h2>
-
+<h2 class="mt4 medium-title">Editer la catégorie "<?= e($item->getName()) ?>"</h2>
+<hr>
 <?php require '_form.php' ?>

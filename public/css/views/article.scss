@@ -2,11 +2,6 @@
     @extend %big-section;
     @extend %stack;
 
-    &__button{
-        @extend %btn;
-        @extend %btn-swap;
-    }
-
     &__content {
         @extend %stack;
     }

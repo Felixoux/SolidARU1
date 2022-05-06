@@ -25,17 +25,19 @@ if(!empty($_POST)) {
         }
     }
 }
-
-
 $form = new Form($user, $errors);
 ?>
-<?php if ($errors): ?>
-    <p class="alert alert-danger"><?= $errors[0] ?></p>
-<?php endif ?>
-<?php if ($success): ?>
-    <p class="alert alert-success"><?= $success ?></p>
-<?php endif ?>
 
-<h2 class="mt4 mb4">Changer le mot de passe</h2>
 
-<?php require '_form.php' ?>
+
+<div class="form-card">
+    <?php if ($errors): ?>
+        <p class="alert alert-danger"><?= $errors[0] ?></p>
+    <?php endif ?>
+    <?php if ($success): ?>
+        <p class="alert alert-success"><?= $success ?></p>
+    <?php endif ?>
+    <h2 class="form-card__title">Changer le mot de passe</h2>
+    <?php require '_form.php' ?>
+</div>
+

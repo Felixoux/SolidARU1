@@ -19,6 +19,8 @@
     margin-bottom: calc(var(--space-section) / 2.5);
 
     & > div {
+        @extend %stack;
+        justify-content: center;
         margin-top:calc(var(--gap) * 3);
         padding: calc(var(--gap) * 1.3);
     }
@@ -34,8 +36,6 @@
         & > div {
             margin-top: 0;
             display: flex;
-            justify-content: center;
-            align-items: center;
         }
 
         .home-card-little {
@@ -68,14 +68,24 @@
 
 section.event {
     @extend %big-section;
+    .category_svg {
+        width: 26px!important;
+        margin-left: 1rem;
+    }
+}
+@include down(415) {
+    section.event .category_svg {
+        margin-left: 0;
+    }
 }
 
 .big-grid-event {
     margin: calc(var(--space-section) / 3.5) 0;
     display: grid;
     grid-template-columns:repeat(auto-fill, minmax(325px, 1fr));
-    gap: 60px;
+    gap: var(--gap);
 }
+
 
 .event-card {
     p {

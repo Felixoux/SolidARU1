@@ -23,7 +23,7 @@ class Post
 
     public function getID(): ?int
     {
-        return $this->id ?? null;
+        return $this->id;
     }
 
     public function setName(string $name): self
@@ -34,7 +34,7 @@ class Post
 
     public function getName(): ?string
     {
-        return htmlentities($this->name) ?? null;
+        return e($this->name);
     }
 
     public function setContent(string $content): self

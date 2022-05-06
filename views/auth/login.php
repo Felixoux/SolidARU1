@@ -24,17 +24,10 @@ if (!empty($_POST)) {
 
 $form = new Form($user, $errors);
 ?>
-<div class="big-section fill-page">
-    <h1 class="container-margin mt2 mb4">Se connecter</h1>
-    <?php if (isset($_GET['forbidden'])): ?>
-        <p class="alert alert-danger mb4">Vous ne pouvez pas accéder à cette page</p>
-    <?php endif ?>
-
-    <form action="<?= $router->url('login') ?>" method="POST">
-        <?= $form->input('username', 'Nom d\'utilisateur') ?>
-        <?= $form->input('password', 'Mot de passe') ?>
-        <button type="submit" class="btn btn-primary">Se connecter</button>
-    </form>
+<div class="form-card">
+    <h1 class="form-card__title">Se connecter</h1>
+        <?php if (isset($_GET['forbidden'])): ?>
+            <p class="alert alert-danger mb4">Vous ne pouvez pas accéder à cette page</p>
+        <?php endif ?>
+    <?php require '_form.php' ?>
 </div>
-
-

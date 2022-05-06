@@ -24,7 +24,7 @@ class Form
         <div class="form-group">
             <p class="{$this->getInputClass($key)}">{$this->getErrorFeedback($key)}</p>
             <label for="$key">$label</label>
-            <input type="$type" name="$key" id="$key" value="$value" required>
+            <input type="$type" name="$key" id="$key" value="$value" placeholder="$label" required>
         </div>
         HTML;
     }
@@ -37,17 +37,6 @@ class Form
             <p class="{$this->getInputClass($key)}">{$this->getErrorFeedback($key)}</p>
             <label for="$key">$label</label>
             <input type="file" name="$key" id="$key">
-        </div>
-        HTML;
-    }
-
-    public function url(string $key, string $label): string
-    {
-        return <<<HTML
-        <div class="form-group">
-            <p class="{$this->getInputClass($key)}">{$this->getErrorFeedback($key)}</p>
-            <label for="$key">$label</label>
-            <input type="url" name="$key" id="$key">
         </div>
         HTML;
     }
@@ -70,7 +59,7 @@ class Form
         <div class="form-group">
             <p class="{$this->getInputClass($key)}">{$this->getErrorFeedback($key)}</p>
             <label for="$key">$label</label>
-            <textarea type="text" name="$key" id="$key" required>$value</textarea>
+            <textarea type="text" name="$key" id="$key" placeholder="$label" required>$value</textarea>
         </div>
         HTML;
     }

@@ -65,6 +65,4 @@ class PostTable extends Table
         (new CategoryTable($this->pdo))->hydratePosts($posts);
         return [$posts, $paginatedQuery];
     }
-
-
 }

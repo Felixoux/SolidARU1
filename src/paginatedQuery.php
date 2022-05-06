@@ -42,7 +42,7 @@ class paginatedQuery
                 throw new Exception('Cette page n\'existe pas');
             }
             $offset = $this->perPage * ($currentPage - 1);
-            $this->items = $this->pdo->query($this->query . " LIMIT {$this->perPage} OFFSET $offset")
+            $this->items = $this->pdo->query($this->query . " LIMIT {$this->perPage} OFFSET {$offset}")
                 ->fetchAll(PDO::FETCH_CLASS, $classMapping);
         }
         return $this->items;
@@ -54,7 +54,7 @@ class paginatedQuery
         if ($currentPage <= 1) return null;
         if ($currentPage > 2) $link .= "?page=" . ($currentPage - 1);
         return <<<HTML
-        <a href="{$link}" class="btn btn-swap">&lt;&nbsp; Page précédente</a>
+        <a href="{$link}" class="btn-card">&lt;&nbsp; Page précédente</a>
         HTML;
     }
 
@@ -65,7 +65,7 @@ class paginatedQuery
         if ($currentPage >= $pages) return null;
         $link .= "?page=" . ($currentPage + 1);
         return <<<HTML
-        <a href="{$link}" class="ml-a"><button class="btn btn-swap">Page suivante &nbsp;&gt;</button></a>
+        <a href="{$link}" class="ml-a"><button class="btn-card">Page suivante &nbsp;&gt;</button></a>
         HTML;
     }
 

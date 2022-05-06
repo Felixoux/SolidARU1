@@ -28,6 +28,7 @@ if (!empty($_POST)) {
 }
 $form = new Form($post, $errors);
 ?>
-<h1 class="container mt4 mb4">Créer un article</h1>
+<h2 class="container mt4 medium-title">Créer un article</h2>
+<hr>
 
 <?php require('_form.php'); ?>

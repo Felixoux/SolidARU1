@@ -10,6 +10,7 @@ $pdo = Connection::getPDO();
 
 $table = new CategoryTable($pdo);
 [$categories, $pagination] = $table->findPaginated();
+$postTable = new \App\Table\PostTable($pdo);
 
 $link = $router->url('home');
 ?>
@@ -18,33 +19,30 @@ $link = $router->url('home');
 <div class="banner mobile-hidden"></div>
 
 <section class="home-little-grid relative">
-    <div class="card home-card-big stack">
-        <div class="card__body stack">
-            <h1 class="card__title">Bienvenue sur le site de solid<strong>ARU1</strong>
-            </h1>
-            <h2>
-                Que vais-je trouver sur ce <strong>blog</strong> ?
-            </h2>
-            <h4>
-                Ici vous retrouverez tous les évenements se passant <br>
-                dans l’athénée concernant la solidarité, comme par exemple <br>
-                la semaine de la solidarité ou encore les shoeboxs.
-            </h4>
-        </div>
+    <div class="card home-card-big">
+        <h1 class="big-title">
+            Bienvenue sur le site de solid<strong>ARU1</strong>
+        </h1>
+        <h2 class="big-title">
+            Que vais-je trouver sur ce <strong>blog</strong> ?
+        </h2>
+        <h3>
+            Ici vous retrouverez tous les évenements se passant <br>
+            dans l’athénée concernant la solidarité, comme par exemple <br>
+            la semaine de la solidarité ou encore les shoeboxs.
+        </h3>
     </div>
-    <div class="card home-card-little ">
-        <div class="card__body stack">
-            <h2 class="card__title">
-                Comment ça <strong>fonctionne</strong> ?
-            </h2>
-            <h4 class="silent">
-                Ce site est en quelque sorte un journal des événements.
-                De nombreux posts vont être ajoutés au fil du temps pour en garder une trace.
-                Dans ces posts il y aura du texte, photos, vidéos voire même documents.
-            </h4>
-        </div>
+    <div class="card home-card-little">
+        <h2 class="big-title">
+            Comment ça <strong>fonctionne</strong> ?
+        </h2>
+        <h4 class="muted">
+            Ce site est en quelque sorte un journal des événements.
+            De nombreux posts vont être ajoutés au fil du temps pour en garder une trace.
+            Dans ces posts il y aura du texte, photos, vidéos voire même documents.
+        </h4>
     </div>
-    <svg class="welcome-mascott mobile-hidden" version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" x="0px"
+    <svg class="welcome-mascott mobile-hidden" id="Calque_1" xmlns="http://www.w3.org/2000/svg" x="0px"
          y="0px"
          viewBox="0 0 171.1 141.5" xml:space="preserve">
         <style type="text/css">
@@ -174,7 +172,7 @@ $link = $router->url('home');
 
 <section class="event">
     <div class="header-section flex">
-        <h2 id="event">Voici les différents <strong>thèmes</strong></h2>
+        <h2 class="section-title" id="event">Voici les différents <strong>thèmes</strong><svg class="category_svg" fill="#F0F5FF" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 512 411.22"><path d="M8.39 0h157.9c4.62 0 8.39 3.77 8.39 8.39v157.9c0 4.62-3.77 8.39-8.39 8.39H8.39c-4.62 0-8.39-3.77-8.39-8.39V8.39C0 3.77 3.77 0 8.39 0zm236.57 355.85h258.65c4.62 0 8.39 3.8 8.39 8.4v38.57c0 4.6-3.79 8.39-8.39 8.39H244.96c-4.6 0-8.39-3.77-8.39-8.39v-38.57c0-4.63 3.77-8.4 8.39-8.4zm0-118.61h258.65c4.62 0 8.39 3.79 8.39 8.39v38.57c0 4.6-3.79 8.4-8.39 8.4H244.96c-4.6 0-8.39-3.77-8.39-8.4v-38.57c0-4.62 3.77-8.39 8.39-8.39zm0-118.62h258.65c4.62 0 8.39 3.79 8.39 8.39v38.58c0 4.6-3.79 8.4-8.39 8.4H244.96c-4.6 0-8.39-3.78-8.39-8.4v-38.58c0-4.61 3.77-8.39 8.39-8.39zm0-118.62h258.65c4.62 0 8.39 3.8 8.39 8.39v38.58c0 4.59-3.79 8.39-8.39 8.39H244.96c-4.6 0-8.39-3.77-8.39-8.39V8.39c0-4.62 3.77-8.39 8.39-8.39zM8.39 236.53h157.9c4.62 0 8.39 3.77 8.39 8.39v157.91c0 4.61-3.77 8.39-8.39 8.39H8.39c-4.62 0-8.39-3.78-8.39-8.39V244.92c0-4.62 3.77-8.39 8.39-8.39z"/></svg></h2>
         <p class="mobile-hidden muted">Mis à jour le 22/04/22</p>
     </div>
     <div class="big-grid-event">
@@ -182,7 +180,6 @@ $link = $router->url('home');
             <?php require VIEW_PATH . '/category/card.php'; ?>
         <?php endforeach ?>
     </div>
-
     <div class="footer-links">
         <?= $pagination->previousLink($link) ?>
         <?= $pagination->nextLink($link) ?>
