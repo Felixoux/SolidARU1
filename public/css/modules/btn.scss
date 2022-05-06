@@ -1,12 +1,4 @@
-button {
-    width: fit-content;
-    padding: 0;
-    border: none;
-    cursor: pointer;
-    background: 0 0;
-    font-size: inherit;
-}
-%btn {
+.btn {
     text-decoration: none !important;
     padding: .5em .8em;
     border: none;
@@ -27,14 +19,15 @@ button {
         filter: brightness(1.2);
     }
 }
-.btn-primary, %btn-primary {
+
+.btn-primary{
+    @extend .btn;
     background: var(--primary_b);
     border: 1px solid var(--primary_b25);
-    @extend %btn;
 }
 
 .btn-primary-outline {
-    @extend %btn;
+    @extend .btn;
     border: 1px solid var(--primary_b);
     color: var(--primary_b);
     box-shadow: none;
@@ -46,7 +39,7 @@ button {
 }
 
 .btn-card {
-    @extend %btn;
+    @extend .btn;
     background: var(--bg-card);
     border: 1px solid var(--border);
     &:hover {
@@ -56,18 +49,19 @@ button {
 }
 
 .btn-secondary {
-    @extend %btn;
+    @extend .btn;
     background: #323d70;
     border:1px solid #323d70;
 }
+
 .btn-alert {
-    @extend %btn;
+    @extend .btn;
     background: var(--alert);
     border: var(--alert);
 }
 
 .btn-alert-success {
-    @extend %btn;
+    @extend .btn;
     background: var(--success);
     border: var(--success);
 }

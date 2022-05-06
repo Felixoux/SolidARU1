@@ -39,7 +39,7 @@ class Category
 
     public function getSlug(): ?string
     {
-        return $this->slug;
+        return e($this->slug);
     }
 
     public function setSlug($slug): self
@@ -50,7 +50,7 @@ class Category
 
     public function getContent(): ?string
     {
-        return htmlentities($this->content);
+        return e($this->content);
     }
 
     public function setContent($content): self
@@ -64,7 +64,7 @@ class Category
         if ($this->content === null) {
             return $this->content;
         }
-        return htmlentities(Text::exerpt($this->content, $limit));
+        return e(Text::exerpt($this->content, $limit));
     }
 
     public function getPostID(): ?int

@@ -8,7 +8,6 @@ $slug = $params['slug'];
 $pdo = Connection::getPDO();
 $category = (new CategoryTable($pdo))->find($id);
 
-
 if ($category->getSlug() !== $slug) {
     $url = $router->url('category', ['id' => $category->getID(), 'slug' => $category->getSlug()]);
     http_response_code(301);
@@ -23,7 +22,7 @@ $link = $router->url('category', ['id' => $category->getID(), 'slug' => $categor
 
 <section class="event">
     <div class="header-section flex">
-        <h2 id="event" class="section-title">Voici les posts liés au thème <strong><?= e($category->getName()) ?></strong>
+        <h2 id="event" class="section-title">Voici les posts liés au thème <strong><?= $category->getName() ?></strong>
             <img width="50" src="/img/online.png" alt="posts"> </h2>
     </div>
     <p class="js-hide"><?= $category->getContent() ?></p>

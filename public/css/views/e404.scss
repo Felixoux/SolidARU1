@@ -4,6 +4,12 @@
   padding: calc(var(--gap) * 2);
   margin-top: calc(var(--space-section) / 2);
   border-radius: 8px;
+
+  @include up(1000) {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  }
 }
 
 .mascott-404 svg {
@@ -16,16 +22,10 @@
   h1 {
     color: var(--alert);
   }
-}
-
-@include up(1000) {
-  .container-404 {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-  }
-  .div-404 {
+  @include up(1000) {
     margin-left: calc(var(--gap) * 2);
   }
 }
+
+
 

@@ -20,3 +20,8 @@
       @content;
     }
   }
+
+@mixin border($border-size : 1px, $border-color : var(--border), $radius-size : 3px) {
+  border:$border-size solid $border-color;
+  border-radius:$radius-size;
+}

@@ -1,11 +1,16 @@
 .article  {
-    @extend %big-section;
-    @extend %stack;
+    @extend .big-section;
+    @extend .stack;
+}
 
-    &__content {
-        @extend %stack;
-    }
-    li {
-        list-style-type: circle;
-    }
+.article__header {
+    margin-bottom: 3rem;
+}
+
+.article__content {
+    @extend .stack;
+}
+
+.article li {
+    list-style-type: circle;
 }
