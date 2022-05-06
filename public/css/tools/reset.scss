@@ -171,6 +171,20 @@ hr {
 *:focus:not(:focus-visible) {
   outline: none;
 }
+// Code
+code {
+  display: block;
+  width: 100%;
+  background: var(--bg-light);
+  border-radius: 8px;
+  padding: 1rem 2rem ;
+}
+// Citation
+blockquote {
+  padding: 0 1em;
+  color: var(--muted-text);
+  border-left: .25em solid var(--border);
+}
 
 
 
