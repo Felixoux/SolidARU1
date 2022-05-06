@@ -12,10 +12,6 @@ $('#js-burger').click(function () {
     $('#js-burger span').toggleClass('burger-span');
 })
 
-// text-hide
-
-
-
 
 
 

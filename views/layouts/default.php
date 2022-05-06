@@ -8,7 +8,7 @@
     <meta name="keywords" content="ARU1 aru1 solidaru1 solidarité felixoux alwaysdata site">
     <meta name="google-site-verification" content="-UejOj4iwCE1xZZHO3O9gncUUfsEczIaQIitaMI3z-w" />
     <title>Solidarité | <?= isset($pageTitle) ? e($pageTitle) : 'Blog' ?></title>
-    <link rel="shortcut icon" href="/img/svg/logo.svg">
+    <link rel="shortcut icon" href="/img/svg/favicon.svg">
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
