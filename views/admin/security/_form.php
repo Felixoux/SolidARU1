@@ -2,7 +2,7 @@
         <?= $form->inputSecurity('current_password', 'Mot de passe actuel') ?>
         <?= $form->inputSecurity('new_password', 'Nouveau mot de passe') ?>
         <?= $form->inputSecurity('new_password2', 'Verification nouveau mot de passe') ?>
-        <div class="flex">
+        <div class="form__button">
             <button type="submit" class="btn-primary">Modifier</button>
             <button type="reset" class="btn-primary-outline">Annuler</button>
         </div>

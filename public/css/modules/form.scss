@@ -1,40 +1,38 @@
 form {
   @extend %stack;
   gap: calc(var(--gap) * 2);
-  @extend %stack;
+}
 
-  label {
-    color: var(--bright-text);
-    font-size: 20px;
-    font-weight: 500;
-    margin-bottom: 1rem;
-  }
+label {
+  color: var(--bright-text);
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
 
-  input, textarea, select, input[type=date]{
-    background: var(--bg-dark);
-    padding: .8em;
-    border: 1px solid var(--border);
-    border-radius: 3px;
-    color: var(--text);
-    display: block;
-    width: 100%;
-    outline: 0;
-    min-height: 48px;
-  }
+input, textarea, select{
+  background: var(--bg-dark);
+  padding: .8em;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  color: var(--text);
+  display: block;
+  width: 100%;
+  outline: 0;
+  min-height: 48px;
+}
 
+textarea {
+  min-height: 300px;
+}
 
-  input:focus {
-    border-color: var(--primary_b);
-    box-shadow: 0 0 0 3px var(--primary_b25);
-  }
+select {
+  min-height: 150px;
+}
 
-  textarea {
-    min-height: 300px;
-  }
-
-  select {
-    min-height: 150px;
-  }
+input:focus {
+  border-color: var(--primary_b);
+  box-shadow: 0 0 0 3px var(--primary_b25);
 }
 
 .form-group {
@@ -43,23 +41,27 @@ form {
   align-items: flex-start;
 }
 
-input, select, textarea {
-  color: var(--text);
+.form__button {
+  @extend .flex;
 }
 
 .form-card {
-  @extend %container-margin;
-  @extend %flex-center;
+  @extend .container-margin;
+  @extend .flex-center;
   margin-top: calc(var(--space-section) / 2);
   max-width: 450px;
   flex-direction: column;
-  &__title {
+}
+
+.form-card > form {
+  @extend .card;
+  padding: calc(var(--card-padding) * 1.3);
+}
+
+.form-card__title {
     font-family: var(--font-semi);
     margin-bottom: 2rem;
-  }
-  > form {
-    @extend %card;
-    padding: calc(var(--card-padding) * 1.3);
-  }
 }
+
+
 

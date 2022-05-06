@@ -25,13 +25,12 @@ $pageTitle = $post->getName();
 ?>
 
 <section class="article">
-
-    <div class="header-section flex">
+    <header class="article__header flex">
         <h1 class="article__title section-title">
             <?= Text::strong(3, e($post->getName())) ?>
         </h1>
         <p class="mobile-hidden muted"><?= e($post->getCreatedAt()->format("d/m/Y")) ?></p>
-    </div>
+    </header>
     <div class="article__content">
         <?= $post->getBody() ?>
     </div>
