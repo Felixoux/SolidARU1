@@ -507,12 +507,12 @@ header, section, main, footer, nav, .container, .header, .footer, .main, form {
   display: inline;
 }
 
-.flex, .form__button, .header {
+.flex, .form__button, .card__header, .header {
   display: flex !important;
   align-items: center;
   justify-content: space-between;
 }
-.flex > *, .form__button > *, .header > * {
+.flex > *, .form__button > *, .card__header > *, .header > * {
   min-width: 0;
 }
 
@@ -1204,9 +1204,14 @@ body.dark {
 .card__footer {
   min-height: 36px;
   margin-top: auto;
-  padding: 0 calc(var(--space) * 2.3);
+  padding: 0.7rem calc(var(--space) * 2.3);
   background: var(--bg-card-footer);
   font-size: 0.9rem;
+  border-top: 2px solid var(--primary_b);
+}
+
+.card__svg {
+  width: 16px;
 }
 
 .card__title {
@@ -1424,7 +1429,7 @@ input:focus {
   }
 }
 section.event .category_svg {
-  width: 26px !important;
+  width: 26px;
   margin-left: 1rem;
 }
 @media (max-width: 415px) {
