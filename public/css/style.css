@@ -950,13 +950,13 @@ body.dark {
   background: var(--bg-light);
 }
 
-.header a {
+.header a, .header button, .header__logout svg {
   font-family: var(--font-semi);
 }
-.header a:hover {
+.header a:hover, .header button:hover, .header__logout svg:hover {
   color: var(--primary_b);
 }
-.header a:hover svg {
+.header a:hover svg, .header button:hover svg, .header__logout svg:hover svg {
   fill: var(--primary_b);
 }
 
