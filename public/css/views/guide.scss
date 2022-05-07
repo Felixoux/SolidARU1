@@ -1,0 +1,27 @@
+.guide, .guide-control {
+  @extend .stack;
+}
+
+.guide {
+  margin-top: calc(var(--space-section) / 3);
+  gap: calc(2 * var(--gap));
+}
+
+.guide-control__title {
+  @extend .section-title;
+}
+
+.guide-control__content {
+  background: var(--bg-dark);
+  padding: 1rem 2rem;
+  border-radius: 8px;
+}
+
+.guide-control__content--code {
+  border: 1px solid var(--border);
+  padding: 0;
+}
+
+.guide-control__content ul.list-circle {
+list-style-type: disc;
+}
