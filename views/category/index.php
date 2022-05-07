@@ -188,10 +188,3 @@ $link = $router->url('home');
         <?= $pagination->nextLink($link) ?>
     </div>
 </section>
-
-<form action="#">
-    <input type="datetime-local" name="date" id="flatpickr" placeholder="Select date/time">
-    <div class="example">
-        <button type="submit">Submit</button>
-    </div>
-</form>

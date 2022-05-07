@@ -10,7 +10,6 @@
     <title>Solidarité | <?= isset($pageTitle) ? e($pageTitle) : 'Blog' ?></title>
     <link rel="shortcut icon" href="/img/svg/favicon.svg">
     <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </head>
 <body>
 <div id="pre-loader" class="active flex-center">
@@ -116,9 +115,8 @@
     ?>
 
 </div>
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-<script src= "/js/jquery-3.6.0.min.js"</script>
-<script src= "/js/app.js" </script>
+<script src=<?= "/js/jquery-3.6.0.min.js" ?>></script>
+<script src=<?= "/js/app.js" ?>></script>
 </body>
 </html>
 
