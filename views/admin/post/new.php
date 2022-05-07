@@ -1,6 +1,13 @@
 <?php
 
-use App\{Auth, Connection, HTML\Form, Model\Post, Table\CategoryTable, Table\PostTable, Validators\PostValidator};
+use App\{Attachment\PostAttachment,
+    Auth,
+    Connection,
+    HTML\Form,
+    Model\Post,
+    Table\CategoryTable,
+    Table\PostTable,
+    Validators\PostValidator};
 
 Auth::check();
 $success = false;
@@ -13,11 +20,13 @@ $categories = $categoryTable->list();
 $post->setCreatedAt(date('Y-m-d H:i:s'));
 if (!empty($_POST)) {
     $postTable = new PostTable($pdo);
-    $v = new PostValidator($_POST, $postTable, $post->getID(), $categories);
-    (new App\ObjectHelper)->hydrate($post, $_POST, ['name', 'content', 'slug', 'created_at']);
+    $data = array_merge($_POST, $_FILES);
+    $v = new PostValidator($data, $postTable, $post->getID(), $categories);
+    (new App\ObjectHelper)->hydrate($post, $data, ['name', 'content', 'slug', 'created_at', 'image']);
 
     if ($v->validate()) {
         $pdo->beginTransaction();
+        PostAttachment::upload($post);
         $postTable->createPost($post);
         $postTable->attachCategories($post->getID(), $_POST['categories_ids']);
         $pdo->commit();

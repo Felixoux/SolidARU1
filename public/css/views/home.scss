@@ -69,11 +69,6 @@ section.event {
 section.event .category_svg {
     width: 26px;
     height: auto;
-    margin-left: 1rem;
-
-    @include down(415) {
-        margin-left: 0;
-    }
 }
 
 .big-grid-event {

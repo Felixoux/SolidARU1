@@ -13,7 +13,7 @@ class Form
         $this->errors = $errors;
     }
 
-    public function input(string $key, string $label): string
+    public function input(string $key, string $label, ?string $class = null): string
     {
         $type = $key === "password" ? 'password' : 'text';
         if($type === 'password') {
@@ -24,7 +24,7 @@ class Form
         <div class="form-group">
             <p class="{$this->getInputClass($key)}">{$this->getErrorFeedback($key)}</p>
             <label for="$key">$label</label>
-            <input type="$type" name="$key" id="$key" value="$value" placeholder="$label" required>
+            <input type="$type" name="$key" id="$key" value="$value" class="$class" placeholder="$label" required>
         </div>
         HTML;
     }

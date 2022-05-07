@@ -4,6 +4,7 @@ CREATE TABLE post (
     slug VARCHAR (255) NOT NULL,
     content TEXT(65000) NOT NULL,
     created_at DATETIME NOT NULL,
+    image VARCHAR (27),
     PRIMARY KEY (id)
 );
 

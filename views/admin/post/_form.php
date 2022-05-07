@@ -1,8 +1,11 @@
 <section class="mt4">
     <form action="" method="POST" enctype="multipart/form-data">
-        <?= $form->input('name', 'Titre') ?>
-        <?= $form->input('slug', 'URL') ?>
-<!--         --><?//= $form->file('image', 'Image à la une') ?>
+        <?= $form->input('name', 'Titre', 'withSpace') ?>
+        <?= $form->input('slug', 'URL', 'withDash') ?>
+        <?php if($post->getImage()): ?>
+            <img src="<?= $post->getImageURL('small') ?>" alt="<?= $post->getImageURL('small') ?>" width="250">
+        <?php endif ?>
+        <?= $form->file('image', 'Image à la une') ?>
         <?= $form->select('categories_ids', 'Catégories', $categories) ?>
         <a class="underline" href="<?= $router->url('admin_guide') ?>">Guide d'écriture simplifié (pour le contenu uniquement)</a>
         <?= $form->textarea('content', 'Contenu') ?>

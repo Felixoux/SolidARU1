@@ -1452,12 +1452,6 @@ section.event {
 section.event .category_svg {
   width: 26px;
   height: auto;
-  margin-left: 1rem;
-}
-@media (max-width: 415px) {
-  section.event .category_svg {
-    margin-left: 0;
-  }
 }
 
 .big-grid-event {

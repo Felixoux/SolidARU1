@@ -14,6 +14,9 @@ class Post
     private ?string $slug = null;
     private $created_at;
     private array $categories = [];
+    private $image;
+    private $oldImage;
+    private $pendingUpload = false;
 
     public function setID($id): self
     {
@@ -112,5 +115,44 @@ class Post
     {
         $this->categories[] = $category;
         $category->setPost($this);
+    }
+
+    public function getImage(): ?string
+    {
+        return e($this->image);
+    }
+
+    public function setImage($image): self
+    {
+        if(is_array($image) && !empty($image['tmp_name'])) {
+            if(!empty($this->image)) {
+                $this->oldImage = $this->image;
+            }
+            $this->pendingUpload = true;
+            $this->image = $image['tmp_name'];
+        }
+        if(is_string($image) && !empty($image)) {
+            $this->image = $image;
+        }
+
+        return $this;
+    }
+
+    public function getImageURL(string $format): ?string
+    {
+        if(empty($this->image)) {
+            return null;
+        }
+        return '/uploads/posts/' . $this->image . '_' . $format . '.jpg';
+    }
+
+    public function getOldImage(): ?string
+    {
+        return e($this->oldImage);
+    }
+
+    public function shouldUpload(): bool
+    {
+        return $this->pendingUpload;
     }
 }

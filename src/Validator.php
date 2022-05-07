@@ -13,6 +13,10 @@ class Validator extends ValitronValidator
             if($value['size'] === 0) {
                 return true;
             }
+            $mimes = ['image/jpeg', 'image/png'];
+            $finfo = new \finfo();
+            $info = $finfo->file($value['tmp_name'], FILEINFO_MIME_TYPE);
+            return in_array($info, $mimes);
             return false;
         }, 'Le fichier n\'est pas une image valide');
     }

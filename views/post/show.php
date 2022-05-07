@@ -31,6 +31,9 @@ $pageTitle = $post->getName();
         </h1>
         <p class="mobile-hidden muted"><?= $post->getCreatedAt()->format("d/m/Y") ?></p>
     </header>
+    <?php if ($post->getImage()): ?>
+        <img src="<?= $post->getImageURL('large') ?>" alt="">
+    <?php endif ?>
     <div class="article__content">
         <?= $post->getBody() ?>
     </div>

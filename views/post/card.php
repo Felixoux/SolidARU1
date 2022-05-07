@@ -1,5 +1,9 @@
 <article class="card">
+    <?php if ($post->getImage()): ?>
+        <img src="<?= $post->getImageURL('small') ?>" alt="">
+    <?php endif ?>
     <div class="card__body stack">
+
         <h2 class="card__title">
                 <?= $post->getName() ?>
         </h2>
