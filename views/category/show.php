@@ -20,7 +20,7 @@ if ($category->getSlug() !== $slug) {
 $link = $router->url('category', ['id' => $category->getID(), 'slug' => $category->getSlug()]);
 ?>
 
-<section class="event">
+<section class="event big-section">
     <div class="header-section flex">
         <h2 id="event" class="section-title">Voici les posts liés au thème <strong><?= $category->getName() ?></strong>
             <img width="50" src="/img/online.png" alt="posts"> </h2>
