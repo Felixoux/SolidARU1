@@ -19,9 +19,18 @@
 .card__footer {
     min-height: 36px;
     margin-top: auto;
-    padding: 0 calc(var(--space) * 2.3);
+    padding: .7rem calc(var(--space) * 2.3);
     background: var(--bg-card-footer);
     font-size: .9rem;
+    border-top:2px solid var(--primary_b);
+}
+
+.card__header {
+    @extend .flex;
+}
+
+.card__svg{
+    width: 16px;
 }
 
 .card__title {
