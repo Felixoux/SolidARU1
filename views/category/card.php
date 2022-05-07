@@ -1,4 +1,7 @@
 <article class="card card--category">
+    <?php if ($category->getImage()): ?>
+        <img src="<?= $category->getImageURL('small') ?>" alt="">
+    <?php endif ?>
     <div class="card__body stack">
         <div class="card__header">
             <h2 class="card__title"><?= $category->getName() ?></h2>

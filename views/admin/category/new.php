@@ -6,17 +6,19 @@ Auth::check();
 $success = false;
 $errors = [];
 $item = new Category();
+$fields = ['name', 'slug', 'content', 'image'];
 if (!empty($_POST)) {
     $pdo = Connection::getPDO();
     $table = new CategoryTable($pdo);
     $v = new CategoryValidator($_POST, $table);
-    (new App\ObjectHelper)->hydrate($item, $_POST, ['name', 'slug', 'content']);
+    (new App\ObjectHelper)->hydrate($item, $_POST, $fields);
 
     if ($v->validate()) {
         $table->create([
             'name' => $item->getName(),
             'slug' => $item->getSlug(),
-            "content" => $item->getContent()
+            "content" => $item->getContent(),
+            'image' => $item->getImage()
         ]);
         header('Location: ' . $router->url('admin_categories') . '?created=1');
     } else {

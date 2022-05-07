@@ -13,6 +13,7 @@ CREATE TABLE category (
     name VARCHAR (255) NOT NULL,
     content TEXT (1000) NOT NULL,
     slug VARCHAR (255) NOT NULL,
+    image VARCHAR (27),
     PRIMARY KEY (id)
 );
 
