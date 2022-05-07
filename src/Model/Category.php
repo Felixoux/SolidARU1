@@ -14,7 +14,6 @@ class Category
     private $post_id;
     private $post;
 
-
     public function getID(): ?int
     {
         return $this->id;

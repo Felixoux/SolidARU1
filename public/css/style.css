@@ -394,6 +394,10 @@ h5 {
   font-style: italic;
 }
 
+.uppercase {
+  text-transform: uppercase;
+}
+
 .danger {
   color: var(--alert);
 }
@@ -1538,6 +1542,11 @@ section.event .category_svg {
 .lock_svg {
   width: 26px;
   height: auto;
+}
+
+.security-danger-title {
+  color: var(--alert);
+  text-decoration: underline;
 }
 
 .guide {
