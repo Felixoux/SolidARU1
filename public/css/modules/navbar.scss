@@ -8,7 +8,7 @@
     background: var(--bg-light);
 }
 
-.header a, .header button,  .header__logout svg {
+.header a {
     font-family: var(--font-semi);
     &:hover {
         color: var(--primary_b);
