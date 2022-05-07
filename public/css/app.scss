@@ -1,6 +1,7 @@
 /*
     sass --watch public/css/app.scss:public/css/style.css
 */
+//@import "~flatpickr/dist/flatpickr";
 :root {
 	--container-padding: 20px;
 	--container-width: calc(100vw - var(--container-padding) * 2);
@@ -48,7 +49,6 @@ html {scrollbar-width:auto;scrollbar-color: var(--border) transparent;}
 @import "tools/mixins.scss";
 @import "tools/fonts.scss";
 @import "tools/layout.scss";
-// @import "tools/animations.scss";
 
 // ==== Generic ==== 
 body {
@@ -68,7 +68,6 @@ body.dark {
 	color: var(--bright-text);
 }
 
-
 // ==== Modules ====
 @import 'modules/loader.scss';
 @import 'modules/navbar.scss';
@@ -78,11 +77,9 @@ body.dark {
 @import 'modules/alert.scss';
 @import 'modules/form.scss';
 
-// ==== Pages ====
+// ==== Views ====
 @import 'views/e404.scss';
 @import 'views/home.scss';
 @import 'views/article.scss';
 @import 'views/admin.scss';
-@import 'views/login.scss';
-
-
+@import 'views/guide.scss';

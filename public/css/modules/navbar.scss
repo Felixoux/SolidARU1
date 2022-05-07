@@ -6,22 +6,24 @@
     padding-bottom: calc(6 * var(--space));
     z-index: 100;
     background: var(--bg-light);
+}
 
-    a  {
-        font-family: var(--font-semi);
-        &:hover {
-            color: var(--primary_b);
-            svg {fill: var(--primary_b)}
-        }
+.header a, .header button,  .header__logout svg {
+    font-family: var(--font-semi);
+    &:hover {
+        color: var(--primary_b);
+        svg {fill: var(--primary_b)}
+    }
+}
 
-    }
-    svg {
-        width: 16px;
-        height: 16px;
-        margin-right: calc(1 * var(--space));
-        transition: .3s;
-    }
-    &__home {
+.header svg {
+    width: 16px;
+    height: 16px;
+    margin-right: calc(1 * var(--space));
+    transition: .3s;
+}
+
+.header__home {
         display: flex;
         height: 26px;
         border-right: 1px solid var(--border);
@@ -30,96 +32,107 @@
         &, & + li {
             margin-left: 0!important;
         }
-    }
-    &__search, &__logout, &__home {
-        height: 16px;
-        align-items: center;
-        justify-content: flex-start;
-        padding-right: calc(1 * var(--space));
-        border-right: 1px solid var(--border);
-    }
-    &__burger {
-        margin-left: calc(1 * var(--space));
-    }
-    &__burger button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 25px;
-        height: 25px;
-    }
-    &__burger span {
-        font-size: 0;
-        text-indent: -3000px;
-        &::before{
-            bottom: -6px;
-        }
-        &::after {
-            top: -8px;
-        }
-    }
-    &__burger span, &__burger span::before, &__burger span::after {
-        content: "";
-        display: block;
-        width: 14px;
-        height: 2px;
-        background: currentColor;
-        position: relative;
-    }
-    &__burger span::before, &__burger span::after {transition: .3s;}
+}
 
+.header__search, .header__logout, .header__home {
+    height: 16px;
+    align-items: center;
+    justify-content: flex-start;
+    padding-right: calc(1 * var(--space));
+    border-right: 1px solid var(--border);
 }
+
+// Burger
+.header__burger {
+    margin-left: calc(1 * var(--space));
+}
+
+.header__burger button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+}
+
+.header__burger span {
+    font-size: 0;
+    text-indent: -3000px;
+    &::before{
+        bottom: -6px;
+    }
+    &::after {
+        top: -8px;
+    }
+}
+
+.header__burger span, .header__burger span::before, .header__burger span::after {
+    content: "";
+    display: block;
+    width: 14px;
+    height: 2px;
+    background: currentColor;
+    position: relative;
+}
+
+.header__burger span::before, .header__burger span::after {transition: .3s;}
+
 .header ul, .header-nav li {
-    display: flex; align-items: center;
+    display: flex;
+    align-items: center;
 }
+
 .header-nav {
     height: 26px;
     margin-top: -5px;
     margin-bottom: -5px;
     flex-wrap: wrap;
     overflow: hidden;
-    li {
-        height: 26px;
-        white-space: nowrap;
-        margin-left: calc(6 * var(--space));
-    }
 }
+
+.header-nav li {
+    height: 26px;
+    white-space: nowrap;
+    margin-left: calc(6 * var(--space));
+}
+
 .header-side {
     margin-right: calc(-1 * var(--space));
     margin-left: var(--space);
-    > li {
-        margin-right: var(--space);
-    }
 }
+
+.header-side li {
+    margin-right: var(--space);
+}
+
 // When open
 .header.is-open .header-nav {
     @extend %stack;
+    @extend .absolute;
+    position: fixed;
     grid-gap: calc(3 * var(--gap));
     justify-items: center;
     align-content: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 100%;
+    padding: calc(2 * var(--space));
     background: #1a1f42f1 ;
     border: 1px solid var(--border);
-    box-shadow: 0 2px 4px var(--shadow);
     border-radius: 3px;
+    box-shadow: 0 2px 4px var(--shadow);
     transition: opacity .3s;
     z-index: 100;
     backdrop-filter: blur(10px);
-    padding: calc(2 * var(--space));
-    li {
-        display: block;
-        width: 200px;
-        margin-left: 0;
-        a {
-            font-size: 25px;
-        }
-    }
 }
+
+.header.is-open .header-nav li{
+    display: block;
+    width: 200px;
+    margin-left: 0;
+}
+
+.header.is-open .header-nav a{
+    font-size: 25px;
+}
+
 .header.is-open .header-side {
     position: fixed;
     top: calc(3 * var(--space));
@@ -130,6 +143,7 @@
 .header.is-open .header-nav .header__home {
     display: none;
 }
+
 @include up(700) {
     #js-burger {
         display: none;
@@ -140,6 +154,7 @@
         margin: 0;
     }
 }
+
 // Admin
 .header-admin {
     background: var(--bg-dark);

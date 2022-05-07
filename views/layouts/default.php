@@ -8,8 +8,9 @@
     <meta name="keywords" content="ARU1 aru1 solidaru1 solidarité felixoux alwaysdata site">
     <meta name="google-site-verification" content="-UejOj4iwCE1xZZHO3O9gncUUfsEczIaQIitaMI3z-w" />
     <title>Solidarité | <?= isset($pageTitle) ? e($pageTitle) : 'Blog' ?></title>
-    <link rel="shortcut icon" href="/img/svg/logo.svg">
+    <link rel="shortcut icon" href="/img/svg/favicon.svg">
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </head>
 <body>
 <div id="pre-loader" class="active flex-center">
@@ -115,8 +116,9 @@
     ?>
 
 </div>
-<script src=<?= "/js/jquery-3.6.0.min.js" ?>></script>
-<script src=<?= "/js/app.js" ?>></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src= "/js/jquery-3.6.0.min.js"</script>
+<script src= "/js/app.js" </script>
 </body>
 </html>
 
