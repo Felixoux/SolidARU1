@@ -1,15 +1,20 @@
-%card-design,  .card-design{
-    background:var(--bg-card);
-    @include border;
-    box-shadow: var(--shadow);
+%card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    box-shadow: 0 2px 4px var(--shadow);
     transition: .3s;
 }
 
 .card{
-    @extend %card-design;
     position: relative;
     display: flex;
     flex-direction: column;
+    @extend %card;
+}
+
+.card--category {
+    @extend .card;
 }
 
 .card__body{
@@ -43,13 +48,18 @@
     color: var(--muted-text);
 }
 
+.card a {
+    position: relative;
+    z-index:3;
+}
+
 .card__link {
-    @extend .absolute;
     display: block;
-    @include border;
+    @include absolute();
+    @include border(1px, transparent, 3px);
+    z-index: 2 !important;
     transition: .3s;
     cursor: pointer;
-    z-index: 2 !important;
     &:hover {
         border: 1px solid var(--primary_b);
     }

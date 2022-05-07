@@ -1,4 +1,4 @@
-<article class="card">
+<article class="card card--category">
     <div class="card__body stack">
         <div class="card__header">
             <h2 class="card__title"><?= $category->getName() ?></h2>

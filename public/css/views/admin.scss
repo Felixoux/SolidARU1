@@ -31,4 +31,11 @@
 
 .post-listing .admin-card {
     @extend %stack;
+    @extend %card;
+}
+
+// Security
+.lock_svg {
+    width: 26px;
+    height: auto;
 }

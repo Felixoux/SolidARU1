@@ -446,7 +446,7 @@ h5 {
   position: relative;
 }
 
-.absolute, .card__link, .header.is-open .header-nav {
+.absolute, .header.is-open .header-nav {
   position: absolute;
   top: 0;
   left: 0;
@@ -1183,15 +1183,15 @@ body.dark {
   border: var(--success);
 }
 
-.card, .form-card > form, .card-design {
+.post-listing .admin-card, .card--category::before, .card--category::after, .card, .form-card > form, .card--category {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 3px;
-  box-shadow: var(--shadow);
+  box-shadow: 0 2px 4px var(--shadow);
   transition: 0.3s;
 }
 
-.card, .form-card > form {
+.card, .form-card > form, .card--category {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -1224,13 +1224,25 @@ body.dark {
   color: var(--muted-text);
 }
 
+.card a, .form-card > form a, .card--category a {
+  position: relative;
+  z-index: 3;
+}
+
 .card__link {
   display: block;
-  border: 1px solid var(--border);
+  position: absolute !important;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  width: 100%;
+  height: 100%;
+  border: 1px solid transparent;
   border-radius: 3px;
+  z-index: 2 !important;
   transition: 0.3s;
   cursor: pointer;
-  z-index: 2 !important;
 }
 .card__link:hover {
   border: 1px solid var(--primary_b);
@@ -1428,6 +1440,11 @@ input:focus {
     transform: rotate(10deg);
   }
 }
+section.event {
+  position: relative;
+  z-index: 0;
+}
+
 section.event .category_svg {
   width: 26px;
   height: auto;
@@ -1448,6 +1465,33 @@ section.event .category_svg {
 
 .event-card p {
   margin: var(--gap) 0;
+}
+
+.card--category::before, .card--category::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  transition: 0.3s;
+}
+
+.card--category::before {
+  transform: translate(0px, 0px);
+}
+
+.card--category::after {
+  transform: translate(6px, 6px);
+}
+
+.card--category:hover::before {
+  opacity: 1;
+  transform: translate(0, 0) rotate(-3deg);
+}
+.card--category:hover::after {
+  transform: translate(6px, 6px) rotate(3deg);
 }
 
 .article__header {
@@ -1489,6 +1533,11 @@ section.event .category_svg {
 .post-listing .admin-card__option a:first-child {
   display: inline-block;
   margin-right: 1rem;
+}
+
+.lock_svg {
+  width: 26px;
+  height: auto;
 }
 
 .guide {
