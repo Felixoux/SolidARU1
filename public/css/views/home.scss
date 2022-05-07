@@ -63,7 +63,7 @@
 }
 
 section.event .category_svg {
-    width: 26px;
+    width: 26px!important;
     margin-left: 1rem;
 
     @include down(415) {
