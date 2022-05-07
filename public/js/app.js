@@ -12,3 +12,15 @@ $('#js-burger').click(function () {
     $('.header').toggleClass('is-open');
     $('#js-burger span').toggleClass('burger-span');
 })
+
+$(".withSpace").keyup(function(){
+    let replaceSpace = $(this).val();
+    let result = replaceSpace.replace(/#|_| |@|<|>/g, "-")
+        .replace(/é|è|ê/g, "e")
+        .replaceAll('?', "-")
+        .replaceAll('!', "-");
+    // update
+    $(".withDash").val(result);
+});
+
+
