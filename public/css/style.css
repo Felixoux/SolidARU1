@@ -1121,6 +1121,7 @@ body.dark {
 .header-admin {
   background: var(--bg-dark);
   border-bottom: 1px solid var(--border);
+  position: relative;
 }
 
 .burger-span {
