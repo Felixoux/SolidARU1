@@ -6,7 +6,6 @@ use App\{Model\Post, paginatedQuery};
 
 class PostTable extends Table
 {
-
     protected $table = "post";
     protected $class = Post::class;
 

@@ -7,7 +7,7 @@ Auth::check();
 $pdo = Connection::getPDO();
 $table = new CategoryTable($pdo);
 $category = $table->find($params['id']);
-CategoryAttachment::detach($category);
+(new CategoryAttachment)->detach($category);
 $table->delete($params['id']);
 header('Location: ' . $router->url('admin_categories') . '?delete=1');
 ?>

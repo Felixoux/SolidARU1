@@ -21,7 +21,8 @@ if (!empty($_POST)) {
     ObjectHelper::hydrate($item, $data, $fields);
 
     if ($v->validate()) {
-        CategoryAttachment::upload($item);
+        $categoryAttachment = new CategoryAttachment;
+        $categoryAttachment->upload($item);
         $table->update([
             'name' => $item->getName(),
             'slug' => $item->getSlug(),

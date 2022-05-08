@@ -1,23 +1,34 @@
 <?php
 
-use App\{Auth, Connection, HTML\Form, Model\Category, Table\CategoryTable, Validators\CategoryValidator};
+use App\{Attachment\CategoryAttachment,
+    Auth,
+    Connection,
+    HTML\Form,
+    Model\Category,
+    ObjectHelper,
+    Table\CategoryTable,
+    Validators\CategoryValidator};
 
 Auth::check();
+$item = new Category();
 $success = false;
 $errors = [];
-$item = new Category();
+
 $fields = ['name', 'slug', 'content', 'image'];
+$data = array_merge($_POST, $_FILES);
 if (!empty($_POST)) {
     $pdo = Connection::getPDO();
     $table = new CategoryTable($pdo);
-    $v = new CategoryValidator($_POST, $table);
-    (new App\ObjectHelper)->hydrate($item, $_POST, $fields);
+    $v = new CategoryValidator($data, $table);
+    ObjectHelper::hydrate($item, $data, $fields);
 
-    if ($v->validate()) {
+    if($v->validate()) {
+        $categoryAttachment = new CategoryAttachment;
+        $categoryAttachment->upload($item);
         $table->create([
             'name' => $item->getName(),
             'slug' => $item->getSlug(),
-            "content" => $item->getContent(),
+            'content' => $item->getContent(),
             'image' => $item->getImage()
         ]);
         header('Location: ' . $router->url('admin_categories') . '?created=1');

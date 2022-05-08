@@ -26,7 +26,7 @@ if (!empty($_POST)) {
 
     if ($v->validate()) {
         $pdo->beginTransaction();
-        PostAttachment::upload($post);
+        (new PostAttachment)->upload($post);
         $postTable->createPost($post);
         $postTable->attachCategories($post->getID(), $_POST['categories_ids']);
         $pdo->commit();

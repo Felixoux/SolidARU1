@@ -3,9 +3,20 @@
 namespace App\Attachment;
 
 use App\Model\Category;
-use Intervention\Image\ImageManager;
 
-class CategoryAttachment
+class CategoryAttachment extends Attachment {
+    //
+    protected $path = UPLOAD_PATH . DIRECTORY_SEPARATOR . "categories";
+
+
+
+}
+
+
+
+
+// In case of problem here is the working code
+/*class CategoryAttachment
 {
     const DIRECTORY = UPLOAD_PATH . DIRECTORY_SEPARATOR . "categories";
     public static function upload(Category $category): void
@@ -58,4 +69,4 @@ class CategoryAttachment
         }
     }
 
-}
+}*/
