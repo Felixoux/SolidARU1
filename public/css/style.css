@@ -313,6 +313,10 @@ strong {
   color: var(--primary_o);
 }
 
+em {
+  font-style: italic;
+}
+
 .danger, .alert {
   color: var(--alert);
 }
@@ -1626,6 +1630,12 @@ section.event .category_svg {
 .post-listing .admin-card__option a:first-child {
   display: inline-block;
   margin-right: 1rem;
+}
+
+@media (min-width: 1225px) {
+  .post-listing .admin-card {
+    gap: 0;
+  }
 }
 
 .lock_svg {

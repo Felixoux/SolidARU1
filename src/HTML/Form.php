@@ -23,7 +23,7 @@ class Form
         return <<<HTML
         <div class="form-group">
             <p class="{$this->getInputClass($key)}">{$this->getErrorFeedback($key)}</p>
-            <label for="$key">$label *</label>
+            <label for="$key">$label <span class="alert">*</span></label>
             <input type="$type" name="$key" id="$key" value="$value" class="$class" placeholder="$label" required>
         </div>
         HTML;
@@ -36,6 +36,7 @@ class Form
         <div class="form-group">
             <p class="{$this->getInputClass($key)}">{$this->getErrorFeedback($key)}</p>
             <label for="$key">$label</label>
+            <p class="muted mb1">Évitez les fichiers trop lourd pour ne pas ralentir le site</p>
             <input type="file" name="$key" id="$key">
         </div>
         HTML;
@@ -58,7 +59,7 @@ class Form
         return <<<HTML
         <div class="form-group">
             <p class="{$this->getInputClass($key)}">{$this->getErrorFeedback($key)}</p>
-            <label for="$key">$label *</label>
+            <label for="$key">$label <span class="alert">*</span></label>
             <textarea type="text" name="$key" id="$key" placeholder="$label" required>$value</textarea>
         </div>
         HTML;
@@ -77,7 +78,7 @@ class Form
         return <<<HTML
         <div class="form-group">
             <p class="{$this->getInputClass($key)}">{$this->getErrorFeedback($key)}</p>
-            <label for="$key">$label *</label>
+            <label for="$key">$label <span class="alert">*</span></label>
             <select name="{$key}[]" id="$key" required multiple>$optionsHTML</select>
         </div>
         HTML;

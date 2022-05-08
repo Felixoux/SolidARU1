@@ -32,6 +32,9 @@
 .post-listing .admin-card {
     @extend %stack;
     @extend %card;
+    @include up(1225) {
+        gap: 0;
+    }
 }
 
 // Security
