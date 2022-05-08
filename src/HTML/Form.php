@@ -23,7 +23,7 @@ class Form
         return <<<HTML
         <div class="form-group">
             <p class="{$this->getInputClass($key)}">{$this->getErrorFeedback($key)}</p>
-            <label for="$key">$label</label>
+            <label for="$key">$label *</label>
             <input type="$type" name="$key" id="$key" value="$value" class="$class" placeholder="$label" required>
         </div>
         HTML;
@@ -58,7 +58,7 @@ class Form
         return <<<HTML
         <div class="form-group">
             <p class="{$this->getInputClass($key)}">{$this->getErrorFeedback($key)}</p>
-            <label for="$key">$label</label>
+            <label for="$key">$label *</label>
             <textarea type="text" name="$key" id="$key" placeholder="$label" required>$value</textarea>
         </div>
         HTML;
@@ -77,7 +77,7 @@ class Form
         return <<<HTML
         <div class="form-group">
             <p class="{$this->getInputClass($key)}">{$this->getErrorFeedback($key)}</p>
-            <label for="$key">$label</label>
+            <label for="$key">$label *</label>
             <select name="{$key}[]" id="$key" required multiple>$optionsHTML</select>
         </div>
         HTML;

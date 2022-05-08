@@ -1,5 +1,6 @@
 <section class="mt4">
     <form action="" method="POST" enctype="multipart/form-data">
+        <p class="alert">* champs requis</p>
         <?= $form->input('name', 'Titre', 'withSpace') ?>
         <?= $form->input('slug', 'URL', 'withDash') ?>
         <?php if($post->getImage()): ?>
