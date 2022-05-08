@@ -119,7 +119,7 @@ class Post
 
     public function getImage(): ?string
     {
-        return e($this->image);
+        return $this->image;
     }
 
     public function setImage($image): self
@@ -148,7 +148,7 @@ class Post
 
     public function getOldImage(): ?string
     {
-        return e($this->oldImage);
+        return $this->oldImage;
     }
 
     public function shouldUpload(): bool

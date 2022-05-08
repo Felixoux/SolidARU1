@@ -82,7 +82,7 @@ class Category
 
     public function getImage(): ?string
     {
-        return e($this->image);
+        return $this->image;
     }
 
     public function setImage($image): self
@@ -111,7 +111,7 @@ class Category
 
     public function getOldImage(): ?string
     {
-        return e($this->oldImage);
+        return $this->oldImage;
     }
 
     public function shouldUpload(): bool

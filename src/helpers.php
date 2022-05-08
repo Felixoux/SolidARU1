@@ -2,5 +2,5 @@
 
 function e(?string $string): ?string
 {
-    return htmlentities($string, ENT_HTML5);
+    return htmlspecialchars($string, ENT_QUOTES);
 }
