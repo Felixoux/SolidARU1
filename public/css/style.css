@@ -960,12 +960,14 @@ body.dark {
   }
 }
 .header {
-  position: relative;
+  position: fixed;
+  top: 0;
   line-height: 1;
   padding-top: calc(6 * var(--space));
   padding-bottom: calc(6 * var(--space));
   z-index: 100;
   background: var(--bg-light);
+  transition: all 0.3s;
 }
 
 .header a, .header button, .header__logout svg {
@@ -1138,6 +1140,10 @@ body.dark {
   left: 0;
   background-color: var(--bg-light);
   clip-path: polygon(0 0, 100% 90%, 100% 0);
+}
+
+.nav-up {
+  top: -110px;
 }
 
 .btn, .btn-alert-success, .btn-alert, .btn-secondary, .btn-card, .btn-primary-outline, .btn-primary {

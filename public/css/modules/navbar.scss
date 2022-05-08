@@ -1,11 +1,13 @@
 .header {
     @extend %flex;
-    position: relative;
+    position: fixed;
+    top: 0;
     line-height: 1;
     padding-top: calc(6 * var(--space));
     padding-bottom: calc(6 * var(--space));
     z-index: 100;
     background: var(--bg-light);
+    transition: all .3s;
 }
 
 .header a, .header button,  .header__logout svg {
@@ -180,4 +182,9 @@
     left: 0;
     background-color: var(--bg-light);
     clip-path: polygon(0 0, 100% 90%, 100% 0);
+}
+
+// === STICKY HEADER ===
+.nav-up {
+    top: -110px;
 }

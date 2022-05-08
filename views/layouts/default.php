@@ -21,7 +21,7 @@ use App\Auth;
     <div class="loader"></div>
 </div>
 <div class="page-wrapper relative">
-    <nav class="header">
+    <nav class="header nav-down">
         <ul class="header-nav">
             <li class="header__home"><a class="underline" href="<?= $router->url('home') ?>">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" fill="#EBF1FF" id="home">
