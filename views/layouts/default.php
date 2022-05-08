@@ -171,7 +171,13 @@ use App\Auth;
     /** @var string $content */
     $content
     ?>
-
+    <div class="theme-switcher-title ml5 mb2 mt3">Thème</div>
+    <div class="theme-switcher ml5 form-switch mb3">
+        <input type="checkbox" id="theme-switcher" name="theme-switcher" value="1" aria-label="Changer le thème" checked>
+        <label for="theme-switcher">
+            <span class="switch"></span>
+        </label>
+    </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src=<?= "/js/jquery-3.6.0.min.js" ?>></script>

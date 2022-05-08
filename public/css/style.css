@@ -28,6 +28,20 @@
   --page-height:calc(100Vh - 120px);
 }
 
+:root body.light-theme {
+  --bg-card: #FFF;
+  --bg-card-footer: #d9d9dc;
+  --bg-light: #e3e6e8;
+  --bg-dark: #f8fbfb;
+  --muted-text: #121c4299;
+  --text:#1A1F42;
+  --bright-text: #111a3c;
+  --primary_b: #0079d1;
+  --primary_b25: rgba(163, 252, 255, 0.12);
+  --border: #c1c1c1;
+  --shadow: 10px 10px 3px -7px rgba(0, 0, 0, 0.25);
+}
+
 ::-webkit-scrollbar {
   width: 13.5px;
 }

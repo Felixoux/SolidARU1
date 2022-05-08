@@ -23,4 +23,9 @@ $(".withSpace").keyup(function(){
     $(".withDash").val(result);
 });
 
-
+// theme switcher
+$(document).ready(function () {
+    $('#theme-switcher').click(function () {
+        $('body').toggleClass("light-theme")
+    })
+})
