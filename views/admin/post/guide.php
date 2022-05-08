@@ -7,6 +7,9 @@ Auth::check();
 
 <section class="guide">
     <h1 class="section-title">Guide d'écriture <strong>simplifiée</strong></h1>
+    <p class="alert">Attention, l'espace entre les caractères spéciaux et le texte est très important !<br>
+        Exemple : #Titre est différent de # Titre
+    </p>
     <div class="guide-control">
         <h3 class="guide-control__title">Écrire un titre</h3>
         <div class="guide-control__content">
@@ -82,7 +85,7 @@ Auth::check();
     <div class="guide-control">
         <h3 class="guide-control__title">Résultat</h3>
         <div class="guide-control__content">
-            <a href="#">Lien visible sur le site</a>
+            <p>Lien visible sur le site</p>
         </div>
     </div>
     <div class="guide-control">

@@ -7,6 +7,7 @@
     <title>Solidarité | <?= isset($pageTitle) ? e($pageTitle) : 'Blog' ?></title>
     <link rel="shortcut icon" href="/img/svg/favicon.svg">
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.css">
 </head>
 <body>
 <div id="pre-loader" class="active flex-center">
@@ -152,6 +153,7 @@ l42 -19 0 -274 c0 -253 2 -277 20 -312 57 -113 223 -113 280 0 18 35 20 59 20
         <?= $content ?>
     </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js"></script>
 <script src=<?= "/js/jquery-3.6.0.min.js" ?>></script>
 <script src=<?= "/js/app.js" ?>></script>
 </body>
