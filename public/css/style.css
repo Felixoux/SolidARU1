@@ -1538,11 +1538,6 @@ section.event .category_svg {
   height: auto;
 }
 
-.security-danger-title {
-  color: var(--alert);
-  text-decoration: underline;
-}
-
 .guide {
   margin-top: calc(var(--space-section) / 3);
   gap: calc(2 * var(--gap));
