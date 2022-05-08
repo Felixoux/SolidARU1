@@ -6,7 +6,6 @@ use App\Security\ForbidenException;
 
 class Auth
 {
-
     /**
      * @throws ForbidenException
      */
@@ -18,5 +17,13 @@ class Auth
         if(!isset($_SESSION['auth'])) {
             throw new ForbidenException();
         }
+    }
+
+    public static function is_connected(): bool
+    {
+        if(isset($_SESSION['auth'])) {
+            return true;
+        }
+        return false;
     }
 }

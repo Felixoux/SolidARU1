@@ -31,7 +31,7 @@ class Category
 
     public function getName(): ?string
     {
-        return e($this->name);
+        return $this->name;
     }
 
     public function setName($name): self
@@ -42,7 +42,7 @@ class Category
 
     public function getSlug(): ?string
     {
-        return e($this->slug);
+        return $this->slug;
     }
 
     public function setSlug($slug): self
@@ -53,7 +53,7 @@ class Category
 
     public function getContent(): ?string
     {
-        return e($this->content);
+        return $this->content;
     }
 
     public function setContent($content): self
@@ -67,7 +67,7 @@ class Category
         if ($this->content === null) {
             return $this->content;
         }
-        return e(Text::exerpt($this->content, $limit));
+        return Text::exerpt($this->content, $limit);
     }
 
     public function getPostID(): ?int

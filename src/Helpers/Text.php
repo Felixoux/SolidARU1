@@ -19,12 +19,10 @@ class Text
         if (strlen($string) < 50) {
             return $string;
         }
-        $string = e($string);
         $strArray = explode(' ', $string);
         $word = $strArray[$position - 1];
         $replace = '<strong>' . $word . '</strong>';
-        $sentence = str_replace($word, $replace, $string);
-        return $sentence;
+        return str_replace($word, $replace, $string);
     }
 
     public static function parseDown(string $content): string
