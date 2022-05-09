@@ -31,7 +31,7 @@ class Form
 
     public function file(string $key, string $label): string
     {
-        $filed = $label === 'Ajouter des images' ? 'multiple' : '';
+        $filed = $label === 'Ajouter des images' ? 'multiple required' : '';
         $type = $key === "password" ? 'password' : 'text';
         return <<<HTML
         <div class="form-group">
