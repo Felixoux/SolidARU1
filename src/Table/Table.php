@@ -93,7 +93,7 @@ abstract class Table
         return (int)$this->pdo->lastInsertId();
     }
 
-    public function queryAndFetchALl(string $sql): array
+    public function queryAndFetchAll(string $sql): array
     {
         return $this->pdo->query($sql, PDO::FETCH_CLASS, $this->class)->fetchAll();
     }

@@ -6,7 +6,6 @@ use Intervention\Image\ImageManager;
 
 abstract class Attachment
 {
-    // !!!!!!
     protected $path = null;
     protected $formats = [];
 
@@ -58,12 +57,6 @@ abstract class Attachment
             if(file_exists($file)) {
                 unlink($file);
             }
-            /*foreach ($formats as $format) {
-                $file = $this->path . DIRECTORY_SEPARATOR . $item->getImage() . '_' . $format . '.jpg';
-                if(file_exists($file)) {
-                    unlink($file);
-                }
-            }*/
         }
     }
 }

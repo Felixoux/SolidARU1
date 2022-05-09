@@ -17,6 +17,10 @@ $router
 ->match('/admin/category/[i:id]', 'admin/category/edit', 'admin_category')
 ->post('/admin/category/[i:id]/delete', 'admin/category/delete', 'admin_category_delete')
 ->match('/admin/category/new', 'admin/category/new', 'admin_category_new')
+// Image
+->get('/admin/images', 'admin/image/index',  'admin_images')
+->post('/admin/image/[i:id]/delete', 'admin/image/delete', 'admin_image_delete')
+->match('/admin/image/new', 'admin/image/new', 'admin_image_new')
 // SECURITY
 ->match('/admin/security', 'admin/security/index', 'security')
 ->run();

@@ -8,7 +8,7 @@
         <?php endif ?>
         <?= $form->file('image', 'Image à la une') ?>
         <?= $form->textarea('content', 'Résumé') ?>
-        <button class="btn-primary">
+        <button type="submit" class="btn-primary">
             <?php if ($item->getID() !== null): ?>
                 Modifier
             <?php else: ?>

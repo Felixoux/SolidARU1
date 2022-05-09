@@ -31,13 +31,14 @@ class Form
 
     public function file(string $key, string $label): string
     {
+        $filed = $label === 'Ajouter des images' ? 'multiple' : '';
         $type = $key === "password" ? 'password' : 'text';
         return <<<HTML
         <div class="form-group">
             <p class="{$this->getInputClass($key)}">{$this->getErrorFeedback($key)}</p>
             <label for="$key">$label</label>
             <p class="muted mb1">Évitez les fichiers trop lourd pour ne pas ralentir le site</p>
-            <input type="file" name="$key" id="$key">
+            <input type="file" name="$key" id="$key" $filed>
         </div>
         HTML;
     }
