@@ -10,7 +10,11 @@ $query->execute(['id' => $id]);
 $query->setFetchMode(PDO::FETCH_CLASS, Post::class);
 /** @var Post|false */
 $post = $query->fetch();
-
+// ===========
+$categories = $post->getCategories();
+foreach ($categories as $k => $category) {
+    dd($category->getName());
+}
 
 if ($post === false) {
     throw new Exception('Aucun post ne correspond a cet ID');
@@ -36,6 +40,9 @@ $pageTitle = $post->getName();
     <?php endif ?>
     <div class="article__content">
         <?= $post->getBody() ?>
+        <?php foreach ($categories as $k => $category): ?>
+        <?= var_dump($category->getName()) . $k ?>
+        <?php endforeach; ?>
     </div>
     <a href="#">
         <button class="article__button f-right">Revenir aux articles</button>

@@ -8,6 +8,7 @@
         <?php endif ?>
         <?= $form->file('image', 'Image à la une') ?>
         <?= $form->select('categories_ids', 'Catégories', $categories) ?>
+        <?= $form->select('images_ids', 'Images', $images) ?>
         <a class="underline" href="<?= $router->url('admin_guide') ?>">Guide d'écriture simplifié (pour le contenu uniquement)</a>
         <?= $form->textarea('content', 'Contenu') ?>
         <?= $form->input('created_at', 'Date de publication', 'datepicker') ?>

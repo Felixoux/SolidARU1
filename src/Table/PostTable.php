@@ -41,6 +41,15 @@ class PostTable extends Table
         }
     }
 
+    public function attachImages(int $id, array $images): void
+    {
+        $this->pdo->exec("DELETE FROM post_image WHERE post_id = " . $id);
+        $query = $this->pdo->prepare("INSERT INTO post_image SET post_id = ?, image_id = ?");
+        foreach ($images as $image) {
+            $query->execute([$id, $image]);
+        }
+    }
+
     public function findPaginated(): array
     {
         $paginatedQuery = new paginatedQuery(

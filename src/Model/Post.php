@@ -13,7 +13,8 @@ class Post
     private ?string $content = null;
     private ?string $slug = null;
     private $created_at;
-    private array $categories = [];
+    private $categories = [];
+    private array $images = [];
     private $image;
     private $oldImage;
     private $pendingUpload = false;
@@ -102,6 +103,12 @@ class Post
         return $this;
     }
 
+    public function setImages(array $images): self
+    {
+        $this->categories = $images;
+        return $this;
+    }
+
     public function getCategoriesIds(): array
     {
         $ids = [];
@@ -111,10 +118,25 @@ class Post
         return $ids;
     }
 
+    public function getImagesIds(): array
+    {
+        $ids = [];
+        foreach ($this->images as $image) {
+            $ids[] = $image->getID();
+        }
+        return $ids;
+    }
+
     public function addCategory(Category $category): void
     {
         $this->categories[] = $category;
         $category->setPost($this);
+    }
+
+    public function addImage(Image $image): void
+    {
+        $this->images[] = $image;
+        $image->setPost($this);
     }
 
     public function getImage(): ?string

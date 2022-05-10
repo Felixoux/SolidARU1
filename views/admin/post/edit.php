@@ -10,16 +10,21 @@ use App\{Attachment\PostAttachment,
     HTML\Form,
     ObjectHelper,
     Table\CategoryTable,
+    Table\ImageTable,
     Table\PostTable,
     Validators\PostValidator};
 
 Auth::check();
 $pdo = Connection::getPDO();
 $postTable = new PostTable($pdo);
+$post = $postTable->find($params['id']);
 $categoryTable = new CategoryTable($pdo);
 $categories = $categoryTable->list();
-$post = $postTable->find($params['id']);
+$imageTable = new ImageTable($pdo);
+$images = $imageTable->list();
+$imageTable->hydratePosts([$post]);
 $categoryTable->hydratePosts([$post]);
+
 $success = false;
 
 $errors = [];
@@ -33,6 +38,7 @@ if (!empty($_POST)) {
         (new PostAttachment())->upload($post);
         $postTable->updatePost($post);
         $postTable->attachCategories($post->getID(), $_POST['categories_ids']);
+        $postTable->attachImages($post->getID(), $_POST['images_ids']);
         $categoryTable->hydratePosts([$post]);
         $pdo->commit();
         $success = true;

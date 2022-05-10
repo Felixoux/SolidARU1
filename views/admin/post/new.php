@@ -6,6 +6,7 @@ use App\{Attachment\PostAttachment,
     HTML\Form,
     Model\Post,
     Table\CategoryTable,
+    Table\ImageTable,
     Table\PostTable,
     Validators\PostValidator};
 
@@ -15,8 +16,8 @@ $errors = [];
 
 $pdo = Connection::getPDO();
 $post = new Post();
-$categoryTable = new CategoryTable($pdo);
-$categories = $categoryTable->list();
+$categories = (new CategoryTable($pdo))->list();
+$images = (new ImageTable($pdo))->list();
 $post->setCreatedAt(date('Y-m-d H:i:s'));
 if (!empty($_POST)) {
     $postTable = new PostTable($pdo);
@@ -29,6 +30,7 @@ if (!empty($_POST)) {
         (new PostAttachment)->upload($post);
         $postTable->createPost($post);
         $postTable->attachCategories($post->getID(), $_POST['categories_ids']);
+        $postTable->attachImages($post->getID(), $_POST['images_ids']);
         $pdo->commit();
         header('Location: ' . $router->url('admin_posts') . '?created=1');
     } else {
