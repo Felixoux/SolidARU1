@@ -24,7 +24,6 @@ if (!empty($_POST)) {
     $data = array_merge($_POST, $_FILES);
     $v = new PostValidator($data, $postTable, $post->getID(), $categories);
     (new App\ObjectHelper)->hydrate($post, $data, ['name', 'content', 'slug', 'created_at', 'image']);
-
     if ($v->validate()) {
         $pdo->beginTransaction();
         (new PostAttachment)->upload($post);

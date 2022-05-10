@@ -37,6 +37,14 @@
     }
 }
 
+.article__images {
+    @extend %grid-fill;
+}
+
+
+
+
+
 // Security
 .lock_svg {
     width: 26px;

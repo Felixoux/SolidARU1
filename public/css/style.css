@@ -605,6 +605,7 @@ header, section, main, footer, nav, .container, .header, .footer, .main, form {
   grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
 }
 
+.article__images,
 .grid-fill {
   display: grid;
   gap: calc(var(--gap) * 2);

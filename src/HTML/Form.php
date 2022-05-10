@@ -74,13 +74,14 @@ class Form
             $selected = in_array($k, $value) ? ' selected' : '';
             $optionsHTML[] = "<option value=\"$k\"$selected>$v</option>";
         }
+        $required = $key === 'images_ids' ? '': 'required';
 
         $optionsHTML = implode('', $optionsHTML);
         return <<<HTML
         <div class="form-group">
             <p class="{$this->getInputClass($key)}">{$this->getErrorFeedback($key)}</p>
             <label for="$key">$label <span class="alert">*</span></label>
-            <select name="{$key}[]" id="$key" required multiple>$optionsHTML</select>
+            <select name="{$key}[]" id="$key" $required multiple>$optionsHTML</select>
         </div>
         HTML;
     }

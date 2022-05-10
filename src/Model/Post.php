@@ -14,8 +14,8 @@ class Post
     private ?string $slug = null;
     private $created_at;
     private $categories = [];
-    private array $images = [];
-    private $image;
+    private $images = []; // Images mutliple
+    private $image; // Image à la une
     private $oldImage;
     private $pendingUpload = false;
 
