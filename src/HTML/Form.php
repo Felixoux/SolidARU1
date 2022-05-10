@@ -24,7 +24,7 @@ class Form
         <div class="form-group">
             <p class="{$this->getInputClass($key)}">{$this->getErrorFeedback($key)}</p>
             <label for="$key">$label <span class="alert">*</span></label>
-            <input type="$type" name="$key" id="$key" value="$value" class="$class" placeholder="$label" required>
+            <input type="$type" name="$key" maxlength="2" id="$key" value="$value" class="$class" placeholder="$label" required>
         </div>
         HTML;
     }

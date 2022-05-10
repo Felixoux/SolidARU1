@@ -7,6 +7,7 @@ use App\Model\Post;
 use App\paginatedQuery;
 use App\Table\Exception\NotFoundException;
 use PDO;
+use App\Router;
 
 class CategoryTable extends Table
 {

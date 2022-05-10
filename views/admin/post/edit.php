@@ -30,7 +30,7 @@ $success = false;
 $errors = [];
 if (!empty($_POST)) {
     $data = array_merge($_POST, $_FILES);
-    $v = new PostValidator($data, $postTable, $post->getID(), $categories);
+    $v = new PostValidator($data, $postTable, $post->getID(), $categories, $images);
     ObjectHelper::hydrate($post, $data, ['name', 'content', 'slug', 'created_at', 'image']);
 
     if ($v->validate()) {
@@ -38,7 +38,9 @@ if (!empty($_POST)) {
         (new PostAttachment())->upload($post);
         $postTable->updatePost($post);
         $postTable->attachCategories($post->getID(), $_POST['categories_ids']);
-        $postTable->attachImages($post->getID(), $_POST['images_ids']);
+        if(isset($_POST['images_ids'])) {
+            $postTable->attachImages($post->getID(), $_POST['images_ids']);
+        }
         $categoryTable->hydratePosts([$post]);
         $pdo->commit();
         $success = true;

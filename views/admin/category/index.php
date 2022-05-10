@@ -7,7 +7,8 @@ Auth::check();
 $pageTitle = 'Gestion des catégories';
 $pdo = Connection::getPDO();
 $link = $router->url('admin_categories');
-$items = (new CategoryTable($pdo))->all();
+[$items, $pagination] = (new CategoryTable($pdo))->findPaginated();
+
 ?>
 <?php if (isset($_GET['delete'])): ?>
     <p class="alert alert-success">La catégorie a bien été supprimé</p>
@@ -43,6 +44,11 @@ $items = (new CategoryTable($pdo))->all();
             <?php endforeach ?>
         </section
     </section>
+
+<div class="footer-links">
+    <?= $pagination->previousLink($link) ?>
+    <?= $pagination->nextLink($link) ?>
+</div>
 
 
 

@@ -1,5 +1,8 @@
 <?php
-
+$css_flatpickr = '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.css">';
+$beforeBodyContent = ob_before($css_flatpickr);
+$js_flatpickr = '<script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js"></script>';
+$afterBodyContent = ob_after($js_flatpickr);
 use App\{Attachment\PostAttachment,
     Auth,
     Connection,
@@ -29,7 +32,9 @@ if (!empty($_POST)) {
         (new PostAttachment)->upload($post);
         $postTable->createPost($post);
         $postTable->attachCategories($post->getID(), $_POST['categories_ids']);
-        $postTable->attachImages($post->getID(), $_POST['images_ids']);
+        if(isset($_POST['images_ids'])) {
+            $postTable->attachImages($post->getID(), $_POST['images_ids']);
+        }
         $pdo->commit();
         header('Location: ' . $router->url('admin_posts') . '?created=1');
     } else {
