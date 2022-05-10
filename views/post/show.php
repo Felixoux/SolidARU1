@@ -1,20 +1,12 @@
 <?php
 require AUTOLOAD_PATH;
 
-use App\{Connection, Helpers\Text, Model\Post};
+use App\{Connection, Helpers\Text, Model\Post, Table\PostTable};
 $id = (int)$params['id'];
 $slug = $params['slug'];
 $pdo = Connection::getPDO();
-$query = $pdo->prepare("SELECT * FROM post WHERE id = :id");
-$query->execute(['id' => $id]);
-$query->setFetchMode(PDO::FETCH_CLASS, Post::class);
 /** @var Post|false */
-$post = $query->fetch();
-// ===========
-$categories = $post->getCategories();
-foreach ($categories as $k => $category) {
-    dd($category->getName());
-}
+$post = (new PostTable($pdo))->find($id);
 
 if ($post === false) {
     throw new Exception('Aucun post ne correspond a cet ID');
@@ -40,9 +32,6 @@ $pageTitle = $post->getName();
     <?php endif ?>
     <div class="article__content">
         <?= $post->getBody() ?>
-        <?php foreach ($categories as $k => $category): ?>
-        <?= var_dump($category->getName()) . $k ?>
-        <?php endforeach; ?>
     </div>
     <a href="#">
         <button class="article__button f-right">Revenir aux articles</button>

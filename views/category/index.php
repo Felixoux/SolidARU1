@@ -11,8 +11,8 @@ $pdo = Connection::getPDO();
 $table = new CategoryTable($pdo);
 [$categories, $pagination] = $table->findPaginated();
 $postTable = new \App\Table\PostTable($pdo);
-
 $link = $router->url('home');
+
 ?>
 
 <img class="mobile-only" src="img/banner.jpg" alt="banner" width="1920">

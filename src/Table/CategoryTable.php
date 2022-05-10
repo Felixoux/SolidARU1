@@ -5,6 +5,7 @@ namespace App\Table;
 use App\Model\Category;
 use App\Model\Post;
 use App\paginatedQuery;
+use App\Table\Exception\NotFoundException;
 use PDO;
 
 class CategoryTable extends Table
