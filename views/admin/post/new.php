@@ -5,15 +5,17 @@ $js_flatpickr = '<script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4
 $afterBodyContent = ob_after($js_flatpickr);
 use App\{Attachment\PostAttachment,Auth,Connection,HTML\Form,Model\Post,Table\CategoryTable,Table\ImageTable,Table\PostTable,Validators\PostValidator};
 
-Auth::check();
-$success = false;
-$errors = [];
 
+
+Auth::check();
 $pdo = Connection::getPDO();
 $post = new Post();
 $categories = (new CategoryTable($pdo))->list();
 $images = (new ImageTable($pdo))->list();
 $post->setCreatedAt(date('Y-m-d H:i:s'));
+
+$success = false;
+$errors = [];
 if (!empty($_POST)) {
     $postTable = new PostTable($pdo);
     $data = array_merge($_POST, $_FILES);

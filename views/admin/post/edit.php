@@ -4,29 +4,22 @@ $beforeBodyContent = ob_before($css_flatpickr);
 $js_flatpickr = '<script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js"></script>';
 $afterBodyContent = ob_after($js_flatpickr);
 
-use App\{Attachment\PostAttachment,
-    Auth,
-    Connection,
-    HTML\Form,
-    ObjectHelper,
-    Table\CategoryTable,
-    Table\ImageTable,
-    Table\PostTable,
-    Validators\PostValidator};
+use App\{Attachment\PostAttachment,Auth,Connection,HTML\Form,ObjectHelper,Table\CategoryTable,Table\ImageTable,Table\PostTable,Validators\PostValidator};
 
 Auth::check();
 $pdo = Connection::getPDO();
 $postTable = new PostTable($pdo);
 $post = $postTable->find($params['id']);
+// Categories
 $categoryTable = new CategoryTable($pdo);
 $categories = $categoryTable->list();
+$categoryTable->hydratePosts([$post]);
+// Images
 $imageTable = new ImageTable($pdo);
 $images = $imageTable->list();
 $imageTable->hydratePosts([$post]);
-$categoryTable->hydratePosts([$post]);
 
 $success = false;
-
 $errors = [];
 if (!empty($_POST)) {
     $data = array_merge($_POST, $_FILES);
