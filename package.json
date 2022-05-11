@@ -1,0 +1,25 @@
+{
+  "name": "solidaru1",
+  "version": "2.1.3",
+  "description": "Site de l'association des amis ARU1",
+  "main": "app.js",
+  "scripts": {
+    "fill": "/commands/fill.php"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/felixgeorgeault/solidaru1.git"
+  },
+  "keywords": [
+    "Site",
+    "Solidaru1"
+  ],
+  "author": "Felix Georgeault",
+  "license": "ISC",
+  "homepage": "https://github.com/felixgeorgeault/solidaru1#readme",
+  "dependencies": {
+    "flatpickr": "^4.6.13",
+    "jquery": "^3.6.0",
+    "simplemde": "^1.11.2"
+  }
+}
