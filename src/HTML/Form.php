@@ -80,7 +80,12 @@ class Form
             $selected = in_array($k, $value) ? ' selected' : '';
             $optionsHTML[] = "<option value=\"$k\"$selected>$v</option>";
         }
-        $required = $key === 'images_ids' ? '' : 'required';
+
+        if($key === 'categories_ids') {
+            $required = 'required';
+        } else {
+            $required = '';
+        }
 
         $optionsHTML = implode('', $optionsHTML);
         return <<<HTML
