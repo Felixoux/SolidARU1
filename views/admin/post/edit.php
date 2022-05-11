@@ -13,15 +13,20 @@ use App\{Attachment\PostAttachment,
     HTML\Form,
     ObjectHelper,
     Table\CategoryTable,
+    Table\FileTable,
     Table\ImageTable,
     Table\PostTable,
-    Validators\PostValidator
-};
+    Validators\PostValidator};
 
 Auth::check();
 $pdo = Connection::getPDO();
 $postTable = new PostTable($pdo);
 $post = $postTable->find($params['id']);
+
+// Files
+$FileTable = new FileTable($pdo);
+$files = $FileTable->list();
+$FileTable->hydratePosts([$post]);
 // Images
 $imageTable = new ImageTable($pdo);
 $images = $imageTable->list();
@@ -44,6 +49,9 @@ if (!empty($_POST)) {
         $postTable->attachCategories($post->getID(), $_POST['categories_ids']);
         if (isset($_POST['images_ids'])) {
             $postTable->attachImages($post->getID(), $_POST['images_ids']);
+        }
+        if (isset($_POST['files_ids'])) {
+            $postTable->attachFiles($post->getID(), $_POST['files_ids']);
         }
         $categoryTable->hydratePosts([$post]);
         $pdo->commit();

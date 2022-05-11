@@ -20,8 +20,8 @@ $link = $router->url('admin_categories');
 <hr>
 <section class="post-listing fill-page">
     <div class="post-listing__header">
-        <h3>#</h3>
-        <h3>Titre</h3>
+        <h3 class="section-title">#</h3>
+        <h3 class="section-title">Titre</h3>
         <a href="<?= $router->url('admin_category_new') ?>" class="btn btn-secondary new-article">Ajouter une
             catégorie</a>
     </div>

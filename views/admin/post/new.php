@@ -13,16 +13,17 @@ use App\{Attachment\PostAttachment,
     HTML\Form,
     Model\Post,
     Table\CategoryTable,
+    Table\FileTable,
     Table\ImageTable,
     Table\PostTable,
-    Validators\PostValidator
-};
+    Validators\PostValidator};
 
 Auth::check();
 $pdo = Connection::getPDO();
 $post = new Post();
 $categories = (new CategoryTable($pdo))->list();
 $images = (new ImageTable($pdo))->list();
+$files = (new FileTable($pdo))->list();
 $post->setCreatedAt(date('Y-m-d H:i:s'));
 
 $success = false;
@@ -39,6 +40,9 @@ if (!empty($_POST)) {
         $postTable->attachCategories($post->getID(), $_POST['categories_ids']);
         if (isset($_POST['images_ids'])) {
             $postTable->attachImages($post->getID(), $_POST['images_ids']);
+        }
+        if (isset($_POST['files_ids'])) {
+            $postTable->attachFiles($post->getID(), $_POST['files_ids']);
         }
         $pdo->commit();
         header('Location: ' . $router->url('admin_posts') . '?created=1');

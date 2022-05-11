@@ -50,6 +50,15 @@ class PostTable extends Table
         }
     }
 
+    public function attachFiles(int $id, array $files): void
+    {
+        $this->pdo->exec("DELETE FROM post_file WHERE post_id = " . $id);
+        $query = $this->pdo->prepare("INSERT INTO post_file SET post_id = ?, file_id = ?");
+        foreach ($files as $file) {
+            $query->execute([$id, $file]);
+        }
+    }
+
     public function findPaginated(): array
     {
         $paginatedQuery = new paginatedQuery(

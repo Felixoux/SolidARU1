@@ -25,6 +25,12 @@ FROM image i
 JOIN post_image pi ON i.id = pi.image_id
 WHERE pi.post_id = $id ")->fetchAll();
 
+$files = $pdo->query("
+SELECT f.*
+FROM file f 
+JOIN post_file pf ON f.id = pf.file_id
+WHERE pf.post_id = $id ")->fetchAll();
+
 if ($post === false) {
     throw new Exception('Aucun post ne correspond a cet ID');
 }
@@ -60,8 +66,21 @@ $pageTitle = $post->getName();
     <div class="article__content">
         <?= $post->getBody() ?>
     </div>
+    <div class="article__files">
+        <?php foreach ($files as $k => $file) {
+            $name = $file['name'];
+            $link = '/uploads/files' . DIRECTORY_SEPARATOR . $file['name'];
+            echo <<<HTML
+            <p>
+                <a href="$link">$name</a>
+            </p>
+            HTML;
+        }
+        ?>
+    </div>
     <a href="#">
         <button class="article__button f-right">Revenir aux articles</button>
     </a>
 </section>
+
    

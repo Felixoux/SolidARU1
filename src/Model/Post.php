@@ -15,6 +15,7 @@ class Post
     private $created_at;
     private $categories = [];
     private $images = []; // Images mutliple
+    private $files = []; // Docs
     private $image; // Image à la une
     private $oldImage;
     private $pendingUpload = false;
@@ -91,7 +92,7 @@ class Post
     }
 
     /** @return Category[] */
-    public function getCategories()
+    public function getCategories(): array
     {
         return $this->categories;
     }
@@ -117,6 +118,20 @@ class Post
         return $ids;
     }
 
+    public function setFiles(array $files): void
+    {
+        $this->files = $files;
+    }
+
+    public function getFilesIds(): array
+    {
+        $ids = [];
+        foreach ($this->files as $file) {
+            $ids[] = $file->getID();
+        }
+        return $ids;
+    }
+
     public function getImagesIds(): array
     {
         $ids = [];
@@ -138,9 +153,10 @@ class Post
         $image->setPost($this);
     }
 
-    public function addBoth(): void
+    public function addFile(File $file): void
     {
-
+        $this->files[] = $file;
+        $file->setPost($this);
     }
 
     public function getImage(): ?string

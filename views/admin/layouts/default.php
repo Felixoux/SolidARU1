@@ -47,7 +47,7 @@
                     </a></h4>
             </li>
             <li>
-                <h4><a href="<?= $router->url('admin_images') ?>">
+                <h4><a href="<?= $router->url('admin_files') ?>">
                         <svg>
                             <use xlink:href="/img/svg/admin/sprite.svg#document"></use>
                         </svg>
