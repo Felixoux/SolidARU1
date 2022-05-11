@@ -36,9 +36,12 @@
   border-right: 1px solid var(--border);
   margin-right: calc(2 * var(--space));
   padding-right: calc(1 * var(--space));
-
   &, & + li {
     margin-left: 0 !important;
+  }
+  @include down(530) {
+    display: block!important;
+    border-right: none!important;
   }
 }
 
@@ -106,6 +109,9 @@
   height: 26px;
   white-space: nowrap;
   margin-left: calc(6 * var(--space));
+  @include down(530) {
+    display: none;
+  }
 }
 
 .header-side {
@@ -153,7 +159,7 @@
 }
 
 .header.is-open .header-nav .header__home {
-  display: none;
+  display: none!important;
 }
 
 @include up(700) {
