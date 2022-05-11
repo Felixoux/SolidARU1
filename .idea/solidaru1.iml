@@ -25,5 +25,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="flatpickr" level="application" />
     <orderEntry type="library" name="jquery" level="application" />
+    <orderEntry type="library" name="simplemde" level="application" />
   </component>
 </module>

@@ -1450,6 +1450,41 @@ input:checked + label .switch::before {
   transform: translateX(31px);
 }
 
+.markDownEditor {
+  display: block;
+}
+
+.editor-toolbar {
+  margin-top: 1rem;
+}
+
+.editor-toolbar a.fa {
+  color: var(--bright-text) !important;
+}
+
+.editor-toolbar a.fa:hover {
+  background: var(--muted-text) !important;
+  color: var(--bright-text) !important;
+}
+
+.CodeMirror span {
+  background: none !important;
+}
+
+.markDownEditor .CodeMirror {
+  background: var(--bg-dark);
+  color: var(--text);
+}
+
+.editor-toolbar, .CodeMirror {
+  border: 1px solid var(--border) !important;
+}
+
+.editor-preview, .editor-preview-side {
+  background: var(--bg-dark) !important;
+  border: none !important;
+}
+
 .container-404 {
   background: var(--bg-dark);
   padding: calc(var(--gap) * 2);

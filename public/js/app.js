@@ -1,3 +1,4 @@
+import './datePicker.js';
 // Site animation
 $('article.card .card--category').hover(function () {
     $(this).animate({
@@ -9,8 +10,7 @@ $(document).ready(function () {
     $('#pre-loader').addClass('active')
 });
 $(window).on('load',function() {
-    $('#pre-loader').fadeOut(0);
-    $('#pre-loader').removeClass('active');
+    $('#pre-loader').fadeOut(0).removeClass('active');
 });
 // burger animation
 
@@ -82,5 +82,14 @@ flatpickr('.datepicker', {
     altFormat:'j F Y, H:i',
     dateFormat:'Y-m-d H:i:s',
 })
+
+// Markdown
+/*var simplemde = new SimpleMDE({ element: document.querySelector(".markDownEditorArea") });
+simplemde.value();
+
+if($('.editor-toolbar').hasClass('disabled-for-preview')) {
+    $('.editor-toolbar.disabled-for-preview a:not(.no-disable)').css('background', '#F00')
+}*/
+
 
 
