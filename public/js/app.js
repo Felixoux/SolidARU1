@@ -1,4 +1,3 @@
-import './datePicker.js';
 // Site animation
 $('article.card .card--category').hover(function () {
     $(this).animate({
@@ -37,10 +36,10 @@ $(document).ready(function () {
 })
 
 // === STICKY HEADER ===
-var didScroll;
-var lastScrollTop = 0;
-var delta = 5;
-var navbarHeight = $('nav.header').outerHeight();
+let didScroll;
+let lastScrollTop = 0;
+let delta = 5;
+let navbarHeight = $('nav.header').outerHeight();
 
 $(window).scroll(function(event){
     didScroll = true;

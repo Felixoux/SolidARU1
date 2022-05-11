@@ -1,8 +1,8 @@
 <section class="mt4">
     <form action="" method="POST" enctype="multipart/form-data">
         <p class="alert">* champs requis</p>
-        <?= $form->input('name', 'Titre', 'withSpace') ?>
-        <?= $form->input('slug', 'URL', 'withDash') ?>
+        <?= $form->input('name', 'Titre', 'withSpace', 'required') ?>
+        <?= $form->input('slug', 'URL', 'withDash', 'required') ?>
         <?php if($item->getImage()): ?>
             <img src="<?= $item->getImageURL('small') ?>" alt="<?= $item->getImageURL('small') ?>" width="250">
         <?php endif ?>

@@ -10,16 +10,15 @@ Auth::check();
 $pdo = Connection::getPDO();
 $postTable = new PostTable($pdo);
 $post = $postTable->find($params['id']);
-// Categories
-$categoryTable = new CategoryTable($pdo);
-$categories = $categoryTable->list();
-$categoryTable->hydratePosts([$post]);
 // Images
 $imageTable = new ImageTable($pdo);
 $images = $imageTable->list();
 $imageTable->hydratePosts([$post]);
+// Categories
+$categoryTable = new CategoryTable($pdo);
+$categories = $categoryTable->list();
+$categoryTable->hydratePosts([$post]);
 
-$success = false;
 $errors = [];
 if (!empty($_POST)) {
     $data = array_merge($_POST, $_FILES);
@@ -37,6 +36,7 @@ if (!empty($_POST)) {
         $categoryTable->hydratePosts([$post]);
         $pdo->commit();
         $success = true;
+        header('Location: ' . $router->url('admin_posts') . '?modified=1');
     } else {
         $errors = $v->errors();
     }
@@ -45,9 +45,6 @@ if (!empty($_POST)) {
 
 $form = new Form($post, $errors);
 ?>
-<?php if ($success): ?>
-    <p class="alert alert-success">L'article a bien été modifié</p>
-<?php endif ?>
 <h2 class="mt4 medium-title">Editer l'article "<?= e($post->getName()) ?>"</h2>
 <hr>
 <?php require '_form.php' ?>

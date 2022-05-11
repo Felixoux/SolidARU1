@@ -179,7 +179,7 @@ l42 -19 0 -274 c0 -253 2 -277 20 -312 57 -113 223 -113 280 0 18 35 20 59 20
 <?= $afterBodyContent ?? '' ?>
 <script type="module" src=<?= "/js/app.js" ?>></script>
 <script src=<?= "/js/jquery-3.6.0.min.js" ?>></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js"></script>
 <!--<script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>-->
 
 </body>

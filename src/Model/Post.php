@@ -139,6 +139,11 @@ class Post
         $image->setPost($this);
     }
 
+    public function addBoth():void
+    {
+
+    }
+
     public function getImage(): ?string
     {
         return $this->image;

@@ -13,8 +13,9 @@ class Form
         $this->errors = $errors;
     }
 
-    public function input(string $key, string $label, ?string $class = null): string
+    public function input(string $key, string $label, ?string $class = null, ?string $required = null): string
     {
+        $required_star = $required !== null ? '<span class="alert">*</span>' : '';
         $type = $key === "password" ? 'password' : 'text';
         if($type === 'password') {
             $value = '';
@@ -23,7 +24,7 @@ class Form
         return <<<HTML
         <div class="form-group">
             <p class="{$this->getInputClass($key)}">{$this->getErrorFeedback($key)}</p>
-            <label for="$key">$label <span class="alert">*</span></label>
+            <label for="$key">$label $required_star</label>
             <input max="18" type="$type" name="$key" id="$key" value="$value" class="$class" placeholder="$label" required>
         </div>
         HTML;
@@ -66,8 +67,9 @@ class Form
         HTML;
     }
 
-    public function select(string $key, string $label, array $options = []): string
+    public function select(string $key, string $label, array $options = [], ?string $required = null): string
     {
+        $required_star = $required !== null ? '<span class="alert">*</span>' : '';
         $optionsHTML = [];
         $value = $this->getValue($key);
         foreach ($options as $k => $v) {
@@ -80,7 +82,7 @@ class Form
         return <<<HTML
         <div class="form-group">
             <p class="{$this->getInputClass($key)}">{$this->getErrorFeedback($key)}</p>
-            <label for="$key">$label <span class="alert">*</span></label>
+            <label for="$key">$label $required_star</label>
             <select name="{$key}[]" id="$key" $required multiple>$optionsHTML</select>
         </div>
         HTML;
