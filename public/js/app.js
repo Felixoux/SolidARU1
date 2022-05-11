@@ -9,7 +9,7 @@ $(document).ready(function () {
     $('#pre-loader').addClass('active')
 });
 $(window).on('load',function() {
-    $('#pre-loader').fadeOut(0).removeClass('active');
+    $('#pre-loader').fadeOut(1).removeClass('active');
 });
 // burger animation
 
