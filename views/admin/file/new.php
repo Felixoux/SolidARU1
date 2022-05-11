@@ -12,10 +12,14 @@ if (isset($_POST['submit'])) {
 
     for ($i = 0; $i < count($_FILES['file']['name']); $i++) {
         $file = $_FILES["file"]['name'][$i]; // name of file
+        if(file_exists($file)) {
+            header('Location :' . $router->url('admin_files') . '?=created=1');
+            exit();
+        }
         $item->setName($file);
 
         $f_maxsize = 41943040;
-        $f_ext_allowed = array("pdf");
+        $f_ext_allowed = ['pdf'];
 
         $f_name_2 = str_replace(" ", "_", htmlspecialchars($file));
         $f_size = $_FILES["file"]['size'][$i];

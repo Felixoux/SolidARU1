@@ -15,7 +15,7 @@ if (isset($_POST['submit'])) {
         $item->setName($image);
 
         $f_maxsize = 41943040;
-        $f_ext_allowed = array("jpg", "png", "gif", "sv");
+        $f_ext_allowed = ["jpg", "png", "gif", "sv"];
 
         $f_name_2 = str_replace(" ", "_", htmlspecialchars($image));
         $f_size = $_FILES["image"]['size'][$i];

@@ -37,7 +37,7 @@ class paginatedQuery
     {
         if ($this->items === null) {
             $currentPage = $this->getCurrentPage();
-            $pages = $this->getPages();
+            $pages = $this->getPages() + 1;
             if ($currentPage > $pages) {
                 throw new Exception('Cette page n\'existe pas');
             }

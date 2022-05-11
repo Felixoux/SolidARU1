@@ -1,4 +1,3 @@
-/*Table post*/
 CREATE TABLE post
 (
     id         INT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -9,7 +8,6 @@ CREATE TABLE post
     image      VARCHAR(27),
     PRIMARY KEY (id)
 );
-/*Table category*/
 CREATE TABLE category
 (
     id      INT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -19,7 +17,6 @@ CREATE TABLE category
     image   VARCHAR(27),
     PRIMARY KEY (id)
 );
-/* Bridge between post and category */
 CREATE TABLE post_category
 (
     post_id     INT UNSIGNED NOT NULL,
@@ -36,7 +33,6 @@ CREATE TABLE post_category
             ON DELETE CASCADE
             ON UPDATE RESTRICT
 );
-/*Table image*/
 CREATE TABLE image
 (
     id   INT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -44,7 +40,6 @@ CREATE TABLE image
     created_at DATETIME     NOT NULL,
     PRIMARY KEY (id)
 );
-/* Bridge between post and image */
 CREATE TABLE post_image
 (
     post_id  INT UNSIGNED NOT NULL,
@@ -62,7 +57,6 @@ CREATE TABLE post_image
             ON UPDATE RESTRICT
 );
 
-/*Table file*/
 CREATE TABLE file
 (
     id   INT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -70,7 +64,6 @@ CREATE TABLE file
     created_at DATETIME     NOT NULL,
     PRIMARY KEY (id)
 );
-/* Bridge between post and image */
 CREATE TABLE post_file
 (
     post_id     INT UNSIGNED NOT NULL,
@@ -88,7 +81,6 @@ CREATE TABLE post_file
             ON UPDATE RESTRICT
 );
 
-/* Table user */
 CREATE TABLE user
 (
     username VARCHAR(255) NOT NULL,

@@ -31,7 +31,7 @@ $link = $router->url('admin_images');
                 <h4 class="admin-card__title"><?= e($item->getName()) ?></h4>
                 <div class="admin-card__option">
                     <form style="display: inline;" method="POST"
-                          action="<?= $router->url('admin_image_delete', ['id' => $item->getID(), 'image_link' => $item->getName()]) ?>"
+                          action="<?= $router->url('admin_image_delete', ['id' => $item->getID()]) ?>"
                           onsubmit="return confirm('Voulez vous vraiment supprimer l\'image ?')">
                         <button type="submit" class="btn btn-alert">Supprimer</button>
                     </form>

@@ -12,4 +12,5 @@ $link = UPLOAD_PATH . DIRECTORY_SEPARATOR . 'files' . DIRECTORY_SEPARATOR . $fil
 if (file_exists($link)) {
     unlink($link); // Supprimer le doc des fichiers
 }
+
 header('Location: ' . $router->url('admin_files') . '?delete=1');
