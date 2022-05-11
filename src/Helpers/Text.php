@@ -32,10 +32,8 @@ class Text
         return $parseDown->text($content);
     }
 
-    public static function replaceByIframe(string $content): string
+    public static function getIframe(string $content): string
     {
-        return <<<HTML
-        <iframe width="560" height="315" src="https://www.youtube.com/watch?v=BURRD_nWJh0" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-HTML;
+        return preg_replace("/\s*[a-zA-Z\/\/:\.]*youtube.com\/watch\?v=([a-zA-Z0-9\-_]+)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.]*)/i", "<div class='parent-ratio'><div class='ratio'><iframe src=\"//www.youtube.com/embed/$1\" allow='accelerometer;clipboard-write; encrypted-media;gyroscope; picture-in-picture' allowfullscreen></iframe></div></div>", $content);
     }
 }

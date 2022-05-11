@@ -41,6 +41,7 @@ CREATE TABLE image
 (
     id   INT UNSIGNED NOT NULL AUTO_INCREMENT,
     name VARCHAR(255) NOT NULL,
+    created_at DATETIME     NOT NULL,
     PRIMARY KEY (id)
 );
 /* Bridge between post and image */
@@ -57,6 +58,32 @@ CREATE TABLE post_image
     CONSTRAINT fk_image
         FOREIGN KEY (image_id)
             REFERENCES image (id)
+            ON DELETE CASCADE
+            ON UPDATE RESTRICT
+);
+
+/*Table file*/
+CREATE TABLE file
+(
+    id   INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    created_at DATETIME     NOT NULL,
+    PRIMARY KEY (id)
+);
+/* Bridge between post and image */
+CREATE TABLE post_file
+(
+    post_id     INT UNSIGNED NOT NULL,
+    file_id INT UNSIGNED NOT NULL,
+    PRIMARY KEY (post_id, file_id),
+    CONSTRAINT fk_post_file
+        FOREIGN KEY (post_id)
+            REFERENCES post (id)
+            ON DELETE CASCADE
+            ON UPDATE RESTRICT,
+    CONSTRAINT fk_file
+        FOREIGN KEY (file_id)
+            REFERENCES file (id)
             ON DELETE CASCADE
             ON UPDATE RESTRICT
 );

@@ -56,11 +56,10 @@ class Post
     {
         $content = $this->content;
         if (str_contains($content, 'youtube.com/')) {
-            $content = preg_replace("/\s*[a-zA-Z\/\/:\.]*youtube.com\/watch\?v=([a-zA-Z0-9\-_]+)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.]*)/i", "<div class='parent-ratio'><div class='ratio'><iframe src=\"//www.youtube.com/embed/$1\" allow='accelerometer;clipboard-write; encrypted-media;gyroscope; picture-in-picture' allowfullscreen></iframe></div></div>", $content);
-            return Text::parseDown($content);
-        } else {
+            $content = Text::getIframe($content);
             return Text::parseDown($content);
         }
+        return Text::parseDown($content);
     }
 
     public function getExerpt(int $limit = 60): string
