@@ -1,16 +1,16 @@
-.article  {
-    @extend .big-section;
-    @extend .stack;
+.article {
+  @extend .big-section;
+  @extend .stack;
 }
 
 .article__header {
-    margin-bottom: 3rem;
+  margin-bottom: 3rem;
 }
 
 .article__content {
-    @extend .stack;
+  @extend .stack;
 }
 
 .article li {
-    list-style-type: circle;
+  list-style-type: circle;
 }

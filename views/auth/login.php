@@ -1,6 +1,6 @@
 <?php
 
-use App\{Connection, Auth, HTML\Form, Model\User, Table\Exception\NotFoundException, Table\UserTable};
+use App\{Connection, HTML\Form, Model\User, Table\Exception\NotFoundException, Table\UserTable};
 
 $user = new User();
 $errors = [];
@@ -26,8 +26,8 @@ $form = new Form($user, $errors);
 ?>
 <div class="form-card">
     <h1 class="form-card__title">Se connecter</h1>
-        <?php if (isset($_GET['forbidden'])): ?>
-            <p class="alert-danger mb4">Vous ne pouvez pas accéder à cette page</p>
-        <?php endif ?>
+    <?php if (isset($_GET['forbidden'])): ?>
+        <p class="alert-danger mb4">Vous ne pouvez pas accéder à cette page</p>
+    <?php endif ?>
     <?php require '_form.php' ?>
 </div>

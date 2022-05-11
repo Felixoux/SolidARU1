@@ -1,139 +1,191 @@
 // VARIABLES
 :root {
---font: 'inter';
---font-m: 'inter-m';
---font-semi:'inter-semi';
---font-bold:'inter-bold';
+  --font: 'inter';
+  --font-m: 'inter-m';
+  --font-semi: 'inter-semi';
+  --font-bold: 'inter-bold';
 }
 
 
 @font-face {
-    font-family: 'inter';
-    src: url('fonts/Inter-Regular.eot');
-    src: url('fonts/Inter-Regular.eot?#iefix') format('embedded-opentype'),
-        url('fonts/Inter-Regular.woff2') format('woff2'),
-        url('fonts/Inter-Regular.woff') format('woff'),
-        url('fonts/Inter-Regular.ttf') format('truetype'),
-        url('fonts/Inter-Regular.svg#Inter-Regular') format('svg');
-    font-weight: 400;
-    font-display:swap;
+  font-family: 'inter';
+  src: url('fonts/Inter-Regular.eot');
+  src: url('fonts/Inter-Regular.eot?#iefix') format('embedded-opentype'),
+  url('fonts/Inter-Regular.woff2') format('woff2'),
+  url('fonts/Inter-Regular.woff') format('woff'),
+  url('fonts/Inter-Regular.ttf') format('truetype'),
+  url('fonts/Inter-Regular.svg#Inter-Regular') format('svg');
+  font-weight: 400;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'inter-m';
-    src: url('fonts/Inter-Medium.eot');
-    src: url('fonts/Inter-Medium.eot?#iefix') format('embedded-opentype'),
-        url('fonts/Inter-Medium.woff2') format('woff2'),
-        url('fonts/Inter-Medium.woff') format('woff'),
-        url('fonts/Inter-Medium.ttf') format('truetype'),
-        url('fonts/Inter-Medium.svg#Inter-Medium') format('svg');
-    font-weight: 500;
-    font-display:swap;
+  font-family: 'inter-m';
+  src: url('fonts/Inter-Medium.eot');
+  src: url('fonts/Inter-Medium.eot?#iefix') format('embedded-opentype'),
+  url('fonts/Inter-Medium.woff2') format('woff2'),
+  url('fonts/Inter-Medium.woff') format('woff'),
+  url('fonts/Inter-Medium.ttf') format('truetype'),
+  url('fonts/Inter-Medium.svg#Inter-Medium') format('svg');
+  font-weight: 500;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'inter-semi';
-    src: url('fonts/Inter-SemiBold.eot');
-    src: url('fonts/Inter-SemiBold.eot?#iefix') format('embedded-opentype'),
-        url('fonts/Inter-SemiBold.woff2') format('woff2'),
-        url('fonts/Inter-SemiBold.woff') format('woff'),
-        url('fonts/Inter-SemiBold.ttf') format('truetype'),
-        url('fonts/Inter-SemiBold.svg#Inter-SemiBold') format('svg');
-    font-weight: 600;
-    font-display: swap;
+  font-family: 'inter-semi';
+  src: url('fonts/Inter-SemiBold.eot');
+  src: url('fonts/Inter-SemiBold.eot?#iefix') format('embedded-opentype'),
+  url('fonts/Inter-SemiBold.woff2') format('woff2'),
+  url('fonts/Inter-SemiBold.woff') format('woff'),
+  url('fonts/Inter-SemiBold.ttf') format('truetype'),
+  url('fonts/Inter-SemiBold.svg#Inter-SemiBold') format('svg');
+  font-weight: 600;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'inter-bold';
-    src: url('fonts/Inter-Bold.eot');
-    src: url('fonts/Inter-Bold.eot?#iefix') format('embedded-opentype'),
-        url('fonts/Inter-Bold.woff2') format('woff2'),
-        url('fonts/Inter-Bold.woff') format('woff'),
-        url('fonts/Inter-Bold.ttf') format('truetype'),
-        url('fonts/Inter-Bold.svg#Inter-Bold') format('svg');
-    font-weight: 700;
-    font-display:swap;
+  font-family: 'inter-bold';
+  src: url('fonts/Inter-Bold.eot');
+  src: url('fonts/Inter-Bold.eot?#iefix') format('embedded-opentype'),
+  url('fonts/Inter-Bold.woff2') format('woff2'),
+  url('fonts/Inter-Bold.woff') format('woff'),
+  url('fonts/Inter-Bold.ttf') format('truetype'),
+  url('fonts/Inter-Bold.svg#Inter-Bold') format('svg');
+  font-weight: 700;
+  font-display: swap;
 }
 
-strong {color: var(--primary_o);}
+strong {
+  color: var(--primary_o);
+}
 
-em{font-style: italic}
+em {
+  font-style: italic
+}
 
-.danger, .alert {color: var(--alert);}
+.danger, .alert {
+  color: var(--alert);
+}
 
 a {
-color: var(--text);
-cursor: pointer;
+  color: var(--text);
+  cursor: pointer;
 }
+
 // title
-h1 {font-size: 45.5px;}
+h1 {
+  font-size: 45.5px;
+}
 
-h2 {font-size: 35px;}
+h2 {
+  font-size: 35px;
+}
 
-h3 {font-size: 22px;}
+h3 {
+  font-size: 22px;
+}
 
-h4 {font-size: 18px;}
+h4 {
+  font-size: 18px;
+}
 
-h5 {font-size: 16px}
+h5 {
+  font-size: 16px
+}
 
 // Little title for phone size
 @include down(500) {
-    h1 {font-size:30px;}
+  h1 {
+    font-size: 30px;
+  }
 
-    h2 {font-size: 25px;}
+  h2 {
+    font-size: 25px;
+  }
 
-    h3 {font-size: 22px;}
+  h3 {
+    font-size: 22px;
+  }
 
-    h4 {font-size: 16px;}
+  h4 {
+    font-size: 16px;
+  }
 
-    h5 {font-size: 14px}
+  h5 {
+    font-size: 14px
+  }
 }
 
 // font-weight
 .big-title {
-    font-family: var(--font-bold);
+  font-family: var(--font-bold);
 }
+
 .section-title {
-    font-family: var(--font-semi);
+  font-family: var(--font-semi);
 }
+
 .medium-title {
-    font-family: var(--font-m);
+  font-family: var(--font-m);
 }
 
 ::placeholder { // Chrome, Firefox, Opera, Safari
-color: var(--muted-text);  opacity: 1; // Opacity for firefox !
+  color: var(--muted-text);
+  opacity: 1; // Opacity for firefox !
 }
+
 :-ms-input-placeholder { // Internet explorer
-color: var(--muted-text);
+  color: var(--muted-text);
 }
+
 ::-ms-input-placeholder { // Edge
-color: var(--muted-text);
+  color: var(--muted-text);
 }
 
 // Alignements
 // ==================
-.text-left {text-align: left!important;}
+.text-left {
+  text-align: left !important;
+}
 
-.text-right {text-align: right !important;}
+.text-right {
+  text-align: right !important;
+}
 
-.text-center {text-align: center !important;}
+.text-center {
+  text-align: center !important;
+}
 
-.bold {font-family: var(--font-bold)}
+.bold {
+  font-family: var(--font-bold)
+}
 
-.italic {font-style: italic;}
+.italic {
+  font-style: italic;
+}
 
-.uppercase {text-transform: uppercase}
+.uppercase {
+  text-transform: uppercase
+}
 
-.danger {color: var(--alert);}
+.danger {
+  color: var(--alert);
+}
 
-.muted {color:var(--muted-text);}
+.muted {
+  color: var(--muted-text);
+}
 
-.text-truncate {overflow: hidden;  text-overflow: ellipsis;}
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
 .underline {
-    text-decoration: underline;
-    &:hover {
-        color: var(--primary_b);
-    }
+  text-decoration: underline;
+
+  &:hover {
+    color: var(--primary_b);
+  }
 }
 

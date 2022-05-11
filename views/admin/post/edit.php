@@ -1,10 +1,22 @@
 <?php
 $css_flatpickr = '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.css">';
 $beforeBodyContent = ob_before($css_flatpickr);
-$js_flatpickr = '<script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js"></script>';
+$js_flatpickr = <<<HTML
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js"></script> 
+    <script src="/js/datePicker.js"></script>
+    HTML;
 $afterBodyContent = ob_after($js_flatpickr);
 
-use App\{Attachment\PostAttachment,Auth,Connection,HTML\Form,ObjectHelper,Table\CategoryTable,Table\ImageTable,Table\PostTable,Validators\PostValidator};
+use App\{Attachment\PostAttachment,
+    Auth,
+    Connection,
+    HTML\Form,
+    ObjectHelper,
+    Table\CategoryTable,
+    Table\ImageTable,
+    Table\PostTable,
+    Validators\PostValidator
+};
 
 Auth::check();
 $pdo = Connection::getPDO();
@@ -30,7 +42,7 @@ if (!empty($_POST)) {
         (new PostAttachment())->upload($post);
         $postTable->updatePost($post);
         $postTable->attachCategories($post->getID(), $_POST['categories_ids']);
-        if(isset($_POST['images_ids'])) {
+        if (isset($_POST['images_ids'])) {
             $postTable->attachImages($post->getID(), $_POST['images_ids']);
         }
         $categoryTable->hydratePosts([$post]);

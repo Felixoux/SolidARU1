@@ -277,8 +277,8 @@ blockquote {
 :root {
   --font: "inter";
   --font-m: "inter-m";
-  --font-semi:"inter-semi";
-  --font-bold:"inter-bold";
+  --font-semi: "inter-semi";
+  --font-bold: "inter-bold";
 }
 
 @font-face {

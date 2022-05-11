@@ -17,10 +17,10 @@ class Form
     {
         $required_star = $required !== null ? '<span class="alert">*</span>' : '';
         $type = $key === "password" ? 'password' : 'text';
-        if($type === 'password') {
+        if ($type === 'password') {
             $value = '';
         }
-        $value = $type === "password" ? '': $this->getValue($key);
+        $value = $type === "password" ? '' : $this->getValue($key);
         return <<<HTML
         <div class="form-group">
             <p class="{$this->getInputClass($key)}">{$this->getErrorFeedback($key)}</p>
@@ -46,7 +46,7 @@ class Form
 
     public function inputSecurity(string $key, string $label): string
     {
-        $type = $key === 'current_password' ? 'text': 'password';
+        $type = $key === 'current_password' ? 'text' : 'password';
         return <<<HTML
         <div class="form-group">
             <label for="$key">$label</label>
@@ -76,7 +76,7 @@ class Form
             $selected = in_array($k, $value) ? ' selected' : '';
             $optionsHTML[] = "<option value=\"$k\"$selected>$v</option>";
         }
-        $required = $key === 'images_ids' ? '': 'required';
+        $required = $key === 'images_ids' ? '' : 'required';
 
         $optionsHTML = implode('', $optionsHTML);
         return <<<HTML

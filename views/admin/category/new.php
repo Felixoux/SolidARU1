@@ -7,7 +7,8 @@ use App\{Attachment\CategoryAttachment,
     Model\Category,
     ObjectHelper,
     Table\CategoryTable,
-    Validators\CategoryValidator};
+    Validators\CategoryValidator
+};
 
 Auth::check();
 $item = new Category();
@@ -22,7 +23,7 @@ if (!empty($_POST)) {
     $v = new CategoryValidator($data, $table);
     (new ObjectHelper)->hydrate($item, $data, $fields);
 
-    if($v->validate()) {
+    if ($v->validate()) {
         $categoryAttachment = new CategoryAttachment;
         $categoryAttachment->upload($item);
         $table->create([

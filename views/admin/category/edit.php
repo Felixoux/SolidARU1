@@ -6,7 +6,8 @@ use App\{Attachment\CategoryAttachment,
     HTML\Form,
     ObjectHelper,
     Table\CategoryTable,
-    Validators\CategoryValidator};
+    Validators\CategoryValidator
+};
 
 Auth::check();
 $pdo = Connection::getPDO();

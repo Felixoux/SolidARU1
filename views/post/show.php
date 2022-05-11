@@ -2,6 +2,7 @@
 require AUTOLOAD_PATH;
 
 use App\{Connection, Helpers\Text, Model\Post, Table\PostTable};
+
 $id = (int)$params['id'];
 $slug = $params['slug'];
 $pdo = Connection::getPDO();
@@ -47,10 +48,10 @@ $pageTitle = $post->getName();
         <img src="<?= $post->getImageURL('large') ?>" alt="">
     <?php endif ?>
     <div class="article__images">
-    <?php    foreach ($images as $k => $image) {
-        $name = $image['name'];
-        $link = '/uploads/posts_multiple' . DIRECTORY_SEPARATOR . $image['name'];
-        echo <<<HTML
+        <?php foreach ($images as $k => $image) {
+            $name = $image['name'];
+            $link = '/uploads/posts_multiple' . DIRECTORY_SEPARATOR . $image['name'];
+            echo <<<HTML
         <img src="$link" alt="$name" width="350">
         HTML;
         }

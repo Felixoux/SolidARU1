@@ -2,7 +2,7 @@
 
 namespace App\Table;
 
-use App\{Model\Post, Model\User, Table\Exception\NotFoundException};
+use App\{Model\User, Table\Exception\NotFoundException};
 use PDO;
 
 class UserTable extends Table

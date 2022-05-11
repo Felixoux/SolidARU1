@@ -74,14 +74,6 @@ function hasScrolled() {
     lastScrollTop = st;
 }
 
-// Flatpickr
-flatpickr('.datepicker', {
-    enableTime: true,
-    altInput:true,
-    altFormat:'j F Y, H:i',
-    dateFormat:'Y-m-d H:i:s',
-})
-
 // Markdown
 /*var simplemde = new SimpleMDE({ element: document.querySelector(".markDownEditorArea") });
 simplemde.value();
@@ -89,6 +81,7 @@ simplemde.value();
 if($('.editor-toolbar').hasClass('disabled-for-preview')) {
     $('.editor-toolbar.disabled-for-preview a:not(.no-disable)').css('background', '#F00')
 }*/
+
 
 
 

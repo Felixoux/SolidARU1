@@ -23,7 +23,7 @@ $link = $router->url('category', ['id' => $category->getID(), 'slug' => $categor
 <section class="event big-section">
     <div class="header-section flex">
         <h2 id="event" class="section-title">Voici les posts liés au thème <strong><?= $category->getName() ?></strong>
-            <img width="50" src="/img/online.png" alt="posts"> </h2>
+            <img width="50" src="/img/online.png" alt="posts"></h2>
     </div>
     <p class="js-hide"><?= $category->getContent() ?></p>
     <a class="button-js-hide">Voir plus</a>

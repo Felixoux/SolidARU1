@@ -55,8 +55,8 @@ class Post
     public function getBody(): string
     {
         $content = $this->content;
-        if(str_contains($content, 'youtube.com/')) {
-            $content = preg_replace("/\s*[a-zA-Z\/\/:\.]*youtube.com\/watch\?v=([a-zA-Z0-9\-_]+)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.]*)/i","<div class='parent-ratio'><div class='ratio'><iframe src=\"//www.youtube.com/embed/$1\" allow='accelerometer;clipboard-write; encrypted-media;gyroscope; picture-in-picture' allowfullscreen></iframe></div></div>",$content);
+        if (str_contains($content, 'youtube.com/')) {
+            $content = preg_replace("/\s*[a-zA-Z\/\/:\.]*youtube.com\/watch\?v=([a-zA-Z0-9\-_]+)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.]*)/i", "<div class='parent-ratio'><div class='ratio'><iframe src=\"//www.youtube.com/embed/$1\" allow='accelerometer;clipboard-write; encrypted-media;gyroscope; picture-in-picture' allowfullscreen></iframe></div></div>", $content);
             return Text::parseDown($content);
         } else {
             return Text::parseDown($content);
@@ -139,7 +139,7 @@ class Post
         $image->setPost($this);
     }
 
-    public function addBoth():void
+    public function addBoth(): void
     {
 
     }
@@ -151,14 +151,14 @@ class Post
 
     public function setImage($image): self
     {
-        if(is_array($image) && !empty($image['tmp_name'])) {
-            if(!empty($this->image)) {
+        if (is_array($image) && !empty($image['tmp_name'])) {
+            if (!empty($this->image)) {
                 $this->oldImage = $this->image;
             }
             $this->pendingUpload = true;
             $this->image = $image['tmp_name'];
         }
-        if(is_string($image) && !empty($image)) {
+        if (is_string($image) && !empty($image)) {
             $this->image = $image;
         }
 
@@ -167,7 +167,7 @@ class Post
 
     public function getImageURL(string $format): ?string
     {
-        if(empty($this->image)) {
+        if (empty($this->image)) {
             return null;
         }
         return '/uploads/posts/' . $this->image . '_' . $format . '.jpg';

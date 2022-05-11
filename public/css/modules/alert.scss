@@ -3,7 +3,7 @@
   color: var(--bright-text);
   padding: 1em;
   margin: 2rem 0;
-  border-radius:3px;
+  border-radius: 3px;
   font-size: 18px;
   width: 100%;
 }
@@ -20,11 +20,12 @@
   border: 1px solid var(--success);
 }
 
-.form-group > .alert-danger{
+.form-group > .alert-danger {
   display: none;
 }
+
 .form-group > .is_invalid {
- display: block;
-  margin-bottom:1em;
+  display: block;
+  margin-bottom: 1em;
   margin-top: 0;
 }

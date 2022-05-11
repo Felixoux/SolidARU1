@@ -6,9 +6,9 @@
   border-radius: 8px;
 
   @include up(1000) {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
   }
 }
 
@@ -22,6 +22,7 @@
   h1 {
     color: var(--alert);
   }
+
   @include up(1000) {
     margin-left: calc(var(--gap) * 2);
   }

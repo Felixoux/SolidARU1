@@ -1,7 +1,9 @@
 <?php
 
 namespace App;
+
 use Valitron\Validator as ValitronValidator;
+
 class Validator extends ValitronValidator
 {
     protected static $_lang = "fr";
@@ -10,7 +12,7 @@ class Validator extends ValitronValidator
     {
         parent::__construct($data, $fields, $lang, $langDir);
         self::addRule('image', function ($field, $value, array $params, array $fields) {
-            if($value['size'] === 0) {
+            if ($value['size'] === 0) {
                 return true;
             }
             $mimes = ['image/jpeg', 'image/png'];

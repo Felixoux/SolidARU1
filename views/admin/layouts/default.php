@@ -7,7 +7,7 @@
     <title>Solidarité | <?= isset($pageTitle) ? e($pageTitle) : 'Blog' ?></title>
     <link rel="shortcut icon" href="/img/svg/favicon.svg">
     <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+    <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css"> MARKDOWN EDITOR -->
     <?= $beforeBodyContent ?? '' ?>
 </head>
 <body>
@@ -20,15 +20,17 @@
             <li class="header__home"><a class="underline" href="<?= $router->url('home') ?>">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" fill="#EBF1FF" id="home">
                         <path fill="currentColor" d="M0 4v7a1 1 0 001 1h3V8h4v4h3a1 1 0 001-1V4L6 0 0 4z"></path>
-                    </svg></a></li>
-            <li><h4><a href="<?= $router->url('admin_posts') ?>">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="#D4DCFF"
-                     width="512.000000pt" height="512.000000pt" viewBox="0 0 512.000000 512.000000"
-                     preserveAspectRatio="xMidYMid meet">
+                    </svg>
+                </a></li>
+            <li>
+                <h4><a href="<?= $router->url('admin_posts') ?>">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="#D4DCFF"
+                             width="512.000000pt" height="512.000000pt" viewBox="0 0 512.000000 512.000000"
+                             preserveAspectRatio="xMidYMid meet">
 
-                    <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
-                       stroke="none">
-                        <path d="M361 5109 c-172 -34 -318 -182 -351 -358 -14 -74 -14 -4308 0 -4382
+                            <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
+                               stroke="none">
+                                <path d="M361 5109 c-172 -34 -318 -182 -351 -358 -14 -74 -14 -4308 0 -4382
 34 -180 179 -325 359 -359 74 -14 4308 -14 4382 0 180 34 325 179 359 359 14
 74 14 4308 0 4382 -34 180 -179 325 -359 359 -67 12 -4325 12 -4390 -1z m4379
 -309 c26 -13 47 -34 60 -60 19 -37 20 -58 20 -430 l0 -390 -2260 0 -2260 0 0
@@ -36,36 +38,38 @@
 2182 -20z m80 -2780 c0 -1585 0 -1601 -20 -1640 -13 -26 -34 -47 -60 -60 -39
 -20 -54 -20 -2180 -20 -2126 0 -2141 0 -2180 20 -26 13 -47 34 -60 60 -20 39
 -20 55 -20 1640 l0 1600 2260 0 2260 0 0 -1600z"/>
-                        <path d="M678 4499 c-43 -22 -78 -81 -78 -129 0 -76 74 -150 150 -150 76 0
+                                <path d="M678 4499 c-43 -22 -78 -81 -78 -129 0 -76 74 -150 150 -150 76 0
 150 74 150 150 0 50 -35 107 -80 130 -49 25 -94 25 -142 -1z"/>
-                        <path d="M1278 4499 c-43 -22 -78 -81 -78 -129 0 -50 35 -107 80 -130 21 -11
+                                <path d="M1278 4499 c-43 -22 -78 -81 -78 -129 0 -50 35 -107 80 -130 21 -11
 53 -20 70 -20 76 0 150 74 150 150 0 50 -35 107 -80 130 -49 25 -94 25 -142
 -1z"/>
-                        <path d="M1878 4499 c-43 -22 -78 -81 -78 -129 0 -50 35 -107 80 -130 21 -11
+                                <path d="M1878 4499 c-43 -22 -78 -81 -78 -129 0 -50 35 -107 80 -130 21 -11
 53 -20 70 -20 76 0 150 74 150 150 0 50 -35 107 -80 130 -49 25 -94 25 -142
 -1z"/>
-                        <path d="M678 3299 c-23 -12 -46 -35 -58 -59 -19 -38 -20 -58 -20 -680 0 -622
+                                <path d="M678 3299 c-23 -12 -46 -35 -58 -59 -19 -38 -20 -58 -20 -680 0 -622
 1 -642 20 -680 13 -26 34 -47 60 -60 38 -20 57 -20 820 -20 763 0 782 0 820
 20 26 13 47 34 60 60 19 38 20 58 20 680 0 622 -1 642 -20 680 -13 26 -34 47
 -60 60 -38 20 -57 20 -822 20 -760 -1 -784 -1 -820 -21z m1422 -739 l0 -460
 -600 0 -600 0 0 460 0 460 600 0 600 0 0 -460z"/>
-                        <path d="M2778 2689 c-43 -22 -78 -81 -78 -129 0 -50 35 -107 80 -130 38 -20
+                                <path d="M2778 2689 c-43 -22 -78 -81 -78 -129 0 -50 35 -107 80 -130 38 -20
 57 -20 830 -20 773 0 792 0 830 20 45 23 80 80 80 130 0 50 -35 107 -80 130
 -38 20 -57 20 -832 20 -770 -1 -794 -1 -830 -21z"/>
-                        <path d="M2778 2079 c-43 -22 -78 -81 -78 -129 0 -50 35 -107 80 -130 38 -20
+                                <path d="M2778 2079 c-43 -22 -78 -81 -78 -129 0 -50 35 -107 80 -130 38 -20
 57 -20 830 -20 773 0 792 0 830 20 45 23 80 80 80 130 0 50 -35 107 -80 130
 -38 20 -57 20 -832 20 -770 -1 -794 -1 -830 -21z"/>
-                        <path d="M678 1479 c-43 -22 -78 -81 -78 -129 0 -50 35 -107 80 -130 39 -20
+                                <path d="M678 1479 c-43 -22 -78 -81 -78 -129 0 -50 35 -107 80 -130 39 -20
 55 -20 1880 -20 1825 0 1841 0 1880 20 45 23 80 80 80 130 0 50 -35 107 -80
 130 -39 20 -54 20 -1882 20 -1815 -1 -1844 -1 -1880 -21z"/>
-                        <path d="M678 879 c-43 -22 -78 -81 -78 -129 0 -50 35 -107 80 -130 39 -20 55
+                                <path d="M678 879 c-43 -22 -78 -81 -78 -129 0 -50 35 -107 80 -130 39 -20 55
 -20 1880 -20 1825 0 1841 0 1880 20 45 23 80 80 80 130 0 50 -35 107 -80 130
 -39 20 -54 20 -1882 20 -1815 -1 -1844 -1 -1880 -21z"/>
-                    </g>
-                </svg>
-                Posts
-            </a></h4></li>
-            <li><h4><a href="<?= $router->url('admin_categories') ?>">
+                            </g>
+                        </svg>
+                        Posts
+                    </a></h4>
+            </li>
+            <li>
+                <h4><a href="<?= $router->url('admin_categories') ?>">
                         <svg fill="#F0F5FF" xmlns="http://www.w3.org/2000/svg"
                              width="96.000000pt" height="96.000000pt" viewBox="0 0 96.000000 96.000000"
                              preserveAspectRatio="xMidYMid meet">
@@ -85,8 +89,10 @@
                             </g>
                         </svg>
                         Catégorie
-            </a></h4></li>
-            <li><h4><a href="<?= $router->url('admin_images') ?>">
+                    </a></h4>
+            </li>
+            <li>
+                <h4><a href="<?= $router->url('admin_images') ?>">
                         <svg fill="#F0F5FF" xmlns="http://www.w3.org/2000/svg"
                              width="512.000000pt" height="512.000000pt" viewBox="0 0 512.000000 512.000000"
                              preserveAspectRatio="xMidYMid meet">
@@ -107,8 +113,10 @@ m-1623 -1130 c20 -11 50 -33 67 -50 16 -18 250 -320 520 -673 450 -589 494
                             </g>
                         </svg>
                         Images
-                    </a></h4></li>
-            <li><h4><a href="<?= $router->url('security') ?>">
+                    </a></h4>
+            </li>
+            <li>
+                <h4><a href="<?= $router->url('security') ?>">
                         <svg fill="#F0F5FF" xmlns="http://www.w3.org/2000/svg"
                              width="512.000000pt" height="512.000000pt" viewBox="0 0 512.000000 512.000000"
                              preserveAspectRatio="xMidYMid meet">
@@ -137,7 +145,8 @@ l42 -19 0 -274 c0 -253 2 -277 20 -312 57 -113 223 -113 280 0 18 35 20 59 20
                             </g>
                         </svg>
                         Sécurité
-            </a></h4></li>
+                    </a></h4>
+            </li>
         </ul>
         <ul class="header-side">
             <li class="header__logout">
@@ -147,14 +156,14 @@ l42 -19 0 -274 c0 -253 2 -277 20 -312 57 -113 223 -113 280 0 18 35 20 59 20
                              width="512.000000pt" height="512.000000pt" viewBox="0 0 512.000000 512.000000"
                              preserveAspectRatio="xMidYMid meet">
                             <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
-                                                                            stroke="none">
-                                                                            <path d="M482 5090 c-178 -47 -332 -171 -411 -331 -76 -154 -71 2 -71 -2199 0
+                               stroke="none">
+                                <path d="M482 5090 c-178 -47 -332 -171 -411 -331 -76 -154 -71 2 -71 -2199 0
                                             -1696 2 -1985 15 -2045 49 -232 236 -425 471 -485 74 -19 115 -20 1094 -20
                                             l1016 0 51 25 c72 36 106 90 111 175 4 81 -23 140 -87 185 l-43 30 -1021 5
                                             -1022 5 -40 22 c-50 27 -80 58 -100 105 -13 33 -15 251 -15 1998 0 1747 2
                                             1965 15 1998 20 47 50 78 100 105 l40 22 1022 5 1021 5 43 30 c64 45 91 104
                                             87 185 -5 85 -39 139 -111 175 l-51 25 -1020 -1 c-972 0 -1025 -1 -1094 -19z"/>
-                                                                            <path d="M3556 4040 c-135 -43 -196 -206 -118 -317 15 -21 232 -240 482 -488
+                                <path d="M3556 4040 c-135 -43 -196 -206 -118 -317 15 -21 232 -240 482 -488
                                             250 -247 457 -453 458 -457 2 -5 -563 -8 -1255 -8 l-1259 0 -44 -22 c-55 -29
                                             -95 -79 -112 -140 -24 -91 24 -190 112 -235 l44 -23 1259 0 c692 0 1257 -3
                                             1255 -8 -1 -4 -208 -210 -458 -457 -250 -248 -467 -467 -482 -488 -121 -172
@@ -176,12 +185,10 @@ l42 -19 0 -274 c0 -253 2 -277 20 -312 57 -113 223 -113 280 0 18 35 20 59 20
         <?= $content ?>
     </div>
 </div>
-<?= $afterBodyContent ?? '' ?>
-<script type="module" src=<?= "/js/app.js" ?>></script>
 <script src=<?= "/js/jquery-3.6.0.min.js" ?>></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js"></script>
-<!--<script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>-->
-
+<script src=<?= "/js/app.js" ?>></script>
+<?= $afterBodyContent ?? '' ?>
+<!--<script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script> MARKDOWN EDITOR  -->
 </body>
 </html>
 

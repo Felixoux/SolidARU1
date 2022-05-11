@@ -8,6 +8,7 @@ abstract class AbstractValidator
 {
     protected array $data;
     protected Validator $validator;
+
     public function __construct(array $data)
     {
         $this->data = $data;

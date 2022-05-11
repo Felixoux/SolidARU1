@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 use App\Auth;
 
 ?>
@@ -9,9 +10,9 @@ use App\Auth;
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name = "description" content= "Ceci est un site répertoriant tous les articles de l'ASBL les amis ARU1" >
+    <meta name="description" content="Ceci est un site répertoriant tous les articles de l'ASBL les amis ARU1">
     <meta name="keywords" content="ARU1 aru1 solidaru1 solidarité felixoux alwaysdata site">
-    <meta name="google-site-verification" content="-UejOj4iwCE1xZZHO3O9gncUUfsEczIaQIitaMI3z-w" />
+    <meta name="google-site-verification" content="-UejOj4iwCE1xZZHO3O9gncUUfsEczIaQIitaMI3z-w"/>
     <title>Solidarité | <?= isset($pageTitle) ? e($pageTitle) : 'Blog' ?></title>
     <link rel="shortcut icon" href="/img/svg/favicon.svg">
     <link rel="stylesheet" href="/css/style.css">
@@ -25,8 +26,10 @@ use App\Auth;
         <li class="header__home"><a class="underline" href="<?= $router->url('home') ?>">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" fill="#EBF1FF" id="home">
                     <path fill="currentColor" d="M0 4v7a1 1 0 001 1h3V8h4v4h3a1 1 0 001-1V4L6 0 0 4z"></path>
-                </svg></a></li>
-        <li><h4>
+                </svg>
+            </a></li>
+        <li>
+            <h4>
                 <a href="<?= $router->url('home') ?>#event">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="#D4DCFF"
                          width="512.000000pt" height="512.000000pt" viewBox="0 0 512.000000 512.000000"
@@ -68,22 +71,35 @@ use App\Auth;
 -20 1880 -20 1825 0 1841 0 1880 20 45 23 80 80 80 130 0 50 -35 107 -80 130
 -39 20 -54 20 -1882 20 -1815 -1 -1844 -1 -1880 -21z"/>
                         </g>
-                    </svg>Blog
+                    </svg>
+                    Blog
                 </a>
-            </h4></li>
-        <li><h4>
-                <a href="#"><svg fill="#D4DCFF" height="325pt" viewBox="0 0 325 325.37515" width="325pt" xmlns="http://www.w3.org/2000/svg"><path d="m114.6875 284.675781-73.800781-73.800781 178.5-178.5 73.800781 73.800781zm-80.699219-60.800781 67.699219 67.699219-101.5 33.800781zm281.898438-140.300781-12.800781 12.800781-73.898438-73.898438 12.800781-12.800781c12.894531-12.902343 33.804688-12.902343 46.699219 0l27.199219 27.199219c12.800781 12.9375 12.800781 33.765625 0 46.699219zm0 0"/>
-                    </svg>A propos
-                </a>
-            </h4></li>
-        <li><h4>
+            </h4>
+        </li>
+        <li>
+            <h4>
                 <a href="#">
-                    <svg fill="#D4DCFF" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 31.41"><path d="M1.05 1.51L6.94.04c.64-.16 1.3.2 1.56.85l2.72 6.87c.24.6.08 1.31-.39 1.72L7.4 12.52c2.04 4.7 5.6 8.62 10.04 10.87l2.81-3.72c.39-.51 1.03-.68 1.59-.42l6.34 2.94c.61.29.94 1 .79 1.69l-1.36 6.38c-.14.66-.69 1.14-1.33 1.14C11.78 31.41 0 18.68 0 2.95c0-.69.44-1.29 1.05-1.44z"/>
-                    </svg>Contact
+                    <svg fill="#D4DCFF" height="325pt" viewBox="0 0 325 325.37515" width="325pt"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path d="m114.6875 284.675781-73.800781-73.800781 178.5-178.5 73.800781 73.800781zm-80.699219-60.800781 67.699219 67.699219-101.5 33.800781zm281.898438-140.300781-12.800781 12.800781-73.898438-73.898438 12.800781-12.800781c12.894531-12.902343 33.804688-12.902343 46.699219 0l27.199219 27.199219c12.800781 12.9375 12.800781 33.765625 0 46.699219zm0 0"/>
+                    </svg>
+                    A propos
                 </a>
-            </h4></li>
-        <?php if(Auth::is_connected() === true): ?>
-            <li><h4>
+            </h4>
+        </li>
+        <li>
+            <h4>
+                <a href="#">
+                    <svg fill="#D4DCFF" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 31.41">
+                        <path d="M1.05 1.51L6.94.04c.64-.16 1.3.2 1.56.85l2.72 6.87c.24.6.08 1.31-.39 1.72L7.4 12.52c2.04 4.7 5.6 8.62 10.04 10.87l2.81-3.72c.39-.51 1.03-.68 1.59-.42l6.34 2.94c.61.29.94 1 .79 1.69l-1.36 6.38c-.14.66-.69 1.14-1.33 1.14C11.78 31.41 0 18.68 0 2.95c0-.69.44-1.29 1.05-1.44z"/>
+                    </svg>
+                    Contact
+                </a>
+            </h4>
+        </li>
+        <?php if (Auth::is_connected() === true): ?>
+            <li>
+                <h4>
                     <a href="<?= $router->url('admin_posts') ?>">
                         <svg fill="#F0F5FF" xmlns="http://www.w3.org/2000/svg"
                              width="512.000000pt" height="512.000000pt" viewBox="0 0 512.000000 512.000000"
@@ -131,9 +147,11 @@ use App\Auth;
                                 405 -600 697 -1039 758 l-84 12 -58 -53 c-124 -113 -255 -191 -388 -231 -109
                                 -32 -286 -37 -399 -10 -158 38 -291 111 -423 233 -72 67 -76 68 -223 37z"/>
                             </g>
-                        </svg>Admin
+                        </svg>
+                        Admin
                     </a>
-                </h4></li>
+                </h4>
+            </li>
         <?php endif ?>
     </ul>
     <ul class="header-side flex">
@@ -173,7 +191,8 @@ use App\Auth;
     ?>
     <div class="theme-switcher-title ml5 mb2 mt3">Thème</div>
     <div class="theme-switcher ml5 form-switch mb3">
-        <input type="checkbox" id="theme-switcher" name="theme-switcher" value="1" aria-label="Changer le thème" checked>
+        <input type="checkbox" id="theme-switcher" name="theme-switcher" value="1" aria-label="Changer le thème"
+               checked>
         <label for="theme-switcher">
             <span class="switch"></span>
         </label>

@@ -1,115 +1,118 @@
 .banner {
-    width: 100%;
-    height: 128px;
-    background: url(../img/banner.jpg) no-repeat center ; 
-    background-size:100%;
+  width: 100%;
+  height: 128px;
+  background: url(../img/banner.jpg) no-repeat center;
+  background-size: 100%;
 
-    @include up(775) {
-        width: 100%;
-        height: 496px;
-        background:  url(../img/banner.jpg);
-        background-size: 2433px 496px;
-        margin-top: calc(-1 * calc(var(--space-section) * .8));
-    }
+  @include up(775) {
+    width: 100%;
+    height: 496px;
+    background: url(../img/banner.jpg);
+    background-size: 2433px 496px;
+    margin-top: calc(-1 * calc(var(--space-section) * .8));
+  }
 }
 
 .home-little-grid {
-    margin-bottom: calc(var(--space-section) / 2.5);
+  margin-bottom: calc(var(--space-section) / 2.5);
 
-    @include up(775) {
-        display: grid;
-        grid-template-columns: 1fr 0.03fr .7fr;
-        grid-template-rows: repeat(20, .1fr);
-        margin-top: calc(-1 * calc(var(--gap) * 4.3));
-    }
+  @include up(775) {
+    display: grid;
+    grid-template-columns: 1fr 0.03fr .7fr;
+    grid-template-rows: repeat(20, .1fr);
+    margin-top: calc(-1 * calc(var(--gap) * 4.3));
+  }
 }
 
 .home-little-grid > div {
-    @extend %stack;
-    justify-content: center;
-    margin-top:calc(var(--gap) * 3);
-    padding: calc(var(--gap) * 1.3);
+  @extend %stack;
+  justify-content: center;
+  margin-top: calc(var(--gap) * 3);
+  padding: calc(var(--gap) * 1.3);
 
-    @include up(775) {
-        margin-top: 0;
-        display: flex;
-    }
+  @include up(775) {
+    margin-top: 0;
+    display: flex;
+  }
 }
 
 @include up(775) {
-    .home-card-little {
-        padding-left: calc(var(--gap) * 2);
-    }
+  .home-card-little {
+    padding-left: calc(var(--gap) * 2);
+  }
 
-    .home-card-big {
-        grid-column: 1 / 3;
-        grid-row: 1 / 14;
-        z-index:10;
-    }
-    
-    .home-card-little{
-        grid-column: 2 / 4;
-        grid-row:7 / 17;
-    }
+  .home-card-big {
+    grid-column: 1 / 3;
+    grid-row: 1 / 14;
+    z-index: 10;
+  }
 
-    .welcome-mascott {
-        position: absolute;
-        top: 322.5px;
-        left: -120px;
-        width: 500px;
-        z-index: -25;
-        transform: rotate(10deg);
-    }
+  .home-card-little {
+    grid-column: 2 / 4;
+    grid-row: 7 / 17;
+  }
+
+  .welcome-mascott {
+    position: absolute;
+    top: 322.5px;
+    left: -120px;
+    width: 500px;
+    z-index: -25;
+    transform: rotate(10deg);
+  }
 }
+
 section.event {
-    position: relative;
-    z-index: 0;
+  position: relative;
+  z-index: 0;
 }
 
 section.event .category_svg {
-    width: 26px;
-    height: auto;
+  width: 26px;
+  height: auto;
 }
 
 .big-grid-event {
-    margin: calc(var(--space-section) / 3.5) 0;
-    display: grid;
-    grid-template-columns:repeat(auto-fill, minmax(325px, 1fr));
-    gap: var(--gap);
+  margin: calc(var(--space-section) / 3.5) 0;
+  display: grid;
+  grid-template-columns:repeat(auto-fill, minmax(325px, 1fr));
+  gap: var(--gap);
 }
 
 .event-card p {
-    margin: var(--gap) 0 ;
+  margin: var(--gap) 0;
 }
 
 // Special card hover
 .card--category::before, .card--category::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
-    transition: .3s;
-    @extend %card;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  transition: .3s;
+  @extend %card;
 }
 
 .card--category::before {
-    transform: translate(0px, 0px);
+  transform: translate(0px, 0px);
 }
+
 .card--category::after {
-    transform: translate(6px, 6px);
+  transform: translate(6px, 6px);
 }
 
 .card--category:hover {
-    &::before {
-        opacity: 1;
-        transform: translate(0,0) rotate(-3deg);
-    }
-    &::after {
-        transform: translate(6px,6px) rotate(3deg);
-    }
+  &::before {
+    opacity: 1;
+    transform: translate(0, 0) rotate(-3deg);
+  }
+
+  &::after {
+    transform: translate(6px, 6px) rotate(3deg);
+  }
 }
 
 

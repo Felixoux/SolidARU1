@@ -3,6 +3,7 @@
 *::after {
   box-sizing: border-box;
 }
+
 html,
 body,
 div,
@@ -91,6 +92,7 @@ video {
   font: inherit;
   vertical-align: baseline;
 }
+
 button {
   color: inherit;
   padding: 0;
@@ -101,14 +103,17 @@ button {
   font-size: inherit;
   width: fit-content;
 }
+
 form {
   display: block;
 }
+
 select,
 input {
   font-size: inherit;
   font-family: inherit;
 }
+
 // HTML5 display-role reset for older browsers
 article,
 aside,
@@ -123,17 +128,21 @@ nav,
 section {
   display: block;
 }
+
 body {
   line-height: 1.4;
 }
+
 ol,
 ul {
   list-style: none;
 }
+
 blockquote,
 q {
   quotes: none;
 }
+
 blockquote:before,
 blockquote:after,
 q:before,
@@ -141,18 +150,22 @@ q:after {
   content: '';
   content: none;
 }
+
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
 img {
   max-width: 100%;
 }
+
 a {
   text-decoration: none;
   color: inherit;
   transition: color 0.3s;
 }
+
 textarea {
   font-size: inherit;
   font-family: inherit;
@@ -160,6 +173,7 @@ textarea {
   resize: none;
   border: none;
 }
+
 hr {
   height: 1px;
   background: var(--border);
@@ -168,17 +182,20 @@ hr {
   padding: 0;
   border: none;
 }
+
 *:focus:not(:focus-visible) {
   outline: none;
 }
+
 // Code
 code {
   display: block;
   width: 100%;
   background: var(--bg-light);
   border-radius: 8px;
-  padding: 1rem 2rem ;
+  padding: 1rem 2rem;
 }
+
 // Citation
 blockquote {
   padding: 0 1em;

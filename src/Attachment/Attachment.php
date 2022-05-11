@@ -24,9 +24,9 @@ abstract class Attachment
 
     public function deleteOld($item): void
     {
-        if(!empty($item->getOldImage())) {
+        if (!empty($item->getOldImage())) {
             $oldFile = $this->path . DIRECTORY_SEPARATOR . $item->getOldImage() . '_small.jpg';
-            if(file_exists($oldFile)) {
+            if (file_exists($oldFile)) {
                 unlink($oldFile);
             }
         }
@@ -36,10 +36,10 @@ abstract class Attachment
     {
         $image = $item->getImage();
 
-        if(empty($image) || $item->shouldUpload() === false) {
+        if (empty($image) || $item->shouldUpload() === false) {
             return;
         }
-        if(file_exists($this->path) === false) {
+        if (file_exists($this->path) === false) {
             mkdir($this->path, 0777, true);
         }
 
@@ -52,9 +52,9 @@ abstract class Attachment
 
     public function detach($item): void
     {
-        if(!empty($item->getImage())) {
+        if (!empty($item->getImage())) {
             $file = $this->path . DIRECTORY_SEPARATOR . $item->getImage() . '_small.jpg';
-            if(file_exists($file)) {
+            if (file_exists($file)) {
                 unlink($file);
             }
         }

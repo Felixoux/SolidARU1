@@ -93,8 +93,8 @@ Auth::check();
         <div class="guide-control__content">
             <p>|cellule 1|cellule 2|</p>
             <p>|--------|--------|</p>
-            <p>|    A    |    B    |</p>
-            <p>|    C    |    D    |</p>
+            <p>| A | B |</p>
+            <p>| C | D |</p>
         </div>
     </div>
     <div class="guide-control">

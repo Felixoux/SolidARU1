@@ -59,12 +59,12 @@ class Router
         $router = $this;
         $isAdmin = strpos($view, 'admin/') !== false;
         $this->layout = $isAdmin ? 'admin/layouts/default' : 'layouts/default';
-        try{
+        try {
             ob_start();
             require $this->viewPath . DIRECTORY_SEPARATOR . $view . '.php';
             $content = ob_get_clean();
             require $this->viewPath . DIRECTORY_SEPARATOR . $this->layout . '.php';
-        } catch(ForbidenException $e) {
+        } catch (ForbidenException $e) {
             header('Location: ' . $this->url('login') . '?forbidden=1');
             exit();
         }

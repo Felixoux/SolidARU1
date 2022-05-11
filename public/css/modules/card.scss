@@ -1,67 +1,68 @@
 %card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 3px;
-    box-shadow: 0 2px 4px var(--shadow);
-    transition: .3s;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  box-shadow: 0 2px 4px var(--shadow);
+  transition: .3s;
 }
 
-.card{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    @extend %card;
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  @extend %card;
 }
 
 .card--category {
-    @extend .card;
+  @extend .card;
 }
 
-.card__body{
-    padding:calc(var(--space) * 2.3);
+.card__body {
+  padding: calc(var(--space) * 2.3);
 }
 
 .card__footer {
-    min-height: 36px;
-    margin-top: auto;
-    padding: .7rem calc(var(--space) * 2.3);
-    background: var(--bg-card-footer);
-    font-size: .9rem;
-    border-top:2px solid var(--primary_b);
+  min-height: 36px;
+  margin-top: auto;
+  padding: .7rem calc(var(--space) * 2.3);
+  background: var(--bg-card-footer);
+  font-size: .9rem;
+  border-top: 2px solid var(--primary_b);
 }
 
 .card__header {
-    @extend .flex;
+  @extend .flex;
 }
 
-.card__svg{
-    width: 16px;
+.card__svg {
+  width: 16px;
 }
 
 .card__title {
-    font-family: var(--font-semi);
-    line-height: 1.3;
-    font-size: 16px;
+  font-family: var(--font-semi);
+  line-height: 1.3;
+  font-size: 16px;
 }
 
-.card__description p{
-    color: var(--muted-text);
+.card__description p {
+  color: var(--muted-text);
 }
 
 .card a {
-    position: relative;
-    z-index:3;
+  position: relative;
+  z-index: 3;
 }
 
 .card__link {
-    display: block;
-    @include absolute();
-    @include border(1px, transparent, 3px);
-    z-index: 2 !important;
-    transition: .3s;
-    cursor: pointer;
-    &:hover {
-        border: 1px solid var(--primary_b);
-    }
+  display: block;
+  @include absolute();
+  @include border(1px, transparent, 3px);
+  z-index: 2 !important;
+  transition: .3s;
+  cursor: pointer;
+
+  &:hover {
+    border: 1px solid var(--primary_b);
+  }
 }
 

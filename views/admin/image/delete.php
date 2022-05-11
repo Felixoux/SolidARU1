@@ -9,7 +9,7 @@ $table = new ImageTable($pdo);
 $image = $table->find($params['id']);
 $table->delete($params['id']); // Supprimer la photo de la bdd
 $link = UPLOAD_PATH . DIRECTORY_SEPARATOR . 'posts_multiple' . DIRECTORY_SEPARATOR . $image->getName();
-if(file_exists($link)) {
+if (file_exists($link)) {
     unlink($link); // Supprimer la photo des fichiers
 }
 header('Location: ' . $router->url('admin_images') . '?delete=1');

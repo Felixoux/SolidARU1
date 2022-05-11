@@ -2,24 +2,26 @@
 // Responsive
 // ==================
 @mixin up($size) {
-    $size: strip-unit($size);
-    @media (min-width: $size * 1px) {
-      @content;
-    }
+  $size: strip-unit($size);
+  @media (min-width: $size * 1px) {
+    @content;
   }
-  @mixin down($size) {
-    $size: strip-unit($size);
-    @media (max-width: $size * 1px) {
-      @content;
-    }
+}
+
+@mixin down($size) {
+  $size: strip-unit($size);
+  @media (max-width: $size * 1px) {
+    @content;
   }
-  @mixin between($down, $up) {
-    $down: strip-unit($down);
-    $up: strip-unit($up);
-    @media (min-width: $down * 1px) and (max-width: $up * 1px) {
-      @content;
-    }
+}
+
+@mixin between($down, $up) {
+  $down: strip-unit($down);
+  $up: strip-unit($up);
+  @media (min-width: $down * 1px) and (max-width: $up * 1px) {
+    @content;
   }
+}
 
 @mixin card_utils($bg: var(--bg-card), $size-border: 1px, $radius: 3px) {
   background: $bg;
@@ -29,8 +31,8 @@
 }
 
 @mixin border($border-size : 1px, $border-color : var(--border), $radius-size : 3px) {
-  border:$border-size solid $border-color;
-  border-radius:$radius-size;
+  border: $border-size solid $border-color;
+  border-radius: $radius-size;
 }
 
 @mixin absolute($top: 0px,$left: 0px, $right: 0px, $bottom: 0px) {

@@ -3,7 +3,7 @@
         <p class="alert">* champs requis</p>
         <?= $form->input('name', 'Titre', 'withSpace', 'required') ?>
         <?= $form->input('slug', 'URL', 'withDash', 'required') ?>
-        <?php if($item->getImage()): ?>
+        <?php if ($item->getImage()): ?>
             <img src="<?= $item->getImageURL('small') ?>" alt="<?= $item->getImageURL('small') ?>" width="250">
         <?php endif ?>
         <?= $form->file('image', 'Image à la une') ?>

@@ -1,52 +1,50 @@
 .post-listing__header, .post-listing__body > div {
-    margin-bottom: var(--space);
-    padding: 1rem;
+  margin-bottom: var(--space);
+  padding: 1rem;
 
-    @include up(1225) {
-        display: grid ;
-        grid-template-columns:50px 4fr 1fr !important;
-        grid-template-rows: 1fr;
-        align-items: center;
-    }
+  @include up(1225) {
+    display: grid;
+    grid-template-columns:50px 4fr 1fr !important;
+    grid-template-rows: 1fr;
+    align-items: center;
+  }
 }
 
 .post-listing__header {
-    padding: 1rem 0;
-    h3{
-        display: none;
-    }
+  padding: 1rem 0;
 
-    @include up(1225) {
-        padding: 1rem;
-        h3 {
-            display: block;
-        }
+  h3 {
+    display: none;
+  }
+
+  @include up(1225) {
+    padding: 1rem;
+    h3 {
+      display: block;
     }
+  }
 }
 
-.post-listing .admin-card__option a:first-child{
-    display: inline-block;
-    margin-right: 1rem;
+.post-listing .admin-card__option a:first-child {
+  display: inline-block;
+  margin-right: 1rem;
 }
 
 .post-listing .admin-card {
-    @extend %stack;
-    @extend %card;
-    @include up(1225) {
-        gap: 0;
-    }
+  @extend %stack;
+  @extend %card;
+  @include up(1225) {
+    gap: 0;
+  }
 }
 
 .article__images {
-    @extend %grid-fill;
+  @extend %grid-fill;
 }
-
-
-
 
 
 // Security
 .lock_svg {
-    width: 26px;
-    height: auto;
+  width: 26px;
+  height: auto;
 }
