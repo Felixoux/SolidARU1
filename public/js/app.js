@@ -1,4 +1,9 @@
-
+// Site animation
+$('article.card .card--category').hover(function () {
+    $(this).animate({
+        left:150
+    })
+})
 // pre-loader
 $(document).ready(function () {
     $('#pre-loader').addClass('active')
@@ -77,3 +82,5 @@ flatpickr('.datepicker', {
     altFormat:'j F Y, H:i',
     dateFormat:'Y-m-d H:i:s',
 })
+
+
