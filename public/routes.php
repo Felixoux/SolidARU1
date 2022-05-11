@@ -21,6 +21,10 @@ $router
 ->get('/admin/images', 'admin/image/index',  'admin_images')
 ->post('/admin/image/[i:id]/delete', 'admin/image/delete', 'admin_image_delete')
 ->match('/admin/image/new', 'admin/image/new', 'admin_image_new')
+// === File ===
+->get('/admin/files', 'admin/file/index',  'admin_files')
+->post('/admin/file/[i:id]/delete', 'admin/file/delete', 'admin_file_delete')
+->match('/admin/file/new', 'admin/file/new', 'admin_file_new')
 // === SECURITY ===
 ->match('/admin/security', 'admin/security/index', 'security')
 ->run();

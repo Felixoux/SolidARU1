@@ -21,5 +21,11 @@
     "flatpickr": "^4.6.13",
     "jquery": "^3.6.0",
     "simplemde": "^1.11.2"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-load-plugins": "^2.0.7",
+    "gulp-plumber": "^1.2.1",
+    "gulp-svg-sprite": "^1.5.0"
   }
 }
