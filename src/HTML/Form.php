@@ -81,12 +81,6 @@ class Form
             $optionsHTML[] = "<option value=\"$k\"$selected>$v</option>";
         }
 
-        if($key === 'categories_ids') {
-            $required = 'required';
-        } else {
-            $required = '';
-        }
-
         $optionsHTML = implode('', $optionsHTML);
         return <<<HTML
         <div class="form-group">
