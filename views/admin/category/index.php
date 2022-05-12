@@ -11,16 +11,19 @@ $link = $router->url('admin_categories');
 
 ?>
 <?php if (isset($_GET['delete'])): ?>
-    <p class="alert alert-success">La catégorie a bien été supprimé</p>
+    <p class="alert alert-success">La catégorie a bien été supprimée</p>
 <?php endif ?>
 <?php if (isset($_GET['created'])): ?>
-    <p class="alert alert-success">La catégorie a bien été créé</p>
+    <p class="alert alert-success">La catégorie a bien été créée</p>
+<?php endif ?>
+<?php if (isset($_GET['modified'])): ?>
+    <p class="alert alert-success">La catégorie a bien été modifiée</p>
 <?php endif ?>
 <?php
-$listingQuery = new listingQuery($items,$pagination,$link,'category', 'catégorie', $router);
+$listingQuery = new listingQuery($items, $pagination, $link, 'category', 'catégorie', $router);
 echo($listingQuery->getHeaderListing()); // Display header
 foreach ($items as $item) {
-echo($listingQuery->getbodyListing($item)); // Display Items
+    echo($listingQuery->getbodyListing($item)); // Display Items
 }
 echo($listingQuery->getFooterListing()); // Display pagination buttons
 ?>

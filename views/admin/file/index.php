@@ -17,7 +17,7 @@ $link = $router->url('admin_files');
     <p class="alert alert-success">Document(s) ajoutée(s) avec succès</p>
 <?php endif ?>
 <?php
-$listingQuery = new listingQuery($items,$pagination,$link,'file', 'document', $router);
+$listingQuery = new listingQuery($items, $pagination, $link, 'file', 'document', $router);
 echo($listingQuery->getHeaderListing()); // Display header
 foreach ($items as $item) {
     echo($listingQuery->getbodyListing($item)); // Display Items

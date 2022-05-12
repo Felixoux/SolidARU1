@@ -13,4 +13,3 @@ header('Location: ' . $router->url('admin_posts') . '?delete=1');
 ?>
 
 
-<h1><?= 'suppression de l\'article ' . $params['id'] ?></h1>

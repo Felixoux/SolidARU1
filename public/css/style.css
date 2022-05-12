@@ -570,7 +570,7 @@ header, section, main, footer, nav, .container, .header, .footer, .main, form {
 }
 
 .hidden {
-  display: none;
+  display: none!important;
 }
 
 .visible {

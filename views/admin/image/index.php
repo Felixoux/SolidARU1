@@ -17,7 +17,7 @@ $link = $router->url('admin_images');
     <p class="alert alert-success">Image(s) ajoutée(s) avec succès</p>
 <?php endif ?>
 <?php
-$listingQuery = new listingQuery($items,$pagination,$link,'image', 'image', $router);
+$listingQuery = new listingQuery($items, $pagination, $link, 'image', 'image', $router);
 echo($listingQuery->getHeaderListing()); // Display header
 foreach ($items as $item) {
     echo($listingQuery->getbodyListing($item)); // Display Items

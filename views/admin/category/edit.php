@@ -30,7 +30,7 @@ if (!empty($_POST)) {
             'content' => $item->getContent(),
             'image' => $item->getImage()
         ], $item->getID());
-        $success = true;
+        header('Location: ' . $router->url('admin_categories') . '?modified=1');
     } else {
         $errors = $v->errors();
     }
@@ -39,9 +39,6 @@ if (!empty($_POST)) {
 
 $form = new Form($item, $errors);
 ?>
-<?php if ($success): ?>
-    <p class="alert alert-success">La catégorie a bien été modifié</p>
-<?php endif ?>
 <h2 class="mt4 medium-title">Editer la catégorie "<?= e($item->getName()) ?>"</h2>
 <hr>
 <?php require '_form.php' ?>

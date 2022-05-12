@@ -13,12 +13,12 @@ class listingQuery
     private string $name_to_display;
 
     public function __construct(
-        array $items,
+        array          $items,
         paginatedQuery $pagination,
-        string $link,
-        string $name,
-        string $name_to_display,
-        Router $router
+        string         $link,
+        string         $name,
+        string         $name_to_display,
+        Router         $router
     )
     {
         $this->items = $items;
@@ -31,7 +31,7 @@ class listingQuery
 
     public function getHeaderListing(): string
     {
-    return <<<HTML
+        return <<<HTML
     <h2 class="medium-title mt2">Page {$this->name_to_display}</h2>
     <hr>
     <section class="post-listing">
@@ -56,10 +56,9 @@ HTML;
                  </a>
             </h4>
             <div class="admin-card__option">
-            <a href="{$this->getEdit($item)}"
-               class="btn-primary section-title">Éditer</a>
+            <a href="{$this->getEdit($item)}" class="btn-primary section-title {$this->getEditClass()}">Éditer</a>
             <form style="display: inline;" method="POST"
-                  action="{$this->router->url('admin_'. $this->name . '_delete', ['id' => $item->getID()])}"
+                  action="{$this->router->url('admin_' . $this->name . '_delete', ['id' => $item->getID()])}"
                   onsubmit="return confirm('Voulez vous vraiment supprimer {$this->getDeleteDisplay()} ?')">
                 <button type="submit" class="btn btn-alert">Supprimer</button>
             </form>
@@ -70,7 +69,7 @@ HTML;
 
     public function getFooterListing(): string
     {
-    return <<<HTML
+        return <<<HTML
     </section>
     </section>
     <div class="footer-links">
@@ -80,10 +79,9 @@ HTML;
 HTML;
     }
 
-    // Display stuff
     private function getNewDisplay(): ?string
     {
-        if($this->name_to_display === 'article') {
+        if ($this->name_to_display === 'article') {
             return 'un article';
         } elseif ($this->name_to_display === "catégorie") {
             return 'une catégorie';
@@ -96,25 +94,33 @@ HTML;
         }
     }
 
-    private function getDeleteDisplay(): ?string {
-        if($this->name_to_display === 'article') {
-            return "l'article";
+    private function getDeleteDisplay(): ?string
+    {
+        if ($this->name_to_display === 'article') {
+            return "l\'article";
         } elseif ($this->name_to_display === "catégorie") {
             return 'la catégorie';
         } elseif ($this->name_to_display === "image") {
-            return "l'image";
+            return "l\'image";
         } elseif ($this->name_to_display === "document") {
             return 'le document';
-        } else {
-            return null;
         }
+        return null;
     }
 
     private function getEdit($item): ?string
     {
-        if($this->name_to_display === 'article' || $this->name_to_display === 'catégorie') {
+        if ($this->name_to_display === 'article' || $this->name_to_display === 'catégorie') {
             return $this->router->url('admin_' . $this->name, ['id' => $item->getID()]);
         }
         return null;
+    }
+
+    private function getEditClass(): string
+    {
+        if ($this->name_to_display === 'article' || $this->name_to_display === 'catégorie') {
+            return '';
+        }
+        return 'hidden';
     }
 }

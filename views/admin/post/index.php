@@ -19,7 +19,7 @@ $link = $router->url('admin_posts');
     <p class="alert alert-success">L'article a bien été modifié</p>
 <?php endif ?>
 <?php
-$listingQuery = new listingQuery($items,$pagination,$link,'post', 'article', $router);
+$listingQuery = new listingQuery($items, $pagination, $link, 'post', 'article', $router);
 echo($listingQuery->getHeaderListing()); // Display header
 foreach ($items as $item) {
     echo($listingQuery->getbodyListing($item)); // Display Items
