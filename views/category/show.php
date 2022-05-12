@@ -15,7 +15,7 @@ if ($category->getSlug() !== $slug) {
     exit();
 }
 
-[$posts, $pagination] = (new PostTable($pdo))->findPaginatedForCategory($category->getID());
+[$posts, $pagination] = (new PostTable($pdo))->findPaginatedForCategory($id);
 
 $link = $router->url('category', ['id' => $category->getID(), 'slug' => $category->getSlug()]);
 ?>

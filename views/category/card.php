@@ -1,4 +1,5 @@
 <article class="card card--category">
+
     <?php if ($category->getImage()): ?>
         <img src="<?= $category->getImageURL('small') ?>" alt="">
     <?php endif ?>
@@ -22,6 +23,6 @@
 
     </div>
     <div class="card__footer flex flex-start">
-        <p>19 Post(s)</p>
+        <p>Il y a <?= $numberPost ?> post(s)</p>
     </div>
 </article>

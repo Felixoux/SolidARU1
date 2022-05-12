@@ -56,4 +56,15 @@ class CategoryTable extends Table
         }
         return $results;
     }
+
+    public function countPost(int $categoryID): int
+    {
+        $query = $this->pdo->query("
+                SELECT COUNT(id)
+                FROM post p
+                JOIN post_category pc ON pc.post_id = p.id
+                WHERE pc.category_id = $categoryID
+        ")->fetchAll();
+        return $query[0]['COUNT(id)'];
+    }
 }

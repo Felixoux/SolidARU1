@@ -196,6 +196,7 @@ $link = $router->url('home');
     </div>
     <div class="big-grid-event">
         <?php foreach ($categories as $category): ?>
+            <?php $numberPost = $table->countPost($category->getID()) ?>
             <?php require VIEW_PATH . '/category/card.php'; ?>
         <?php endforeach ?>
     </div>
