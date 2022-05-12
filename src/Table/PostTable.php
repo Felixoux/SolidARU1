@@ -70,7 +70,7 @@ class PostTable extends Table
         return [$posts, $paginatedQuery];
     }
 
-    public function findPaginatedForCategory(int $categoryID): array
+    public function findPaginatedForCategory(int $categoryID): ?array
     {
         $paginatedQuery = new paginatedQuery(
             "SELECT p.*
