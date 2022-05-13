@@ -8,7 +8,6 @@ use PDO;
 
 class CategoryTable extends Table
 {
-
     protected $table = "category";
     protected $class = Category::class;
 
@@ -35,16 +34,6 @@ class CategoryTable extends Table
     public function all(): array
     {
         return $this->queryAndFetchAll("SELECT * FROM $this->table ORDER BY id DESC");
-    }
-
-    public function list(): array
-    {
-        $categories = $this->queryAndFetchAll("SELECT * FROM $this->table ORDER BY name ASC");
-        $results = [];
-        foreach ($categories as $category) {
-            $results[$category->getID()] = $category->getName();
-        }
-        return $results;
     }
 
     public function countPost(int $categoryID): int

@@ -140,6 +140,16 @@ abstract class Table
         }
     }
 
+    public function list(): array
+    {
+        $items = $this->queryAndFetchAll("SELECT * FROM $this->table ORDER BY created_at DESC");
+        $results = [];
+        foreach ($items as $item) {
+            $results[$item->getID()] = $item->getName();
+        }
+        return $results;
+    }
+
     public function queryAndFetchAll(string $sql): array
     {
         return $this->pdo->query($sql, PDO::FETCH_CLASS, $this->class)->fetchAll();

@@ -11,7 +11,7 @@ class ImageTable extends Table
 {
     protected $table = "image";
     protected $class = Image::class;
-
+    // Cette methode est a supprimée si elle n'est pas utilisée
     public function findByName(string $name)
     {
         $query = $this->pdo->prepare('SELECT * FROM ' . $this->table . ' WHERE name = :name');
@@ -22,16 +22,6 @@ class ImageTable extends Table
             throw new NotFoundException($this->table, $name);
         }
         return $result;
-    }
-
-    public function list(): array
-    {
-        $images = $this->queryAndFetchAll("SELECT * FROM $this->table ORDER BY created_at DESC");
-        $results = [];
-        foreach ($images as $image) {
-            $results[$image->getID()] = $image->getName();
-        }
-        return $results;
     }
 
     public function hydratePosts(array $posts): void
