@@ -3,7 +3,7 @@
 use App\Connection;
 
 require dirname(__DIR__) . DIRECTORY_SEPARATOR . 'vendor/autoload.php';
-
+define('ROOT_PATH', dirname(__DIR__));
 $faker = Faker\Factory::create('fr_FR');
 
 $pdo = Connection::getPDO();
@@ -24,7 +24,7 @@ for($i = 0; $i < 50; $i++){
 }
 
 for($i = 0; $i < 5; $i++){
-    $pdo->exec("INSERT INTO category SET name='{$faker->sentence(3)}', content='{$faker->paragraphs(rand(3,5), true)}', slug='{$faker->slug}'");
+    $pdo->exec("INSERT INTO category SET name='{$faker->sentence(3)}', created_at='{$faker->date} {$faker->time}',content='{$faker->paragraphs(rand(3,5), true)}', slug='{$faker->slug}'");
     $categories [] = $pdo->lastInsertId();
 }
 

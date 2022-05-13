@@ -9,29 +9,6 @@ class PostTable extends Table
     protected $table = "post";
     protected $class = Post::class;
 
-    public function updatePost(Post $post): void
-    {
-        $this->update([
-            'name' => $post->getName(),
-            'slug' => $post->getSlug(),
-            'content' => $post->getContent(),
-            'created_at' => $post->getCreatedAt()->format("Y-m-d H:i:s"),
-            'image' => $post->getImage()
-        ], $post->getID());
-    }
-
-    public function createPost(Post $post): void
-    {
-        $id = $this->create([
-            'name' => $post->getName(),
-            'slug' => $post->getSlug(),
-            'content' => $post->getContent(),
-            'image' => $post->getImage(),
-            'created_at' => $post->getCreatedAt()->format("Y-m-d H:i:s")
-        ]);
-        $post->setID($id);
-    }
-
     public function attachCategories(int $id, array $categories): void
     {
         $this->pdo->exec("DELETE FROM post_category WHERE post_id = " . $id);

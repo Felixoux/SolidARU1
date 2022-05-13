@@ -2,6 +2,7 @@
 
 namespace App\Table;
 
+use App\Model\Post;
 use App\Table\Exception\NotFoundException;
 use PDO;
 
@@ -79,6 +80,18 @@ abstract class Table
         return (int)$this->pdo->lastInsertId();
     }
 
+    public function createPC($item): void
+    {
+        $id = $this->create([
+            'name' => $item->getName(),
+            'slug' => $item->getSlug(),
+            'content' => $item->getContent(),
+            'image' => $item->getImage(),
+            'created_at' => $item->getCreatedAt()->format("Y-m-d H:i:s")
+        ]);
+        $item->setID($id);
+    }
+
     public function update(array $data, ?int $id = null)
     {
         $sqlFields = [];
@@ -91,6 +104,17 @@ abstract class Table
             throw new \Exception('Impossible de modifier l\'enregistrement dans la table' . $this->table);
         }
         return (int)$this->pdo->lastInsertId();
+    }
+
+    public function updatePC($item): void
+    {
+        $this->update([
+            'name' => $item->getName(),
+            'slug' => $item->getSlug(),
+            'content' => $item->getContent(),
+            'created_at' => $item->getCreatedAt()->format("Y-m-d H:i:s"),
+            'image' => $item->getImage()
+        ], $item->getID());
     }
 
     public function queryAndFetchAll(string $sql): array
