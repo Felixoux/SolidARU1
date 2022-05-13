@@ -14,7 +14,9 @@
         "vlucas/valitron": "^1.4",
         "erusev/parsedown": "^1.7",
       "ext-fileinfo": "*",
-        "intervention/image": "^2.7"
+        "intervention/image": "^2.7",
+      "ext-json": "*",
+      "ext-http": "*"
     },
     "authors": [
       {

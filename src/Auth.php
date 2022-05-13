@@ -4,6 +4,7 @@ namespace App;
 
 use App\Security\ForbidenException;
 use App\Table\UserTable;
+use App\Helper;
 
 class Auth
 {
@@ -38,11 +39,13 @@ class Auth
             if((1 + 1) === 2) {
                 Helper::sessionStart();
                 $_SESSION['auth'] = 'connected';
-                setcookie('auth', $user->getUsername() . '-----' . $key, time() +
-                    3600 * 24 * 3, '/', 'localhost', false,
-                    true);
+                $cookieValue = $user->getUsername() . '-----' . sha1($user->getUsername() . $user->getPassword() . $_SERVER['REMOTE_ADDR']);
+                $duration = time() + 3600 * 24 * 3;
+                (new Helper())->createCookie('auth', $cookieValue, 'localhost', $duration);
             } else {
-                setcookie('auth', '', time() -3600, '/', 'localhost', false,true);
+                $cookieValue = $user->getUsername() . '-----' . sha1($user->getUsername() . $user->getPassword() . $_SERVER['REMOTE_ADDR']);
+                $duration = time() -3600;
+                (new Helper())->createCookie('auth', $cookieValue, 'localhost', $duration);
             }
         }
     }
