@@ -15,7 +15,7 @@ class CategoryTable extends Table
     public function findPaginated()
     {
         $paginatedQuery = new paginatedQuery(
-            "SELECT * FROM category ORDER BY name ASC",
+            "SELECT * FROM category ORDER BY created_at DESC",
             "SELECT COUNT(id) FROM category"
         );
         $categories = $paginatedQuery->getItems(Category::class);

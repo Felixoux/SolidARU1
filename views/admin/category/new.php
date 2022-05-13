@@ -1,4 +1,11 @@
 <?php
+$css_flatpickr = '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.css">';
+$beforeBodyContent = ob_before($css_flatpickr);
+$js_flatpickr = <<<HTML
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js"></script> 
+    <script src="/js/datePicker.js"></script>
+    HTML;
+$afterBodyContent = ob_after($js_flatpickr);
 
 use App\{Attachment\CategoryAttachment,
     Auth,
@@ -14,7 +21,7 @@ Auth::check();
 $item = new Category();
 $success = false;
 $errors = [];
-
+$item->setCreatedAt(date('Y-m-d H:i:s'));
 $fields = ['name', 'slug', 'content', 'image'];
 $data = array_merge($_POST, $_FILES);
 if (!empty($_POST)) {
@@ -30,7 +37,8 @@ if (!empty($_POST)) {
             'name' => $item->getName(),
             'slug' => $item->getSlug(),
             'content' => $item->getContent(),
-            'image' => $item->getImage()
+            'image' => $item->getImage(),
+            'created_at' => $item->getCreatedAt()->format("Y-m-d H:i:s")
         ]);
         header('Location: ' . $router->url('admin_categories') . '?created=1');
     } else {

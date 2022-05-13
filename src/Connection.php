@@ -12,7 +12,7 @@ class Connection
      */
     public static function getPDO(): ?PDO
     {
-        $host = C('domain');
+        $host = C('host');
         $dbname = C('dbname');
         $user = C('db_user');
         $password = C('db_password');

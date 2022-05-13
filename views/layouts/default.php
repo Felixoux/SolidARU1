@@ -1,7 +1,6 @@
 <?php
 App\Helper::sessionStart();
 App\Auth::remember();
-
 ?>
 <!DOCTYPE html>
 <html lang="fr" class="h-100">

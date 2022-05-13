@@ -1,4 +1,11 @@
 <?php
+$css_flatpickr = '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.css">';
+$beforeBodyContent = ob_before($css_flatpickr);
+$js_flatpickr = <<<HTML
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js"></script> 
+    <script src="/js/datePicker.js"></script>
+    HTML;
+$afterBodyContent = ob_after($js_flatpickr);
 
 use App\{Attachment\CategoryAttachment,
     Auth,

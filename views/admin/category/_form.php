@@ -9,6 +9,7 @@
         <?php endif ?>
         <?= $form->file('image', 'Image à la une') ?>
         <?= $form->textarea('content', 'Résumé') ?>
+        <?= $form->input('created_at', 'Date de publication', 'datepicker') ?>
         <button type="submit" class="btn-primary">
             <?php if ($item->getID() !== null): ?>
                 Modifier
