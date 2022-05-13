@@ -2,75 +2,15 @@
 
 namespace App\Table;
 
-use App\{Model\Post, paginatedQuery};
+use App\{Connection, Model\Post, paginatedQuery};
+use PDO;
 
 class PostTable extends Table
 {
     protected $table = "post";
     protected $class = Post::class;
 
-    public function updatePost(Post $post): void
-    {
-        $this->update([
-            'name' => $post->getName(),
-            'slug' => $post->getSlug(),
-            'content' => $post->getContent(),
-            'created_at' => $post->getCreatedAt()->format("Y-m-d H:i:s"),
-            'image' => $post->getImage()
-        ], $post->getID());
-    }
-
-    public function createPost(Post $post): void
-    {
-        $id = $this->create([
-            'name' => $post->getName(),
-            'slug' => $post->getSlug(),
-            'content' => $post->getContent(),
-            'image' => $post->getImage(),
-            'created_at' => $post->getCreatedAt()->format("Y-m-d H:i:s")
-        ]);
-        $post->setID($id);
-    }
-
-    public function attachCategories(int $id, array $categories): void
-    {
-        $this->pdo->exec("DELETE FROM post_category WHERE post_id = " . $id);
-        $query = $this->pdo->prepare("INSERT INTO post_category SET post_id = ?, category_id = ?");
-        foreach ($categories as $category) {
-            $query->execute([$id, $category]);
-        }
-    }
-
-    public function attachImages(int $id, array $images): void
-    {
-        $this->pdo->exec("DELETE FROM post_image WHERE post_id = " . $id);
-        $query = $this->pdo->prepare("INSERT INTO post_image SET post_id = ?, image_id = ?");
-        foreach ($images as $image) {
-            $query->execute([$id, $image]);
-        }
-    }
-
-    public function attachFiles(int $id, array $files): void
-    {
-        $this->pdo->exec("DELETE FROM post_file WHERE post_id = " . $id);
-        $query = $this->pdo->prepare("INSERT INTO post_file SET post_id = ?, file_id = ?");
-        foreach ($files as $file) {
-            $query->execute([$id, $file]);
-        }
-    }
-
-    public function findPaginated(): array
-    {
-        $paginatedQuery = new paginatedQuery(
-            "SELECT * FROM $this->table ORDER BY created_at DESC",
-            "SELECT COUNT(id) FROM $this->table"
-        );
-        $posts = $paginatedQuery->getItems(Post::class);
-        (new CategoryTable($this->pdo))->hydratePosts($posts);
-        return [$posts, $paginatedQuery];
-    }
-
-    public function findPaginatedForCategory(int $categoryID): ?array
+    public function findPaginatedForCategory(int $categoryID): array
     {
         $paginatedQuery = new paginatedQuery(
             "SELECT p.*
@@ -83,5 +23,16 @@ class PostTable extends Table
         $posts = $paginatedQuery->getItems(Post::class);
         (new CategoryTable($this->pdo))->hydratePosts($posts);
         return [$posts, $paginatedQuery];
+    }
+
+    public function attachAll(PDO $pdo, Post $post): void
+    {
+        (new CategoryTable($pdo))->attachItems($post->getID(), $_POST['categories_ids']);
+        if (isset($_POST['images_ids'])) {
+            (new ImageTable($pdo))->attachItems($post->getID(), $_POST['images_ids']);
+        }
+        if (isset($_POST['files_ids'])) {
+            (new FileTable($pdo))->attachItems($post->getID(), $_POST['files_ids']);
+        }
     }
 }

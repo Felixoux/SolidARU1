@@ -21,7 +21,7 @@ if (isset($_GET['page']) && $_GET['page'] === '1') {
 define('VIEW_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR . 'views');
 define('ROOT_PATH', dirname(__DIR__));
 define('AUTOLOAD_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR . 'vendor/autoload.php');
-define('UPLOAD_PATH', __DIR__ . DIRECTORY_SEPARATOR . 'uploads');
+const UPLOAD_PATH = __DIR__ . DIRECTORY_SEPARATOR . 'uploads';
 define('DEBUG_TIME', microtime(true));
 
 $router = new App\Router(VIEW_PATH);

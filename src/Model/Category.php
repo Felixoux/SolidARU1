@@ -3,6 +3,7 @@
 namespace App\Model;
 
 use App\Helpers\Text;
+use DateTime;
 
 class Category
 {
@@ -11,12 +12,23 @@ class Category
     private ?string $name = null;
     private ?string $slug = null;
     private ?string $content = null;
+    private $created_at;
     private $post_id;
     private $post;
     private $image;
     private $oldImage;
     private $pendingUpload = false;
 
+    public function setCreatedAt(string $date): self
+    {
+        $this->created_at = $date;
+        return $this;
+    }
+
+    public function getCreatedAt(): DateTime
+    {
+        return new DateTime($this->created_at);
+    }
 
     public function getID(): ?int
     {

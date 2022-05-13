@@ -18,3 +18,11 @@ function ob_after(string $string): string
     echo($string);
     return ob_get_clean();
 }
+
+function C($key): string
+{
+    $file = ROOT_PATH . DIRECTORY_SEPARATOR . 'config.json';
+    $data = file_get_contents($file);
+    $obj = json_decode($data);
+    return $obj->$key;
+}

@@ -1,5 +1,5 @@
 <?php
-use App\{Auth, Connection, HTML\Form, Model\User, Table\Exception\NotFoundException, Table\UserTable};
+use App\{Auth, Connection, HTML\Form, Model\User, Table\Exception\NotFoundException, Table\UserTable, Helper};
 
 $user = new User();
 $errors = [];
@@ -11,14 +11,13 @@ if (!empty($_POST)) {
         $table = new UserTable(Connection::getPDO());
         try {
             $u = $table->findByUsername($_POST['username']);
+            $cookieValue = $u->getUsername() . '-----' . sha1($u->getUsername() . $u->getPassword() . $_SERVER['REMOTE_ADDR']);
+            $duration = time() + 3600 * 24 * 3;
             if(isset($_POST['remember'])) {
-                setcookie('auth', $u->getUsername() . '-----' . sha1($u->getUsername() . $u->getPassword() .
-                        $_SERVER['REMOTE_ADDR']), time() +
-                    3600 * 24 * 3, '/', 'localhost', false,
-                    true);
+                (new Helper())->createCookie('auth', $cookieValue, C('domain'), $duration);
             }
             if (password_verify($_POST['password'], $u->getPassword()) === true) {
-                App\Helper::sessionStart();
+                Helper::sessionStart();
                 $_SESSION['auth'] = 'connected';
                 header('Location: ' . $router->url('admin_posts'));
                 exit();
