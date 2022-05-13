@@ -10,7 +10,7 @@ label {
   margin-bottom: 1rem;
 }
 
-input, textarea, select {
+input[type=text],input[type=select],input[type=file],input[type=password], textarea, select {
   background: var(--bg-dark);
   padding: .8em;
   border: 1px solid var(--border);
@@ -61,6 +61,12 @@ input:focus {
 .form-card__title {
   font-family: var(--font-semi);
   margin-bottom: 2rem;
+}
+
+// Bouton login remember connection
+.remember-checkbox label{
+  position: relative;
+
 }
 
 // theme-switcher

@@ -10,6 +10,7 @@ class UserTable extends Table
     protected $table = "user";
     protected $class = User::class;
 
+
     public function findByUsername(string $username)
     {
         $query = $this->pdo->prepare('SELECT * FROM ' . $this->table . ' WHERE username = :username');
@@ -28,4 +29,6 @@ class UserTable extends Table
         $query = $this->pdo->prepare('UPDATE ' . $this->table . ' SET password = :password');
         $query->execute(['password' => $password]);
     }
+
+
 }

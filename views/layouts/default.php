@@ -1,7 +1,6 @@
 <?php
-session_start();
-
-use App\Auth;
+App\Helper::sessionStart();
+App\Auth::remember();
 
 ?>
 <!DOCTYPE html>
@@ -30,7 +29,7 @@ use App\Auth;
             </a></li>
         <li>
             <h4>
-                <a href="<?= $router->url('home') ?>#event">
+                <a href="<?= $router->url('home') . '#event' ?>">
                     <svg>
                         <use xlink:href="/img/svg/svg-header-nav/sprite.svg#post"></use>
                     </svg>
@@ -58,7 +57,7 @@ use App\Auth;
                 </a>
             </h4>
         </li>
-        <?php if (Auth::is_connected() === true): ?>
+        <?php if (App\Auth::is_connected() === true): ?>
             <li>
                 <h4>
                     <a href="<?= $router->url('admin_posts') ?>">
@@ -100,6 +99,7 @@ use App\Auth;
         </label>
     </div>
 </div>
+<?= password_hash('admin', PASSWORD_BCRYPT) ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src=<?= "/js/jquery-3.6.0.min.js" ?>></script>
 <script src=<?= "/js/app.js" ?>></script>

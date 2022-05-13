@@ -91,6 +91,17 @@ class Form
         HTML;
     }
 
+    public function checkbox(string $key, string $label, string $class = null): string
+    {
+        return <<<HTML
+        <div class="form-group $class>
+        <label for="$key">$label</label>
+        <input type="checkbox" name="$key" id="$key">
+        </div>
+        
+HTML;
+    }
+
     private function getValue(string $key)
     {
 

@@ -12,10 +12,10 @@ if (isset($_POST['submit'])) {
 
     for ($i = 0; $i < count($_FILES['file']['name']); $i++) {
         $file = $_FILES["file"]['name'][$i]; // name of file
-        if(file_exists($file)) {
-            header('Location :' . $router->url('admin_files') . '?=created=1');
-            exit();
-        }
+        /*if(file_exists($file)) {
+            header('Location :' . $router->url('admin_files') . '?=duplicate=1');
+            die();
+        }*/
         $item->setName($file);
 
         $f_maxsize = 41943040;
@@ -43,10 +43,11 @@ if (isset($_POST['submit'])) {
         if (!file_exists($directory)) {
             mkdir($directory, 0777, true);
         }
+        }
         //Put file in file table
         $item->setCreatedAt(date('Y-m-d H:i:s'));
         $pdo = Connection::getPDO();
-        $query = $pdo->prepare("INSERT INTO file SET name= :name, created_at = :created");
+        $query = $pdo->prepare("INSERT INTO file SET name= :name, created_at = :created ");
         $statement = $query->execute([
             'name' => $file,
             'created' => $item->getCreatedAt()->format("Y-m-d H:i:s")

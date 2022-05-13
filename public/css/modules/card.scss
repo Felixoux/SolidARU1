@@ -13,8 +13,18 @@
   @extend %card;
 }
 
-.card--category {
-  @extend .card;
+.card__header {
+  @extend .flex;
+}
+
+.card__title {
+  font-family: var(--font-semi);
+  line-height: 1.3;
+  font-size: 16px;
+}
+
+.card__description p {
+  color: var(--muted-text);
 }
 
 .card__body {
@@ -30,29 +40,6 @@
   border-top: 2px solid var(--primary_b);
 }
 
-.card__header {
-  @extend .flex;
-}
-
-.card__svg {
-  width: 16px;
-}
-
-.card__title {
-  font-family: var(--font-semi);
-  line-height: 1.3;
-  font-size: 16px;
-}
-
-.card__description p {
-  color: var(--muted-text);
-}
-
-.card a {
-  position: relative;
-  z-index: 3;
-}
-
 .card__link {
   display: block;
   @include absolute();
@@ -64,5 +51,18 @@
   &:hover {
     border: 1px solid var(--primary_b);
   }
+}
+
+.card__svg {
+  width: 16px;
+}
+
+.card a {
+  position: relative;
+  z-index: 3;
+}
+
+.card--category {
+  @extend .card;
 }
 

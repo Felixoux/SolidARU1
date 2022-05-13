@@ -570,7 +570,7 @@ header, section, main, footer, nav, .container, .header, .footer, .main, form {
 }
 
 .hidden {
-  display: none!important;
+  display: none !important;
 }
 
 .visible {
@@ -1218,6 +1218,16 @@ body.dark {
   flex-direction: column;
 }
 
+.card__title {
+  font-family: var(--font-semi);
+  line-height: 1.3;
+  font-size: 16px;
+}
+
+.card__description p {
+  color: var(--muted-text);
+}
+
 .card__body {
   padding: calc(var(--space) * 2.3);
 }
@@ -1229,25 +1239,6 @@ body.dark {
   background: var(--bg-card-footer);
   font-size: 0.9rem;
   border-top: 2px solid var(--primary_b);
-}
-
-.card__svg {
-  width: 16px;
-}
-
-.card__title {
-  font-family: var(--font-semi);
-  line-height: 1.3;
-  font-size: 16px;
-}
-
-.card__description p {
-  color: var(--muted-text);
-}
-
-.card a, .form-card > form a, .card--category a {
-  position: relative;
-  z-index: 3;
 }
 
 .card__link {
@@ -1267,6 +1258,15 @@ body.dark {
 }
 .card__link:hover {
   border: 1px solid var(--primary_b);
+}
+
+.card__svg {
+  width: 16px;
+}
+
+.card a, .form-card > form a, .card--category a {
+  position: relative;
+  z-index: 3;
 }
 
 .footer-links > a:first-child {
@@ -1321,7 +1321,7 @@ label {
   margin-bottom: 1rem;
 }
 
-input, textarea, select {
+input[type=text], input[type=select], input[type=file], input[type=password], textarea, select {
   background: var(--bg-dark);
   padding: 0.8em;
   border: 1px solid var(--border);
@@ -1365,6 +1365,10 @@ input:focus {
 .form-card__title {
   font-family: var(--font-semi);
   margin-bottom: 2rem;
+}
+
+.remember-checkbox label {
+  position: relative;
 }
 
 .theme-switcher {

@@ -8,12 +8,12 @@
             uniquement)</a>
         <?= $form->textarea('content', 'Contenu') ?>
         <?php if ($post->getImage()): ?>
-            <img src="<?= $post->getImageURL('small') ?>" alt="<?= $post->getImageURL('small') ?>" width="250">
+            <img src="<?= $post->getImageURL('small') ?>" alt="<?= $post->getImageURL('small') ?>"
+                 width="250">
         <?php endif ?>
         <?= $form->file('image', 'Image à la une') ?>
         <?= $form->select('images_ids', 'Images', $images) ?>
         <?= $form->select('files_ids', 'Documents', $files) ?>
-
         <?= $form->input('created_at', 'Date de publication', 'datepicker') ?>
         <button type="submit" class="btn-primary">
             <?php if ($post->getID() !== null): ?>

@@ -8,7 +8,6 @@ $pdo = Connection::getPDO();
 $link = $router->url('admin_posts');
 [$items, $pagination] = (new PostTable($pdo))->findPaginated();
 ?>
-
 <?php if (isset($_GET['delete'])): ?>
     <p class="alert alert-success">L'article a bien été supprimé</p>
 <?php endif ?>

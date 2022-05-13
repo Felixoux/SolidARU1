@@ -1,9 +1,9 @@
 <?php
-
-use App\{Connection, HTML\Form, Model\User, Table\Exception\NotFoundException, Table\UserTable};
+use App\{Auth, Connection, HTML\Form, Model\User, Table\Exception\NotFoundException, Table\UserTable};
 
 $user = new User();
 $errors = [];
+
 if (!empty($_POST)) {
     $user->setUsername($_POST['username']);
     $errors['password'] = ['Identifiant ou mot de passe incorrect'];
@@ -11,8 +11,14 @@ if (!empty($_POST)) {
         $table = new UserTable(Connection::getPDO());
         try {
             $u = $table->findByUsername($_POST['username']);
+            if(isset($_POST['remember'])) {
+                setcookie('auth', $u->getUsername() . '-----' . sha1($u->getUsername() . $u->getPassword() .
+                        $_SERVER['REMOTE_ADDR']), time() +
+                    3600 * 24 * 3, '/', 'localhost', false,
+                    true);
+            }
             if (password_verify($_POST['password'], $u->getPassword()) === true) {
-                session_start();
+                App\Helper::sessionStart();
                 $_SESSION['auth'] = 'connected';
                 header('Location: ' . $router->url('admin_posts'));
                 exit();
