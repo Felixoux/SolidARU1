@@ -13,16 +13,6 @@ class FileTable extends Table
     protected $table = "file";
     protected $class = File::class;
 
-    public function findPaginated(): array
-    {
-        $paginatedQuery = new paginatedQuery(
-            "SELECT * FROM file ORDER BY created_at DESC",
-            "SELECT COUNT(id) FROM file"
-        );
-        $files = $paginatedQuery->getItems($this->class);
-        return [$files, $paginatedQuery];
-    }
-
     public function find(int $id)
     {
         $query = $this->pdo->prepare('SELECT * FROM ' . $this->table . ' WHERE id = :id');

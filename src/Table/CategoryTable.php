@@ -12,16 +12,6 @@ class CategoryTable extends Table
     protected $table = "category";
     protected $class = Category::class;
 
-    public function findPaginated()
-    {
-        $paginatedQuery = new paginatedQuery(
-            "SELECT * FROM category ORDER BY created_at DESC",
-            "SELECT COUNT(id) FROM category"
-        );
-        $categories = $paginatedQuery->getItems(Category::class);
-        return [$categories, $paginatedQuery];
-    }
-
     /** @param App\Model\Post[] $posts */
     public function hydratePosts(array $posts): void
     {

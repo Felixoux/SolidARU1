@@ -2,7 +2,9 @@
 
 namespace App\Table;
 
+use App\Model\Category;
 use App\Model\Post;
+use App\paginatedQuery;
 use App\Table\Exception\NotFoundException;
 use PDO;
 
@@ -115,6 +117,16 @@ abstract class Table
             'created_at' => $item->getCreatedAt()->format("Y-m-d H:i:s"),
             'image' => $item->getImage()
         ], $item->getID());
+    }
+
+    public function findPaginated(): array
+    {
+        $paginatedQuery = new paginatedQuery(
+            "SELECT * FROM $this->table ORDER BY created_at DESC",
+            "SELECT COUNT(id) FROM $this->table"
+        );
+        $items = $paginatedQuery->getItems($this->class);
+        return [$items, $paginatedQuery];
     }
 
     public function queryAndFetchAll(string $sql): array

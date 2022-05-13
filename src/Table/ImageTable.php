@@ -12,16 +12,6 @@ class ImageTable extends Table
     protected $table = "image";
     protected $class = Image::class;
 
-    public function findPaginated()
-    {
-        $paginatedQuery = new paginatedQuery(
-            "SELECT * FROM image ORDER BY created_at DESC",
-            "SELECT COUNT(id) FROM image"
-        );
-        $images = $paginatedQuery->getItems(Image::class);
-        return [$images, $paginatedQuery];
-    }
-
     public function findByName(string $name)
     {
         $query = $this->pdo->prepare('SELECT * FROM ' . $this->table . ' WHERE name = :name');
