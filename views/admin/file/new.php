@@ -43,7 +43,7 @@ if (isset($_POST['submit'])) {
         if (!file_exists($directory)) {
             mkdir($directory, 0777, true);
         }
-        }
+
         //Put file in file table
         $item->setCreatedAt(date('Y-m-d H:i:s'));
         $pdo = Connection::getPDO();
