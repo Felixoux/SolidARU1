@@ -38,13 +38,7 @@ if (!empty($_POST)) {
         $pdo->beginTransaction();
         (new PostAttachment())->upload($post);
         $postTable->updatePC($post);
-        $postTable->attachCategories($post->getID(), $_POST['categories_ids']);
-        if (isset($_POST['images_ids'])) {
-            $postTable->attachImages($post->getID(), $_POST['images_ids']);
-        }
-        if (isset($_POST['files_ids'])) {
-            $postTable->attachFiles($post->getID(), $_POST['files_ids']);
-        }
+        $postTable->attachAll($pdo, $post); // Attach categories | Images | Files
         $categoryTable->hydratePosts([$post]);
         $pdo->commit();
         $success = true;

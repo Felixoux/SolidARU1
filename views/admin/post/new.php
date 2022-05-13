@@ -29,13 +29,7 @@ if (!empty($_POST)) {
         $pdo->beginTransaction();
         (new PostAttachment)->upload($post);
         $postTable->createPC($post);
-        $postTable->attachCategories($post->getID(), $_POST['categories_ids']);
-        if (isset($_POST['images_ids'])) {
-            $postTable->attachImages($post->getID(), $_POST['images_ids']);
-        }
-        if (isset($_POST['files_ids'])) {
-            $postTable->attachFiles($post->getID(), $_POST['files_ids']);
-        }
+        $postTable->attachAll($pdo, $post); // Attach categories | Images | Files
         $pdo->commit();
         header('Location: ' . $router->url('admin_posts') . '?created=1');
     } else {

@@ -129,6 +129,17 @@ abstract class Table
         return [$items, $paginatedQuery];
     }
 
+    public function attachItems(int $id, array $items): void
+    {
+        $join_table = 'post_' . $this->table;
+        $table_id = $this->table . '_id';
+        $this->pdo->exec("DELETE FROM $join_table WHERE post_id = " . $id);
+        $query = $this->pdo->prepare("INSERT INTO $join_table SET post_id = ?, $table_id = ?");
+        foreach ($items as $item) {
+            $query->execute([$id, $item]);
+        }
+    }
+
     public function queryAndFetchAll(string $sql): array
     {
         return $this->pdo->query($sql, PDO::FETCH_CLASS, $this->class)->fetchAll();
