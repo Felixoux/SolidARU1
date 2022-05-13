@@ -18,22 +18,24 @@ class PostTable extends Table
         }
     }
 
-    public function attachImages(int $id, array $images): void
+    public function attachImages(int $id, ?array $images): void
     {
-        $this->pdo->exec("DELETE FROM post_image WHERE post_id = " . $id);
-        $query = $this->pdo->prepare("INSERT INTO post_image SET post_id = ?, image_id = ?");
-        foreach ($images as $image) {
-            $query->execute([$id, $image]);
-        }
+            $this->pdo->exec("DELETE FROM post_image WHERE post_id = " . $id);
+            $query = $this->pdo->prepare("INSERT INTO post_image SET post_id = ?, image_id = ?");
+            foreach ($images as $image) {
+                $query->execute([$id, $image]);
+            }
+
     }
 
-    public function attachFiles(int $id, array $files): void
+    public function attachFiles(int $id, ?array $files): void
     {
-        $this->pdo->exec("DELETE FROM post_file WHERE post_id = " . $id);
-        $query = $this->pdo->prepare("INSERT INTO post_file SET post_id = ?, file_id = ?");
-        foreach ($files as $file) {
-            $query->execute([$id, $file]);
+            $this->pdo->exec("DELETE FROM post_file WHERE post_id = " . $id);
+            $query = $this->pdo->prepare("INSERT INTO post_file SET post_id = ?, file_id = ?");
+            foreach ($files as $file) {
+                $query->execute([$id, $file]);
         }
+
     }
 
     public function findPaginated(): array

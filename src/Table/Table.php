@@ -92,7 +92,7 @@ abstract class Table
         $item->setID($id);
     }
 
-    public function update(array $data, ?int $id = null)
+    public function update(array $data, ?int $id = null): int
     {
         $sqlFields = [];
         foreach ($data as $key => $value) {
