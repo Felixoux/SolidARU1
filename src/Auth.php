@@ -31,6 +31,7 @@ class Auth
 
     public static function remember()
     {
+        $domain = C('domain');
         if(isset($_COOKIE['auth']) && !isset($_SESSION['auth'])) {
             $auth = $_COOKIE['auth'];
             $auth = explode('-----', $auth);
@@ -41,11 +42,11 @@ class Auth
                 $_SESSION['auth'] = 'connected';
                 $cookieValue = $user->getUsername() . '-----' . sha1($user->getUsername() . $user->getPassword() . $_SERVER['REMOTE_ADDR']);
                 $duration = time() + 3600 * 24 * 3;
-                (new Helper())->createCookie('auth', $cookieValue, 'localhost', $duration);
+                (new Helper())->createCookie('auth', $cookieValue, $domain, $duration);
             } else {
                 $cookieValue = $user->getUsername() . '-----' . sha1($user->getUsername() . $user->getPassword() . $_SERVER['REMOTE_ADDR']);
                 $duration = time() -3600;
-                (new Helper())->createCookie('auth', $cookieValue, 'localhost', $duration);
+                (new Helper())->createCookie('auth', $cookieValue, $domain, $duration);
             }
         }
     }
