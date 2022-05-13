@@ -3,6 +3,7 @@
 namespace App\Table;
 
 use App\Model\Category;
+use App\Model\Image;
 use App\Model\Post;
 use App\paginatedQuery;
 use App\Table\Exception\NotFoundException;
@@ -154,4 +155,5 @@ abstract class Table
     {
         return $this->pdo->query($sql, PDO::FETCH_CLASS, $this->class)->fetchAll();
     }
+
 }
