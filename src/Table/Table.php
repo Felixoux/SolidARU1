@@ -156,4 +156,16 @@ abstract class Table
         return $this->pdo->query($sql, PDO::FETCH_CLASS, $this->class)->fetchAll();
     }
 
+    public function findByName(string $name)
+    {
+        $query = $this->pdo->prepare('SELECT * FROM ' . $this->table . ' WHERE name = :name');
+        $query->execute(['name' => $name]);
+        $query->setFetchMode(PDO::FETCH_CLASS, $this->class);
+        $result = $query->fetch();
+        if ($result === false) {
+            return false;
+        }
+        return true;
+    }
+
 }

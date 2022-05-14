@@ -12,6 +12,13 @@ if (isset($_POST['submit'])) {
 
     for ($i = 0; $i < count($_FILES['image']['name']); $i++) {
         $image = $_FILES["image"]['name'][$i]; // name of image
+        // verifier si elle existe déjà dans la bdd
+        $checkIfExists = (new \App\Table\ImageTable(Connection::getPDO()))->findByName($image);
+        if($checkIfExists === true) {
+            header('Location: ' . $router->url('admin_images') . '?duplicated=1');
+            die();
+        }
+
         $item->setName($image);
 
         $f_maxsize = 41943040;

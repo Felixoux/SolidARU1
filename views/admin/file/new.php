@@ -12,10 +12,13 @@ if (isset($_POST['submit'])) {
 
     for ($i = 0; $i < count($_FILES['file']['name']); $i++) {
         $file = $_FILES["file"]['name'][$i]; // name of file
-        /*if(file_exists($file)) {
-            header('Location :' . $router->url('admin_files') . '?=duplicate=1');
+
+        $checkIfExists = (new \App\Table\FileTable(Connection::getPDO()))->findByName($file);
+        if($checkIfExists === true) {
+            header('Location: ' . $router->url('admin_files') . '?duplicated=1');
             die();
-        }*/
+        }
+
         $item->setName($file);
 
         $f_maxsize = 41943040;
