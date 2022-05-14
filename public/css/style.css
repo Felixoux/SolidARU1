@@ -254,6 +254,7 @@ hr {
   margin-bottom: 1rem;
   padding: 0;
   border: none;
+  width: 100%;
 }
 
 *:focus:not(:focus-visible) {
