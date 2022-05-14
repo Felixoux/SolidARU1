@@ -24,7 +24,7 @@ abstract class Table
     /**
      * @throws NotFoundException
      */
-    public function find(int $id)
+    public function find($id)
     {
         $query = $this->pdo->prepare('SELECT * FROM ' . $this->table . ' WHERE id = :id');
         $query->execute(['id' => $id]);

@@ -19,6 +19,7 @@ if (!empty($_POST)) {
             if (password_verify($_POST['password'], $u->getPassword()) === true) {
                 Helper::sessionStart();
                 $_SESSION['auth'] = 'connected';
+                $_SESSION['token'] = getToken(128);
                 header('Location: ' . $router->url('admin_posts'));
                 exit();
             };

@@ -98,6 +98,7 @@ App\Auth::remember();
         </label>
     </div>
 </div>
+<?= getToken(128) ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src=<?= "/js/jquery-3.6.0.min.js" ?>></script>
 <script src=<?= "/js/app.js" ?>></script>

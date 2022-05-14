@@ -46,7 +46,10 @@ class Router
     }
 
 
-    public function url(string $name, array $params = [])
+    /**
+     * @throws \Exception
+     */
+    public function url(string $name, array $params = []): string
     {
         return $this->router->generate($name, $params);
     }
