@@ -4,7 +4,7 @@ form {
 }
 
 .grid-form {
-  @include up(1200) {
+  @include up(900) {
     display: grid;
     grid-template-columns:1fr 1fr;
 

@@ -15,7 +15,7 @@
                 <img src="<?= $post->getImageURL('small') ?>" alt="<?= $post->getImageURL('small') ?>"
                      width="250">
             <?php endif ?>
-            <?= $form->file('image', 'Image à la une', 'thumbnail-form', 'mta') ?>
+            <?= $form->file('image', 'Image à la une', 'thumbnail-form mt5') ?>
         </div>
 
         <?= $form->select('images_ids', 'Images', $images) ?>
