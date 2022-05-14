@@ -13,7 +13,8 @@ class Form
         $this->errors = $errors;
     }
 
-    public function input(string $key, string $label, ?string $class = null, ?string $required = null): string
+    public function input(string $key, string $label, ?string $class = null, ?string $required = null, ?string
+    $veryClass = null): string
     {
         $required_star = $required !== null ? '<span class="alert">*</span>' : '';
         $type = $key === "password" ? 'password' : 'text';
@@ -22,7 +23,7 @@ class Form
         }
         $value = $type === "password" ? '' : $this->getValue($key);
         return <<<HTML
-        <div class="form-group">
+        <div class="form-group $veryClass">
             <p class="{$this->getInputClass($key)}">{$this->getErrorFeedback($key)}</p>
             <label for="$key">$label $required_star</label>
             <input max="18" type="$type" name="$key" id="$key" value="$value" class="$class" placeholder="$label" required>
@@ -30,7 +31,7 @@ class Form
         HTML;
     }
 
-    public function file(string $key, string $label): string
+    public function file(string $key, string $label, ?string $class = null): string
     {
         if($label === 'Ajouter des images' || $label === 'Ajouter des documents') {
             $filed = 'multiple required';
@@ -39,10 +40,9 @@ class Form
         }
         $type = $key === "password" ? 'password' : 'text';
         return <<<HTML
-        <div class="form-group">
+        <div class="form-group $class">
             <p class="{$this->getInputClass($key)}">{$this->getErrorFeedback($key)}</p>
             <label for="$key">$label</label>
-            <p class="muted mb1">Évitez les fichiers trop lourd pour ne pas ralentir le site</p>
             <input type="file" name="$key" id="$key" $filed>
         </div>
         HTML;
@@ -71,7 +71,8 @@ class Form
         HTML;
     }
 
-    public function select(string $key, string $label, array $options = [], ?string $required = null): string
+    public function select(string $key, string $label, array $options = [], ?string $required = null, ?string $class
+    = null): string
     {
         $required_star = $required !== null ? '<span class="alert">*</span>' : '';
         $optionsHTML = [];
@@ -83,7 +84,7 @@ class Form
 
         $optionsHTML = implode('', $optionsHTML);
         return <<<HTML
-        <div class="form-group">
+        <div class="form-group $class">
             <p class="{$this->getInputClass($key)}">{$this->getErrorFeedback($key)}</p>
             <label for="$key">$label $required_star</label>
             <select name="{$key}[]" id="$key" $required multiple>$optionsHTML</select>
@@ -94,9 +95,9 @@ class Form
     public function checkbox(string $key, string $label, string $class = null): string
     {
         return <<<HTML
-        <div class="form-group $class>
-        <label for="$key">$label</label>
+        <div class="$class">
         <input type="checkbox" name="$key" id="$key">
+        <label for="$key">$label</label>
         </div>
         
 HTML;

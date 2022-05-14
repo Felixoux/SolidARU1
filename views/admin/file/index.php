@@ -16,6 +16,9 @@ $link = $router->url('admin_files');
 <?php if (isset($_GET['created'])): ?>
     <p class="alert alert-success">Document(s) ajoutée(s) avec succès</p>
 <?php endif ?>
+<?php if (isset($_GET['duplicated'])): ?>
+    <p class="alert alert-danger">Document(s) déjà existant(s)</p>
+<?php endif ?>
 <?php
 $listingQuery = new listingQuery($items, $pagination, $link, 'file', 'document', $router);
 echo($listingQuery->getHeaderListing()); // Display header

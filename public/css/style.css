@@ -870,6 +870,10 @@ body .ml5 {
   margin-left: calc(var(--space) * 5);
 }
 
+.mta {
+  margin-top: auto;
+}
+
 @media (min-width: 775px) {
   .mobile-only {
     display: none;
@@ -1159,6 +1163,7 @@ body.dark {
   filter: brightness(1);
   white-space: nowrap;
   width: fit-content;
+  height: fit-content;
 }
 .btn:hover, .btn-alert-success:hover, .btn-alert:hover, .btn-secondary:hover, .btn-card:hover, .btn-primary-outline:hover, .btn-primary:hover {
   filter: brightness(1.2);
@@ -1262,6 +1267,7 @@ body.dark {
 
 .card__svg {
   width: 16px;
+  height: 16px;
 }
 
 .card a, .form-card > form a, .card--category a {
@@ -1314,11 +1320,39 @@ form {
   gap: calc(var(--gap) * 2);
 }
 
+@media (min-width: 900px) {
+  .grid-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .grid-form .content-form {
+    grid-column: 1/2;
+    grid-row: 2/3;
+  }
+  .grid-form .content-post {
+    display: flex;
+    flex-direction: column;
+    grid-column: 2/3;
+  }
+  .grid-form .content-category {
+    display: flex;
+    flex-direction: column;
+    grid-column: 2/3;
+  }
+  .grid-form .thumbnail-form {
+    margin-top: auto;
+  }
+  .grid-form button {
+    align-self: flex-end;
+  }
+}
+
 label {
   color: var(--bright-text);
-  font-size: 20px;
-  font-weight: 500;
   margin-bottom: 1rem;
+  text-transform: uppercase;
+  font-family: var(--font);
+  font-size: 0.85em;
 }
 
 input[type=text], input[type=select], input[type=file], input[type=password], textarea, select {
@@ -1367,8 +1401,12 @@ input:focus {
   margin-bottom: 2rem;
 }
 
-.remember-checkbox label {
-  position: relative;
+.login-form {
+  display: block !important;
+}
+
+.login-form > * + * {
+  margin-top: calc(3 * var(--space));
 }
 
 .theme-switcher {
@@ -1580,7 +1618,7 @@ section.event {
 
 section.event .category_svg {
   width: 26px;
-  height: auto;
+  height: 26px;
 }
 
 .big-grid-event {

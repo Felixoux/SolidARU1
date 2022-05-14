@@ -16,6 +16,9 @@ $link = $router->url('admin_images');
 <?php if (isset($_GET['created'])): ?>
     <p class="alert alert-success">Image(s) ajoutée(s) avec succès</p>
 <?php endif ?>
+<?php if (isset($_GET['duplicated'])): ?>
+    <p class="alert alert-danger">Image(s) déjà existante(s)</p>
+<?php endif ?>
 <?php
 $listingQuery = new listingQuery($items, $pagination, $link, 'image', 'image', $router);
 echo($listingQuery->getHeaderListing()); // Display header

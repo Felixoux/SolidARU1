@@ -1,15 +1,17 @@
 <section class="mt4">
-    <form action="" method="POST" enctype="multipart/form-data">
-        <p class="alert">* champs requis</p>
+    <p class="alert mb3">* champs requis</p>
+    <form action="" method="POST" enctype="multipart/form-data" class="grid-form mt3">
         <?= $form->input('name', 'Titre', 'withSpace', 'required') ?>
         <?= $form->input('slug', 'URL', 'withDash', 'required') ?>
         <?php if ($item->getImage()): ?>
             <img src="<?= $item->getImageURL('small') ?>" alt="<?= $item->getImageURL('small') ?>"
                  width="250">
         <?php endif ?>
-        <?= $form->file('image', 'Image à la une') ?>
         <?= $form->textarea('content', 'Résumé') ?>
-        <?= $form->input('created_at', 'Date de publication', 'datepicker') ?>
+        <div class="content-category">
+            <?= $form->file('image', 'Image à la une') ?>
+            <?= $form->input('created_at', 'Date de publication', 'datepicker', null, 'mt5') ?>
+        </div>
         <button type="submit" class="btn-primary">
             <?php if ($item->getID() !== null): ?>
                 Modifier

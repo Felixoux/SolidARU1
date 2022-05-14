@@ -23,13 +23,13 @@ App\Auth::remember();
         <ul class="header-nav">
             <li class="header__home"><a class="underline" href="<?= $router->url('home') ?>">
                     <svg>
-                        <use xlink:href="/img/svg/svg-header-nav/sprite.svg#home"></use>
+                        <use xlink:href="/img/svg/sprite.svg#home"></use>
                     </svg>
                 </a></li>
             <li>
                 <h4><a href="<?= $router->url('admin_posts') ?>">
                         <svg>
-                            <use xlink:href="/img/svg/svg-header-nav/sprite.svg#post"></use>
+                            <use xlink:href="/img/svg/sprite.svg#post"></use>
                         </svg>
                         Posts
                     </a></h4>
@@ -37,7 +37,7 @@ App\Auth::remember();
             <li>
                 <h4><a href="<?= $router->url('admin_categories') ?>">
                         <svg>
-                            <use xlink:href="/img/svg/admin/sprite.svg#category-title"></use>
+                            <use xlink:href="/img/svg/sprite.svg#category-title"></use>
                         </svg>
                         Catégorie
                     </a></h4>
@@ -45,7 +45,7 @@ App\Auth::remember();
             <li>
                 <h4><a href="<?= $router->url('admin_images') ?>">
                         <svg>
-                            <use xlink:href="/img/svg/admin/sprite.svg#image"></use>
+                            <use xlink:href="/img/svg/sprite.svg#image"></use>
                         </svg>
                         Images
                     </a></h4>
@@ -53,7 +53,7 @@ App\Auth::remember();
             <li>
                 <h4><a href="<?= $router->url('admin_files') ?>">
                         <svg>
-                            <use xlink:href="/img/svg/admin/sprite.svg#document"></use>
+                            <use xlink:href="/img/svg/sprite.svg#document"></use>
                         </svg>
                         Documents
                     </a></h4>
@@ -61,7 +61,7 @@ App\Auth::remember();
             <li>
                 <h4><a href="<?= $router->url('security') ?>">
                         <svg>
-                            <use xlink:href="/img/svg/admin/sprite.svg#lock"></use>
+                            <use xlink:href="/img/svg/sprite.svg#lock"></use>
                         </svg>
                         Sécurité
                     </a></h4>
@@ -72,7 +72,7 @@ App\Auth::remember();
                 <form action="<?= $router->url('logout') ?>" method="POST">
                     <button type="submit">
                         <svg>
-                            <use xlink:href="/img/svg/admin/sprite.svg#logout"></use>
+                            <use xlink:href="/img/svg/sprite.svg#logout"></use>
                         </svg>
                     </button>
                 </form>

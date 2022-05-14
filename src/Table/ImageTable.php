@@ -11,18 +11,6 @@ class ImageTable extends Table
 {
     protected $table = "image";
     protected $class = Image::class;
-    // Cette methode est a supprimée si elle n'est pas utilisée
-    public function findByName(string $name)
-    {
-        $query = $this->pdo->prepare('SELECT * FROM ' . $this->table . ' WHERE name = :name');
-        $query->execute(['name' => $name]);
-        $query->setFetchMode(PDO::FETCH_CLASS, $this->class);
-        $result = $query->fetch();
-        if ($result === false) {
-            throw new NotFoundException($this->table, $name);
-        }
-        return $result;
-    }
 
     public function hydratePosts(array $posts): void
     {

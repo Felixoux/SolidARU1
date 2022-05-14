@@ -2,7 +2,7 @@
 
 function e(?string $string): ?string
 {
-    return htmlspecialchars($string, ENT_QUOTES);
+    return htmlentities($string, ENT_QUOTES);
 }
 
 function ob_before(string $string): string

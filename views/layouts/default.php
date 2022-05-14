@@ -22,15 +22,15 @@ App\Auth::remember();
 <nav class="header nav-down">
     <ul class="header-nav">
         <li class="header__home"><a class="underline" href="<?= $router->url('home') ?>">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" fill="#EBF1FF" id="home">
-                    <path fill="currentColor" d="M0 4v7a1 1 0 001 1h3V8h4v4h3a1 1 0 001-1V4L6 0 0 4z"></path>
+                <svg id="home">
+                    <use xlink:href="/img/svg//sprite.svg#home"></use>
                 </svg>
             </a></li>
         <li>
             <h4>
                 <a href="<?= $router->url('home') . '#event' ?>">
                     <svg>
-                        <use xlink:href="/img/svg/svg-header-nav/sprite.svg#post"></use>
+                        <use xlink:href="/img/svg/sprite.svg#post"></use>
                     </svg>
                     Blog
                 </a>
@@ -40,7 +40,7 @@ App\Auth::remember();
             <h4>
                 <a href="#">
                     <svg>
-                        <use xlink:href="/img/svg/svg-header-nav/sprite.svg#pen"></use>
+                        <use xlink:href="/img/svg/sprite.svg#pen"></use>
                     </svg>
                     A propos
                 </a>
@@ -50,7 +50,7 @@ App\Auth::remember();
             <h4>
                 <a href="#">
                     <svg>
-                        <use xlink:href="/img/svg/svg-header-nav/sprite.svg#phone"></use>
+                        <use xlink:href="/img/svg/sprite.svg#phone"></use>
                     </svg>
                     Contact
                 </a>
@@ -61,7 +61,7 @@ App\Auth::remember();
                 <h4>
                     <a href="<?= $router->url('admin_posts') ?>">
                         <svg>
-                            <use xlink:href="/img/svg/admin/sprite.svg#admin"></use>
+                            <use xlink:href="/img/svg/sprite.svg#admin"></use>
                         </svg>
                         Admin
                     </a>
@@ -73,7 +73,7 @@ App\Auth::remember();
         <li class="header__search">
             <button>
                 <svg>
-                    <use xlink:href="/img/svg/svg-header-nav/sprite.svg#search"></use>
+                    <use xlink:href="/img/svg/sprite.svg#search"></use>
                 </svg>
             </button>
         </li>
