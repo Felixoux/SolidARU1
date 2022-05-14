@@ -29,18 +29,18 @@ if ($post->getSlug() !== $slug) {
     header('Location: ' . $url);
     exit();
 }
-$pageTitle = e($post->getName());
+$pageTitle = $post->getName();
 ?>
 
 <section class="article">
     <header class="article__header flex">
         <h1 class="article__title section-title">
-            <?= Text::strong(3, e($post->getName())) ?>
+            <?= Text::strong(3, $post->getName()) ?>
         </h1>
         <p class="mobile-hidden muted"><?= $post->getCreatedAt()->format("d/m/Y") ?></p>
     </header>
     <?php if ($post->getImage()): ?>
-        <img src="<?= $post->getImageURL('large') ?>" alt="">
+        <!--<img src="<?/*= $post->getImageURL('small') */?>" alt="">-->
     <?php endif ?>
     <div class="article__images">
         <?php foreach ($images as $k => $image) {

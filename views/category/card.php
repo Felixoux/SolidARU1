@@ -13,7 +13,7 @@
 
         <div class="card__description muted-text">
             <p>
-                <?= e($category->getExerpt(380)) ?>
+                <?= $category->getExerpt(380) ?>
             </p>
         </div>
         <a href="<?= $router->url('category', ['id' => $category->getID(), 'slug' => $category->getSlug()]) ?>"

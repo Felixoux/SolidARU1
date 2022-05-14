@@ -367,15 +367,15 @@ h5 {
     font-size: 14px;
   }
 }
-.big-title {
+.big-title, .article h1 {
   font-family: var(--font-bold);
 }
 
-.section-title, .guide-control__title {
+.section-title, .guide-control__title, .article h2 {
   font-family: var(--font-semi);
 }
 
-.medium-title {
+.medium-title, .article h3 {
   font-family: var(--font-m);
 }
 
@@ -1665,6 +1665,14 @@ section.event .category_svg {
 
 .article li {
   list-style-type: circle;
+  list-style-position: inside;
+}
+
+.article a {
+  color: var(--primary_b);
+}
+.article a:hover {
+  text-decoration: underline;
 }
 
 .post-listing__header, .post-listing__body > div {

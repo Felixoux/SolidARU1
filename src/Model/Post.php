@@ -39,7 +39,7 @@ class Post
 
     public function getName(): ?string
     {
-        return e($this->name);
+        return $this->name;
     }
 
     public function setContent(string $content): self
