@@ -1267,6 +1267,7 @@ body.dark {
 
 .card__svg {
   width: 16px;
+  height: 16px;
 }
 
 .card a, .form-card > form a, .card--category a {
@@ -1348,9 +1349,10 @@ form {
 
 label {
   color: var(--bright-text);
-  font-size: 20px;
-  font-weight: 500;
   margin-bottom: 1rem;
+  text-transform: uppercase;
+  font-family: var(--font);
+  font-size: 0.85em;
 }
 
 input[type=text], input[type=select], input[type=file], input[type=password], textarea, select {
@@ -1399,8 +1401,12 @@ input:focus {
   margin-bottom: 2rem;
 }
 
-.remember-checkbox label {
-  position: relative;
+.login-form {
+  display: block !important;
+}
+
+.login-form > * + * {
+  margin-top: calc(3 * var(--space));
 }
 
 .theme-switcher {
@@ -1612,7 +1618,7 @@ section.event {
 
 section.event .category_svg {
   width: 26px;
-  height: auto;
+  height: 26px;
 }
 
 .big-grid-event {

@@ -173,23 +173,8 @@ $link = $router->url('home');
 <section class="event big-section">
     <div class="header-section flex">
         <h2 class="section-title" id="event">Voici les différents <strong>thèmes</strong>
-            <svg class="category_svg" fill="#F0F5FF" xmlns="http://www.w3.org/2000/svg"
-                 width="96.000000pt" height="96.000000pt" viewBox="0 0 96.000000 96.000000"
-                 preserveAspectRatio="xMidYMid meet">
-
-                <g transform="translate(0.000000,96.000000) scale(0.100000,-0.100000)"
-                   stroke="none">
-                    <path d="M423 915 c-64 -27 -91 -114 -53 -173 11 -18 34 -41 50 -50 28 -16 30
-        -21 30 -74 l0 -57 -157 -3 -158 -3 -3 -136 -3 -136 -33 -15 c-92 -44 -81 -189
-        17 -227 73 -27 145 10 168 87 10 35 9 45 -7 79 -11 21 -33 47 -51 58 l-32 20
-        -1 108 0 107 130 0 130 0 0 -107 -1 -108 -32 -20 c-72 -45 -84 -136 -26 -194
-        77 -77 202 -32 216 77 5 45 -23 95 -67 120 l-30 17 0 108 0 107 130 0 130 0 0
-        -110 c0 -61 -4 -110 -9 -110 -23 0 -71 -55 -81 -91 -10 -35 -8 -47 10 -84 35
-        -73 118 -95 187 -50 26 18 53 71 53 106 0 39 -32 90 -66 107 l-33 15 -3 136
-        -3 136 -157 3 -158 3 0 57 c0 53 2 58 30 74 91 52 88 185 -5 224 -42 17 -71
-        17 -112 -1z m103 -80 c34 -52 -15 -112 -71 -87 -54 25 -35 112 25 112 20 0 35
-        -8 46 -25z"/>
-                </g>
+            <svg class="category_svg">
+                <use xlink:href="/img/svg/sprite.svg#category-title"></use>
             </svg>
         </h2>
         <p class="mobile-hidden muted">Mis à jour le 22/04/22</p>

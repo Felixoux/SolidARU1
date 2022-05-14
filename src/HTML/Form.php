@@ -95,9 +95,9 @@ class Form
     public function checkbox(string $key, string $label, string $class = null): string
     {
         return <<<HTML
-        <div class="form-group $class>
-        <label for="$key">$label</label>
+        <div class="$class">
         <input type="checkbox" name="$key" id="$key">
+        <label for="$key">$label</label>
         </div>
         
 HTML;

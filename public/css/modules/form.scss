@@ -38,9 +38,10 @@ form {
 
 label {
   color: var(--bright-text);
-  font-size: 20px;
-  font-weight: 500;
   margin-bottom: 1rem;
+  text-transform: uppercase;
+  font-family: var(--font);
+  font-size: .85em;
 }
 
 input[type=text],input[type=select],input[type=file],input[type=password], textarea, select {
@@ -95,11 +96,12 @@ input:focus {
   font-family: var(--font-semi);
   margin-bottom: 2rem;
 }
-
-// Bouton login remember connection
-.remember-checkbox label{
-  position: relative;
-
+// Rester connecter login
+.login-form {
+  display: block!important;
+}
+.login-form > * + * {
+  margin-top: calc(3 * var(--space));
 }
 
 // theme-switcher
