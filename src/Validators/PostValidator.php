@@ -6,7 +6,7 @@ use App\Table\PostTable;
 
 class PostValidator extends AbstractValidator
 {
-    public function __construct(array $data, PostTable $table, ?int $postID = null, array $categories)
+    public function __construct(array $data, PostTable $table, ?int $postID = null, array $categories, array $images, array $files)
     {
         parent::__construct($data);
         $this->validator::lang('fr');
@@ -15,6 +15,8 @@ class PostValidator extends AbstractValidator
         $this->validator->rule('lengthBetween', ['name', 'slug'], 3, 200);
         $this->validator->rule('slug', 'slug');
         $this->validator->rule('subset', 'categories_ids', array_keys($categories));
+        $this->validator->rule('subset', 'images_ids', array_keys($images));
+        $this->validator->rule('subset', 'files_ids', array_keys($files));
         $this->validator->rule('image', 'image');
         $this->validator->rule(function ($field, $value) use ($table, $postID) {
             return !$table->exists($field, $value, $postID);

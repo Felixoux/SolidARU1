@@ -23,7 +23,7 @@ $errors = [];
 if (!empty($_POST)) {
     $postTable = new PostTable($pdo);
     $data = array_merge($_POST, $_FILES);
-    $v = new PostValidator($data, $postTable, $post->getID(), $categories);
+    $v = new PostValidator($data, $postTable, $post->getID(), $categories, $images, $files);
     (new App\ObjectHelper)->hydrate($post, $data, ['name', 'content', 'slug', 'created_at', 'image']);
     if ($v->validate()) {
         $pdo->beginTransaction();
