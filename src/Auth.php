@@ -41,10 +41,6 @@ class Auth
             $auth = explode('-----', $auth);
             $user = (new UserTable(Connection::getPDO()))->findByUsername($auth[0]);
             $key = sha1($user->getUsername() . $user->getPassword() . $_SERVER['REMOTE_ADDR']);
-            if(strpos($auth, $_SERVER['REMOTE_ADDR']) === false) {
-                header('Location :' . (new Router(VIEW_PATH))->url('home'));
-                exit();
-            }
             if($key == $auth[1]) {
                 Helper::sessionStart();
                 $_SESSION['auth'] = 'connected';
