@@ -22,7 +22,7 @@ if (isset($_POST['submit'])) {
         $item->setName($image);
 
         $f_maxsize = 41943040;
-        $f_ext_allowed = ["jpg", "png", "gif", "svg", "jpeg"];
+        $f_ext_allowed = ["jpg", "png", "gif", "jpeg"];
 
         $f_name_2 = str_replace(" ", "_", e($image));
         $f_size = $_FILES["image"]['size'][$i];
