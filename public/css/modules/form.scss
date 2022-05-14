@@ -3,6 +3,39 @@ form {
   gap: calc(var(--gap) * 2);
 }
 
+.grid-form {
+  @include up(1200) {
+    display: grid;
+    grid-template-columns:1fr 1fr;
+
+    .content-form {
+      grid-column: 1 / 2;
+      grid-row: 2 / 3;
+    }
+
+    .content-post{
+      display: flex;
+      flex-direction: column;
+      grid-column: 2 / 3;
+    }
+
+    .content-category {
+      display: flex;
+      flex-direction: column;
+      grid-column: 2 / 3;
+    }
+
+    .thumbnail-form {
+      margin-top: auto;
+    }
+
+    button {
+      align-self: flex-end;
+    }
+
+  }
+}
+
 label {
   color: var(--bright-text);
   font-size: 20px;

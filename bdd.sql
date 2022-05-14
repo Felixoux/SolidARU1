@@ -14,6 +14,7 @@ CREATE TABLE category
     name    VARCHAR(255) NOT NULL,
     content TEXT(1000)   NOT NULL,
     slug    VARCHAR(255) NOT NULL,
+    created_at DATETIME     NOT NULL,
     image   VARCHAR(27),
     PRIMARY KEY (id)
 );
@@ -66,28 +67,3 @@ CREATE TABLE user
     username VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL
 );
-
-/*,
-    CONSTRAINT fk_post_image
-        FOREIGN KEY (post_id)
-            REFERENCES post (id)
-            ON DELETE CASCADE
-               ON UPDATE RESTRICT,
-                      CONSTRAINT fk_image
-                      FOREIGN KEY (image_id)
-                      REFERENCES image (id)
-                  ON DELETE CASCADE
-                     ON UPDATE RESTRICT*/
-
-
-/*,
-    CONSTRAINT fk_post_file
-        FOREIGN KEY (post_id)
-            REFERENCES post (id)
-            ON DELETE CASCADE
-               ON UPDATE RESTRICT,
-                      CONSTRAINT fk_file
-                      FOREIGN KEY (file_id)
-                      REFERENCES file (id)
-                  ON DELETE CASCADE
-                     ON UPDATE RESTRICT*/

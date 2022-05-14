@@ -8,17 +8,6 @@ $slug = $params['slug'];
 $pdo = Connection::getPDO();
 /** @var Post|false */
 $post = (new PostTable($pdo))->find($id);
-// Pour afficher les catégories
-/*$categories = $pdo->query("
-SELECT c.*
-FROM category c 
-JOIN post_category pc ON c.id = pc.category_id
-WHERE pc.post_id = $id ")->fetchAll();
-
-foreach ($categories as $k => $category) {
-    echo $category['name'];
-}*/
-//dd(UPLOAD_PATH);
 $images = $pdo->query("
 SELECT i.*
 FROM image i 
@@ -40,13 +29,13 @@ if ($post->getSlug() !== $slug) {
     header('Location: ' . $url);
     exit();
 }
-$pageTitle = $post->getName();
+$pageTitle = e($post->getName());
 ?>
 
 <section class="article">
     <header class="article__header flex">
         <h1 class="article__title section-title">
-            <?= Text::strong(3, $post->getName()) ?>
+            <?= Text::strong(3, e($post->getName())) ?>
         </h1>
         <p class="mobile-hidden muted"><?= $post->getCreatedAt()->format("d/m/Y") ?></p>
     </header>
@@ -82,5 +71,3 @@ $pageTitle = $post->getName();
         <button class="article__button f-right">Revenir aux articles</button>
     </a>
 </section>
-
-   

@@ -5,7 +5,7 @@
     <?php endif ?>
     <div class="card__body stack">
         <div class="card__header">
-            <h2 class="card__title"><?= $category->getName() ?></h2>
+            <h2 class="card__title"><?= e($category->getName()) ?></h2>
             <svg class="card__svg" fill="#F0F5FF" xmlns="http://www.w3.org/2000/svg"
                  shape-rendering="geometricPrecision" text-rendering="geometricPrecision"
                  image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 512 411.22">
@@ -15,11 +15,11 @@
 
         <div class="card__description muted-text">
             <p>
-                <?= $category->getExerpt(380) ?>
+                <?= e($category->getExerpt(380)) ?>
             </p>
         </div>
         <a href="<?= $router->url('category', ['id' => $category->getID(), 'slug' => $category->getSlug()]) ?>"
-           class="card__link" title="<?= $category->getName() ?>"> </a>
+           class="card__link" title="<?= e($category->getName()) ?>"> </a>
 
     </div>
     <div class="card__footer flex flex-start">

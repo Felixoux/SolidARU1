@@ -870,6 +870,10 @@ body .ml5 {
   margin-left: calc(var(--space) * 5);
 }
 
+.mta {
+  margin-top: auto;
+}
+
 @media (min-width: 775px) {
   .mobile-only {
     display: none;
@@ -1159,6 +1163,7 @@ body.dark {
   filter: brightness(1);
   white-space: nowrap;
   width: fit-content;
+  height: fit-content;
 }
 .btn:hover, .btn-alert-success:hover, .btn-alert:hover, .btn-secondary:hover, .btn-card:hover, .btn-primary-outline:hover, .btn-primary:hover {
   filter: brightness(1.2);
@@ -1312,6 +1317,33 @@ body.dark {
 
 form {
   gap: calc(var(--gap) * 2);
+}
+
+@media (min-width: 1200px) {
+  .grid-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .grid-form .content-form {
+    grid-column: 1/2;
+    grid-row: 2/3;
+  }
+  .grid-form .content-post {
+    display: flex;
+    flex-direction: column;
+    grid-column: 2/3;
+  }
+  .grid-form .content-category {
+    display: flex;
+    flex-direction: column;
+    grid-column: 2/3;
+  }
+  .grid-form .thumbnail-form {
+    margin-top: auto;
+  }
+  .grid-form button {
+    align-self: flex-end;
+  }
 }
 
 label {
