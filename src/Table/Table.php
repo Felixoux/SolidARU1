@@ -10,6 +10,9 @@ use App\paginatedQuery;
 use App\Table\Exception\NotFoundException;
 use PDO;
 
+/**
+ *
+ */
 abstract class Table
 {
 
@@ -23,6 +26,7 @@ abstract class Table
     }
 
     /**
+     * Trouver un item avec son ID
      * @throws NotFoundException
      */
     public function find($id)
@@ -37,6 +41,12 @@ abstract class Table
      * Vérifie si une valeur existe dans la table
      * @param string $field champs à rechercher
      * @param mixed $value valeur associé au champ
+     */
+    /**
+     * @param string $field
+     * @param $value
+     * @param int|null $except
+     * @return bool
      */
     public function exists(string $field, $value, ?int $except = null): bool
     {
@@ -80,6 +90,12 @@ abstract class Table
         return (int)$this->pdo->lastInsertId();
     }
 
+    /**
+     * Pour créer un post ou une catégorie
+     * @param $item
+     * @return void
+     * @throws \Exception
+     */
     public function createPC($item): void
     {
         $id = $this->create([
@@ -106,6 +122,12 @@ abstract class Table
         return (int)$this->pdo->lastInsertId();
     }
 
+    /**
+     * Pour mettre à jour un post ou une catégorie
+     * @param $item
+     * @return void
+     * @throws \Exception
+     */
     public function updatePC($item): void
     {
         $this->update([
@@ -153,7 +175,7 @@ abstract class Table
         return $this->pdo->query($sql, PDO::FETCH_CLASS, $this->class)->fetchAll();
     }
 
-    public function findByName(string $name)
+    public function findByName(string $name): bool
     {
         $query = $this->pdo->prepare('SELECT * FROM ' . $this->table . ' WHERE name = :name');
         $query->execute(['name' => $name]);

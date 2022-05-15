@@ -10,6 +10,12 @@ class PostTable extends Table
     protected $table = "post";
     protected $class = Post::class;
 
+    /**
+     * Permet de trouver tous les posts d'une catégorie
+     * @param int $categoryID
+     * @return array
+     * @throws \Exception
+     */
     public function findPaginatedForCategory(int $categoryID): array
     {
         $paginatedQuery = new paginatedQuery(
@@ -25,6 +31,12 @@ class PostTable extends Table
         return [$posts, $paginatedQuery];
     }
 
+    /**
+     * Permet de set les images et les fichiers pour un post
+     * @param PDO $pdo
+     * @param Post $post
+     * @return void
+     */
     public function attachAll(PDO $pdo, Post $post): void
     {
         (new CategoryTable($pdo))->attachItems($post->getID(), $_POST['categories_ids']);

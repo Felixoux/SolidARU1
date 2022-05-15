@@ -33,9 +33,14 @@ class CategoryTable extends Table
 
     public function all(): array
     {
-        return $this->queryAndFetchAll("SELECT * FROM $this->table ORDER BY id DESC");
+        return $this->queryAndFetchAll("SELECT * FROM $this->table ORDER BY created_at DESC");
     }
 
+    /**
+     * Count the number of posts in a category
+     * @param int $categoryID
+     * @return int
+     */
     public function countPost(int $categoryID): int
     {
         $query = $this->pdo->query("
