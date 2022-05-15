@@ -31,7 +31,7 @@ $categoryTable->hydratePosts([$post]);
 $errors = [];
 if (!empty($_POST)) {
     $data = array_merge($_POST, $_FILES);
-    $v = new PostValidator($data, $postTable, $post->getID(), $categories, $images);
+    $v = new PostValidator($data, $postTable, $post->getID(), $categories, $images, $files);
     (new App\ObjectHelper)->hydrate($post, $data, ['name', 'content', 'slug', 'created_at', 'image']);
 
     if ($v->validate()) {

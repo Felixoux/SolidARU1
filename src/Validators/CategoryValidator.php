@@ -11,8 +11,9 @@ class CategoryValidator extends AbstractValidator
         parent::__construct($data);
         $this->validator::lang('fr');
         $this->validator->setPrependLabels(false);
-        $this->validator->rule('required', ['name', 'slug']);
+        $this->validator->rule('required', ['name', 'slug', 'content']);
         $this->validator->rule('lengthBetween', ['name', 'slug'], 3, 200);
+        $this->validator->rule('lengthBetween', ['content'], 3, 5000);
         $this->validator->rule('slug', 'slug');
         $this->validator->rule('image', 'image');
         $this->validator->rule(function ($field, $value) use ($table, $id) {

@@ -20,8 +20,8 @@ $('#js-burger').click(function () {
 
 $(".withSpace").keyup(function(){
     let replaceSpace = $(this).val();
-    let result = replaceSpace.replace(/#|_| |@|<|>/g, "-")
-        .replace(/é|è|ê/g, "e")
+    let result = replaceSpace.replace(/#|_| |@|'|<|>/g, "-")
+        .replace(/é|ë|è|ê/g, "e")
         .replaceAll('?', "-")
         .replaceAll('!', "-");
     // update

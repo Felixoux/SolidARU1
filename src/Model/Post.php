@@ -12,13 +12,13 @@ class Post
     private ?string $name = null;
     private ?string $content = null;
     private ?string $slug = null;
-    private $created_at;
-    private $categories = [];
-    private $images = []; // Images mutliple
-    private $files = []; // Docs
-    private $image; // Image à la une
-    private $oldImage;
-    private $pendingUpload = false;
+    private string $created_at;
+    private array $categories = [];
+    private array $images = [];
+    private array $files = [];
+    private ?string $image = null;
+    private ?string $oldImage = null;
+    private bool $pendingUpload = false;
 
     public function setID($id): self
     {
@@ -39,7 +39,7 @@ class Post
 
     public function getName(): ?string
     {
-        return e($this->name);
+        return $this->name;
     }
 
     public function setContent(string $content): self
@@ -77,7 +77,7 @@ class Post
 
     public function getSlug(): ?string
     {
-        return $this->slug ?? null;
+        return $this->slug;
     }
 
     public function setCreatedAt(string $date): self

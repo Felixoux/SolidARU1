@@ -58,7 +58,7 @@ HTML;
             <div class="admin-card__option">
             <a href="{$this->getEdit($item)}" class="btn-primary section-title {$this->getEditClass()}">Éditer</a>
             <form style="display: inline;" method="POST"
-                  action="{$this->router->url('admin_' . $this->name . '_delete', ['id' => $item->getID()])}"
+                  action="{$this->router->url('admin_' . $this->name . '_delete', ['id' => $item->getID(), 'token' => $_SESSION['token']])}"
                   onsubmit="return confirm('Voulez vous vraiment supprimer {$this->getDeleteDisplay()} ?')">
                 <button type="submit" class="btn btn-alert">Supprimer</button>
             </form>

@@ -28,6 +28,7 @@ Auth::check();
             <h4>Titre</h4>
         </div>
     </div>
+    <hr>
     <div class="guide-control">
         <h3 class="guide-control__title">Séparation</h3>
         <div class="guide-control__content">
@@ -40,6 +41,7 @@ Auth::check();
             <hr>
         </div>
     </div>
+    <hr>
     <div class="guide-control">
         <h3 class="guide-control__title">Italique / Gras</h3>
         <div class="guide-control__content">
@@ -56,6 +58,7 @@ Auth::check();
             <p class="italic bold">Texte italique et gras</p>
         </div>
     </div>
+    <hr>
     <div class="guide-control">
         <h3 class="guide-control__title">Liste</h3>
         <div class="guide-control__content">
@@ -76,6 +79,7 @@ Auth::check();
             </ul>
         </div>
     </div>
+    <hr>
     <div class="guide-control">
         <h3 class="guide-control__title">Lien</h3>
         <div class="guide-control__content">
@@ -88,6 +92,7 @@ Auth::check();
             <p>Lien visible sur le site</p>
         </div>
     </div>
+    <hr>
     <div class="guide-control">
         <h3 class="guide-control__title">Tableau</h3>
         <div class="guide-control__content">
@@ -120,6 +125,7 @@ Auth::check();
             </table>
         </div>
     </div>
+    <hr>
     <div class="guide-control">
         <h3 class="guide-control__title">Citation</h3>
         <div class="guide-control__content">
@@ -132,6 +138,7 @@ Auth::check();
             <blockquote> "Ceci est une citation de John Doe"</blockquote>
         </div>
     </div>
+    <hr>
     <div class="guide-control">
         <h3 class="guide-control__title">Changer de couleur de fond</h3>
         <div class="guide-control__content">

@@ -32,7 +32,7 @@ $form = new Form($user, $errors);
     <?php endif ?>
     <h2 class="form-card__title">
         <svg class="lock_svg">
-            <use xlink:href="/img/svg/admin/sprite.svg#lock"></use>
+            <use xlink:href="/img/svg/sprite.svg#lock"></use>
         </svg>
         Mot de passe
     </h2>

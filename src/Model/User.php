@@ -4,20 +4,8 @@ namespace App\Model;
 
 class User
 {
-    private $id;
-    private $username;
-    private $password;
-
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
-
-    public function setId($id): self
-    {
-        $this->id = $id;
-        return $this;
-    }
+    private ?string $username = null;
+    private ?string $password = null;
 
     public function getUsername(): ?string
     {
@@ -33,11 +21,5 @@ class User
     public function getPassword(): ?string
     {
         return $this->password;
-    }
-
-    public function setPassword(string $password): self
-    {
-        $this->password = $password;
-        return $this;
     }
 }

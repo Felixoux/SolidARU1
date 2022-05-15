@@ -5,6 +5,12 @@ namespace App\Helpers;
 class Text
 {
 
+    /**
+     * To summarise a text
+     * @param string $content
+     * @param int $limit
+     * @return string
+     */
     public static function exerpt(string $content, int $limit = 60)
     {
         if (mb_strlen($content) <= $limit) {
@@ -14,6 +20,12 @@ class Text
         return substr($content, 0, $lastSpace) . '...';
     }
 
+    /**
+     * Put color on a certain word
+     * @param int $position
+     * @param string $string
+     * @return string
+     */
     public static function strong(int $position = 3, string $string): string
     {
         if (strlen($string) < 50) {

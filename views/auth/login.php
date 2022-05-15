@@ -13,12 +13,12 @@ if (!empty($_POST)) {
             $u = $table->findByUsername($_POST['username']);
             $cookieValue = $u->getUsername() . '-----' . sha1($u->getUsername() . $u->getPassword() . $_SERVER['REMOTE_ADDR']);
             $duration = time() + 3600 * 24 * 3;
-            if(isset($_POST['remember'])) {
-                (new Helper())->createCookie('auth', $cookieValue, C('domain'), $duration);
-            }
             if (password_verify($_POST['password'], $u->getPassword()) === true) {
                 Helper::sessionStart();
                 $_SESSION['auth'] = 'connected';
+                if(isset($_POST['remember'])) {
+                    (new Helper())->createCookie('auth', $cookieValue, C('domain'), $duration);
+                }
                 header('Location: ' . $router->url('admin_posts'));
                 exit();
             };

@@ -6,17 +6,11 @@ use App\Security\ForbidenException;
 
 class Router
 {
-    /*
-    * @var string 
-    */
-    private $viewPath;
+    private string $viewPath;
 
-    /*
-    * @var altorouter 
-    */
-    private $router;
+    private \AltoRouter $router;
 
-    public $layout = "layouts/default.php";
+    public string $layout = "layouts/default.php";
 
     public function __construct(string $viewPath)
     {
@@ -46,12 +40,15 @@ class Router
     }
 
 
-    public function url(string $name, array $params = [])
+    /**
+     * @throws \Exception
+     */
+    public function url(string $name, array $params = []): string
     {
         return $this->router->generate($name, $params);
     }
 
-    public function run()
+    public function run(): self
     {
         $match = $this->router->match();
         $view = $match['target'] ?? 'e404';

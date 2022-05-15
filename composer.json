@@ -16,7 +16,8 @@
       "ext-fileinfo": "*",
         "intervention/image": "^2.7",
       "ext-json": "*",
-      "ext-http": "*"
+      "ext-http": "*",
+      "ext-openssl": "*"
     },
     "authors": [
       {

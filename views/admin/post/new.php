@@ -16,14 +16,13 @@ $post = new Post();
 $categories = (new CategoryTable($pdo))->list();
 $images = (new ImageTable($pdo))->list();
 $files = (new FileTable($pdo))->list();
-$post->setCreatedAt(date('Y-m-d H:i:s'));
+$created_at = $post->setCreatedAt(date('Y-m-d H:i:s'));
 
-$success = false;
 $errors = [];
 if (!empty($_POST)) {
     $postTable = new PostTable($pdo);
     $data = array_merge($_POST, $_FILES);
-    $v = new PostValidator($data, $postTable, $post->getID(), $categories);
+    $v = new PostValidator($data, $postTable, $post->getID(), $categories, $images, $files);
     (new App\ObjectHelper)->hydrate($post, $data, ['name', 'content', 'slug', 'created_at', 'image']);
     if ($v->validate()) {
         $pdo->beginTransaction();

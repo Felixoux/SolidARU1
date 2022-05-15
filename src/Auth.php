@@ -16,6 +16,11 @@ class Auth
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }
+
+        if(isset($_SESSION['auth']) && !isset($_SESSION['token'])) {
+            $_SESSION['token'] = getToken(128);
+        }
+
         if (!isset($_SESSION['auth'])) {
             throw new ForbidenException();
         }
@@ -37,7 +42,7 @@ class Auth
             $auth = explode('-----', $auth);
             $user = (new UserTable(Connection::getPDO()))->findByUsername($auth[0]);
             $key = sha1($user->getUsername() . $user->getPassword() . $_SERVER['REMOTE_ADDR']);
-            if((1 + 1) === 2) {
+            if($key == $auth[1]) {
                 Helper::sessionStart();
                 $_SESSION['auth'] = 'connected';
                 $cookieValue = $user->getUsername() . '-----' . sha1($user->getUsername() . $user->getPassword() . $_SERVER['REMOTE_ADDR']);

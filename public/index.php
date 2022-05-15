@@ -18,13 +18,13 @@ if (isset($_GET['page']) && $_GET['page'] === '1') {
     exit();
 }
 
-define('VIEW_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR . 'views');
 define('ROOT_PATH', dirname(__DIR__));
-define('AUTOLOAD_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR . 'vendor/autoload.php');
+const VIEW_PATH = ROOT_PATH . DIRECTORY_SEPARATOR . 'views';
+const AUTOLOAD_PATH = ROOT_PATH . DIRECTORY_SEPARATOR . 'vendor/autoload.php';
 const UPLOAD_PATH = __DIR__ . DIRECTORY_SEPARATOR . 'uploads';
-define('DEBUG_TIME', microtime(true));
 
 $router = new App\Router(VIEW_PATH);
+
 // Routes file
 require 'routes.php';
 

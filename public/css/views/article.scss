@@ -13,4 +13,24 @@
 
 .article li {
   list-style-type: circle;
+  list-style-position: inside;
+}
+
+.article a {
+  color: var(--primary_b);
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.article h1 {
+  @extend .big-title;
+}
+
+.article h2 {
+  @extend .section-title;
+}
+
+.article h3 {
+  @extend .medium-title;
 }
