@@ -12,7 +12,7 @@ class PostValidator extends AbstractValidator
         $this->validator::lang('fr');
         $this->validator->setPrependLabels(false);
         $this->validator->rule('required', ['name', 'slug', 'content']);
-        $this->validator->rule('lengthBetween', ['name', 'slug'], 5, 50);
+        $this->validator->rule('lengthBetween', ['name', 'slug'], 3, 200);
         $this->validator->rule('lengthBetween', ['content'], 10, 10000);
         $this->validator->rule('slug', 'slug');
         $this->validator->rule('subset', 'categories_ids', array_keys($categories));

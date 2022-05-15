@@ -39,7 +39,7 @@ class Post
 
     public function getName(): ?string
     {
-        return $this->name;
+        return e($this->name);
     }
 
     public function setContent(string $content): self
@@ -50,7 +50,7 @@ class Post
 
     public function getContent(): ?string
     {
-        return $this->content;
+        return e($this->content);
     }
 
     public function getBody(): string
@@ -60,13 +60,13 @@ class Post
             $content = Text::getIframe($content);
             return Text::parseDown($content);
         }
-        return Text::parseDown($content);
+        return e(Text::parseDown($content));
     }
 
     public function getExerpt(int $limit = 60): string
     {
         $summary = Text::exerpt($this->content, $limit);
-        return Text::parseDown($summary);
+        return e(Text::parseDown($summary));
     }
 
     public function setSlug(string $slug): self
@@ -77,7 +77,7 @@ class Post
 
     public function getSlug(): ?string
     {
-        return $this->slug;
+        return e($this->slug);
     }
 
     public function setCreatedAt(string $date): self

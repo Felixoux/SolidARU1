@@ -2,7 +2,7 @@
 
 function e(string $content): string
 {
-    return htmlentities($content, ENT_QUOTES);
+    return htmlentities($content, ENT_QUOTES, "UTF-8", false);
 }
 
 function ob_before(string $string): string

@@ -89,7 +89,7 @@ Auth::check();
     <div class="guide-control">
         <h3 class="guide-control__title">Résultat</h3>
         <div class="guide-control__content">
-            <p>Lien visible sur le site</p>
+            <a href="#">Lien visible sur le site</a>
         </div>
     </div>
     <hr>

@@ -957,6 +957,7 @@ body.dark {
   z-index: 100;
   background: var(--bg-light);
   transition: all 0.3s;
+  box-shadow: var(--shadow);
 }
 
 .header a, .header button, .header__logout svg {
