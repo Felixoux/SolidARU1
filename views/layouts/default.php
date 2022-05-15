@@ -14,6 +14,7 @@ App\Auth::remember();
     <title>Solidarité | <?= isset($pageTitle) ? e($pageTitle) : 'Blog' ?></title>
     <link rel="shortcut icon" href="/img/svg/logo/favicon.svg">
     <link rel="stylesheet" href="/css/style.css">
+    <?= $beforeBodyContent ?? '' ?>
 </head>
 <body>
 <div id="pre-loader" class="flex-center">
@@ -26,7 +27,7 @@ App\Auth::remember();
                     <use xlink:href="/img/svg//sprite.svg#home"></use>
                 </svg>
             </a></li>
-        <li>
+        <li id="blog-anchor">
             <h4>
                 <a href="<?= $router->url('home') . '#event' ?>">
                     <svg>
@@ -101,6 +102,8 @@ App\Auth::remember();
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src=<?= "/js/jquery-3.6.0.min.js" ?>></script>
 <script src=<?= "/js/app.js" ?>></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<?= $afterBodyContent ?? '' ?>
 </body>
 </html>
 

@@ -40,9 +40,9 @@ $pageTitle = $post->getName();
             $name = $image['name'];
             $link = $router->url('image') . "?name=".$name."&width=10&height=10";
             echo <<<HTML
-        <div class="blur-img">
-        <img class="lazy" src="$link" alt="$name" data-name="$name" width="350" loading="eager">
-        </div>
+            <div class="blur-img">
+                <img class="lazy" src="$link" alt="$name" data-name="$name" width="350" loading="eager">
+            </div>
         HTML;
         }
         ?>
@@ -66,3 +66,14 @@ $pageTitle = $post->getName();
         <button class="article__button f-right"><a href="<?= $_SESSION['category_link'] ?>">Revenir aux articles</a></button>
     </a>
 </section>
+<?php
+// Slick carousel
+$css_slick = <<<HTML
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+HTML;
+$beforeBodyContent = ob_before($css_slick);
+
+$js_slick = <<<JS
+
+JS;
+$afterBodyContent = ob_after($js_slick);

@@ -13,9 +13,17 @@ $(window).on('load', function () {
 });
 
 // burger animation
+let headerNav = $('.header')
 $('#js-burger').click(function () {
-    $('.header').toggleClass('is-open');
+    headerNav.toggleClass('is-open');
     $('#js-burger span').toggleClass('burger-span');
+})
+// Pour ne pas rester bloqué dans la nav quand on clique sur blog
+$('#blog-anchor').click(function () {
+    if (headerNav.hasClass('is-open')) {
+        headerNav.removeClass('is-open')
+        $('#js-burger span').removeClass('burger-span');
+    }
 })
 
 // Automatic slug input
@@ -86,6 +94,14 @@ $("img.lazy").each(async function (){
     $(this).on("load", function (){
         $(this).removeClass("lazy");
     })
+})
+// Carousel image
+$(document).ready(function () {
+    $('.carousel-img').slick({
+        infinite: true,
+        slidesToShow: 2,
+        slidesToScroll: 2
+    });
 })
 
 
