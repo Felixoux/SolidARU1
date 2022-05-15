@@ -1340,9 +1340,6 @@ form {
     flex-direction: column;
     grid-column: 2/3;
   }
-  .grid-form .thumbnail-form {
-    margin-top: auto;
-  }
   .grid-form button {
     align-self: flex-end;
   }
@@ -1400,6 +1397,22 @@ input:focus {
 .form-card__title {
   font-family: var(--font-semi);
   margin-bottom: 2rem;
+}
+
+.thumbnail-form {
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  margin-top: auto;
+}
+@media (max-width: 900px) {
+  .thumbnail-form {
+    margin-top: calc(var(--gap) * 2);
+  }
+}
+
+.thumbnail-form > div {
+  margin-right: 2rem;
 }
 
 .login-form {

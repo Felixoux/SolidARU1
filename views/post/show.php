@@ -1,4 +1,5 @@
 <?php
+App\Helper::sessionStart();
 require AUTOLOAD_PATH;
 
 use App\{Connection, Helpers\Text, Model\Post, Router, Table\PostTable};
@@ -60,6 +61,6 @@ $pageTitle = $post->getName();
         ?>
     </div>
     <a href="#">
-        <button class="article__button f-right">Revenir aux articles</button>
+        <button class="article__button f-right"><a href="<?= $_SESSION['category_link'] ?>">Revenir aux articles</a></button>
     </a>
 </section>
