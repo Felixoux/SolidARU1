@@ -26,7 +26,6 @@ $_SESSION['category_link'] = $router->url('category', ['id' => $category->getID(
                 ?></strong>
             <img width="50" src="/img/online.png" alt="posts"></h2>
     </div>
-    <?php  var_dump($_SESSION['category_link']); ?>
     <p class="js-hide"><?= $category->getContent() ?></p>
     <a class="button-js-hide">Voir plus</a>
     <div class="big-grid-event">

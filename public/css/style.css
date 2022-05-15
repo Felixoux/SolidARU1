@@ -323,7 +323,7 @@ em {
 }
 
 a {
-  color: var(--text);
+  color: var(--primary_b);
   cursor: pointer;
 }
 
@@ -961,6 +961,7 @@ body.dark {
 
 .header a, .header button, .header__logout svg {
   font-family: var(--font-semi);
+  color: var(--text);
 }
 .header a:hover, .header button:hover, .header__logout svg:hover {
   color: var(--primary_b);

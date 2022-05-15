@@ -74,13 +74,10 @@ function hasScrolled() {
     lastScrollTop = st;
 }
 
-// Markdown
-/*var simplemde = new SimpleMDE({ element: document.querySelector(".markDownEditorArea") });
-simplemde.value();
-
-if($('.editor-toolbar').hasClass('disabled-for-preview')) {
-    $('.editor-toolbar.disabled-for-preview a:not(.no-disable)').css('background', '#F00')
-}*/
+// Button hider
+$('.button-js-hide').click(function () {
+    $('.js-hide span').toggleClass('hidden').fadeIn('fast')
+})
 
 
 
