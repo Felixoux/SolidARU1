@@ -1,8 +1,7 @@
 <?php
 require AUTOLOAD_PATH;
 
-use App\{Connection, Helpers\Text, Model\Post, Table\PostTable};
-
+use App\{Connection, Helpers\Text, Model\Post, Router, Table\PostTable};
 $id = (int)$params['id'];
 $slug = $params['slug'];
 $pdo = Connection::getPDO();

@@ -31,15 +31,7 @@ if (isset($_POST['submit'])) {
         $f_ext = pathinfo($f_name_2, PATHINFO_EXTENSION);
 
         if (!in_array($f_ext, $f_ext_allowed)) {
-            echo 'not an file extension';
-            exit();
-        }
-        if ($f_error !== 0) {
-            echo 'There is an error';
-            exit();
-        }
-        if ($f_size > $f_maxsize) {
-            echo 'This file is too big';
+            header('Location: ' . $router->url('admin_files') . "?format=1");
             exit();
         }
 
