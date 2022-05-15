@@ -957,6 +957,7 @@ body.dark {
   z-index: 100;
   background: var(--bg-light);
   transition: all 0.3s;
+  box-shadow: var(--shadow);
 }
 
 .header a, .header button, .header__logout svg {
@@ -1688,6 +1689,19 @@ section.event .category_svg {
 }
 .article a:hover {
   text-decoration: underline;
+}
+
+.blur-img {
+  z-index: 999;
+  min-height: 180px;
+  overflow: hidden;
+  background: url(/img/loading.svg) no-repeat center;
+  margin: auto 0;
+}
+
+img.lazy {
+  max-width: 100%;
+  filter: blur(25px) !important;
 }
 
 .post-listing__header, .post-listing__body > div {

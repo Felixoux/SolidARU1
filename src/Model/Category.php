@@ -43,7 +43,7 @@ class Category
 
     public function getName(): ?string
     {
-        return $this->name;
+        return e($this->name);
     }
 
     public function setName($name): self
@@ -54,7 +54,7 @@ class Category
 
     public function getSlug(): ?string
     {
-        return $this->slug;
+        return e($this->slug);
     }
 
     public function setSlug($slug): self
@@ -68,7 +68,8 @@ class Category
         $content = $this->content;
         $toHide = substr($content, -250, -1);
         $replace = '<span class="hidden">' . $toHide . '</span>';
-        return str_replace($toHide, $replace, $content);
+        $final =  str_replace($toHide, $replace, $content);
+        return e($final);
     }
 
     public function setContent($content): self

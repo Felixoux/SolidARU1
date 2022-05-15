@@ -16,8 +16,9 @@
       "ext-fileinfo": "*",
         "intervention/image": "^2.7",
       "ext-json": "*",
-      "ext-http": "*",
-      "ext-openssl": "*"
+      "ext-openssl": "*",
+        "lichtner/fluentpdo": "^2.2",
+      "ext-gd": "*"
     },
     "authors": [
       {

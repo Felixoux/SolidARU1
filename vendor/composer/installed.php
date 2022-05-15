@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '843c670f00a958404a0e2d0bb80578da0e99c551',
+        'reference' => '31d5c2e09d1d736273bd351a6d059d77eeee1da9',
         'name' => '__root__',
         'dev' => true,
     ),
@@ -16,7 +16,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '843c670f00a958404a0e2d0bb80578da0e99c551',
+            'reference' => '31d5c2e09d1d736273bd351a6d059d77eeee1da9',
             'dev_requirement' => false,
         ),
         'altorouter/altorouter' => array(
@@ -71,6 +71,15 @@
             'install_path' => __DIR__ . '/../intervention/image',
             'aliases' => array(),
             'reference' => '744ebba495319501b873a4e48787759c72e3fb8c',
+            'dev_requirement' => false,
+        ),
+        'lichtner/fluentpdo' => array(
+            'pretty_version' => 'v2.2.4',
+            'version' => '2.2.4.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../lichtner/fluentpdo',
+            'aliases' => array(),
+            'reference' => '1985e0e8406a56140f387bc9bec786b419cbeccc',
             'dev_requirement' => false,
         ),
         'psr/http-factory' => array(

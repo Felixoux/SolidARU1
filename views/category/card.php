@@ -21,7 +21,7 @@
         </a>
 
     </div>
-    <div class="card__footer flex flex-start">
-        <p>Il y a <?= $numberPost ?> post(s)</p>
+    <div class="card__footer flex flex-start" style="border-color:<?= $color ?>">
+        <p>Il y a <?= $numberPost ?> post<?= $numberPost > 1 ? 's' : '' ?></p>
     </div>
 </article>

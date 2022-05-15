@@ -180,7 +180,9 @@ $link = $router->url('home');
         <p class="mobile-hidden muted">Mis à jour le 22/04/22</p>
     </div>
     <div class="big-grid-event">
+        <?php  $colors = ["#FF883D", "#41CF7C", "#54aae8", "#8893C4"] ?>
         <?php foreach ($categories as $category): ?>
+            <?php $color = $colors[($category->getID()%count($colors))] ?>
             <?php $numberPost = $table->countPost($category->getID()) ?>
             <?php require VIEW_PATH . '/category/card.php'; ?>
         <?php endforeach ?>
