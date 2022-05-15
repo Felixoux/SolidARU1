@@ -26,7 +26,7 @@ abstract class Table
     }
 
     /**
-     * Trouver un item avec son ID
+     * Find by ID
      * @throws NotFoundException
      */
     public function find($id)
@@ -38,7 +38,7 @@ abstract class Table
     }
 
     /*
-     * Vérifie si une valeur existe dans la table
+     * Check if value exists in row
      * @param string $field champs à rechercher
      * @param mixed $value valeur associé au champ
      */
@@ -91,7 +91,7 @@ abstract class Table
     }
 
     /**
-     * Pour créer un post ou une catégorie
+     * To create a Post|Category
      * @param $item
      * @return void
      * @throws \Exception
@@ -123,7 +123,7 @@ abstract class Table
     }
 
     /**
-     * Pour mettre à jour un post ou une catégorie
+     * To update a Post|Category
      * @param $item
      * @return void
      * @throws \Exception

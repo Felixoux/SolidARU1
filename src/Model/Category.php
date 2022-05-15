@@ -65,7 +65,10 @@ class Category
 
     public function getContent(): ?string
     {
-        return $this->content;
+        $content = $this->content;
+        $toHide = substr($content, -250, -1);
+        $replace = '<span class="hidden">' . $toHide . '</span>';
+        return str_replace($toHide, $replace, $content);
     }
 
     public function setContent($content): self

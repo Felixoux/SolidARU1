@@ -12,6 +12,7 @@
 
 .header a, .header button, .header__logout svg {
   font-family: var(--font-semi);
+  color: var(--text);
 
   &:hover {
     color: var(--primary_b);

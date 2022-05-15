@@ -1,6 +1,5 @@
 <?php
-require AUTOLOAD_PATH;
-
+App\Helper::sessionStart();
 use App\{Connection, Table\CategoryTable, Table\PostTable};
 
 $id = (int)$params['id'];
@@ -18,15 +17,16 @@ if ($category->getSlug() !== $slug) {
 [$posts, $pagination] = (new PostTable($pdo))->findPaginatedForCategory($id);
 
 $link = $router->url('category', ['id' => $category->getID(), 'slug' => $category->getSlug()]);
+$_SESSION['category_link'] = $router->url('category', ['id' => $category->getID(), 'slug' => $category->getSlug()]); // To remember the link
 ?>
 
 <section class="event big-section">
     <div class="header-section flex">
-        <h2 id="event" class="section-title">Voici les posts liés au thème <strong><?= e($category->getName())
+        <h2 id="event" class="section-title">Voici les posts liés au thème <strong><?= $category->getName()
                 ?></strong>
             <img width="50" src="/img/online.png" alt="posts"></h2>
     </div>
-    <p class="js-hide"><?= e($category->getContent()) ?></p>
+    <p class="js-hide"><?= $category->getContent() ?></p>
     <a class="button-js-hide">Voir plus</a>
     <div class="big-grid-event">
         <?php foreach ($posts as $post): ?>

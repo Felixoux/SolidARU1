@@ -11,11 +11,12 @@
         <div class="content-post">
             <?= $form->select('categories_ids', 'Catégories', $categories, 'required', 'category-control') ?>
 
-            <?php if ($post->getImage()): ?>
-                <img src="<?= $post->getImageURL('small') ?>" alt="<?= $post->getImageURL('small') ?>"
-                     width="250">
-            <?php endif ?>
-            <?= $form->file('image', 'Image à la une', 'thumbnail-form mt5') ?>
+            <div class="thumbnail-form">
+                <?= $form->file('image', 'Image à la une') ?>
+                <?php if ($post->getImage()): ?>
+                    <img  src="<?= $post->getImageURL('small') ?>" alt="<?= $post->getImageURL('small') ?>" width="200" height="112.5">
+                <?php endif ?>
+            </div>
         </div>
 
         <?= $form->select('images_ids', 'Images', $images) ?>
