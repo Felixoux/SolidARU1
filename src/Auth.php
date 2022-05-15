@@ -17,7 +17,7 @@ class Auth
             session_start();
         }
 
-        if(isset($_SESSION['aut']) && !isset($_SESSION['token'])) {
+        if(isset($_SESSION['auth']) && !isset($_SESSION['token'])) {
             $_SESSION['token'] = getToken(128);
         }
 

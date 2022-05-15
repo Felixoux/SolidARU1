@@ -1,6 +1,6 @@
 # Site de la Solidarité
 
-** Version 2.2.0
+** Version 2.2.1
 
 ## Description
 
@@ -27,6 +27,8 @@ Ceci est le site repertoriant tous les évenements liés à la solidarité au se
 - fzaninotto/faker v-1.9
 
 - vlucas/valitron v-1.4
+
+- intervention/image v-2.7
 
 ## Editeur
 - PhpStorm v2022.1

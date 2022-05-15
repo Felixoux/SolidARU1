@@ -10,7 +10,7 @@ class Image
     private ?string $name = null;
     private $post;
     private $post_id;
-    private $created_at;
+    private string $created_at;
 
 
     public function getCreatedAt(): DateTime

@@ -17,7 +17,7 @@ class Post
     private array $images = [];
     private array $files = [];
     private ?string $image = null;
-    private ?string $oldImage;
+    private ?string $oldImage = null;
     private bool $pendingUpload = false;
 
     public function setID($id): self

@@ -4,6 +4,13 @@ namespace App;
 
 class ObjectHelper
 {
+    /**
+     * Permet d'hydrater le post
+     * @param $object
+     * @param array $data
+     * @param array $fields
+     * @return void
+     */
     public function hydrate($object, array $data, array $fields): void
     {
         foreach ($fields as $field) {

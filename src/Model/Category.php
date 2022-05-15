@@ -12,12 +12,12 @@ class Category
     private ?string $name = null;
     private ?string $slug = null;
     private ?string $content = null;
-    private $created_at;
+    private string $created_at;
     private $post_id;
     private $post;
-    private $image;
-    private $oldImage;
-    private $pendingUpload = false;
+    private ?string $image = null;
+    private ?string $oldImage = null;
+    private bool $pendingUpload = false;
 
     public function setCreatedAt(string $date): self
     {

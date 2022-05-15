@@ -8,12 +8,12 @@ use PDO;
 class paginatedQuery
 {
 
-    private $query;
-    private $queryCount;
-    private $pdo;
-    private $perPage;
+    private string $query;
+    private string $queryCount;
+    private ?PDO $pdo;
+    private int $perPage;
     private $count;
-    private $items;
+    private ?array $items = null;
 
     public function __construct(
         string $query,
@@ -69,11 +69,19 @@ class paginatedQuery
         HTML;
     }
 
+    /**
+     * Récupère la page courante
+     * @throws Exception
+     */
     private function getCurrentPage(): int
     {
         return URL::getPositiveInt('page', 1);
     }
 
+    /**
+     * Amount of pages
+     * @return int
+     */
     private function getPages(): int
     {
         if ($this->count === null) {

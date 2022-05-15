@@ -16,7 +16,7 @@ class PostTable extends Table
      * @return array
      * @throws \Exception
      */
-    public function findPaginatedForCategory(int $categoryID): array
+    public function findPaginatedForCategory(int $categoryID): ?array
     {
         $paginatedQuery = new paginatedQuery(
             "SELECT p.*
@@ -27,8 +27,11 @@ class PostTable extends Table
             "SELECT COUNT(category_id) FROM post_category WHERE category_id = $categoryID",
         );
         $posts = $paginatedQuery->getItems(Post::class);
-        (new CategoryTable($this->pdo))->hydratePosts($posts);
-        return [$posts, $paginatedQuery];
+        if(isset($posts)) {
+            (new CategoryTable($this->pdo))->hydratePosts($posts);
+            return [$posts, $paginatedQuery];
+        }
+        return null;
     }
 
     /**

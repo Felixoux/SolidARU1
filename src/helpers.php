@@ -1,8 +1,8 @@
 <?php
 
-function e(?string $string): ?string
+function e(string $content): string
 {
-    return htmlentities($string, ENT_QUOTES);
+    return htmlentities($content, ENT_QUOTES);
 }
 
 function ob_before(string $string): string

@@ -16,7 +16,7 @@ $post = new Post();
 $categories = (new CategoryTable($pdo))->list();
 $images = (new ImageTable($pdo))->list();
 $files = (new FileTable($pdo))->list();
-$post->setCreatedAt(date('Y-m-d H:i:s'));
+$created_at = $post->setCreatedAt(date('Y-m-d H:i:s'));
 
 $errors = [];
 if (!empty($_POST)) {

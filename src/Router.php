@@ -48,7 +48,7 @@ class Router
         return $this->router->generate($name, $params);
     }
 
-    public function run()
+    public function run(): self
     {
         $match = $this->router->match();
         $view = $match['target'] ?? 'e404';
