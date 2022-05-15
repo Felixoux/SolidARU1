@@ -7,6 +7,7 @@ use App\Model\Category;
 use App\Model\Image;
 use App\Model\Post;
 use App\paginatedQuery;
+use App\Query;
 use App\Table\Exception\NotFoundException;
 use PDO;
 
@@ -25,16 +26,28 @@ abstract class Table
         $this->pdo = $pdo;
     }
 
+    protected function queryBuilder()
+    {
+        return (new Query($this->pdo))->from($this->table);
+    }
+
     /**
      * Find by ID
      * @throws NotFoundException
      */
     public function find($id)
     {
-        $query = $this->pdo->prepare('SELECT * FROM ' . $this->table . ' WHERE id = :id');
+        /*$query = $this->pdo->prepare('SELECT * FROM ' . $this->table . ' WHERE id = :id');
         $query->execute(['id' => $id]);
         $query->setFetchMode(PDO::FETCH_CLASS, $this->class);
-        return $query->fetch();
+        return $query->fetch();*/
+
+        $statement =  $this->queryBuilder()
+        ->where('id = :id')
+        ->params(['id' => $id])
+        ->execute();
+        $statement->setFetchMode(PDO::FETCH_CLASS, $this->class);
+        return $statement->fetch();
     }
 
     /*
