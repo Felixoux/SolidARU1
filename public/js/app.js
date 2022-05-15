@@ -12,6 +12,12 @@ $(window).on('load', function () {
     $('#pre-loader').fadeOut(1).removeClass('active');
 });
 
+// burger animation
+$('#js-burger').click(function () {
+    $('.header').toggleClass('is-open');
+    $('#js-burger span').toggleClass('burger-span');
+})
+
 // Automatic slug input
 $(".withSpace").keyup(function () {
     let replaceSpace = $(this).val();
