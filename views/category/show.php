@@ -27,7 +27,7 @@ $_SESSION['category_link'] = $router->url('category', ['id' => $category->getID(
             <img width="50" src="/img/online.png" alt="posts"></h2>
     </div>
     <p class="js-hide"><?= $category->getContent() ?></p>
-    <a class="button-js-hide">Voir plus</a>
+    <!--<a class="button-js-hide">Voir plus</a>-->
     <div class="big-grid-event">
         <?php foreach ($posts as $post): ?>
             <?php require VIEW_PATH . '/post/card.php'; ?>

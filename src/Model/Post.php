@@ -60,7 +60,7 @@ class Post
             $content = Text::getIframe($content);
             return Text::parseDown($content);
         }
-        return e(Text::parseDown($content));
+        return Text::parseDown($content);
     }
 
     public function getExerpt(int $limit = 60): string

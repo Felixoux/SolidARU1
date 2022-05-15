@@ -90,8 +90,8 @@ App\Auth::remember();
     /** @var string $content */
     $content
     ?>
-    <div class="theme-switcher-title ml5 mb2 mt3">Thème</div>
-    <div class="theme-switcher ml5 form-switch mb3">
+<div class="theme-switcher-title mb2 mt3 container">Thème</div>
+    <div class="theme-switcher form-switch mb3 container">
         <input type="checkbox" id="theme-switcher" name="theme-switcher" value="1" aria-label="Changer le thème"
                checked>
         <label for="theme-switcher">
