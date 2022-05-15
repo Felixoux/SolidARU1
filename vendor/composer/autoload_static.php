@@ -46,6 +46,10 @@ class ComposerStaticInit639ba1da211bb92598ccc02f8dc8bee6
         array (
             'Faker\\' => 6,
         ),
+        'E' => 
+        array (
+            'Envms\\FluentPDO\\' => 16,
+        ),
         'A' => 
         array (
             'App\\' => 4,
@@ -79,8 +83,8 @@ class ComposerStaticInit639ba1da211bb92598ccc02f8dc8bee6
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Intervention\\Image\\' => 
         array (
@@ -93,6 +97,10 @@ class ComposerStaticInit639ba1da211bb92598ccc02f8dc8bee6
         'Faker\\' => 
         array (
             0 => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker',
+        ),
+        'Envms\\FluentPDO\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/lichtner/fluentpdo/src',
         ),
         'App\\' => 
         array (
