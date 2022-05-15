@@ -18,7 +18,6 @@ $images = (new ImageTable($pdo))->list();
 $files = (new FileTable($pdo))->list();
 $post->setCreatedAt(date('Y-m-d H:i:s'));
 
-$success = false;
 $errors = [];
 if (!empty($_POST)) {
     $postTable = new PostTable($pdo);

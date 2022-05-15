@@ -2,6 +2,7 @@
 
 namespace App\Table;
 
+use App\Connection;
 use App\Model\Category;
 use App\Model\Image;
 use App\Model\Post;
@@ -29,11 +30,7 @@ abstract class Table
         $query = $this->pdo->prepare('SELECT * FROM ' . $this->table . ' WHERE id = :id');
         $query->execute(['id' => $id]);
         $query->setFetchMode(PDO::FETCH_CLASS, $this->class);
-        $result = $query->fetch();
-        if ($result === false) {
-            throw new NotFoundException($this->table, $id);
-        }
-        return $result;
+        return $query->fetch();
     }
 
     /*
@@ -166,6 +163,19 @@ abstract class Table
             return false;
         }
         return true;
+    }
+
+    public function getAttachForPost($id)
+    {
+        $table = $this->table;
+        $liaisonTable = 'post_' . $table;
+        $itemID = 'pe.' . $table . '_id';
+        $pdo = Connection::getPDO();
+        return $pdo->query("
+        SELECT e.*
+        FROM $table e 
+        JOIN $liaisonTable pe ON e.id = $itemID
+        WHERE pe.post_id = $id ")->fetchAll();
     }
 
 }

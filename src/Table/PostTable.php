@@ -35,4 +35,16 @@ class PostTable extends Table
             (new FileTable($pdo))->attachItems($post->getID(), $_POST['files_ids']);
         }
     }
+
+    /**
+     * Permet de récupérer les images et les fichiers pour un post
+     * @param $id
+     * @return array
+     */
+    public function getAttach($id)
+    {
+        $images = (new ImageTable($this->pdo))->getAttachForPost($id);
+        $files = (new FileTable($this->pdo))->getAttachForPost($id);
+        return [$images, $files];
+    }
 }

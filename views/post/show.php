@@ -6,23 +6,16 @@ use App\{Connection, Helpers\Text, Model\Post, Table\PostTable};
 $id = (int)$params['id'];
 $slug = $params['slug'];
 $pdo = Connection::getPDO();
+$table = new PostTable($pdo);
 /** @var Post|false */
-$post = (new PostTable($pdo))->find($id);
-$images = $pdo->query("
-SELECT i.*
-FROM image i 
-JOIN post_image pi ON i.id = pi.image_id
-WHERE pi.post_id = $id ")->fetchAll();
+$post = $table->find($id);
 
-$files = $pdo->query("
-SELECT f.*
-FROM file f 
-JOIN post_file pf ON f.id = pf.file_id
-WHERE pf.post_id = $id ")->fetchAll();
+[$images, $files] = $table->getAttach($id);
 
 if ($post === false) {
     throw new Exception('Aucun post ne correspond a cet ID');
 }
+
 if ($post->getSlug() !== $slug) {
     $url = $router->url('post', ['slug' => $post->getSlug(), 'id' => $id]);
     http_response_code(301);

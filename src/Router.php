@@ -6,17 +6,11 @@ use App\Security\ForbidenException;
 
 class Router
 {
-    /*
-    * @var string 
-    */
-    private $viewPath;
+    private string $viewPath;
 
-    /*
-    * @var altorouter 
-    */
-    private $router;
+    private \AltoRouter $router;
 
-    public $layout = "layouts/default.php";
+    public string $layout = "layouts/default.php";
 
     public function __construct(string $viewPath)
     {
