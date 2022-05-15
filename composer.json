@@ -17,7 +17,8 @@
         "intervention/image": "^2.7",
       "ext-json": "*",
       "ext-openssl": "*",
-        "lichtner/fluentpdo": "^2.2"
+        "lichtner/fluentpdo": "^2.2",
+      "ext-gd": "*"
     },
     "authors": [
       {

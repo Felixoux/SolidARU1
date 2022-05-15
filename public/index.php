@@ -27,4 +27,3 @@ $router = new App\Router(VIEW_PATH);
 
 // Routes file
 require 'routes.php';
-

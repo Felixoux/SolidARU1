@@ -27,4 +27,6 @@ $router
 ->match('/admin/file/new', 'admin/file/new', 'admin_file_new')
 // === SECURITY ===
 ->match('/admin/security', 'admin/security/index', 'security')
+// Image
+->get('/image', 'image', 'image')
 ->run();

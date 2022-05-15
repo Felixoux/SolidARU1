@@ -74,6 +74,14 @@ $('.button-js-hide').click(function () {
     $('.js-hide span').toggleClass('hidden').fadeIn('fast')
 })
 
+// Lazy image
+$("img.lazy").each(async function (){
+    $(this).attr("src", "/image?name="+$(this).data("name")+"&width=350&height=350");
+    $(this).on("load", function (){
+        $(this).removeClass("lazy");
+    })
+})
+
 
 
 

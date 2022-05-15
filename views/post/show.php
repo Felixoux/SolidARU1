@@ -38,9 +38,11 @@ $pageTitle = $post->getName();
     <div class="article__images">
         <?php foreach ($images as $k => $image) {
             $name = $image['name'];
-            $link = '/uploads/posts_multiple' . DIRECTORY_SEPARATOR . $image['name'];
+            $link = $router->url('image') . "?name=".$name."&width=10&height=10";
             echo <<<HTML
-        <img src="$link" alt="$name" width="350">
+        <div class="blur-img">
+        <img class="lazy" src="$link" alt="$name" data-name="$name" width="350" loading="eager">
+        </div>
         HTML;
         }
         ?>
