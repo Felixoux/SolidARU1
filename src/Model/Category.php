@@ -81,9 +81,9 @@ class Category
     public function getExerpt(int $limit = 60): ?string
     {
         if ($this->content === null) {
-            return e($this->content);
+            return $this->content;
         }
-        return e(Text::exerpt($this->content, $limit));
+        return Text::exerpt($this->content, $limit);
     }
 
     public function getPostID(): ?int

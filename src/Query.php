@@ -8,6 +8,7 @@ class Query
 {
 
     private array $select = [];
+    private $insert;
     private array $from;
     private array $where = [];
     private string $order;

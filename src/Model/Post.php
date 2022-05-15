@@ -66,7 +66,7 @@ class Post
     public function getExerpt(int $limit = 60): string
     {
         $summary = Text::exerpt($this->content, $limit);
-        return e(Text::parseDown($summary));
+        return Text::parseDown($summary);
     }
 
     public function setSlug(string $slug): self
