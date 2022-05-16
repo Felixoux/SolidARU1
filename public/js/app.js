@@ -39,6 +39,10 @@ function removeSearch() {
 $(document).on('keyup', function (e) {
     if(e.key === 'Escape') searchContainer.removeClass('active')
 })
+// Pas ouf parce que quand on clique sur l'input ca cache aussi
+$(searchContainer).click(function (){
+    searchContainer.removeClass('active')
+})
 
 // Automatic slug input
 $(".withSpace").keyup(function () {
