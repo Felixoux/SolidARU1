@@ -9,6 +9,7 @@
 	--bg-card-footer:#1B1F44;
 	--bg-light : #1A1F42;
 	--bg-dark:#151938;
+	--bg-transparent:#1a1f42f1;
 
 	// ==== FONTS COLORS ====
 	--muted-text: #8893C4;
@@ -94,6 +95,7 @@ body.dark {
 @import 'modules/footer-links.scss';
 @import 'modules/alert.scss';
 @import 'modules/form.scss';
+@import 'modules/search.scss';
 
 // ==== Views ====
 @import 'views/e404.scss';

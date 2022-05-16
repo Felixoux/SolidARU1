@@ -134,7 +134,7 @@
   justify-items: center;
   align-content: center;
   padding: calc(2 * var(--space));
-  background: #1a1f42f1;
+  background: var(--bg-transparent);
   border: 1px solid var(--border);
   border-radius: 3px;
   box-shadow: 0 2px 4px var(--shadow);

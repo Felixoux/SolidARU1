@@ -8,6 +8,7 @@
   --bg-card-footer:#1B1F44;
   --bg-light: #1A1F42;
   --bg-dark:#151938;
+  --bg-transparent:#1a1f42f1;
   --muted-text: #8893C4;
   --text:#D4DCFF;
   --bright-text:#EBF1FF;
@@ -1079,7 +1080,7 @@ body.dark {
   justify-items: center;
   align-content: center;
   padding: calc(2 * var(--space));
-  background: rgba(26, 31, 66, 0.9450980392);
+  background: var(--bg-transparent);
   border: 1px solid var(--border);
   border-radius: 3px;
   box-shadow: 0 2px 4px var(--shadow);
@@ -1276,6 +1277,12 @@ body.dark {
 .card a, .form-card > form a, .card--category a {
   position: relative;
   z-index: 3;
+}
+
+.card--category {
+  transition: 0s;
+  right: -500px;
+  opacity: 0;
 }
 
 .footer-links > a:first-child {
@@ -1533,6 +1540,53 @@ input:checked + label .switch::before {
   border: none !important;
 }
 
+.search-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 100;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-container.active {
+  display: flex;
+}
+
+.search-container form {
+  position: fixed;
+  left: auto;
+  right: auto;
+  top: 100px;
+  width: 600px;
+  max-width: calc(100% - 20px);
+  background: var(--bg-dark);
+  padding: calc(1 * var(--space));
+  border-radius: 8px;
+  margin-bottom: 40%;
+}
+
+.search-container input {
+  padding-left: 45px;
+}
+
+.search-container button {
+  left: calc(3 * var(--space));
+  display: inline-flex;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.search-container svg {
+  width: 16px;
+  height: 16px;
+}
+
 .container-404 {
   background: var(--bg-dark);
   padding: calc(var(--gap) * 2);
@@ -1620,7 +1674,7 @@ input:checked + label .switch::before {
 
   .welcome-mascott {
     position: absolute;
-    top: 322.5px;
+    top: 492.5px;
     left: -120px;
     width: 500px;
     z-index: -25;
@@ -1675,6 +1729,18 @@ section.event .category_svg {
   transform: translate(6px, 6px) rotate(3deg);
 }
 
+/*.right-arm-welcom-mascott {
+  animation: 3S ease-in-out rightArmMascott 1s;
+}
+
+@keyframes rightArmMascott {
+  10% {
+    transform: rotate(12deg) translate(20px);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+}*/
 .article__header {
   margin-bottom: 3rem;
 }

@@ -1,4 +1,12 @@
 <?php
+
+use App\Router;
+
+if(!isset($_GET['width']) || !isset($_GET['height']) || !isset($_GET['name'])) {
+    http_response_code(404);
+    header('Location: ' . $router->url('e404'));
+    exit();
+}
 $newwidth = min(1024, max(2, htmlentities($_GET["width"], ENT_QUOTES, "UTF-8")));
 $newheight = min(1024, max(2, htmlentities($_GET["height"], ENT_QUOTES, "UTF-8")));
 $name = htmlentities($_GET["name"], ENT_QUOTES, "UTF-8");

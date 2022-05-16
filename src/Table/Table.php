@@ -37,11 +37,6 @@ abstract class Table
      */
     public function find($id)
     {
-        /*$query = $this->pdo->prepare('SELECT * FROM ' . $this->table . ' WHERE id = :id');
-        $query->execute(['id' => $id]);
-        $query->setFetchMode(PDO::FETCH_CLASS, $this->class);
-        return $query->fetch();*/
-
         $statement =  $this->queryBuilder()
         ->where('id = :id')
         ->params(['id' => $id])
@@ -76,9 +71,10 @@ abstract class Table
 
     public function all(): array
     {
-        $sql = "SELECT * FROM $this->table";
+        $sql = $this->queryBuilder()->select()->toString();
         return $this->pdo->query($sql, PDO::FETCH_CLASS, $this->class)->fetchAll();
     }
+
 
     public function delete(int $id)
     {

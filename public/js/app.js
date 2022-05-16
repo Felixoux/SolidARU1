@@ -25,6 +25,15 @@ $('#blog-anchor').click(function () {
         $('#js-burger span').removeClass('burger-span');
     }
 })
+// Search engine animation
+let searchBtn = $("#searchBtn");
+let searchContainer = $('.search-container');
+searchBtn.click(function (){
+    searchContainer.addClass('active')
+})
+function removeSearch() {
+    searchContainer.removeClass('active') // Remove search container when submit
+}
 
 // Automatic slug input
 $(".withSpace").keyup(function () {
@@ -47,8 +56,8 @@ $(document).ready(function () {
 // === STICKY HEADER ===
 let didScroll;
 let lastScrollTop = 0;
-let delta = 5;
-let navbarHeight = $('nav.header').outerHeight();
+let delta = 100;
+let navbarHeight = headerNav.outerHeight();
 
 $(window).scroll(function (event) {
     didScroll = true;
@@ -59,7 +68,7 @@ setInterval(function () {
         hasScrolled();
         didScroll = false;
     }
-}, 250);
+}, 0);
 
 function hasScrolled() {
     var st = $(this).scrollTop();
@@ -68,8 +77,6 @@ function hasScrolled() {
     if (Math.abs(lastScrollTop - st) <= delta)
         return;
 
-    // If they scrolled down and are past the navbar, add class .nav-up.
-    // This is necessary so you never see what is "behind" the navbar.
     if (st > lastScrollTop && st > navbarHeight) {
         // Scroll Down
         $('nav.header').removeClass('nav-down').addClass('nav-up');
@@ -102,6 +109,34 @@ $(document).ready(function () {
         slidesToShow: 2,
         slidesToScroll: 2
     });
+})
+
+// === Animations ===
+$(document).ready(function () {
+    $('.welcome-mascott').animate({
+        top: 322.5
+    }, 1000)
+
+    // Category cards animation
+    let cards = $('.card--category');
+    let animate = true;
+    let scrollPosition = $(window).height() + $(window).scrollTop()
+    $(window).scroll(function (){
+        if (scrollPosition > 899) {
+            animate = false;
+
+            cards.each(function(index){
+                $(this).delay(125*index).animate({
+                    right:0,
+                    opacity:1,
+                }, 1000);
+            })
+        }
+    })
+
+
+
+
 })
 
 

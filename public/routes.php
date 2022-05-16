@@ -1,5 +1,6 @@
 <?php
 $router
+->get('/e404', 'e404', 'e404')
 ->get('/', 'category/index',  'home')
 ->get('/category/[*:slug]-[i:id]', 'category/show', 'category')
 ->get('/blog/[*:slug]-[i:id]', 'post/show', 'post')
@@ -29,4 +30,6 @@ $router
 ->match('/admin/security', 'admin/security/index', 'security')
 // Image
 ->get('/image', 'image', 'image')
+// Error 404
+
 ->run();

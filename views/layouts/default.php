@@ -71,7 +71,7 @@ App\Auth::remember();
         <?php endif ?>
     </ul>
     <ul class="header-side flex">
-        <li class="header__search">
+        <li class="header__search" id="searchBtn">
             <button>
                 <svg>
                     <use xlink:href="/img/svg/sprite.svg#search"></use>
@@ -85,6 +85,16 @@ App\Auth::remember();
         </li>
     </ul>
 </nav>
+<div class="search-container">
+    <form method="GET" action="<?= VIEW_PATH . DIRECTORY_SEPARATOR . 'search.php' ?>" onsubmit="removeSearch()">
+            <input autofocus type="text" name="q" placeholder="Rechercher du contenu" autocomplete="off">
+            <button type="submit">
+                <svg>
+                    <use xlink:href="/img/svg/sprite.svg#search"></use>
+                </svg>
+            </button>
+    </form>
+</div>
 <div class="page-wrapper relative" style="margin-top: 110px;">
     <?=
     /** @var string $content */

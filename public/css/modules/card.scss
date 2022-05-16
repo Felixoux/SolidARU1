@@ -65,5 +65,8 @@
 
 .card--category {
   @extend .card;
+  transition: 0s;
+  right: -500px;
+  opacity: 0;
 }
 
