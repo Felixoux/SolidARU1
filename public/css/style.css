@@ -499,7 +499,7 @@ header, section, main, footer, nav, .container, .header, .footer, .main, form {
   width: var(--container-width);
 }
 
-.big-section, .article {
+.big-section, section.search-result, .article {
   background: var(--bg-dark);
   border-top: 1px solid var(--border);
   padding-top: calc(var(--space-section) / 2);
@@ -1828,6 +1828,44 @@ img.lazy {
 
 .guide-control__content ul.list-circle {
   list-style-type: disc;
+}
+
+.page-header {
+  background: var(--bg-light);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: calc(6 * var(--space));
+  padding-top: calc(6 * var(--space));
+}
+
+.page-header > :first-child {
+  flex: none;
+  margin-right: calc(4 * var(--space));
+}
+
+.search-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.search-header .search-container {
+  display: block;
+  margin-top: calc(2 * var(--space));
+  max-width: 100%;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+@media (min-width: 850px) {
+  .search-header .search-container {
+    flex-grow: 1;
+    margin-left: 70px;
+    margin-top: 0;
+  }
+}
+
+.search-container form {
+  margin-bottom: 0;
 }
 
 /*# sourceMappingURL=style.css.map */

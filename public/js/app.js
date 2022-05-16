@@ -30,10 +30,15 @@ let searchBtn = $("#searchBtn");
 let searchContainer = $('.search-container');
 searchBtn.click(function (){
     searchContainer.addClass('active')
+    $('.addFocus').focus()
 })
 function removeSearch() {
     searchContainer.removeClass('active') // Remove search container when submit
 }
+// Remove class from search container when press esc on keyboard
+$(document).on('keyup', function (e) {
+    if(e.key === 'Escape') searchContainer.removeClass('active')
+})
 
 // Automatic slug input
 $(".withSpace").keyup(function () {

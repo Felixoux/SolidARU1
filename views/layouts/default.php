@@ -86,8 +86,8 @@ App\Auth::remember();
     </ul>
 </nav>
 <div class="search-container">
-    <form method="GET" action="<?= VIEW_PATH . DIRECTORY_SEPARATOR . 'search.php' ?>" onsubmit="removeSearch()">
-            <input autofocus type="text" name="q" placeholder="Rechercher du contenu" autocomplete="off">
+    <form method="GET" action="<?= $router->url('search') ?>" onsubmit="removeSearch()">
+            <input class="addFocus" type="text" name="q" placeholder="Rechercher du contenu" autofocus autocomplete="off">
             <button type="submit">
                 <svg>
                     <use xlink:href="/img/svg/sprite.svg#search"></use>

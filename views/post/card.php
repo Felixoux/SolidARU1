@@ -9,7 +9,7 @@
         </h2>
         <div class="card__description muted-text">
             <p>
-                <?= $post->getExerpt(300) ?>
+                <?= $post->getExerpt(300) ?? $content ?>
             </p>
         </div>
         <a href="<?= $router->url('post', ['id' => $post->getID(), 'slug' => $post->getSlug()]) ?>" class="card__link"
