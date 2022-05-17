@@ -1397,7 +1397,7 @@ input:focus, textarea:focus, select:focus {
 }
 
 .form-card {
-  margin-top: calc(var(--space-section) / 2);
+  margin: calc(var(--space-section) / 2) auto;
   max-width: 450px;
   flex-direction: column;
 }
@@ -1598,7 +1598,7 @@ input:checked + label .switch::before {
   padding-bottom: 2rem;
   border-top: 2px solid var(--border);
   background: var(--bg-light);
-  z-index: 999;
+  z-index: 99;
 }
 
 .page-footer h2 {
