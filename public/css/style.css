@@ -1655,7 +1655,7 @@ input:checked + label .switch::before {
 .container-404 {
   background: var(--bg-dark);
   padding: calc(var(--gap) * 2);
-  margin-top: calc(var(--space-section) / 2);
+  margin: calc(var(--space-section) / 2) auto;
   border-radius: 8px;
 }
 @media (min-width: 1000px) {
@@ -2003,7 +2003,7 @@ img.lazy {
   position: absolute;
   z-index: -1;
   opacity: 1;
-  bottom: 20%;
+  bottom: 350px;
   left: -15%;
 }
 

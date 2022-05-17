@@ -2,7 +2,7 @@
   @extend %container-margin;
   background: var(--bg-dark);
   padding: calc(var(--gap) * 2);
-  margin-top: calc(var(--space-section) / 2);
+  margin: calc(var(--space-section) / 2) auto;
   border-radius: 8px;
 
   @include up(1000) {
