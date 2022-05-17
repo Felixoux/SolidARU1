@@ -16,7 +16,7 @@ if (isset($_POST['submit'])) {
         $checkIfExists = (new \App\Table\ImageTable(Connection::getPDO()))->findByName($image);
         if($checkIfExists === true) {
             header('Location: ' . $router->url('admin_images') . '?duplicated=1');
-            die();
+            exit();
         }
 
         $item->setName($image);
@@ -46,9 +46,10 @@ if (isset($_POST['submit'])) {
             'name' => $image,
             'created' => $item->getCreatedAt()->format("Y-m-d H:i:s")
         ]);
-        header('Location: ' . $router->url('admin_images') . '?created=1');
-
         move_uploaded_file($f_tmp, $directory . $image);
+
+        header('Location: ' . $router->url('admin_images') . '?created=1');
+        exit();
     }
 }
 

@@ -25,6 +25,7 @@ if (!empty($_POST)) {
         $categoryAttachment->upload($item);
         $table->updatePC($item);
         header('Location: ' . $router->url('admin_categories') . '?modified=1');
+        exit();
     } else {
         $errors = $v->errors();
     }

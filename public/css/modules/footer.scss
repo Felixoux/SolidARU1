@@ -1,0 +1,58 @@
+.page-footer {
+  @extend .container;
+  display: grid;
+  gap: calc(var(--gap) * 2);
+  place-items: center;
+  padding-top: 2rem;
+  padding-bottom:2rem;
+  border-top: 2px solid var(--border);
+  background: var(--bg-light);
+  z-index: 999;
+}
+
+.page-footer h2 {
+  text-align: center;
+}
+
+.page-footer #goTopButton {
+  display: block;
+  cursor: pointer;
+  transition: all .3s ease;
+
+  &:hover {
+    fill: var(--primary_b);
+  }
+}
+
+.footer-nav {
+  @extend .flex-center;
+}
+
+.footer-nav li a{
+  color: var(--text);
+  &:hover {
+    text-decoration:underline;
+  }
+}
+
+.footer-nav .first {
+  margin-right: calc(var(--space) * 10);
+}
+
+.RGPD-container {
+  @extend .flex;
+  width: 100%;
+  justify-content: center;
+  align-items:center;
+}
+
+.RGPD-container p {
+  margin-left:calc(var(--gap) * 15);
+  @include down(600) {
+    margin-left: calc(var(--gap) * 2);
+  }
+}
+
+
+
+

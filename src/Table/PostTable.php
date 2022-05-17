@@ -2,7 +2,7 @@
 
 namespace App\Table;
 
-use App\{Connection, Model\Post, paginatedQuery};
+use App\{Connection, Model\Post, paginatedQuery, Router};
 use PDO;
 
 class PostTable extends Table
@@ -10,12 +10,7 @@ class PostTable extends Table
     protected $table = "post";
     protected $class = Post::class;
 
-    /**
-     * Permet de trouver tous les posts d'une catégorie
-     * @param int $categoryID
-     * @return array
-     * @throws \Exception
-     */
+
     public function findPaginatedForCategory(int $categoryID): ?array
     {
         $paginatedQuery = new paginatedQuery(
@@ -27,8 +22,8 @@ class PostTable extends Table
             "SELECT COUNT(category_id) FROM post_category WHERE category_id = $categoryID",
         );
         $posts = $paginatedQuery->getItems(Post::class);
-        if(isset($posts)) {
-            (new CategoryTable($this->pdo))->hydratePosts($posts);
+        (new CategoryTable($this->pdo))->hydratePosts($posts);
+        if (isset($posts)) {
             return [$posts, $paginatedQuery];
         }
         return null;

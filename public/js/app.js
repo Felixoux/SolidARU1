@@ -147,6 +147,12 @@ $(document).ready(function () {
     $(window).on('scroll', onScroll);*/
 })
 
+// Go to top Button
+$("#goTopButton").click(function()
+{
+    $('html,body').animate({scrollTop:0},500);
+})
+
 
 
 

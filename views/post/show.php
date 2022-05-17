@@ -63,7 +63,7 @@ $pageTitle = $post->getName();
         ?>
     </div>
     <a href="#">
-        <button class="article__button f-right"><a href="<?= $_SESSION['category_link'] ?>">Revenir aux articles</a></button>
+        <button class="article__button f-right"><a href="<?= $_SESSION['category_link'] ?>">Revenir à la catégorie</a></button>
     </a>
 </section>
 <?php

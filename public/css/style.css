@@ -490,7 +490,7 @@ h5 {
   overflow: hidden;
 }
 
-header, section, main, footer, nav, .container, .header, .footer, .main, form {
+header, section, main, footer, nav, .container, .page-footer, .header, .footer, .main, form {
   box-sizing: border-box;
   width: 100%;
   padding-left: calc(50% - var(--container-width) / 2);
@@ -536,12 +536,12 @@ header, section, main, footer, nav, .container, .header, .footer, .main, form {
   display: inline;
 }
 
-.flex, .form__button, .card__header, .header {
+.flex, .RGPD-container, .form__button, .card__header, .header {
   display: flex !important;
   align-items: center;
   justify-content: space-between;
 }
-.flex > *, .form__button > *, .card__header > *, .header > * {
+.flex > *, .RGPD-container > *, .form__button > *, .card__header > *, .header > * {
   min-width: 0;
 }
 
@@ -565,7 +565,7 @@ header, section, main, footer, nav, .container, .header, .footer, .main, form {
   align-items: stretch;
 }
 
-.flex-center, .form-card {
+.flex-center, .footer-nav, .form-card {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1365,7 +1365,7 @@ label {
   font-size: 0.85em;
 }
 
-input[type=text], input[type=select], input[type=file], input[type=password], textarea, select {
+input[type=text], input[type=select], input[type=file], input[type=password], input[type=email], textarea, select {
   background: var(--bg-dark);
   padding: 0.8em;
   border: 1px solid var(--border);
@@ -1385,7 +1385,7 @@ select {
   min-height: 150px;
 }
 
-input:focus {
+input:focus, textarea:focus, select:focus {
   border-color: var(--primary_b);
   box-shadow: 0 0 0 3px var(--primary_b25);
 }
@@ -1588,6 +1588,56 @@ input:checked + label .switch::before {
 .search-container svg {
   width: 16px;
   height: 16px;
+}
+
+.page-footer {
+  display: grid;
+  gap: calc(var(--gap) * 2);
+  place-items: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  border-top: 2px solid var(--border);
+  background: var(--bg-light);
+  z-index: 999;
+}
+
+.page-footer h2 {
+  text-align: center;
+}
+
+.page-footer #goTopButton {
+  display: block;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.page-footer #goTopButton:hover {
+  fill: var(--primary_b);
+}
+
+.footer-nav li a {
+  color: var(--text);
+}
+.footer-nav li a:hover {
+  text-decoration: underline;
+}
+
+.footer-nav .first {
+  margin-right: calc(var(--space) * 10);
+}
+
+.RGPD-container {
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.RGPD-container p {
+  margin-left: calc(var(--gap) * 15);
+}
+@media (max-width: 600px) {
+  .RGPD-container p {
+    margin-left: calc(var(--gap) * 2);
+  }
 }
 
 .container-404 {
@@ -1937,7 +1987,7 @@ img.lazy {
   position: absolute;
   z-index: -1;
   opacity: 1;
-  bottom: 0;
+  bottom: 20%;
   left: -15%;
 }
 

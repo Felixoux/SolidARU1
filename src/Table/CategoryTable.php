@@ -2,8 +2,7 @@
 
 namespace App\Table;
 
-use App\Model\Category;
-use App\paginatedQuery;
+use App\{Model\Category};
 use PDO;
 
 class CategoryTable extends Table

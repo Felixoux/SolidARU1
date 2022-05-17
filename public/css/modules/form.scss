@@ -40,7 +40,7 @@ label {
   font-size: .85em;
 }
 
-input[type=text],input[type=select],input[type=file],input[type=password], textarea, select {
+input[type=text],input[type=select],input[type=file],input[type=password], input[type=email], textarea, select {
   background: var(--bg-dark);
   padding: .8em;
   border: 1px solid var(--border);
@@ -60,7 +60,7 @@ select {
   min-height: 150px;
 }
 
-input:focus {
+input:focus, textarea:focus, select:focus {
   border-color: var(--primary_b);
   box-shadow: 0 0 0 3px var(--primary_b25);
 }
