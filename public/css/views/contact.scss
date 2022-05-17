@@ -1,0 +1,78 @@
+.contact-wrapper  {
+  margin-bottom: calc(var(--space-section) / 2);
+}
+
+@include up(850) {
+  .contact-wrapper {
+    display: grid;
+    grid-template-columns:repeat(2, 1fr);
+    column-gap: calc(var(--gap) * 4);
+    row-gap: var(--gap);
+    grid-template-areas:
+    "asbl form"
+    "aru1 form";
+  }
+}
+
+.contact-form input {
+  margin-top: 1rem;
+}
+
+.contact-form label {
+  margin-bottom: 0;
+}
+
+.aru1-contact-list li, section.contact-form h4, .ASBL h2, .ARU1 h3, .contact-form h2{
+  margin: 2rem 0;
+}
+
+.aru1-contact-list li, .aru1-contact-list {
+  position: relative;
+}
+// Li border list stylish
+.aru1-contact-list::after {
+  position: absolute;
+  content: "";
+  width: 2px;
+  height: calc(100% - 21px);
+  background: var(--border);
+  top: 10px;
+  left: -.5rem;
+}
+
+.aru1-contact-list li {
+  margin-left: 1rem;
+}
+
+.aru1-contact-list li::before {
+  content:"";
+  position: absolute;
+  top: 10px;
+  left:  - 1.5rem;
+  right: 0;
+  height: 2px;
+  width: 15px;
+  background: var(--border);
+}
+
+
+.ASBL {
+  grid-area: asbl;
+}
+
+.ARU1 {
+  grid-area: aru1;
+}
+
+.contact-form {
+  grid-area: form;
+}
+
+// Wave
+.contact-wave {
+  position:absolute;
+  z-index: -1;
+  opacity: 1;
+  bottom: 350px;
+  left: -15%;
+}

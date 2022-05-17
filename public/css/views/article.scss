@@ -36,15 +36,10 @@
 }
 
 .blur-img {
-  z-index: 999;
-  min-height:180px;
   overflow: hidden;
   background: url(/img/loading.svg) no-repeat center;
-  margin: auto 0;
 }
 
 img.lazy {
-  max-width:100% ;
   filter: blur(25px)!important;
-  //opacity: 0.9;
 }

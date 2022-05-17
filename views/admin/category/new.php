@@ -27,6 +27,7 @@ if (!empty($_POST)) {
         $categoryAttachment->upload($item); // On mets la thumbnail
         $table->createPC($item);
         header('Location: ' . $router->url('admin_categories') . '?created=1');
+        exit();
     } else {
         $errors = $v->errors();
     }

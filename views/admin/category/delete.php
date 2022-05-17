@@ -14,7 +14,5 @@ if ($_SESSION['token'] !== $params['token']) {
 (new CategoryAttachment)->detach($category);
 $table->delete($params['id']);
 header('Location: ' . $router->url('admin_categories') . '?delete=1');
+exit();
 ?>
-
-
-<h1><?= 'suppression de l\'article ' . $params['id'] ?></h1>

@@ -3,8 +3,12 @@ $router
 ->get('/', 'category/index',  'home')
 ->get('/category/[*:slug]-[i:id]', 'category/show', 'category')
 ->get('/blog/[*:slug]-[i:id]', 'post/show', 'post')
-->match('/login', 'auth/login', 'login')
-->post('/logout', 'auth/logout', 'logout')
+->match('/connection', 'auth/login', 'login')
+->post('/deconnection', 'auth/logout', 'logout')
+->get('/image', 'image', 'image')
+->get('/e404', 'e404', 'e404')
+->get('/recherche', 'search', 'search')
+->get('/contact', 'contact/index', 'contact')
 // === ADMIN ===
 // === Posts ===
 ->get('/admin', 'admin/post/index',  'admin_posts')
@@ -27,6 +31,5 @@ $router
 ->match('/admin/file/new', 'admin/file/new', 'admin_file_new')
 // === SECURITY ===
 ->match('/admin/security', 'admin/security/index', 'security')
-// Image
-->get('/image', 'image', 'image')
+// === RUN ===
 ->run();

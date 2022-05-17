@@ -1,5 +1,4 @@
 <article class="card card--category">
-
     <?php if ($category->getImage()): ?>
         <img src="<?= $category->getImageURL('small') ?>" alt="">
     <?php endif ?>
