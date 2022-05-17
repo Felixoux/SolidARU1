@@ -63,7 +63,7 @@ $(document).ready(function () {
 })
 
 // === STICKY HEADER ===
-let didScroll;
+/*let didScroll;
 let lastScrollTop = 0;
 let delta = 100;
 let navbarHeight = headerNav.outerHeight();
@@ -97,7 +97,7 @@ function hasScrolled() {
     }
 
     lastScrollTop = st;
-}
+}*/
 
 // Button hider
 $('.button-js-hide').click(function () {

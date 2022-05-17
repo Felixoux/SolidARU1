@@ -1,5 +1,20 @@
 <?php
 
+if (isset($_POST['name']) && isset($_POST['content']) && isset($_POST['mail'])) {
+    $name = e($_POST['name']);
+    $mail = e($_POST['mail']);
+    $topic = e($_POST['topic']);
+    $content = e($_POST['content']);
+
+    $content = $name . $content;
+
+    mail(
+        'georgeault.felix@gmail.com',
+        'coucou',
+        'salut'
+    );
+}
+
 ?>
 <h1 class="big-title page-header container-margin">Nous <strong>contacter ?</strong></h1>
 <svg class="contact-wave" id="wave" style="transform:rotate(0deg); transition: 0.3s" viewBox="0 0 1440 490"
@@ -33,6 +48,6 @@
             Vous avez une question, un avis, un commentaire quelconque sur le site ? <br>
             Vous pouvez nous écrire juste ici en remplissant le formulaire
         </h4>
-        <?php require VIEW_PATH . DIRECTORY_SEPARATOR . 'contact/_form.php'; ?>
+        <?php require VIEW_PATH . '/contact/_form.php'; ?>
     </section>
 </main>

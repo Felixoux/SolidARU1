@@ -22,5 +22,6 @@
     </div>
     <div class="card__footer flex flex-start" style="border-color:<?= $color ?>">
         <p>Il y a <?= $numberPost ?> post<?= $numberPost > 1 ? 's' : '' ?></p>
+        <p style="margin-left: auto"><?= $category->getCreatedAt()->format('d/m/Y') ?></p>
     </div>
 </article>
