@@ -1612,8 +1612,20 @@ input:checked + label .switch::before {
 }
 .page-footer #goTopButton:hover {
   fill: var(--primary_b);
+  animation: 1s bounceButton infinite;
 }
 
+@keyframes bounceButton {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
 .footer-nav li a {
   color: var(--text);
 }

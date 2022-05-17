@@ -21,6 +21,20 @@
 
   &:hover {
     fill: var(--primary_b);
+    animation: 1s bounceButton infinite;
+  }
+}
+
+// Bounce Animation for #goTopButton
+@keyframes bounceButton {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100%{
+    transform: translateY(0);
   }
 }
 
@@ -52,6 +66,8 @@
     margin-left: calc(var(--gap) * 2);
   }
 }
+
+
 
 
 
