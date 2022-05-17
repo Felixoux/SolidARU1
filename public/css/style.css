@@ -1921,6 +1921,10 @@ img.lazy {
   margin-bottom: 0;
 }
 
+.contact-wrapper {
+  margin-bottom: calc(var(--space-section) / 2);
+}
+
 @media (min-width: 850px) {
   .contact-wrapper {
     display: grid;

@@ -106,8 +106,8 @@ App\Auth::remember();
         </svg>
         <h2 class="section-title">Bienvenue sur le site de solid<strong>ARU1</strong></h2>
         <ul class="footer-nav">
-            <li class="first"><a href="#">Accueil</a></li>
-            <li><a href="#">Contact</a></li>
+            <li class="first"><a href="<?= $router->url('home') ?>">Accueil</a></li>
+            <li><a href="<?= $router->url('contact') ?>">Contact</a></li>
         </ul>
         <div class="RGPD-container flex-center">
             <div class="theme-switcher-container">

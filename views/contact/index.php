@@ -12,7 +12,7 @@
             <p>Pour nous contacter, rien de plus simple. Il suffit de nous écrire via ce mail.</p>
             <h3 class="medium-title"><a href="mailto:lesamisaru1@gmail.com">lesamisaru1@gmail.com</a></h3>
             <p>Envie de ne rien rater ? Retrouvez nous aussi sur facebook juste ici :</p>
-            <h3 class="medium-title"><a href="#">Page facebook de l'ASBL</a></h3>
+            <h3 class="medium-title"><a href="https://www.facebook.com/pages/category/Nonprofit-organization/Les-Amis-de-LAru1-104390721107594/">Page facebook de l'ASBL</a></h3>
         </div>
     </section>
     <section class="ARU1">
