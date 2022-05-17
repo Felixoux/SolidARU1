@@ -1871,6 +1871,15 @@ img.lazy {
   margin-bottom: 0;
 }
 
+@media (min-width: 850px) {
+  .contact-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: calc(var(--gap) * 4);
+    row-gap: var(--gap);
+    grid-template-areas: "asbl form" "aru1 form";
+  }
+}
 .contact-form input {
   margin-top: 1rem;
 }
@@ -1885,17 +1894,34 @@ img.lazy {
 
 .aru1-contact-list li {
   margin-left: 1rem;
+  position: relative;
 }
 
-@media (min-width: 850px) {
-  .contact-wrapper {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: calc(var(--gap) * 4);
-    row-gap: var(--gap);
-    grid-template-areas: "asbl form" "aru1 form";
-  }
+.aru1-contact-list li::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: -1.5rem;
+  right: 0;
+  height: 2px;
+  width: 15px;
+  background: var(--border);
 }
+
+.aru1-contact-list {
+  position: relative;
+}
+
+.aru1-contact-list::after {
+  position: absolute;
+  content: "";
+  width: 2px;
+  height: calc(100% - 21px);
+  background: var(--border);
+  top: 10px;
+  left: -0.5rem;
+}
+
 .ASBL {
   grid-area: asbl;
 }
