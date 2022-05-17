@@ -13,7 +13,7 @@
 }
 
 .mascott-404 svg {
-  max-width: 500px;
+  max-width: 385px;
   width: 100%;
   margin-bottom: 2rem;
 }
@@ -24,7 +24,7 @@
   }
 
   @include up(1000) {
-    margin-left: calc(var(--gap) * 2);
+    margin-left: calc(var(--gap) * 4);
   }
 }
 

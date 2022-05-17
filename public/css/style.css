@@ -1605,7 +1605,7 @@ input:checked + label .switch::before {
 }
 
 .mascott-404 svg {
-  max-width: 500px;
+  max-width: 385px;
   width: 100%;
   margin-bottom: 2rem;
 }
@@ -1615,7 +1615,7 @@ input:checked + label .switch::before {
 }
 @media (min-width: 1000px) {
   .div-404 {
-    margin-left: calc(var(--gap) * 2);
+    margin-left: calc(var(--gap) * 4);
   }
 }
 
@@ -1892,23 +1892,7 @@ img.lazy {
   margin: 2rem 0;
 }
 
-.aru1-contact-list li {
-  margin-left: 1rem;
-  position: relative;
-}
-
-.aru1-contact-list li::before {
-  content: "";
-  position: absolute;
-  top: 10px;
-  left: -1.5rem;
-  right: 0;
-  height: 2px;
-  width: 15px;
-  background: var(--border);
-}
-
-.aru1-contact-list {
+.aru1-contact-list li, .aru1-contact-list {
   position: relative;
 }
 
@@ -1920,6 +1904,21 @@ img.lazy {
   background: var(--border);
   top: 10px;
   left: -0.5rem;
+}
+
+.aru1-contact-list li {
+  margin-left: 1rem;
+}
+
+.aru1-contact-list li::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: -1.5rem;
+  right: 0;
+  height: 2px;
+  width: 15px;
+  background: var(--border);
 }
 
 .ASBL {

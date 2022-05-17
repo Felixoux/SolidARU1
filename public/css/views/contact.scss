@@ -22,11 +22,24 @@
   margin: 2rem 0;
 }
 
-.aru1-contact-list li {
-  margin-left: 1rem;
-  position:relative;
+.aru1-contact-list li, .aru1-contact-list {
+  position: relative;
 }
 // Li border list stylish
+.aru1-contact-list::after {
+  position: absolute;
+  content: "";
+  width: 2px;
+  height: calc(100% - 21px);
+  background: var(--border);
+  top: 10px;
+  left: -.5rem;
+}
+
+.aru1-contact-list li {
+  margin-left: 1rem;
+}
+
 .aru1-contact-list li::before {
   content:"";
   position: absolute;
@@ -38,18 +51,7 @@
   background: var(--border);
 }
 
-.aru1-contact-list {
-  position: relative;
-}
-.aru1-contact-list::after {
-  position: absolute;
-  content: "";
-  width: 2px;
-  height: calc(100% - 21px);
-  background: var(--border);
-  top: 10px;
-  left: -.5rem;
-}
+
 .ASBL {
   grid-area: asbl;
 }
