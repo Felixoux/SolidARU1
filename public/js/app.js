@@ -127,10 +127,10 @@ $(document).ready(function () {
     }, 1000)
 
     // Category cards animation
-    let cards = $('.card--category');
+    /*let cards = $('.card--category');
     let animate = true;
     let scrollPosition = $(window).height() + $(window).scrollTop()
-    $(window).scroll(function (){
+    function onScroll(){
         if (scrollPosition > 899) {
             animate = false;
 
@@ -141,11 +141,10 @@ $(document).ready(function () {
                 }, 1000);
             })
         }
-    })
+    }
 
-
-
-
+    $(document.body).on('touchmove', onScroll);
+    $(window).on('scroll', onScroll);*/
 })
 
 
