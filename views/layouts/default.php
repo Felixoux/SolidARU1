@@ -49,7 +49,7 @@ App\Auth::remember();
         </li>
         <li>
             <h4>
-                <a href="#">
+                <a href="<?= $router->url('contact') ?>">
                     <svg>
                         <use xlink:href="/img/svg/sprite.svg#phone"></use>
                     </svg>
