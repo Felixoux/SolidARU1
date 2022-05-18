@@ -134,7 +134,5 @@ if(isset($_COOKIE['theme']) && isset($_COOKIE['theme']) == 'light') {
 <script src=<?= "/js/app.js" ?>></script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <?= $afterBodyContent ?? '' ?>
-<?= dd($_COOKIE) ?>
-<?= dd($_COOKIE) ?>
 </body>
 </html>
