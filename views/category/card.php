@@ -1,6 +1,8 @@
 <article class="card card--category">
     <?php if ($category->getImage()): ?>
-        <img src="<?= $category->getImageURL('small') ?>" alt="">
+        <div class="wrap-img-card">
+            <img src="<?= $category->getImageURL('small') ?>" alt="">
+        </div>
     <?php endif ?>
     <div class="card__body stack">
         <div class="card__header">
