@@ -4,14 +4,14 @@ if (isset($_POST['name']) && isset($_POST['content']) && isset($_POST['mail'])) 
     $name = e($_POST['name']);
     $mail = e($_POST['mail']);
     $topic = e($_POST['topic']);
-    $content = e($_POST['content']);
+    $content = 'Mail: ' . $mail . '</br>' . e($_POST['content']);
 
     $content = $name . $content;
 
-    mail(
+    $coucou = mail(
         'georgeault.felix@gmail.com',
-        'coucou',
-        'salut'
+        $topic,
+        $content
     );
 }
 

@@ -54,13 +54,26 @@ $(".withSpace").keyup(function () {
     // update
     $(".withDash").val(result);
 });
-
+//document.cookie = "theme=light; expires = Thu, 01 Jan 1970 00:00:01 GMT"
 // theme switcher
+let checkbox = $('#theme-switcher');
 $(document).ready(function () {
     $('#theme-switcher').click(function () {
         $('body').toggleClass("light-theme")
+        //document.cookie = "theme=light"
+        if(document.cookie.indexOf('theme=light') !== -1) {
+            document.cookie = "theme=dark"
+        }
+        if(document.cookie.indexOf('theme=dark') !== -1){
+            document.cookie = "theme=light"
+        }
     })
 })
+
+
+
+
+
 
 // === STICKY HEADER ===
 /*let didScroll;
