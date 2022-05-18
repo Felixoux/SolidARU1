@@ -46,10 +46,9 @@ if (isset($_POST['submit'])) {
             'name' => $image,
             'created' => $item->getCreatedAt()->format("Y-m-d H:i:s")
         ]);
-        move_uploaded_file($f_tmp, $directory . $image);
 
         header('Location: ' . $router->url('admin_images') . '?created=1');
-        exit();
+        move_uploaded_file($f_tmp, $directory . $image);
     }
 }
 
