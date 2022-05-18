@@ -21,7 +21,7 @@ HTML;
 
 
     $coucou = mail(
-        'georgeault.felix@gmail.com',
+        C('mail'),
         $topic,
         $content,
         $headers
