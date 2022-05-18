@@ -78,7 +78,7 @@ input:focus, textarea:focus, select:focus {
 .form-card {
   @extend .container-margin;
   @extend .flex-center;
-  margin-top: calc(var(--space-section) / 2);
+  margin: calc(var(--space-section) / 2) auto;
   max-width: 450px;
   flex-direction: column;
 }

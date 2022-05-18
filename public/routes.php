@@ -7,8 +7,8 @@ $router
 ->post('/deconnection', 'auth/logout', 'logout')
 ->get('/image', 'image', 'image')
 ->get('/e404', 'e404', 'e404')
-->get('/recherche', 'search', 'search')
-->get('/contact', 'contact/index', 'contact')
+->get('/recherche', 'search/search', 'search')
+->match('/contact', 'contact/index', 'contact')
 // === ADMIN ===
 // === Posts ===
 ->get('/admin', 'admin/post/index',  'admin_posts')

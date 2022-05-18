@@ -34,6 +34,7 @@
   --bg-card-footer: #d9d9dc;
   --bg-light: #e3e6e8;
   --bg-dark: #f8fbfb;
+  --bg-transparent:#d7d9e8f2;
   --muted-text: #121c4299;
   --text:#1A1F42;
   --bright-text: #111a3c;
@@ -497,7 +498,7 @@ header, section, main, footer, nav, .container, .page-footer, .header, .footer, 
   padding-right: calc(50% - var(--container-width) / 2);
 }
 
-.container-404, .alert-success, .alert-danger, .container-margin, .form-card {
+.alert-success, .alert-danger, .container-margin, .container-404, .form-card {
   margin-left: auto;
   margin-right: auto;
   width: var(--container-width);
@@ -1288,6 +1289,14 @@ body.dark {
   /*opacity: 0;*/
 }
 
+.wrap-img-card {
+  width: 100%;
+  max-height: 200px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
 .footer-links > a:first-child {
   display: inline-block;
   margin-bottom: 2rem;
@@ -1397,7 +1406,7 @@ input:focus, textarea:focus, select:focus {
 }
 
 .form-card {
-  margin-top: calc(var(--space-section) / 2);
+  margin: calc(var(--space-section) / 2) auto;
   max-width: 450px;
   flex-direction: column;
 }
@@ -1598,7 +1607,7 @@ input:checked + label .switch::before {
   padding-bottom: 2rem;
   border-top: 2px solid var(--border);
   background: var(--bg-light);
-  z-index: 999;
+  z-index: 99;
 }
 
 .page-footer h2 {
@@ -1653,7 +1662,7 @@ input:checked + label .switch::before {
 }
 
 .container-404 {
-  background: var(--bg-dark);
+  background: var(--bg-card);
   padding: calc(var(--gap) * 2);
   margin: calc(var(--space-section) / 2) auto;
   border-radius: 8px;
@@ -1907,10 +1916,12 @@ img.lazy {
   margin-right: calc(4 * var(--space));
 }
 
-.search-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+@media (min-width: 850px) {
+  .search-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 }
 
 .search-header .search-container {
@@ -1920,6 +1931,7 @@ img.lazy {
   width: 100%;
   position: relative;
   z-index: 1;
+  background: none;
 }
 @media (min-width: 850px) {
   .search-header .search-container {
@@ -1929,8 +1941,17 @@ img.lazy {
   }
 }
 
-.search-container form {
+.search-header .search-container form {
+  position: relative;
+  top: 0;
+  width: 100%;
   margin-bottom: 0;
+  padding: 0;
+  background: none;
+}
+
+.search-header .search-container form input {
+  padding-left: 55px;
 }
 
 .contact-wrapper {

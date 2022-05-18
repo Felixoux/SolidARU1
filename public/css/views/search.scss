@@ -15,10 +15,13 @@ section.search-result {
 }
 
 .search-header {
-   display: flex;
-   align-items: center;
-   justify-content: space-between;
+   @include up(850px) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+   }
 }
+
 .search-header .search-container {
    display: block;
    margin-top: calc(2 * var(--space));
@@ -26,6 +29,7 @@ section.search-result {
    width: 100%;
    position: relative;
    z-index: 1;
+   background: none;
    @include up(850) {
       flex-grow: 1;
       margin-left: 70px;
@@ -33,7 +37,15 @@ section.search-result {
    }
 }
 
-.search-container form {
+.search-header .search-container form {
+   position: relative;
+   top: 0;
+   width: 100%;
    margin-bottom: 0;
+   padding: 0;
+   background: none;
 }
 
+.search-header .search-container form input {
+   padding-left: 55px;
+}
