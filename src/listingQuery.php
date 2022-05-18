@@ -52,8 +52,7 @@ HTML;
             <div class="card-design admin-card">
             <h4 class="admin-card__id mobile-hidden">{$item->getID()}</h4>
             <h4 class="admin-card__title">
-                <a href="{$this->getEdit($item)}"> {$item->getName()}
-                 </a>
+                <a href="{$this->getEdit($item)}"> {$item->getName()}</a>
             </h4>
             <div class="admin-card__option">
             <a href="{$this->getEdit($item)}" class="btn-primary section-title {$this->getEditClass()}">Éditer</a>
@@ -112,6 +111,10 @@ HTML;
     {
         if ($this->name_to_display === 'article' || $this->name_to_display === 'catégorie') {
             return $this->router->url('admin_' . $this->name, ['id' => $item->getID()]);
+        } elseif($this->name_to_display === 'image') {
+            return $this->router->url('image') . "?name=" . $item->getName() . "&width=300&height=300";
+        } elseif($this->name_to_display === 'document') { // Faire pour les documents !
+            return $this->router->url('home') . 'uploads/files/' . $item->getName();
         }
         return null;
     }

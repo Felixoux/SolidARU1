@@ -6,7 +6,6 @@ require ROOT_PATH . '/vendor/autoload.php';
 Auth::check();
 $pageTitle = 'Gestion des images';
 $pdo = Connection::getPDO();
-
 [$items, $pagination] = (new FileTable($pdo))->findPaginated();
 $link = $router->url('admin_files');
 ?>
