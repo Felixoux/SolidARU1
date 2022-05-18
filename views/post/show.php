@@ -36,18 +36,18 @@ $pageTitle = $post->getName();
         <!--<img src="<?/*= $post->getImageURL('small') */?>" alt="">-->
     <?php endif ?>
     <div class="article__images">
+        <div class="carroussel-container">
         <?php foreach ($images as $k => $image) {
             $name = $image['name'];
             $link = $router->url('image') . "?name=".$name."&width=10&height=10";
             echo <<<HTML
-            <div class="carroussel-container">
-                <div class="blur-img">
-                <img class="lazy" src="$link" alt="$name" data-name="$name" width="350" loading="eager">
-                </div>
+            <div class="blur-img">
+            <img class="lazy" src="$link" alt="$name" data-name="$name" width="350" loading="eager">
             </div>
         HTML;
         }
         ?>
+        </div>
     </div>
     <div class="article__content">
         <?= $post->getBody() ?>
