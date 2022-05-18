@@ -40,8 +40,10 @@ $pageTitle = $post->getName();
             $name = $image['name'];
             $link = $router->url('image') . "?name=".$name."&width=10&height=10";
             echo <<<HTML
-            <div class="blur-img">
+            <div class="carroussel-container">
+                <div class="blur-img">
                 <img class="lazy" src="$link" alt="$name" data-name="$name" width="350" loading="eager">
+                </div>
             </div>
         HTML;
         }
@@ -74,6 +76,6 @@ HTML;
 $beforeBodyContent = ob_before($css_slick);
 
 $js_slick = <<<JS
-
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 JS;
 $afterBodyContent = ob_after($js_slick);

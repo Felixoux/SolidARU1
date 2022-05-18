@@ -126,12 +126,14 @@ $("img.lazy").each(async function (){
 })
 // Carousel image
 $(document).ready(function () {
-    $('.carousel-img').slick({
+    $('.lazy').slick({
         infinite: true,
         slidesToShow: 2,
         slidesToScroll: 2
     });
 })
+
+
 
 // === Animations ===
 $(document).ready(function () {

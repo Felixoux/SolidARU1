@@ -33,6 +33,7 @@ class listingQuery
     {
         return <<<HTML
     <h2 class="medium-title mt2">Page {$this->name_to_display}</h2>
+    <p class="muted mt1">C'est ici que l'on s'occupe des {$this->name_to_display}s :)</p>
     <hr>
     <section class="post-listing">
         <div class="post-listing__header">

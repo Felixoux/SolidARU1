@@ -43,3 +43,12 @@
 img.lazy {
   filter: blur(25px)!important;
 }
+
+.carroussel-container {
+  @extend %container-margin;
+  width: 100%; // ?? A voir...
+  height: 500px;
+  background: var(--bg-light);
+  padding:2rem;
+  border-radius: 8px;
+}
