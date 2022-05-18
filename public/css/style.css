@@ -498,7 +498,7 @@ header, section, main, footer, nav, .container, .page-footer, .header, .footer, 
   padding-right: calc(50% - var(--container-width) / 2);
 }
 
-.container-404, .alert-success, .alert-danger, .container-margin, .form-card {
+.alert-success, .alert-danger, .container-margin, .container-404, .form-card {
   margin-left: auto;
   margin-right: auto;
   width: var(--container-width);
@@ -1291,7 +1291,7 @@ body.dark {
 
 .wrap-img-card {
   width: 100%;
-  height: 200px;
+  max-height: 200px;
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -1662,7 +1662,7 @@ input:checked + label .switch::before {
 }
 
 .container-404 {
-  background: var(--bg-dark);
+  background: var(--bg-card);
   padding: calc(var(--gap) * 2);
   margin: calc(var(--space-section) / 2) auto;
   border-radius: 8px;

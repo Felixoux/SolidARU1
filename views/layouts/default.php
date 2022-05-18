@@ -20,7 +20,7 @@ if(isset($_COOKIE['theme']) && isset($_COOKIE['theme']) == 'light') {
     <link rel="stylesheet" href="/css/style.css">
     <?= $beforeBodyContent ?? '' ?>
 </head>
-<body class="<?= $theme ?? 'dark' ?>" >
+<body>
 <div id="pre-loader" class="flex-center">
     <div class="loader"></div>
 </div>
