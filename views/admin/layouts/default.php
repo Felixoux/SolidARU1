@@ -84,7 +84,7 @@ App\Auth::remember();
             </li>
         </ul>
     </nav>
-    <div class="container mb4">
+    <div class="container my4">
         <?= $content ?>
     </div>
 </div>
