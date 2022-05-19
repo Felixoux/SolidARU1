@@ -169,6 +169,13 @@ abstract class Table
         }
     }
 
+    public function detachItems(int $id, array $items): void
+    {
+        $join_table = 'post_' . $this->table;
+        $table_id = $this->table . '_id';
+        $this->pdo->exec("DELETE FROM $join_table WHERE post_id = " . $id);
+    }
+
     public function list(): array
     {
         $items = $this->queryAndFetchAll("SELECT * FROM $this->table ORDER BY created_at DESC");

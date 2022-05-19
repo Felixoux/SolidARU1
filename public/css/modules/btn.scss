@@ -8,7 +8,7 @@
   border-radius: 4px;
   line-height: 1.6;
   font-family: var(--inter-semi);
-  color: var(--bright-text);
+  color: var(--bright-text)!important;
   cursor: pointer;
   transition: filter .3s, background .3s, color .3s;
   font-size: .9em;
@@ -20,6 +20,10 @@
   &:hover {
     filter: brightness(1.2);
   }
+}
+
+.btn a {
+  color: var(--bright-text);
 }
 
 .btn-primary {

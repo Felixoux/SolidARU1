@@ -11,6 +11,10 @@
   @extend .stack;
 }
 
+.article__images {
+  @extend .flex-center;
+}
+
 .article li {
   list-style-type: circle;
   list-style-position: inside;
@@ -37,7 +41,6 @@
 
 .blur-img {
   overflow: hidden;
-  background: url(/img/loading.svg) no-repeat center;
 }
 
 img.lazy {
@@ -46,16 +49,33 @@ img.lazy {
 
 
 .carroussel-container {
-  @extend %container-margin;
+  @extend %container;
   background: var(--bg-light);
-  padding:2rem;
+  padding:.5rem;
   border-radius: 8px;
+  width: 500px;
+  display: flex!important;
+  justify-content: space-between;
+  align-items: center;
+  @include down(550) {
+    width: 100%;
+  }
 }
 
-.slick-slider {
-  min-width: 100%;
+.slick-next.slick-arrow, .slick-prev.slick-arrow {
+  @extend .btn-primary;
+  @include down(550) {
+    display: none!important;
+  }
 }
 
 .slick-next {
-  background: blue;
+  margin-left: 2rem;
 }
+
+.slick-prev {
+  margin-right: 2rem;
+}
+
+
+

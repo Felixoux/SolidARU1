@@ -24,6 +24,7 @@ $router
 // === Image ===
 ->get('/admin/images', 'admin/image/index',  'admin_images')
 ->post('/admin/image/[i:id]/[*:token]/delete', 'admin/image/delete', 'admin_image_delete')
+->post('/admin/image/[i:id]/[*:token]/detach', 'admin/image/detach', 'admin_image_detach')
 ->match('/admin/image/new', 'admin/image/new', 'admin_image_new')
 // === File ===
 ->get('/admin/files', 'admin/file/index',  'admin_files')

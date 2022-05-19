@@ -126,7 +126,12 @@ $("img.lazy").each(async function (){
 })
 // Carousel image
 $(document).ready(function () {
-    $('.carroussel-container').slick();
+    $('.carroussel-container').slick({
+        infinite: true,
+        speed: 300,
+        slidesToShow: 1,
+        adaptiveHeight: true
+    });
 })
 
 
@@ -163,6 +168,9 @@ $("#goTopButton").click(function()
 {
     $('html,body').animate({scrollTop:0},500);
 })
+
+
+
 
 
 
