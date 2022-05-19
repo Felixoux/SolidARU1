@@ -1,37 +1,5 @@
 <?php
-
-if (isset($_POST['name']) && isset($_POST['content']) && isset($_POST['mail'])) {
-    $name = e($_POST['name']);
-    $mail = e($_POST['mail']);
-    $topic = e($_POST['topic']);
-    $content = e($_POST['content']);
-
-    $content = <<<HTML
-    <h1>Mail envoyé par <strong>$name</strong> | $mail</h1> <br>
-    <h3>$content</h3>
-HTML;
-
-    $headers  = "From: " . $mail . "\r\n";
-    $headers .= "Reply-To: " . $mail . "\r\n";
-    $headers .= "CC: $mail\r\n";
-    $headers .= "MIME-Version: 1.0\r\n";
-    $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
-
-
-    $send_mail = mail(
-        C('mail'),
-        $topic,
-        $content,
-        $headers
-    );
-
-    if($send_mail === true) {
-        header('Location: ' . $router->url('contact') . '?sent=1');
-    } else {
-        header('Location: ' . $router->url('contact') . '?error=1');
-    }
-}
-
+$pageTitle = 'Contact';
 ?>
 <h1 class="big-title page-header container">Nous <strong>contacter ?</strong></h1>
 <svg class="contact-wave" id="wave" style="transform:rotate(0deg); transition: 0.3s" viewBox="0 0 1440 490"
@@ -54,8 +22,7 @@ HTML;
         </div>
     </section>
     <section class="ARU1">
-        <hr>
-        <h3 class="section-title">Coordonnées de l'<strong>ARU1</strong></h3>
+        <h2 class="section-title">Coordonnées de l'<strong>ARU1</strong></h2>
         <ul class="aru1-contact-list">
             <li>87, avenue Houzeau</li>
             <li>1180 Bruxelles</li>
@@ -63,14 +30,5 @@ HTML;
             <li><a href="tel: +32 2 375 28 91">Fax : 02/ 375 28 91</a></li>
         </ul>
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2521.614043653439!2d4.356331615975724!3d50.80126096990542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3c503f0f2ad69%3A0x7a802c2952bdeeee!2sAv.%20Houzeau%2087%2C%201180%20Uccle!5e0!3m2!1sfr!2sbe!4v1652801724282!5m2!1sfr!2sbe" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </section>
-    <section class="contact-form">
-        <hr class="mobile-only">
-        <h2 class="section-title">Formulaire</h2>
-        <h4>
-            Vous avez une question, un avis, un commentaire quelconque sur le site ? <br>
-            Vous pouvez nous écrire juste ici en remplissant le formulaire
-        </h4>
-        <?php require VIEW_PATH . '/contact/_form.php'; ?>
     </section>
 </main>
