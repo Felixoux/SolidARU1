@@ -3,9 +3,6 @@
 namespace App\Table;
 
 use App\Connection;
-use App\Model\Category;
-use App\Model\Image;
-use App\Model\Post;
 use App\paginatedQuery;
 use App\Query;
 use App\Table\Exception\NotFoundException;
@@ -37,10 +34,10 @@ abstract class Table
      */
     public function find($id)
     {
-        $statement =  $this->queryBuilder()
-        ->where('id = :id')
-        ->params(['id' => $id])
-        ->execute();
+        $statement = $this->queryBuilder()
+            ->where('id = :id')
+            ->params(['id' => $id])
+            ->execute();
         $statement->setFetchMode(PDO::FETCH_CLASS, $this->class);
         return $statement->fetch();
     }

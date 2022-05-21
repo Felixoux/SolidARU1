@@ -13,8 +13,11 @@ $post = $table->find($id);
 [$images, $files] = $table->getAttach($id);
 
 if ($post === false) {
-    throw new Exception('Aucun post ne correspond a cet ID');
+    header('location: /');
 }
+
+$pageTitle = $post->getName();
+$pageSummary = $post->getExerpt(150);
 
 if ($post->getSlug() !== $slug) {
     $url = $router->url('post', ['slug' => $post->getSlug(), 'id' => $id]);
@@ -22,7 +25,6 @@ if ($post->getSlug() !== $slug) {
     header('Location: ' . $url);
     exit();
 }
-$pageTitle = $post->getName();
 ?>
 
 <section class="article">

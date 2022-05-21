@@ -12,7 +12,7 @@ if (isset($_COOKIE['theme']) && isset($_COOKIE['theme']) == 'light') {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Ceci est un site répertoriant tous les articles de l'ASBL les amis ARU1">
+    <meta name="description" content="<?= isset($pageSummary) ? e($pageSummary) : 'Ceci est un site répertoriant tous les articles de l\'ASBL les amis ARU1' ?>">
     <meta name="keywords" content="ARU1 aru1 solidaru1 solidarité felixoux alwaysdata site">
     <meta name="google-site-verification" content="-UejOj4iwCE1xZZHO3O9gncUUfsEczIaQIitaMI3z-w"/>
     <title>Solidarité | <?= isset($pageTitle) ? e($pageTitle) : 'Blog' ?></title>
@@ -28,7 +28,7 @@ if (isset($_COOKIE['theme']) && isset($_COOKIE['theme']) == 'light') {
     <ul class="header-nav">
         <li class="header__home"><a class="underline" href="<?= $router->url('home') ?>">
                 <svg id="home">
-                    <use xlink:href="/img/svg//sprite.svg#home"></use>
+                    <use xlink:href="/img/svg/sprite.svg#home"></use>
                 </svg>
             </a></li>
         <li id="blog-anchor">
@@ -132,7 +132,6 @@ if (isset($_COOKIE['theme']) && isset($_COOKIE['theme']) == 'light') {
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src=<?= "/js/jquery-3.6.0.min.js" ?>></script>
 <script src=<?= "/js/app.js" ?>></script>
-
 <?= $afterBodyContent ?? '' ?>
 </body>
 </html>

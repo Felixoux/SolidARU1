@@ -42,12 +42,20 @@ $form = new Form($post, $errors);
 
 <?php require('_form.php'); ?>
 
-<?php
-// Flatpickr
-$css_flatpickr = '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.css">';
-$beforeBodyContent = ob_before($css_flatpickr);
-$js_flatpickr = <<<HTML
+<?php ob_start() //Flatpickr ?>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.css">
+<?php $beforeBodyContent = ob_get_clean();
+ob_start()?>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js"></script>
 <script src="/js/datePicker.js"></script>
-HTML;
-$afterBodyContent = ob_after($js_flatpickr);
+    <script>
+        $(document).ready(function () {
+            $('.carroussel-container').slick({
+                infinite: true,
+                speed: 300,
+                slidesToShow: 1,
+                adaptiveHeight: true
+            });
+        })
+    </script>
+<?php $afterBodyContent = ob_get_clean();
