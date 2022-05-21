@@ -179,6 +179,9 @@ $link = $router->url('home');
         </h2>
         <p class="mobile-hidden muted">Mis à jour le 22/04/22</p>
     </div>
+    <?php if (isset($_GET['empty'])): ?>
+        <p class="alert alert-danger">La catégorie ne contient aucun post</p>
+    <?php endif ?>
     <div class="big-grid-event">
         <?php  $colors = ["#FF883D", "#41CF7C", "#54aae8", "#8893C4"] ?>
         <?php foreach ($categories as $category): ?>

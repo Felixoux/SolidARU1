@@ -22,12 +22,12 @@
         <?= $form->select('files_ids', 'Documents', $files) ?>
         <?= $form->input('created_at', 'Date de publication', 'datepicker') ?>
         <h4 class="alert">Zone danger</h4>
-        <form method="POST"
-              action="<?= $router->url('admin_image_detach', ['id' => $post->getID(), 'token' => $_SESSION['token']]) ?>"
+        <!--<form method="POST"
+              action="<?/*= $router->url('admin_image_detach', ['id' => $post->getID(), 'token' => $_SESSION['token']]) */?>"
               onsubmit="return confirm('Voulez vous vraiment détacher les images de cet article ?')">
             <button type="submit" class="btn btn-alert">Détacher les images de l'article</button>
         </form>
-        <button class="btn-alert"><a href="#">Détacher les documents du post</a></button>
+        <button class="btn-alert"><a href="#">Détacher les documents du post</a></button>-->
         <button type="submit" class="btn-primary">
             <?php if ($post->getID() !== null): ?>
                 Modifier

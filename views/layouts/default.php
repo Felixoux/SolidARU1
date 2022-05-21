@@ -1,9 +1,9 @@
 <?php
 App\Helper::sessionStart();
 App\Auth::remember();
-if(isset($_COOKIE['theme']) && isset($_COOKIE['theme']) == 'light') {
+if (isset($_COOKIE['theme']) && isset($_COOKIE['theme']) == 'light') {
     $theme = 'light-theme';
-} elseif(isset($_COOKIE['theme']) && isset($_COOKIE['theme']) == 'dark')
+} elseif (isset($_COOKIE['theme']) && isset($_COOKIE['theme']) == 'dark')
     $theme = "dark-theme"
 ?>
 <!DOCTYPE html>
@@ -16,7 +16,7 @@ if(isset($_COOKIE['theme']) && isset($_COOKIE['theme']) == 'light') {
     <meta name="keywords" content="ARU1 aru1 solidaru1 solidarité felixoux alwaysdata site">
     <meta name="google-site-verification" content="-UejOj4iwCE1xZZHO3O9gncUUfsEczIaQIitaMI3z-w"/>
     <title>Solidarité | <?= isset($pageTitle) ? e($pageTitle) : 'Blog' ?></title>
-    <link rel="shortcut icon" href="/img/svg/logo/favicon.svg">
+    <link rel="shortcut icon" href="/img/favicon.ico">
     <link rel="stylesheet" href="/css/style.css">
     <?= $beforeBodyContent ?? '' ?>
 </head>
@@ -91,12 +91,12 @@ if(isset($_COOKIE['theme']) && isset($_COOKIE['theme']) == 'light') {
 </nav>
 <div class="search-container">
     <form method="GET" action="<?= $router->url('search') ?>" onsubmit="removeSearch()">
-            <input class="addFocus" type="text" name="q" placeholder="Rechercher du contenu" autofocus autocomplete="off">
-            <button type="submit">
-                <svg>
-                    <use xlink:href="/img/svg/sprite.svg#search"></use>
-                </svg>
-            </button>
+        <input class="addFocus" type="text" name="q" placeholder="Rechercher du contenu" autofocus autocomplete="off">
+        <button type="submit">
+            <svg>
+                <use xlink:href="/img/svg/sprite.svg#search"></use>
+            </svg>
+        </button>
     </form>
 </div>
 <div class="page-wrapper relative" style="margin-top: 110px;">
@@ -132,6 +132,7 @@ if(isset($_COOKIE['theme']) && isset($_COOKIE['theme']) == 'light') {
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src=<?= "/js/jquery-3.6.0.min.js" ?>></script>
 <script src=<?= "/js/app.js" ?>></script>
+
 <?= $afterBodyContent ?? '' ?>
 </body>
 </html>

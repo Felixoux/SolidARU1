@@ -84,3 +84,7 @@ http_response_code(404);
     </div>
 </div>
 
+<?php ob_start(); ?>
+    <meta content="noindex">
+<?php $beforeBodyContent = ob_get_clean();
+

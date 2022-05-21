@@ -7,6 +7,10 @@ $slug = $params['slug'];
 $pdo = Connection::getPDO();
 $category = (new CategoryTable($pdo))->find($id);
 
+if($category === false ) {
+    header('location: /');
+}
+
 if ($category->getSlug() !== $slug) {
     $url = $router->url('category', ['id' => $category->getID(), 'slug' => $category->getSlug()]);
     http_response_code(301);

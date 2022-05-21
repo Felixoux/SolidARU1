@@ -2,7 +2,6 @@
 
 use App\{Auth, Connection, listingQuery, Table\CategoryTable};
 
-require ROOT_PATH . '/vendor/autoload.php';
 Auth::check();
 $pageTitle = 'Gestion des catégories';
 $pdo = Connection::getPDO();

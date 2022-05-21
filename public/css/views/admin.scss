@@ -39,7 +39,20 @@
 }
 
 // Security
-.lock_svg {
+.lock_svg{
   width: 26px;
   height: 26px;
 }
+
+.edit-svg, .bin-svg {
+  width: 12px;
+  height: 12px;
+  margin-right: .5rem;
+}
+
+.svg-big {
+  width: 26px;
+  height: 26px;
+}
+
+// === Markdown editor ===

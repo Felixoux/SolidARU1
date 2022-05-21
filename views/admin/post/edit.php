@@ -3,7 +3,6 @@ use App\{Attachment\PostAttachment,
     Auth,
     Connection,
     HTML\Form,
-    ObjectHelper,
     Table\CategoryTable,
     Table\FileTable,
     Table\ImageTable,
@@ -51,7 +50,12 @@ if (!empty($_POST)) {
 
 $form = new Form($post, $errors);
 ?>
-<h2 class="mt4 medium-title">Editer l'article "<?= e($post->getName()) ?>"</h2>
+<h2 class="mt4 medium-title">
+    <svg class="svg-big">
+        <use xlink:href="/img/svg/sprite.svg#edit"></use>
+    </svg>
+    Editer l'article "<?= e($post->getName()) ?>"
+</h2>
 <hr>
 <?php require '_form.php' ?>
 
