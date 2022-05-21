@@ -1,3 +1,28 @@
+.guide h2 {
+  @extend .section-title;
+}
+
+
+.summary-titles >li:nth-child(n+2):nth-last-child(n+2) {
+  margin:1rem 0;
+}
+
+.guide-group {
+  @extend .stack;
+
+}
+
+.guide-group h4 {
+  font-family: var(--font-m);
+}
+
+.guide-group ul {
+  list-style-type: disc;
+  list-style-position: inside;
+}
+
+
+
 .guide, .guide-control {
   @extend .stack;
 }
