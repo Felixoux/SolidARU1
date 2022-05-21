@@ -10,6 +10,7 @@ $category = (new CategoryTable($pdo))->find($id);
 if($category === false ) {
     header('location: /');
 }
+$pageTitle = $category->getName(); // Tab name
 
 if ($category->getSlug() !== $slug) {
     $url = $router->url('category', ['id' => $category->getID(), 'slug' => $category->getSlug()]);

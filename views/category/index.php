@@ -1,10 +1,7 @@
 <?php
-
+$pageTitle = "accueil";
 use App\Connection;
 use App\Table\CategoryTable;
-
-require AUTOLOAD_PATH;
-
 
 $pdo = Connection::getPDO();
 

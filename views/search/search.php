@@ -1,27 +1,26 @@
 <?php
+$pageTitle = 'recherche';
 
-use App\Connection;
-use App\Model\Post;
+use App\{Connection, Model\Post};
 
-
-if(!empty($_GET['q'])) {
+if (!empty($_GET['q'])) {
     $q = e($_GET['q']);
     $pdo = Connection::getPDO();
     $keyWords = explode(' ', $q);
     $sql = 'SELECT * FROM post';
     $i = 0;
     foreach ($keyWords as $keyWord) {
-        if(strlen($keyWord) > 3) {
-            if($i === 0) {
-                $sql.= " WHERE ";
+        if (strlen($keyWord) > 3) {
+            if ($i === 0) {
+                $sql .= " WHERE ";
             } else {
-                $sql.= " OR ";
+                $sql .= " OR ";
             }
-            $sql.= "content LIKE '%$keyWord%'";
+            $sql .= "content LIKE '%$keyWord%'";
             $i++;
         }
     }
-    $sql.= " ORDER BY created_at DESC";
+    $sql .= " ORDER BY created_at DESC";
     $query = $pdo->query($sql);
     $count = $pdo->query($sql)->rowCount(); // Number of results
     $posts = $query->fetchAll(PDO::FETCH_CLASS, Post::class);
@@ -29,17 +28,17 @@ if(!empty($_GET['q'])) {
     $sql = 'SELECT * FROM category';
     $i = 0;
     foreach ($keyWords as $keyWord) {
-        if(strlen($keyWord) > 3) {
-            if($i === 0) {
-                $sql.= " WHERE ";
+        if (strlen($keyWord) > 3) {
+            if ($i === 0) {
+                $sql .= " WHERE ";
             } else {
-                $sql.= " OR ";
+                $sql .= " OR ";
             }
-            $sql.= "content LIKE '%$keyWord%'";
+            $sql .= "content LIKE '%$keyWord%'";
             $i++;
         }
     }
-    $sql.= " ORDER BY created_at DESC";
+    $sql .= " ORDER BY created_at DESC";
     $query = $pdo->query($sql);
     $countCategories = $pdo->query($sql)->rowCount(); // Number of results
     $categories = $query->fetchAll(PDO::FETCH_CLASS, Post::class);
@@ -49,13 +48,13 @@ if(!empty($_GET['q'])) {
 ?>
 <div class="page-header search-header container">
     <?php
-        $plural = null;
-        if(isset($count) && $count > 1) {
-            $plural = 's';
-        }
+    $plural = null;
+    if (isset($count) && $count > 1) {
+        $plural = 's';
+    }
 
-        $pluralCategories = null;
-        if(isset($countCategories) && $countCategories > 1) {
+    $pluralCategories = null;
+    if (isset($countCategories) && $countCategories > 1) {
         $pluralCategories = 's';
 
     }
@@ -73,7 +72,7 @@ if(!empty($_GET['q'])) {
     </div>
 </div>
 <section class="search-result">
-    <?php if(isset($posts) && !empty($posts)) {
+    <?php if (isset($posts) && !empty($posts)) {
 
         echo <<<HTML
         <h2 class="section-title">Article{$plural} trouvé{$plural}</h2>
@@ -86,7 +85,7 @@ HTML;
                 $content = str_ireplace($keyWord, '<strong>' . $keyWord . '</strong>', $post->getcontent());
             }
             $content = (new \App\Helpers\Text())::parseDown($content);
-            $content = (new \App\Helpers\Text())::exerpt($content,350);
+            $content = (new \App\Helpers\Text())::exerpt($content, 350);
             $link = $router->url('post', ['id' => $post->getID(), 'slug' => $post->getSlug()]);
             echo <<<HTML
             <article class="card stack p3 my4">
@@ -110,7 +109,7 @@ HTML;
                 $content = str_ireplace($keyWord, '<strong>' . $keyWord . '</strong>', $category->getcontent());
             }
             $content = (new \App\Helpers\Text())::parseDown($content);
-            $content = (new \App\Helpers\Text())::exerpt($content,350);
+            $content = (new \App\Helpers\Text())::exerpt($content, 350);
             $link = $router->url('category', ['id' => $category->getID(), 'slug' => $category->getSlug()]);
             echo <<<HTML
             <article class="card stack p3 my4">
