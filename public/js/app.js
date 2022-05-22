@@ -59,29 +59,6 @@ $(document).ready(function () {
         }
     })
 })
-// Remember checkbox state for theme switcher
-let checkboxValues = JSON.parse(localStorage.getItem('checkboxValues')) || {},
-    $checkboxes = $(".theme-switcher :checkbox");
-
-$checkboxes.on("change", function(){
-    $checkboxes.each(function(){
-        checkboxValues[this.id] = this.checked;
-    });
-
-    localStorage.setItem("checkboxValues", JSON.stringify(checkboxValues));
-});
-
-// On page load
-$.each(checkboxValues, function(key, value) {
-    $("#" + key).prop('checked', value);
-});
-// now Theme switcher
-if(checkbox.is(":checked")) {
-    $('body').removeClass("light-theme")
-} else {
-    $('body').addClass("light-theme")
-}
-
 
 // Search engine animation
 let searchBtn = $("#searchBtn");
