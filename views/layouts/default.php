@@ -122,7 +122,7 @@ if (isset($_COOKIE['theme']) && isset($_COOKIE['theme']) == 'light') {
                     </label>
                 </div>
             </div>
-            <p><a class="muted" href="#">RGPD</a></p>
+            <p><a class="muted" href="<?= $router->url('rgpd') ?>">RGPD</a></p>
         </div>
     </footer>
 </div>

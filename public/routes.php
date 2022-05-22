@@ -8,6 +8,7 @@ $router
 ->get('/image', 'image', 'image')
 ->get('/e404', 'e404', 'e404')
 ->get('/recherche', 'search/search', 'search')
+->get('/politique-de-confidentialite', 'RGPD', 'rgpd')
 ->match('/contact', 'contact/index', 'contact')
 // === ADMIN ===
 // === Posts ===
