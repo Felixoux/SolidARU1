@@ -150,7 +150,7 @@ input:focus, textarea:focus, select:focus {
 
 // Dark/light theme
 
-input[type=checkbox] {
+#theme-switcher input[type=checkbox] {
   -webkit-appearance: none;
   visibility: hidden;
   display: none;
