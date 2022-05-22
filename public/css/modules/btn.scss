@@ -8,7 +8,7 @@
   border-radius: 4px;
   line-height: 1.6;
   font-family: var(--inter-semi);
-  color: var(--bright-text)!important;
+  color: var(--bright-text) !important;
   cursor: pointer;
   transition: filter .3s, background .3s, color .3s;
   font-size: .9em;
@@ -58,7 +58,7 @@
 
 .btn-secondary {
   @extend .btn;
-  background: #323d70;
+  background: var(--bg-dark-seconday);
   border: 1px solid #323d70;
 }
 

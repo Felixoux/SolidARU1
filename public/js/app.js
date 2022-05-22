@@ -6,6 +6,8 @@ $("img.lazy").each(async function (){
     })
 })
 
+
+
 // Automatic slug input admin
 $(".withSpace").keyup(function () {
     let replaceSpace = $(this).val();
@@ -28,13 +30,6 @@ $('#blog-anchor').click(function () {// Pour ne pas rester bloqué dans la nav q
         headerNav.removeClass('is-open')
         $('#js-burger span').removeClass('burger-span');
     }
-})
-
-// Card catégorie animation
-$('article.card .card--category').hover(function () {
-    $(this).animate({
-        left: 150
-    })
 })
 
 // pre-loader
@@ -81,7 +76,6 @@ if(checkbox.is(":checked")) {
 } else {
     $('body').addClass("light-theme")
 }
-
 
 // Search engine animation
 let searchBtn = $("#searchBtn");

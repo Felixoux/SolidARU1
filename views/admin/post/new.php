@@ -48,14 +48,4 @@ $form = new Form($post, $errors);
 ob_start()?>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js"></script>
 <script src="/js/datePicker.js"></script>
-    <script>
-        $(document).ready(function () {
-            $('.carroussel-container').slick({
-                infinite: true,
-                speed: 300,
-                slidesToShow: 1,
-                adaptiveHeight: true
-            });
-        })
-    </script>
 <?php $afterBodyContent = ob_get_clean();

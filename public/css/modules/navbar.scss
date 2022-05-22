@@ -130,7 +130,7 @@
   @extend %stack;
   @extend .absolute;
   position: fixed;
-  grid-gap: calc(3 * var(--gap));
+  gap: calc(3.5 * var(--gap));
   justify-items: center;
   align-content: center;
   padding: calc(2 * var(--space));
@@ -181,6 +181,10 @@
   border-bottom: 1px solid var(--border);
   position: relative;
   box-shadow: 0 0 0 rgb(0,0,0);
+}
+
+.header-admin.is-open .header-nav {
+  gap: calc(2* var(--gap));
 }
 
 // Burger animation

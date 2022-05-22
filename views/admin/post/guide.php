@@ -13,7 +13,7 @@ Auth::check();
         <li><h3 class="medium-title"><a href="#create-article">2. Créer un article</a></h3></li>
         <li><h3 class="medium-title"><a href="#create-category">3. Créer une catégorie</a></h3></li>
         <li><h3 class="medium-title"><a href="#add-files">4. Ajouter des fichiers</a></h3></li>
-        <li><h3 class="medium-title"><a href="#edit-pc">5. Edition des articles/catégories</a></h3></li>
+        <li><h3 class="medium-title"><a href="#edit-pc">5. Édition des articles/catégories</a></h3></li>
         <li><h3 class="medium-title"><a href="#delete-items">6. Suppression des éléments</a></h3></li>
         <li><h3 class="medium-title"><a href="#change-pwd">7. Gérer le mot de passe</a></h3></li>
         <li><h3 class="medium-title"><a href="#md-guide">8. Écriture stylisée</a></h3></li>
@@ -27,20 +27,19 @@ Auth::check();
     <ul>
         <li>Taper “/admin” à la fin du l’url de l’accueil, soit “felixoux.alwaysdata.net”.
             Ce qui donne “felixoux.alwaysdata.net/admin”.</li>
-        <li>Ensuite entrez le nom d’utilisateur, par défaut “admin”.</li>
+        <li>Ensuite entrer le nom d’utilisateur, par défaut “admin”.</li>
         <li>Et entrez le mot de passe, par défaut “admin”.</li>
-        <li>Vous pouvez éventuellement cliquer sur “RESET CONNECTER”.
-            Cela va retenir votre état de connection pendant plusieurs jours, plus pratique
-            que se connecter tout le temps.
+        <li>Vous pouvez éventuellement cliquer sur “RESTER CONNECTER”.
+            Cela va retenir votre état de connection pendant plusieurs jours pour ne pas avoir à se connecter tout le temps.
         </li>
     </ul>
     <h4>Une fois connecté :</h4>
     <ul>
-        <li>Vous avez maintenant accès au panel administration ainsi que sa naviguation. </li>
-        <li>Pour revenir sur le site normal (celui que l’utilisateur standart vois), cliquez sur la maison
-            dans la navigution. </li>
-        <li>Vous aurez aussi un nouvel onglet “admin” qui apparaitera dans la naviguation
-            du site standart une fois connecté.
+        <li>Vous avez maintenant accès au panel administration ainsi que sa navigation. </li>
+        <li>Pour revenir sur le site normal (celui que l’utilisateur standard voit), cliquez sur la maison
+            dans la navigation. </li>
+        <li>Vous aurez aussi un nouvel onglet “admin” qui apparaitra dans la navigation
+            du site standard une fois connecté.
             Il est là pour éviter de devoir rentrer “/admin” à chaque fois qu’on veut retourner dans
             le panel admin.</li>
         <li>Et bien sur vous pouvez vous déconnecter à tout moment en cliquant sur le logo de
@@ -52,7 +51,7 @@ Auth::check();
     <div id="create-article" class="guide-group">
         <h2>Créer un article</h2>
         <hr>
-        <h4>Pour créer un article, il vous faut faire :</h4>
+        <h4>Pour créer un article, il faut :</h4>
         <ul>
             <li>Aller dans l’onglet “article” de la navigation et cliquer sur le bouton “ajouter un article”</li>
             <li>Entrer d’abord le titre de l’article tout simplement.</li>
@@ -74,10 +73,10 @@ Auth::check();
     <div id="create-category" class="guide-group">
         <h2>Créer une catégorie</h2>
         <hr>
-        <h4>Pour créer une catégorie, il faut faire :</h4>
+        <h4>Pour créer une catégorie, il faut :</h4>
         <ul>
-            <li>Aller dans l’onglet “catégorie” de la navigation et cliquer sur le bouton “ajouter une catégorie”</li>
-            <li>Entrez d’abord le titre de la catégorie tout simplement.</li>
+            <li>Aller dans l’onglet “catégorie” de la navigation et cliquez sur le bouton “ajouter une catégorie”</li>
+            <li>Entrer d’abord le titre de la catégorie tout simplement.</li>
             <li>Ensuite vous pouvez rentrer une URL personnalisée. Par défaut elle se complète toute seule avec le nom de la catégorie.</li>
             <li>Ensuite vous pouvez écrire du contenu, juste un bref résumé de la catégorie pour que l’utilisateur sache de quoi
                 il en retourne.</li>
@@ -106,7 +105,7 @@ Auth::check();
     <div id="edit-pc" class="guide-group">
         <h2>Édition des articles/catégories</h2>
         <hr>
-        <h4>Pour éditer des articles/catégorie, il faut: </h4>
+        <h4>Pour éditer des articles/catégories, il faut: </h4>
         <ul>
             <li>Aller dans l’onglet “articles/catégories” de la navigation et cliquer sur le bouton “éditer”</li>
             <li>Là il vous suffit de modifier les champs que vous souhaitez changer et de cliquer sur le bouton “modifier” !</li>
@@ -153,7 +152,6 @@ Auth::check();
         </ul>
         <h4>Exemple : Tjdk&!&!dkjfsdf61312</h4>
     </div>
-
 
     <h2 id="md-guide">Guide d'écriture <strong>stylisée</strong></h2>
     <hr>

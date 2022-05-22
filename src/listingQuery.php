@@ -126,7 +126,7 @@ HTML;
         if ($this->name_to_display === 'article' || $this->name_to_display === 'catégorie') {
             return $this->router->url('admin_' . $this->name, ['id' => $item->getID()]);
         } elseif($this->name_to_display === 'image') {
-            return $this->router->url('image') . "?name=" . $item->getName() . "&width=300&height=300";
+            return $this->router->url('image') . "?name=" . $item->getName() . "&width=600&height=600";
         } elseif($this->name_to_display === 'document') {
             return $this->router->url('home') . 'uploads/files/' . $item->getName();
         }

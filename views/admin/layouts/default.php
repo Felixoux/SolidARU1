@@ -104,7 +104,7 @@ l39 24 1593 0 1592 0 0 -1960z m0 -2410 l0 -150 -1591 0 -1591 0 -40 22 c-101
         </ul>
         <ul class="header-side">
             <li class="header__logout">
-                <form action="<?= $router->url('logout') ?>" method="POST">
+                <form action="<?= $router->url('logout', ['token' => $_SESSION['token']]) ?>" method="POST">
                     <button type="submit">
                         <svg>
                             <use xlink:href="/img/svg/sprite.svg#logout"></use>

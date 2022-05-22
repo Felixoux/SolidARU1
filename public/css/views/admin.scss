@@ -10,6 +10,13 @@
   }
 }
 
+.post-listing__body a {
+  color: var(--text);
+  &:hover {
+    color: var(--primary_b);
+  }
+}
+
 .post-listing__header {
   padding: 1rem 0;
 
@@ -55,4 +62,3 @@
   height: 26px;
 }
 
-// === Markdown editor ===
