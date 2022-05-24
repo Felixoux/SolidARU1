@@ -43,7 +43,7 @@ if (isset($_COOKIE['theme']) && isset($_COOKIE['theme']) == 'light') {
         </li>
         <li>
             <h4>
-                <a href="#">
+                <a href="<?= $router->url('about') ?>">
                     <svg>
                         <use xlink:href="/img/svg/sprite.svg#pen"></use>
                     </svg>

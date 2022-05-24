@@ -140,7 +140,7 @@ l39 24 1593 0 1592 0 0 -1960z m0 -2410 l0 -150 -1591 0 -1591 0 -40 22 c-101
                     </label>
                 </div>
             </div>
-            <p><a class="muted" href="#">RGPD</a></p>
+            <p><a class="muted" href="<?= $router->url('rgpd') ?>">RGPD</a></p>
         </div>
     </footer>
 </div>

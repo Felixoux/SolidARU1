@@ -3,13 +3,12 @@ $router
 ->get('/', 'category/index',  'home')
 ->get('/category/[*:slug]-[i:id]', 'category/show', 'category')
 ->get('/blog/[*:slug]-[i:id]', 'post/show', 'post')
-->match('/connection', 'auth/login', 'login')
-->post('/deconnection/[*:token]', 'auth/logout', 'logout')
 ->get('/image', 'image', 'image')
 ->get('/e404', 'e404', 'e404')
 ->get('/recherche', 'search/search', 'search')
-->get('/politique-de-confidentialite', 'RGPD', 'rgpd')
 ->match('/contact', 'contact/index', 'contact')
+->get('/politique-de-confidentialite', 'RGPD', 'rgpd')
+->get('/a-propos', 'about', 'about')
 // === ADMIN ===
 // === Posts ===
 ->get('/admin', 'admin/post/index',  'admin_posts')
@@ -33,5 +32,8 @@ $router
 ->match('/admin/file/new', 'admin/file/new', 'admin_file_new')
 // === SECURITY ===
 ->match('/admin/security', 'admin/security/index', 'security')
+// === misc ===
+->match('/connection', 'auth/login', 'login')
+->post('/deconnection/[*:token]', 'auth/logout', 'logout')
 // === RUN ===
 ->run();
