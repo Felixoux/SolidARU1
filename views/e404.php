@@ -77,10 +77,14 @@ http_response_code(404);
     </div sty>
     <div class="div-404 stack">
         <h1 class="big-title">Erreur 404 !</h1>
-        <h2 class="section-title">Oups... la page recherchée n’existe pas</h2>
+        <h2 class="section-title">Oups... la page recherchée n’existe  :(</h2>
         <h4>Vous pouvez revenir sur l’accueil en <a href="<?= $router->url('home') ?>">cliquant ici !</a> <br>
             Vous pouvez aussi nous contacter si le problème persiste au <a href="mailto:lesamisaru1@gmail.com">lesamisaru1@gmail.com</a>
         </h4>
     </div>
 </div>
+
+<?php ob_start(); ?>
+    <meta content="noindex">
+<?php $beforeBodyContent = ob_get_clean();
 

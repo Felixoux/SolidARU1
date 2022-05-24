@@ -1,0 +1,2 @@
+<?php
+\App\Auth::check();

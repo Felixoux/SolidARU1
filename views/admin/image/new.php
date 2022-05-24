@@ -46,16 +46,16 @@ if (isset($_POST['submit'])) {
             'name' => $image,
             'created' => $item->getCreatedAt()->format("Y-m-d H:i:s")
         ]);
-        move_uploaded_file($f_tmp, $directory . $image);
 
         header('Location: ' . $router->url('admin_images') . '?created=1');
-        exit();
+        move_uploaded_file($f_tmp, $directory . $image);
     }
 }
 
 $form = new Form($item, $errors);
 ?>
 <h2 class="container mt4 medium-title">Ajouter des images</h2>
+<p class="muted mt1">Vous pouvez sélectionner plusieurs images</p>
 <hr>
 
 <?php require('_form.php'); ?>

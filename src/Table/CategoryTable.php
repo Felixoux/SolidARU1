@@ -18,13 +18,24 @@ class CategoryTable extends Table
             $post->setCategories([]);
             $postByID[$post->getID()] = $post;
         }
-        $categories = $this->pdo
-            ->query('
+        $categories = null;
+        try {
+            $categories = $this->pdo
+                ->query('
                 SELECT c.*, pc.post_id
                 FROM post_category pc
                 JOIN category c ON c.id = pc.category_id
                 WHERE pc.post_id IN (' . implode(',', array_keys($postByID)) . ')'
-            )->fetchAll(PDO::FETCH_CLASS, Category::class);
+                )->fetchAll(PDO::FETCH_CLASS, Category::class);
+        } catch (\Exception $e) {
+            //throw new \Exception('pas de posts dans cette catégorie');
+        }
+
+        if($categories === null) {
+            header('Location: /?empty=1#event');
+            exit();
+        }
+
         foreach ($categories as $category) {
             $postByID[$category->getPostID()]->addCategory($category);
         }

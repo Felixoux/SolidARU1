@@ -66,7 +66,7 @@ class Form
         <div class="form-group">
             <p class="{$this->getInputClass($key)}">{$this->getErrorFeedback($key)}</p>
             <label for="$key">$label <span class="alert">*</span></label>
-            <textarea name="$key" id="$key" placeholder="$label" required>$value</textarea>
+            <textarea name="$key" id="markDown" class="markDown" placeholder="$label" required>$value</textarea>
         </div>
         HTML;
     }

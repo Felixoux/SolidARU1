@@ -3,9 +3,6 @@
 namespace App\Table;
 
 use App\Connection;
-use App\Model\Category;
-use App\Model\Image;
-use App\Model\Post;
 use App\paginatedQuery;
 use App\Query;
 use App\Table\Exception\NotFoundException;
@@ -37,10 +34,10 @@ abstract class Table
      */
     public function find($id)
     {
-        $statement =  $this->queryBuilder()
-        ->where('id = :id')
-        ->params(['id' => $id])
-        ->execute();
+        $statement = $this->queryBuilder()
+            ->where('id = :id')
+            ->params(['id' => $id])
+            ->execute();
         $statement->setFetchMode(PDO::FETCH_CLASS, $this->class);
         return $statement->fetch();
     }
@@ -167,6 +164,13 @@ abstract class Table
         foreach ($items as $item) {
             $query->execute([$id, $item]);
         }
+    }
+
+    public function detachItems(int $id, array $items): void
+    {
+        $join_table = 'post_' . $this->table;
+        $table_id = $this->table . '_id';
+        $this->pdo->exec("DELETE FROM $join_table WHERE post_id = " . $id);
     }
 
     public function list(): array

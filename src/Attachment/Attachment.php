@@ -15,7 +15,7 @@ abstract class Attachment
         $manager = new ImageManager(['driver' => 'gd']);
         $manager
             ->make($image)
-            ->resize(350, null, function ($constraint) {
+            ->resize(500, null, function ($constraint) {
                 $constraint->aspectRatio();
             })
             ->save($this->path . DIRECTORY_SEPARATOR . $filename . '_small.jpg');

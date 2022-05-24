@@ -3,7 +3,6 @@ use App\{Attachment\PostAttachment,
     Auth,
     Connection,
     HTML\Form,
-    ObjectHelper,
     Table\CategoryTable,
     Table\FileTable,
     Table\ImageTable,
@@ -51,17 +50,20 @@ if (!empty($_POST)) {
 
 $form = new Form($post, $errors);
 ?>
-<h2 class="mt4 medium-title">Editer l'article "<?= e($post->getName()) ?>"</h2>
+<h2 class="mt4 medium-title">
+    <svg class="svg-big">
+        <use xlink:href="/img/svg/sprite.svg#edit"></use>
+    </svg>
+    Editer l'article "<?= e($post->getName()) ?>"
+</h2>
 <hr>
 <?php require '_form.php' ?>
 
-<?php
-// Flatpickr
-$css_flatpickr = '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.css">';
-$beforeBodyContent = ob_before($css_flatpickr);
-$js_flatpickr = <<<HTML
+<?php ob_start() ?>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.css">
+<?php $beforeBodyContent = ob_get_clean();
+ ob_start() ?>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js"></script>
 <script src="/js/datePicker.js"></script>
-HTML;
-$afterBodyContent = ob_after($js_flatpickr);
+<?php $afterBodyContent = ob_get_clean() ?>
 

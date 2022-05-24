@@ -10,14 +10,25 @@ class Router
 
     private \AltoRouter $router;
 
-    public string $layout = "layouts/default.php";
+    public string $layout = VIEW_PATH . DIRECTORY_SEPARATOR . 'layouts/default.php';
 
+    /**
+     * @param string $viewPath
+     */
     public function __construct(string $viewPath)
     {
         $this->viewPath = $viewPath;
         $this->router = new \AltoRouter();
     }
 
+    /**
+     * Permet de faire une page en GET
+     * @param string $url
+     * @param string $view
+     * @param string|null $name
+     * @return $this
+     * @throws \Exception
+     */
     public function get(string $url, string $view, ?string $name = null): self
     {
         $this->router->map('GET', $url, $view, $name);
@@ -25,6 +36,14 @@ class Router
         return $this;
     }
 
+    /**
+     * Permet de faire une page en POST
+     * @param string $url
+     * @param string $view
+     * @param string|null $name
+     * @return $this
+     * @throws \Exception
+     */
     public function post(string $url, string $view, ?string $name = null): self
     {
         $this->router->map('POST', $url, $view, $name);
@@ -32,13 +51,24 @@ class Router
         return $this;
     }
 
+    /**
+     * Permet de faire une page en POST + GET
+     * @param string $url
+     * @param string $view
+     * @param string|null $name
+     * @return $this
+     * @throws \Exception
+     */
     public function match(string $url, string $view, ?string $name = null): self
     {
-        $this->router->map('POST|GET', $url, $view, $name);
-
+        try {
+            $this->router->map('POST|GET', $url, $view, $name);
+        } catch(\Exception $e) {
+            throw new \Exception('Cette page n\'est pas trouvée par le routeur');
+            //header('Location: /');
+        }
         return $this;
     }
-
 
     /**
      * @throws \Exception
@@ -48,6 +78,11 @@ class Router
         return $this->router->generate($name, $params);
     }
 
+    /**
+     * Execute le Router
+     * @return $this
+     * @throws \Exception
+     */
     public function run(): self
     {
         $match = $this->router->match();

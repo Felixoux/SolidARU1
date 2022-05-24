@@ -1,68 +1,94 @@
 /*
-    sass --watch public/css/app.scss:public/css/style.css
+    sass --watch public/css/app.scss:public/css/style.css --style=compressed
 */
 :root {
-	--container-padding: 20px;
-	--container-width: calc(100vw - var(--container-padding) * 2);
-	// ==== BG ====
-	--bg-card: #1E2552;
-	--bg-card-footer:#1B1F44;
-	--bg-light : #1A1F42;
-	--bg-dark:#151938;
-	--bg-transparent:#1a1f42f1;
+  --container-padding: 20px;
+  --container-width: calc(100vw - var(--container-padding) * 2);
+  // ==== BG ====
+  --bg-card: #1E2552;
+  --bg-card-footer: #1B1F44;
+  --bg-light: #1A1F42;
+  --bg-dark: #151938;
+  --bg-dark-seconday: #323d70;
+  --bg-transparent: #1a1f42f1;
 
-	// ==== FONTS COLORS ====
-	--muted-text: #8893C4;
-	--text:#D4DCFF;
-	--bright-text:#EBF1FF;
+  // ==== FONTS COLORS ====
+  --muted-text: #8893C4;
+  --text: #D4DCFF;
+  --bright-text: #EBF1FF;
 
-	// ==== COSMETICS ====
-	--primary_b: #54aae8;
-	--primary_b25: rgba(163, 252, 255, 0.12);
-	--primary_o:#FF883D;
-	--primary_o25:rgba(255, 136, 61, 0.12);
-	--alert:#C83F3F;
-	--alert25:#c83f3f21;
-	--success:#41CF7C;
-	--success25: rgba(65, 207, 124, 0.13);
-	--border:#282F5C;
-	--shadow: 10px 10px 3px -7px rgba(0, 0, 0, 0.25);
+  // ==== COSMETICS ====
+  --primary_b: #54aae8;
+  --primary_b25: rgba(163, 252, 255, 0.12);
+  --primary_o: #FF883D;
+  --primary_o25: rgba(255, 136, 61, 0.12);
+  --alert: #C83F3F;
+  --alert25: #c83f3f21;
+  --success: #41CF7C;
+  --success25: rgba(65, 207, 124, 0.13);
+  --border: #282F5C;
+  --shadow: 10px 10px 3px -7px rgba(0, 0, 0, 0.25);
 
-	// == Spaces ==
-	--gap:24px;
-	--space:8px;
-	--space-section:160px;
-	--card-padding:16px;
-	--page-height:calc(100Vh - 120px);
+  // == Spaces ==
+  --gap: 24px;
+  --space: 8px;
+  --space-section: 160px;
+  --card-padding: 16px;
+  --page-height: calc(100Vh - 120px);
 }
+
 // light theme
 :root {
-	body.light-theme {
-	 //==== BG ====
-	 --bg-card: #FFF;
-	 --bg-card-footer: #d9d9dc;
-	 --bg-light : #e3e6e8;
-	 --bg-dark: #f8fbfb;
-	 --bg-transparent:#d7d9e8f2;
-	 //==== FONTS COLORS ====
-	 --muted-text: #121c4299;
-	 --text:#1A1F42;
-	 --bright-text: #111a3c;
-	 //==== COSMETICS ====
-	 --primary_b: #0079d1;
-	 --primary_b25: rgba(163, 252, 255, 0.12);
-	 --border: #c1c1c1;
-	 --shadow: 10px 10px 3px -7px rgba(0, 0, 0, 0.25);
-	}
+  body.light-theme {
+    //==== BG ====
+    --bg-card: #FFF;
+    --bg-card-footer: #d9d9dc;
+    --bg-light: #e3e6e8;
+    --bg-dark: #f8fbfb;
+    --bg-dark-seconday: #dde2ff;
+    --bg-transparent: #d7d9e8f2;
+    //==== FONTS COLORS ====
+    --muted-text: #121c4299;
+    --text: #1A1F42;
+    --bright-text: #111a3c;
+    //==== COSMETICS ====
+    --primary_b: #0079d1;
+    --primary_b25: rgba(163, 252, 255, 0.12);
+    --border: #c1c1c1;
+    --shadow: 10px 10px 3px -7px rgba(0, 0, 0, 0.25);
+  }
 }
 
 // === scrollBar ===
-::-webkit-scrollbar{width: 13.5px;}
-::-webkit-scrollbar-thumb{height: 7px;background: var(--border) ;border: 3px solid transparent;border-radius: var(--space);background-clip: content-box;}
-::-webkit-scrollbar-corner {background: var(--bg-light) ;}
-::-webkit-resizer {background:var(--border) ;}
-::-webkit-scrollbar-track {background:transparent; padding: 1px;}
-html {scrollbar-width:auto;scrollbar-color: var(--border) transparent;}
+::-webkit-scrollbar {
+  width: 13.5px;
+}
+
+::-webkit-scrollbar-thumb {
+  height: 7px;
+  background: var(--border);
+  border: 3px solid transparent;
+  border-radius: var(--space);
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--bg-light);
+}
+
+::-webkit-resizer {
+  background: var(--border);
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  padding: 1px;
+}
+
+html {
+  scrollbar-width: auto;
+  scrollbar-color: var(--border) transparent;
+}
 
 // ==== Tools  ==== 
 @import "tools/reset.scss";
@@ -72,20 +98,22 @@ html {scrollbar-width:auto;scrollbar-color: var(--border) transparent;}
 
 // ==== Generic ==== 
 body {
-	font-family: var(--font);
-	font-size: 16px;
-	color: var(--text);
-	line-height: 1.4;
-	background: var(--bg-light);
-	scroll-margin: 100px 0 0 0;
-	word-break: break-word;
+  font-family: var(--font);
+  font-size: 16px;
+  color: var(--text);
+  line-height: 1.4;
+  background: var(--bg-light);
+  scroll-margin: 100px 0 0 0;
+  word-break: break-word;
 }
+
 body.dark {
-	background:var(--bg-dark);
+  background: var(--bg-dark);
 }
+
 ::selection {
-	background: var(--primary_o);
-	color: var(--bright-text);
+  background: var(--primary_o);
+  color: var(--bright-text);
 }
 
 // ==== Modules ====

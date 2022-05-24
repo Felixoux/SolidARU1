@@ -1,10 +1,32 @@
-.guide, .guide-control {
+.guide {
+  margin:calc(var(--space-section) / 3) 0;
+  gap: calc(2 * var(--gap));
+}
+
+.guide, .guide-control, .guide-group {
   @extend .stack;
 }
 
-.guide {
-  margin-top: calc(var(--space-section) / 3);
-  gap: calc(2 * var(--gap));
+.guide h2 {
+  @extend .section-title;
+}
+
+.guide-group h4 {
+  font-family: var(--font-m);
+}
+
+.guide .guide-group hr {
+  margin-top: -.5rem;
+  margin-bottom: 0;
+}
+
+.summary-titles >li:nth-child(n+2):nth-last-child(n+2) {
+  margin:1rem 0;
+}
+
+.guide-group ul, .guide-control__content ul.list-circle {
+  list-style-type: disc;
+  list-style-position: inside;
 }
 
 .guide-control__title {
@@ -20,8 +42,4 @@
 .guide-control__content--code {
   border: 1px solid var(--border);
   padding: 0;
-}
-
-.guide-control__content ul.list-circle {
-  list-style-type: disc;
 }

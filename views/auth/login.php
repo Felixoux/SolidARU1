@@ -36,3 +36,7 @@ $form = new Form($user, $errors);
     <?php endif ?>
     <?php require '_form.php' ?>
 </div>
+
+<?php ob_start(); ?>
+<meta content="noindex">
+<?php $beforeBodyContent = ob_get_clean();

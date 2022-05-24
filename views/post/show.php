@@ -13,8 +13,11 @@ $post = $table->find($id);
 [$images, $files] = $table->getAttach($id);
 
 if ($post === false) {
-    throw new Exception('Aucun post ne correspond a cet ID');
+    header('location: /');
 }
+
+$pageTitle = $post->getName();
+$pageSummary = $post->getExerpt(150);
 
 if ($post->getSlug() !== $slug) {
     $url = $router->url('post', ['slug' => $post->getSlug(), 'id' => $id]);
@@ -22,31 +25,29 @@ if ($post->getSlug() !== $slug) {
     header('Location: ' . $url);
     exit();
 }
-$pageTitle = $post->getName();
 ?>
-
-<section class="article">
-    <header class="article__header flex">
-        <h1 class="article__title section-title">
-            <?= Text::strong(3, $post->getName()) ?>
-        </h1>
-        <p class="mobile-hidden muted"><?= $post->getCreatedAt()->format("d/m/Y") ?></p>
-    </header>
-    <?php if ($post->getImage()): ?>
-        <!--<img src="<?/*= $post->getImageURL('small') */?>" alt="">-->
-    <?php endif ?>
-    <div class="article__images">
+<header class="article__header pager-header flex">
+    <h1 class="article__title section-title">
+        <?= Text::strong(3, $post->getName()) ?>
+    </h1>
+    <p class="mobile-hidden muted"><?= $post->getCreatedAt()->format("d/m/Y") ?></p>
+</header>
+    <div class="carroussel-container">
         <?php foreach ($images as $k => $image) {
             $name = $image['name'];
             $link = $router->url('image') . "?name=".$name."&width=10&height=10";
             echo <<<HTML
-            <div class="blur-img">
-                <img class="lazy" src="$link" alt="$name" data-name="$name" width="350" loading="eager">
-            </div>
-        HTML;
+        <div class="blur-img">
+            <img class="lazy" src="$link" alt="$name" data-name="$name" width="350" loading="eager">
+        </div>
+    HTML;
         }
         ?>
     </div>
+<section class="article">
+    <?php if ($post->getImage()): ?>
+        <!--<img src="<?/*= $post->getImageURL('small') */?>" alt="">-->
+    <?php endif ?>
     <div class="article__content">
         <?= $post->getBody() ?>
     </div>
@@ -74,6 +75,16 @@ HTML;
 $beforeBodyContent = ob_before($css_slick);
 
 $js_slick = <<<JS
-
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script>
+    $(document).ready(function () {
+    $('.carroussel-container').slick({
+    infinite: true,
+    speed: 300,
+    slidesToShow: 1,
+    adaptiveHeight: true
+        })
+    })
+</script>
 JS;
 $afterBodyContent = ob_after($js_slick);

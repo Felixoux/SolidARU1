@@ -1,10 +1,7 @@
 <?php
-
+$pageTitle = "accueil";
 use App\Connection;
 use App\Table\CategoryTable;
-
-require AUTOLOAD_PATH;
-
 
 $pdo = Connection::getPDO();
 
@@ -171,14 +168,17 @@ $link = $router->url('home');
 </section>
 <p id="event"></p>
 <section class="event big-section">
-    <div class="header-section flex">
-        <h2 class="section-title">Voici les différents <strong>thèmes</strong>
+    <header class="header-section flex">
+        <h2 class="section-title">Voici les différentes <strong>catégories</strong>
             <svg class="category_svg">
                 <use xlink:href="/img/svg/sprite.svg#category-title"></use>
             </svg>
         </h2>
         <p class="mobile-hidden muted">Mis à jour le 22/04/22</p>
-    </div>
+    </header>
+    <?php if (isset($_GET['empty'])): ?>
+        <p class="alert alert-danger">La catégorie ne contient aucun post</p>
+    <?php endif ?>
     <div class="big-grid-event">
         <?php  $colors = ["#FF883D", "#41CF7C", "#54aae8", "#8893C4"] ?>
         <?php foreach ($categories as $category): ?>
@@ -187,8 +187,8 @@ $link = $router->url('home');
             <?php require VIEW_PATH . '/category/card.php'; ?>
         <?php endforeach ?>
     </div>
-    <div class="footer-links">
+    <footer class="footer-links">
         <?= $pagination->previousLink($link) ?>
         <?= $pagination->nextLink($link) ?>
-    </div>
+    </footer>
 </section>

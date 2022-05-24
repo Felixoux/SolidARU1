@@ -2,7 +2,6 @@
 
 use App\{Auth, Connection, listingQuery, Table\FileTable};
 
-require ROOT_PATH . '/vendor/autoload.php';
 Auth::check();
 $pageTitle = 'Gestion des images';
 $pdo = Connection::getPDO();

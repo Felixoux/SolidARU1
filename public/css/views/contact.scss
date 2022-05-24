@@ -9,20 +9,11 @@
     column-gap: calc(var(--gap) * 4);
     row-gap: var(--gap);
     grid-template-areas:
-    "asbl form"
-    "aru1 form";
+    "asbl aru1";
   }
 }
 
-.contact-form input {
-  margin-top: 1rem;
-}
-
-.contact-form label {
-  margin-bottom: 0;
-}
-
-.aru1-contact-list li, section.contact-form h4, .ASBL h2, .ARU1 h3, .contact-form h2{
+.aru1-contact-list li, section.contact-form h4, .ASBL h2, .ARU1 h2, .contact-form h2{
   margin: 2rem 0;
 }
 
@@ -61,10 +52,6 @@
 
 .ARU1 {
   grid-area: aru1;
-}
-
-.contact-form {
-  grid-area: form;
 }
 
 // Wave

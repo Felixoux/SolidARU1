@@ -66,15 +66,17 @@
 .card--category {
   @extend .card;
   transition: 0s;
-  //right: -500px;
-  /*opacity: 0;*/
 }
 
+
 .wrap-img-card {
-  width: 100%;
   max-height: 200px;
+  min-width: 100%;
   display: flex;
   align-items:center;
   overflow:hidden;
 }
 
+.wrap-img-card img {
+  margin: 0 auto;
+}

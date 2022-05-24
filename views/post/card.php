@@ -11,7 +11,11 @@
         </h2>
         <div class="card__description muted-text">
             <p>
-                <?= $post->getExerpt(300) ?? $content ?>
+                <?php if ($post->getImage()): ?> <!--There is less text is image is on the card-->
+                    <?= $post->getExerpt(150) ?>
+                <?php else: ?>
+                    <?= $post->getExerpt(380) ?>
+                <?php endif ?>
             </p>
         </div>
         <a href="<?= $router->url('post', ['id' => $post->getID(), 'slug' => $post->getSlug()]) ?>" class="card__link"

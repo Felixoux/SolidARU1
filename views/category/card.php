@@ -14,7 +14,11 @@
 
         <div class="card__description muted-text">
             <p>
+                <?php if ($category->getImage()): ?> <!--There is less text is image is on the card-->
+                <?= $category->getExerpt(150) ?>
+                <?php else: ?>
                 <?= $category->getExerpt(380) ?>
+                <?php endif ?>
             </p>
         </div>
         <a href="<?= $router->url('category', ['id' => $category->getID(), 'slug' => $category->getSlug()]) ?>"

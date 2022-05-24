@@ -32,14 +32,18 @@ class listingQuery
     public function getHeaderListing(): string
     {
         return <<<HTML
-    <h2 class="medium-title mt2">Page {$this->name_to_display}</h2>
+    <h2 class="medium-title mt2">
+    {$this->getSvg()}
+    Page {$this->name_to_display}
+    </h2>
+    <p class="muted mt1">C'est ici que l'on s'occupe des {$this->name_to_display}s :)</p>
     <hr>
     <section class="post-listing">
         <div class="post-listing__header">
             <h3 class="mobile-hidden section-title">#</h3>
             <h3 class="mobile-hidden section-title">Titre</h3>
             <a href="{$this->router->url('admin_' . $this->name . '_new')}" class="btn btn-secondary new-article">
-                Ajouter {$this->getNewDisplay()}
+                + Ajouter {$this->getNewDisplay()}
             </a>
         </div>
     <section class="post-listing__body">
@@ -55,11 +59,21 @@ HTML;
                 <a href="{$this->getEdit($item)}"> {$item->getName()}</a>
             </h4>
             <div class="admin-card__option">
-            <a href="{$this->getEdit($item)}" class="btn-primary section-title {$this->getEditClass()}">Éditer</a>
+            <a href="{$this->getEdit($item)}" class="btn-primary section-title {$this->getEditClass()}">
+            <svg class="edit-svg">
+                    <use xlink:href="/img/svg/sprite.svg#edit"></use>
+            </svg>
+            Éditer
+            </a>
             <form style="display: inline;" method="POST"
                   action="{$this->router->url('admin_' . $this->name . '_delete', ['id' => $item->getID(), 'token' => $_SESSION['token']])}"
                   onsubmit="return confirm('Voulez vous vraiment supprimer {$this->getDeleteDisplay()} ?')">
-                <button type="submit" class="btn btn-alert">Supprimer</button>
+                <button type="submit" class="btn btn-alert">
+                <svg class="bin-svg">
+                    <use xlink:href="/img/svg/sprite.svg#bin"></use>
+                </svg>
+                Supprimer
+                </button>
             </form>
             </div>
             </div>
@@ -112,8 +126,8 @@ HTML;
         if ($this->name_to_display === 'article' || $this->name_to_display === 'catégorie') {
             return $this->router->url('admin_' . $this->name, ['id' => $item->getID()]);
         } elseif($this->name_to_display === 'image') {
-            return $this->router->url('image') . "?name=" . $item->getName() . "&width=300&height=300";
-        } elseif($this->name_to_display === 'document') { // Faire pour les documents !
+            return $this->router->url('image') . "?name=" . $item->getName() . "&width=600&height=600";
+        } elseif($this->name_to_display === 'document') {
             return $this->router->url('home') . 'uploads/files/' . $item->getName();
         }
         return null;
@@ -125,5 +139,24 @@ HTML;
             return '';
         }
         return 'hidden';
+    }
+
+    private function getSvg(): string
+    {
+        if ($this->name_to_display === 'article') {
+            $svg = "post";
+        } elseif($this->name_to_display === 'catégorie') {
+            $svg = "category-title";
+        } elseif($this->name_to_display === 'image') {
+            $svg = "image";
+        } else {
+            $svg = 'document';
+        }
+        return <<<HTML
+    <svg class="edit-svg svg-big">
+                    <use xlink:href="/img/svg/sprite.svg#{$svg}"></use>
+    </svg>
+HTML;
+
     }
 }

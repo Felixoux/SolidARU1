@@ -55,6 +55,7 @@ if (isset($_POST['submit'])) {
 $form = new Form($item, $errors);
 ?>
 <h2 class="container mt4 medium-title">Ajouter des documents</h2>
+<p class="muted mt1">Vous pouvez sélectionner plusieurs documents</p>
 <hr>
 
 <?php require('_form.php'); ?>

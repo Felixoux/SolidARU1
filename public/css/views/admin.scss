@@ -10,6 +10,13 @@
   }
 }
 
+.post-listing__body a {
+  color: var(--text);
+  &:hover {
+    color: var(--primary_b);
+  }
+}
+
 .post-listing__header {
   padding: 1rem 0;
 
@@ -38,12 +45,20 @@
   }
 }
 
-.article__images {
-  @extend %grid-fill;
-}
-
 // Security
-.lock_svg {
+.lock_svg{
   width: 26px;
   height: 26px;
 }
+
+.edit-svg, .bin-svg {
+  width: 12px;
+  height: 12px;
+  margin-right: .5rem;
+}
+
+.svg-big {
+  width: 26px;
+  height: 26px;
+}
+

@@ -34,7 +34,12 @@ if (!empty($_POST)) {
 
 $form = new Form($item, $errors);
 ?>
-<h2 class="mt4 medium-title">Editer la catégorie "<?= e($item->getName()) ?>"</h2>
+<h2 class="mt4 medium-title">
+    <svg class="svg-big">
+        <use xlink:href="/img/svg/sprite.svg#edit"></use>
+    </svg>
+    Editer la catégorie "<?= e($item->getName()) ?>"
+</h2>
 <hr>
 <?php require '_form.php' ?>
 
