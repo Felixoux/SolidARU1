@@ -15,7 +15,7 @@ $router
 ->match('/admin/post/[i:id]', 'admin/post/edit', 'admin_post')
 ->post('/admin/post/[i:id]/[*:token]/delete', 'admin/post/delete', 'admin_post_delete')
 ->match('/admin/post/new', 'admin/post/new', 'admin_post_new')
-->get('/admin/guide', 'admin/post/guide', 'admin_guide')
+->get('/admin/guide', 'admin/guide', 'admin_guide')
 // === Category ===
 ->get('/admin/categories', 'admin/category/index',  'admin_categories')
 ->match('/admin/category/[i:id]', 'admin/category/edit', 'admin_category')
