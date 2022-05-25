@@ -63,11 +63,13 @@
   z-index: 3;
 }
 
-.card--category {
-  @extend .card;
+.card--category, .card--post {
   transition: 0s;
 }
 
+.card--category:hover img, .card--post:hover img {
+    transform: scale(1.1);
+}
 
 .wrap-img-card {
   max-height: 200px;
@@ -79,4 +81,41 @@
 
 .wrap-img-card img {
   margin: 0 auto;
+  transition: .3s;
+}
+
+// card--category hover animation
+.card--category::before, .card--category::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  transition:all .3s;
+  @extend %card;
+}
+
+.card--category::before {
+  transform: translate(0px, 0px);
+}
+
+.card--category::after {
+  transform: translate(6px, 6px);
+}
+
+.card--category img {
+  transition: .2s ease-in-out;
+}
+
+.card--category:hover {
+  &::before {
+    opacity: 1;
+    transform: translate(0, 0) rotate(-3deg);
+  }
+
+  &::after {
+    transform: translate(6px, 6px) rotate(3deg);
+  }
 }

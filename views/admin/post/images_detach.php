@@ -9,9 +9,10 @@ $table = new PostTable($pdo);
 $post = $table->find($params['id']);
 Auth::checkToken($_SESSION['token'], $params['token'], $router);
 
-(new PostAttachment())->detach($post);
-$table->delete($params['id']);
-header('Location: ' . $router->url('admin_posts') . '?delete=1');
-?>
+(new \App\Table\ImageTable($pdo))->detachItems($post->getID());
+header('Location: ' . $router->url('admin_post', ['id' => $post->getID()]) . '?images_detach=1');
+exit();
+
+
 
 

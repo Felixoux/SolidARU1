@@ -6,11 +6,18 @@
         <?= $form->textarea('content', 'Résumé') ?>
         <div class="thumbnail-form">
             <?= $form->file('image', 'Image à la une') ?>
-            <?php if ($item->getImage()): ?>
+            <?php $link = UPLOAD_PATH . DIRECTORY_SEPARATOR .'categories' . DIRECTORY_SEPARATOR . $item->getImage() . '_' . 'small' . '.jpg'; ?>
+            <?php if ($item->getImage() && file_exists($link)): ?>
                 <img src="<?= $item->getImageURL('small') ?>" alt="<?= $item->getImageURL('small') ?>" width="250" height="112.5">
             <?php endif ?>
         </div>
         <?= $form->input('created_at', 'Date de publication', 'datepicker', null) ?>
+        <?php if ($item->getID() !== null): ?>
+            <div class="danger-zone">
+                <h4 class="alert mb1">Zone danger</h4>
+                <a class="btn-alert mr2 mb2" href="<?= $router->url('category_thumbnail_delete', ['id' => $item->getID(), 'token' => $_SESSION['token']]) ?>">Supprimer l'image à la une</a>
+            </div>
+        <?php endif ?>
         <button type="submit" class="btn-primary">
             <?php if ($item->getID() !== null): ?>
                 Modifier

@@ -1,7 +1,10 @@
 <article class="card card--category">
-    <?php if ($category->getImage()): ?>
+    <?php
+    $link_image = UPLOAD_PATH . DIRECTORY_SEPARATOR .'categories' . DIRECTORY_SEPARATOR . $category->getImage() . '_' . 'small' . '.jpg';
+    ?>
+    <?php if ($category->getImage() && file_exists($link_image)): ?>
         <div class="wrap-img-card">
-            <img src="<?= $category->getImageURL('small') ?>" alt="">
+            <img src="<?= $category->getImageURL('small') ?>" alt="<?= (new \App\Helpers\Text())::noExt($category->getImageURL('small')) ?>">
         </div>
     <?php endif ?>
     <div class="card__body stack">

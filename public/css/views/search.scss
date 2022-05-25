@@ -10,11 +10,13 @@ section.search-result {
 }
 
 .page-header > :first-child {
-  flex: none;
   margin-right: calc(4 * var(--space));
 }
 
 .search-header {
+  h1 {
+    flex:none;
+  }
   @include up(850px) {
     display: flex;
     align-items: center;

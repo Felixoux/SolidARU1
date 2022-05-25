@@ -26,6 +26,22 @@ class Auth
         }
     }
 
+    /**
+     * Check if connection is valid by token
+     * @param string $session_token
+     * @param string $params_token
+     * @param Router $router
+     * @return void
+     * @throws \Exception
+     */
+    public static function checkToken(string $session_token, string $params_token, Router $router): void
+    {
+        if ($session_token !== $params_token) {
+            header('Location: ' . $router->url('admin_posts'));
+            exit();
+        }
+    }
+
     public static function is_connected(): bool
     {
         if (isset($_SESSION['auth'])) {

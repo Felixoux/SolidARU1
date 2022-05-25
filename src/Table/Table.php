@@ -166,7 +166,7 @@ abstract class Table
         }
     }
 
-    public function detachItems(int $id, array $items): void
+    public function detachItems(int $id): void
     {
         $join_table = 'post_' . $this->table;
         $table_id = $this->table . '_id';

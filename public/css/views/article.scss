@@ -1,10 +1,7 @@
 .article {
   @extend .big-section;
   @extend .stack;
-}
-
-.article__header {
-  margin: 3rem 0;
+  padding-top:calc(var(--space-section) / 4) ;
 }
 
 .article__content {
@@ -35,6 +32,10 @@
   @extend .medium-title;
 }
 
+.article__button {
+  justify-self: flex-end;
+}
+
 .blur-img {
   overflow: hidden;
 }
@@ -44,20 +45,21 @@ img.lazy {
   opacity: 0;
 }
 
-
 .carroussel-container {
   @extend %container-margin;
-  background: var(--bg-light);
-  padding:.5rem;
-  border-radius: 8px;
-  max-width: 500px;
+  max-width: 650px; // image size + 150px
   display: flex!important;
   justify-content: space-between;
   align-items: center;
+  padding:.5rem;
+  background: var(--bg-light);
+  border-radius: 8px;
 }
 
-.carroussel-container img {
-  margin: 0 auto 3rem auto;
+.slick-track
+{
+  display: flex!important;
+  align-items: center;
 }
 
 @include down(550) {
@@ -76,10 +78,6 @@ img.lazy {
 
 .slick-next.slick-arrow, .slick-prev.slick-arrow {
   @extend .btn-primary;
-  @include down(550) {
-    //display: none!important;
-
-  }
 }
 
 .slick-next {
@@ -89,6 +87,3 @@ img.lazy {
 .slick-prev {
   margin-right: 2rem;
 }
-
-
-

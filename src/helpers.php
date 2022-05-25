@@ -56,31 +56,3 @@ function getToken($length)
 
     return $token;
 }
-
-function resize_image($file, $w, $h, $crop=FALSE) {
-    list($width, $height) = getimagesize($file);
-    $r = $width / $height;
-    if ($crop) {
-        if ($width > $height) {
-            $width = ceil($width-($width*abs($r-$w/$h)));
-        } else {
-            $height = ceil($height-($height*abs($r-$w/$h)));
-        }
-        $new_width = $w;
-        $new_height = $h;
-    } else {
-        if ($w/$h > $r) {
-            $new_width = $h*$r;
-            $new_height = $h;
-        } else {
-            $new_height = $w/$r;
-            $new_width = $w;
-        }
-    }
-    $src = imagecreatefromjpeg($file);
-    $dst = imagecreatetruecolor($new_width, $new_height);
-    imagecopyresampled($dst, $src, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
-
-    return $dst;
-}
-

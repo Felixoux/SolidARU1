@@ -57,6 +57,15 @@ $form = new Form($post, $errors);
     Editer l'article "<?= e($post->getName()) ?>"
 </h2>
 <hr>
+<?php if (isset($_GET['delete_thumbnail'])): ?>
+    <p class="alert alert-success">L'image à la une à bien été supprimée</p>
+<?php endif ?>
+<?php if (isset($_GET['images_detach'])): ?>
+    <p class="alert alert-success">Les images ont bien été détachées</p>
+<?php endif ?>
+<?php if (isset($_GET['files_detach'])): ?>
+    <p class="alert alert-success">Les documents ont bien été détachées</p>
+<?php endif ?>
 <?php require '_form.php' ?>
 
 <?php ob_start() ?>

@@ -1,12 +1,10 @@
 // Lazy image
 $("img.lazy").each(async function (){
-    $(this).attr("src", "/image?name="+$(this).data("name")+"&width=350&height=350");
+    $(this).attr("src", "/image?name="+$(this).data("name")+"&width=500&height=500");
     $(this).on("load", function (){
         $(this).removeClass("lazy");
     })
 })
-
-
 
 // Automatic slug input admin
 $(".withSpace").keyup(function () {
@@ -98,6 +96,17 @@ $(searchContainer).click(function (){
 $("#goTopButton").click(function()
 {
     $('html,body').animate({scrollTop:0},500);
+})
+
+// Droesbeke meme
+$(document).ready(function () {
+
+    let hideBtn = $('.hidden-btn-js')
+    let content = $('.hide-content')
+
+    hideBtn.click(function () {
+        content.toggleClass('hidden')
+    })
 })
 
 
