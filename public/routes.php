@@ -15,7 +15,9 @@ $router
 ->match('/admin/post/[i:id]', 'admin/post/edit', 'admin_post')
 ->post('/admin/post/[i:id]/[*:token]/delete', 'admin/post/delete', 'admin_post_delete')
 ->match('/admin/post/new', 'admin/post/new', 'admin_post_new')
-->get('/admin/post/thumbnail[i:id]/[*:token]/delete', 'admin/post/thumbnail_delete','post_thumbnail_delete')
+->get('/admin/post/thumbnail/[i:id]/[*:token]/delete', 'admin/post/thumbnail_delete','post_thumbnail_delete')
+->get('/admin/post/images/[i:id]/[*:token]/detach', 'admin/post/images_detach', 'post_images_detach')
+->get('/admin/post/files/[i:id]/[*:token]/detach', 'admin/post/files_detach', 'post_files_detach')
 ->get('/admin/guide', 'admin/guide', 'admin_guide')
 // === Category ===
 ->get('/admin/categories', 'admin/category/index',  'admin_categories')
