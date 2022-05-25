@@ -7,10 +7,8 @@ Auth::check();
 $pdo = Connection::getPDO();
 $table = new FileTable($pdo);
 $file = $table->find($params['id']);
-if ($_SESSION['token'] !== $params['token']) {
-    header('Location :' . $router->url('admin_files'));
-    exit();
-}
+Auth::checkToken($_SESSION['token'], $params['token'], $router);
+
 $table->delete($params['id']); // Supprimer le doc de la bdd
 $link = UPLOAD_PATH . DIRECTORY_SEPARATOR . 'files' . DIRECTORY_SEPARATOR . $file->getName();
 if (file_exists($link)) {

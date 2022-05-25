@@ -1,5 +1,6 @@
 <article class="card card--post">
-    <?php if ($post->getImage()): ?>
+    <?php $link = UPLOAD_PATH . DIRECTORY_SEPARATOR .'posts' . DIRECTORY_SEPARATOR . $post->getImage() . '_' . 'small' . '.jpg'; ?>
+    <?php if ($post->getImage() && file_exists($link)): ?>
         <div class="wrap-img-card">
             <img src="<?= $post->getImageURL('small') ?>" alt="<?= (new \App\Helpers\Text())::noExt($post->getImageURL('small')) ?>">
         </div>

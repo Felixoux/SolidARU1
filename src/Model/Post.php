@@ -86,6 +86,9 @@ class Post
         return $this;
     }
 
+    /**
+     * @throws \Exception
+     */
     public function getCreatedAt(): DateTime
     {
         return new DateTime($this->created_at);

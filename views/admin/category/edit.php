@@ -41,6 +41,9 @@ $form = new Form($item, $errors);
     Editer la catégorie "<?= e($item->getName()) ?>"
 </h2>
 <hr>
+<?php if (isset($_GET['delete_thumbnail'])): ?>
+    <p class="alert alert-success">L'image à la une à bien été supprimée</p>
+<?php endif ?>
 <?php require '_form.php' ?>
 
 <?php

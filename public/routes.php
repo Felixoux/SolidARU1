@@ -15,11 +15,13 @@ $router
 ->match('/admin/post/[i:id]', 'admin/post/edit', 'admin_post')
 ->post('/admin/post/[i:id]/[*:token]/delete', 'admin/post/delete', 'admin_post_delete')
 ->match('/admin/post/new', 'admin/post/new', 'admin_post_new')
+->get('/admin/post/thumbnail[i:id]/[*:token]/delete', 'admin/post/thumbnail_delete','post_thumbnail_delete')
 ->get('/admin/guide', 'admin/guide', 'admin_guide')
 // === Category ===
 ->get('/admin/categories', 'admin/category/index',  'admin_categories')
 ->match('/admin/category/[i:id]', 'admin/category/edit', 'admin_category')
 ->post('/admin/category/[i:id]/delete/[*:token]', 'admin/category/delete', 'admin_category_delete')
+->get('/admin/category/thumbnail[i:id]/[*:token]/delete', 'admin/category/thumbnail_delete','category_thumbnail_delete')
 ->match('/admin/category/new', 'admin/category/new', 'admin_category_new')
 // === Image ===
 ->get('/admin/images', 'admin/image/index',  'admin_images')
