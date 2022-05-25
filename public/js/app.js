@@ -102,6 +102,21 @@ $("#goTopButton").click(function()
 
 
 
+// Droesbeke meme
+$(document).ready(function () {
+
+    let hideBtn = $('.hidden-btn-js')
+    let content = $('.hide-content')
+
+    hideBtn.click(function () {
+        content.toggleClass('hidden')
+    })
+
+
+})
+
+
+
 
 
 
