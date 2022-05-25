@@ -24,7 +24,7 @@
         <?php if ($post->getID() !== null): ?>
         <div class="danger-zone">
             <h4 class="alert mb1">Zone danger</h4>
-            <a class="btn-alert mr2 mb2" href="<?= $router->url('post_thumbnail_delete', ['id' => $post->getID(), 'token' => $_SESSION['token']]) ?>">Dissocier l'image à la une</a>
+            <a class="btn-alert mr2 mb2" href="<?= $router->url('post_thumbnail_delete', ['id' => $post->getID(), 'token' => $_SESSION['token']]) ?>">Supprimer l'image à la une</a>
             <a class="btn-alert mr2 mb2" href="#">Dissocier les images du contenu</a>
             <a class="btn-alert" href="#">Dissocier les documents</a>
         </div>
