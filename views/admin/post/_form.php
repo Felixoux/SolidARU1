@@ -1,6 +1,6 @@
 <section class="mt4">
     <p class="alert mb3">* champs requis</p>
-    <a class="underline mt3" href="<?= $router->url('admin_guide') ?>">Guide d'écriture simplifié (pour le contenu
+    <a class="underline mt3" href="<?= $router->url('admin_guide') . "#md-guide" ?>">Guide d'écriture simplifié (pour le contenu
         uniquement)</a>
     <form action="" method="POST" enctype="multipart/form-data" class="grid-form mt3">
         <?= $form->input('name', 'Titre', 'withSpace', 'required') ?>
