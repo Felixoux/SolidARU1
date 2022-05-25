@@ -46,7 +46,7 @@ if ($post->getSlug() !== $slug) {
             $name = $file['name'];
             $link = '/uploads/files' . DIRECTORY_SEPARATOR . $file['name'];
             echo <<<HTML
-            <p>
+            <p class="mb1">
                 <a href="$link">$name</a>
             </p>
             HTML;
