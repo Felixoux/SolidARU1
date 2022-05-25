@@ -14,6 +14,9 @@ section.search-result {
 }
 
 .search-header {
+  h1 {
+    flex:none;
+  }
   @include up(850px) {
     display: flex;
     align-items: center;

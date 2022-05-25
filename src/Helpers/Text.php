@@ -48,4 +48,16 @@ class Text
     {
         return preg_replace("/\s*[a-zA-Z\/\/:\.]*youtube.com\/watch\?v=([a-zA-Z0-9\-_]+)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.]*)/i", "<div class='parent-ratio'><div class='ratio'><iframe src=\"//www.youtube.com/embed/$1\" allow='accelerometer;clipboard-write; encrypted-media;gyroscope; picture-in-picture' allowfullscreen></iframe></div></div>", $content);
     }
+
+    public static function noExt(string $string): string
+    {
+        if (str_contains($string, '/uploads/posts/')) {
+            $string = str_replace('/uploads/posts/', '', $string);
+        } elseif (str_contains($string, '/uploads/categories/')) {
+            $string = str_replace('/uploads/categories/', '', $string);
+        }
+        $strings = [];
+        $strings = explode('.', $string);
+        return $strings[0];
+    }
 }

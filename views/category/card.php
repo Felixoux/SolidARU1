@@ -1,7 +1,7 @@
 <article class="card card--category">
     <?php if ($category->getImage()): ?>
         <div class="wrap-img-card">
-            <img src="<?= $category->getImageURL('small') ?>" alt="">
+            <img src="<?= $category->getImageURL('small') ?>" alt="<?= (new \App\Helpers\Text())::noExt($category->getImageURL('small')) ?>">
         </div>
     <?php endif ?>
     <div class="card__body stack">

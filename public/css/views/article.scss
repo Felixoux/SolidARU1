@@ -47,7 +47,7 @@ img.lazy {
 
 .carroussel-container {
   @extend %container-margin;
-  max-width: 500px;
+  max-width: 650px; // image size + 150px
   display: flex!important;
   justify-content: space-between;
   align-items: center;

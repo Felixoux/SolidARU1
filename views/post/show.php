@@ -59,9 +59,10 @@ if ($post->getSlug() !== $slug) {
     <?php foreach ($images as $k => $image) {
         $name = $image['name'];
         $link = $router->url('image') . "?name=".$name."&width=10&height=10";
+        $altName = Text::noExt($name);
         echo <<<HTML
     <div class="blur-img">
-        <img class="lazy" src="$link" alt="$name" data-name="$name" width="350" loading="eager">
+        <img class="lazy" src="$link" alt="$altName" data-name="$name" width="500" loading="eager">
     </div>
 HTML;
     }
