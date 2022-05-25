@@ -39,6 +39,7 @@ if ($post->getSlug() !== $slug) {
     <div class="article__content">
         <?= $post->getBody() ?>
     </div>
+    <?php if(!empty($files)): ?>
     <div class="article__files">
         <hr>
         <h3 class="medium-title mb3">Document(s) disponible(s) :</h3>
@@ -53,8 +54,10 @@ if ($post->getSlug() !== $slug) {
         }
         ?>
     </div>
+    <?php endif ?>
     <a class="article__button btn-primary-outline" href="<?= $_SESSION['category_link'] ?>">Revenir à la catégorie</a>
 </section>
+<?php if(!empty($images)): ?>
 <div class="carroussel-container my5" style="background: var(--bg-card);border: 1px solid var(--border)">
     <?php foreach ($images as $k => $image) {
         $name = $image['name'];
@@ -68,6 +71,7 @@ HTML;
     }
     ?>
 </div>
+<?php endif ?>
 <?php
 // Slick carousel
 $css_slick = <<<HTML
