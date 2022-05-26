@@ -22,14 +22,14 @@ App\Auth::remember();
 </div>
 <nav class="header nav-down">
     <ul class="header-nav">
-        <li class="header__home"><a class="underline" href="<?/*= $router->url('home') */?>">
+        <li class="header__home"><a class="underline" href="<?= $router->url('home') ?>">
                 <svg id="home">
                     <use xlink:href="/img/svg/sprite.svg#home"></use>
                 </svg>
             </a></li>
         <li id="blog-anchor">
             <h4>
-                <a href="<?/*= $router->url('home') . '#event' */?>">
+                <a href="<?= $router->url('home') . '#event' ?>">
                     <svg>
                         <use xlink:href="/img/svg/sprite.svg#post"></use>
                     </svg>
@@ -39,7 +39,7 @@ App\Auth::remember();
         </li>
         <li>
             <h4>
-                <a href="<?/*= $router->url('about') */?>">
+                <a href="<?= $router->url('about') ?>">
                     <svg>
                         <use xlink:href="/img/svg/sprite.svg#pen"></use>
                     </svg>
@@ -49,7 +49,7 @@ App\Auth::remember();
         </li>
         <li>
             <h4>
-                <a href="<?/*= $router->url('contact') */?>">
+                <a href="<?= $router->url('contact') ?>">
                     <svg>
                         <use xlink:href="/img/svg/sprite.svg#phone"></use>
                     </svg>
@@ -57,10 +57,10 @@ App\Auth::remember();
                 </a>
             </h4>
         </li>
-        <?php /*if (App\Auth::is_connected() === true): */?>
+        <?php if (App\Auth::is_connected() === true): ?>
             <li>
                 <h4>
-                    <a href="<?/*= $router->url('admin_posts') */?>">
+                    <a href="<?= $router->url('admin_posts') ?>">
                         <svg>
                             <use xlink:href="/img/svg/sprite.svg#admin"></use>
                         </svg>
@@ -68,7 +68,7 @@ App\Auth::remember();
                     </a>
                 </h4>
             </li>
-        <?php /*endif */?>
+        <?php endif ?>
     </ul>
     <ul class="header-side flex">
         <li class="header__search" id="searchBtn">
