@@ -18,80 +18,24 @@ App\Auth::remember();
 <div id="pre-loader" class="active flex-center">
     <div class="loader"></div>
 </div>
+<!-- Navbar construct -->
+<?php
+$navbar = new \App\HTML\Navbar($router, 'header-admin');
+$nav_links = [
+    'Articles/post' => 'admin_posts',
+    'Catégories/category-title' => 'admin_categories',
+    'Images/image' => 'admin_images',
+    'Documents/document' => 'admin_files',
+    'Sécurité/lock' => 'security',
+    'Guide/guide' => 'admin_guide',
+];
+echo($navbar->getTop());
+foreach ($nav_links as $name => $link) {
+    echo($navbar->getLi($name, $link));
+}
+echo($navbar->getBottom());
+?>
 <div class="page-wrapper relative">
-    <nav class="header header-admin">
-        <ul class="header-nav">
-            <li class="header__home"><a class="underline" href="<?= $router->url('home') ?>">
-                    <svg>
-                        <use xlink:href="/img/svg/sprite.svg#home"></use>
-                    </svg>
-                </a></li>
-            <li>
-                <h4><a href="<?= $router->url('admin_posts') ?>">
-                        <svg>
-                            <use xlink:href="/img/svg/sprite.svg#post"></use>
-                        </svg>
-                        Articles
-                    </a></h4>
-            </li>
-            <li>
-                <h4><a href="<?= $router->url('admin_categories') ?>">
-                        <svg>
-                            <use xlink:href="/img/svg/sprite.svg#category-title"></use>
-                        </svg>
-                        Catégories
-                    </a></h4>
-            </li>
-            <li>
-                <h4><a href="<?= $router->url('admin_images') ?>">
-                        <svg>
-                            <use xlink:href="/img/svg/sprite.svg#image"></use>
-                        </svg>
-                        Images
-                    </a></h4>
-            </li>
-            <li>
-                <h4><a href="<?= $router->url('admin_files') ?>">
-                        <svg>
-                            <use xlink:href="/img/svg/sprite.svg#document"></use>
-                        </svg>
-                        Documents
-                    </a></h4>
-            </li>
-            <li>
-                <h4><a href="<?= $router->url('security') ?>">
-                        <svg>
-                            <use xlink:href="/img/svg/sprite.svg#lock"></use>
-                        </svg>
-                        Sécurité
-                    </a></h4>
-            </li>
-            <li>
-                <h4><a href="<?= $router->url('admin_guide') ?>">
-                        <svg>
-                            <use xlink:href="/img/svg/sprite.svg#guide"></use>
-                        </svg>
-                        Guide
-                    </a></h4>
-            </li>
-        </ul>
-        <ul class="header-side">
-            <li class="header__logout">
-                <form action="<?= $router->url('logout', ['token' => $_SESSION['token']]) ?>" method="POST">
-                    <button type="submit">
-                        <svg>
-                            <use xlink:href="/img/svg/sprite.svg#logout"></use>
-                        </svg>
-                    </button>
-                </form>
-            </li>
-            <li class="header__burger">
-                <button id="js-burger">
-                    <span>Afficher le menu</span>
-                </button>
-            </li>
-        </ul>
-    </nav>
     <div class="container my4">
         <?= $content ?>
     </div>

@@ -2,22 +2,32 @@
 
 namespace App\HTML;
 
-use App\Auth;
-use App\Router;
+use App\{Auth, Router};
 
-class Navbar
+final class Navbar
 {
     private Router $router;
+    private ?string $admin = null;
 
-    public function __construct($router)
+    /**
+     * @param $router
+     * @param string|null $admin
+     */
+    public function __construct($router, ?string $admin = null)
     {
         $this->router = $router;
+        $this->admin = $admin;
     }
 
+    /**
+     * Get the content before the links
+     * @return string
+     * @throws \Exception
+     */
     public function getTop(): string
     {
         return <<<HTML
-        <nav class="header">
+        <nav class="header {$this->admin}">
             <ul class="header-nav">
         <li class="header__home"><a class="underline" href="{$this->router->url('home')}">
                 <svg id="home">
@@ -28,18 +38,16 @@ class Navbar
 HTML;
     }
 
+    /**
+     * Get the content after the links
+     * @return string
+     */
     public function getBottom(): string
     {
         return <<<HTML
     </ul>
     <ul class="header-side flex">
-        <li class="header__search" id="searchBtn">
-            <button>
-                <svg>
-                    <use xlink:href="/img/svg/sprite.svg#search"></use>
-                </svg>
-            </button>
-        </li>
+        {$this->getBottomLi()}
         <li class="header__burger">
             <button id="js-burger">
                 <span>Afficher le menu</span>
@@ -51,6 +59,12 @@ HTML;
 
     }
 
+    /**
+     * Get the links
+     * @param string $full_name
+     * @param string $link
+     * @return string|null
+     */
     public function getLi(string $full_name, string $link): ?string
     {
         $name_svg = explode('/', $full_name);
@@ -70,6 +84,12 @@ HTML;
 HTML;
     }
 
+    /**
+     * @param string $name
+     * @param string $link
+     * @return string
+     * @throws \Exception
+     */
     private function getLink(string $name, string $link): string
     {
         if ($name === 'Blog') {
@@ -78,6 +98,11 @@ HTML;
         return $this->router->url($link);
     }
 
+    /**
+     * get the admin link only if connected
+     * @return string|null
+     * @throws \Exception
+     */
     public function getAdminLink(): ?string
     {
         if (Auth::is_connected() === true) {
@@ -98,4 +123,35 @@ HTML;
         return null;
     }
 
+    /**
+     * get link for content after links
+     * @return string
+     * @throws \Exception
+     */
+    private function getBottomLi(): string
+    {
+        if ($this->admin !== null) {
+            return <<<HTML
+        <li class="header__logout">
+            <form action="{$this->router->url('logout', ['token' => $_SESSION['token']])}" method="POST">
+                <button type="submit">
+                    <svg>
+                        <use xlink:href="/img/svg/sprite.svg#logout"></use>
+                    </svg>
+                </button>
+            </form>
+        </li>
+HTML;
+
+        }
+        return <<<HTML
+        <li class="header__search" id="searchBtn">
+            <button>
+                <svg>
+                    <use xlink:href="/img/svg/sprite.svg#search"></use>
+                </svg>
+            </button>
+        </li>
+HTML;
+    }
 }
