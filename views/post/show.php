@@ -31,7 +31,7 @@ if ($post->getSlug() !== $slug) {
         <?= Text::strong(3, $post->getName()) ?>
     </h1>
     <div class="flex">
-        <svg class="mr1 svg-big mobile-hidden">
+        <svg class="mr2 card__svg mobile-hidden">
             <use xlink:href="/img/svg/sprite.svg#calendar"></use>
         </svg>
         <p class="muted mobile-hidden"><?= $post->getCreatedAt()->format("d/m/Y") ?></p>
@@ -62,13 +62,13 @@ if ($post->getSlug() !== $slug) {
     <?php endif ?>
     <a class="article__button btn-primary-outline" href="<?= $_SESSION['category_link'] ?>">
         <svg class="mr1 edit-svg">
-            <use xlink:href="/img/svg/sprite.svg#category-title"></use>
+            <use xlink:href="/img/svg/sprite.svg#category_card"></use>
         </svg>
         Revenir à la catégorie
     </a>
 </section>
 <?php if(!empty($images)): ?>
-<div class="carroussel-container my5" style="background: var(--bg-card);border: 1px solid var(--border)">
+<div class="carousel-container my5" style="background: var(--bg-card);border: 1px solid var(--border)">
     <?php foreach ($images as $k => $image) {
         $name = $image['name'];
         $link = $router->url('image') . "?name=".$name."&width=10&height=10";
@@ -93,7 +93,7 @@ $js_slick = <<<JS
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script>
     $(document).ready(function () {
-    $('.carroussel-container').slick({
+    $('.carousel-container').slick({
     infinite: true,
     speed: 300,
     slidesToShow: 1

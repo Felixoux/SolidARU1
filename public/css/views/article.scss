@@ -47,7 +47,7 @@ img.lazy {
   opacity: 0;
 }
 
-.carroussel-container {
+.carousel-container {
   @extend %container-margin;
   max-width: 650px; // image size + 150px
   display: flex!important;
@@ -65,7 +65,7 @@ img.lazy {
 }
 
 @include down(550) {
-  .carroussel-container {
+  .carousel-container {
     margin: 0;
     width: 100%;
   }
