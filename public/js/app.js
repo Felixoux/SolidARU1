@@ -23,7 +23,9 @@ $('#js-burger').click(function () {
     headerNav.toggleClass('is-open');
     $('#js-burger span').toggleClass('burger-span');
 })
-$('#blog-anchor').click(function () {// Pour ne pas rester bloqué dans la nav quand on clique sur blog
+// Blog anchor
+let blogBtn = $('#blog-event')
+blogBtn.click(function () {// Pour ne pas rester bloqué dans la nav quand on clique sur blog
     if (headerNav.hasClass('is-open')) {
         headerNav.removeClass('is-open')
         $('#js-burger span').removeClass('burger-span');
@@ -109,9 +111,10 @@ $(document).ready(function () {
     })
 })
 
-
-
-
-
-
-
+// blog event click
+blogBtn.click(function () {
+    let section = $('section.home-little-grid')
+    $('html, body').animate({
+        scrollTop: section.offset().top + (section[0].scrollHeight - 500)
+    })
+})

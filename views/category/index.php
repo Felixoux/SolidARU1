@@ -166,7 +166,7 @@ $link = $router->url('home');
             c3.1-0.3,3.9-3.9,3.9-4c0-0.1,0.1-0.1,0.1-0.1c0.1,0,0.1,0.1,0.1,0.1c0,0-0.8,3.9-4.1,4.2C88.2,59.7,88,59.8,87.8,59.8"/>
     </svg>
 </section>
-<p id="event"></p>
+<!--<p id="event"></p>-->
 <section class="event big-section">
     <header class="header-section flex">
         <h2 class="section-title">Voici les différentes <strong>catégories</strong>

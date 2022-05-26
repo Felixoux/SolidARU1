@@ -70,8 +70,9 @@ HTML;
         $name_svg = explode('/', $full_name);
         $name = $name_svg[0];
         $svg = $name_svg[1];
+        $id = $name === 'Blog' ? 'id="blog-event"' : '';
         return <<<HTML
-        <li>
+        <li $id>
             <h4>
                 <a href="{$this->getLink($name, $link)}">
                     <svg>
