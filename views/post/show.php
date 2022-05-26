@@ -30,7 +30,12 @@ if ($post->getSlug() !== $slug) {
     <h1 class="article__title section-title">
         <?= Text::strong(3, $post->getName()) ?>
     </h1>
-    <p class="mobile-hidden muted"><?= $post->getCreatedAt()->format("d/m/Y") ?></p>
+    <div class="flex">
+        <svg class="mr1 svg-big mobile-hidden">
+            <use xlink:href="/img/svg/sprite.svg#calendar"></use>
+        </svg>
+        <p class="muted mobile-hidden"><?= $post->getCreatedAt()->format("d/m/Y") ?></p>
+    </div>
 </header>
 <section class="article">
     <?php if ($post->getImage()): ?>
@@ -55,7 +60,12 @@ if ($post->getSlug() !== $slug) {
         ?>
     </div>
     <?php endif ?>
-    <a class="article__button btn-primary-outline" href="<?= $_SESSION['category_link'] ?>">Revenir à la catégorie</a>
+    <a class="article__button btn-primary-outline" href="<?= $_SESSION['category_link'] ?>">
+        <svg class="mr1 edit-svg">
+            <use xlink:href="/img/svg/sprite.svg#category-title"></use>
+        </svg>
+        Revenir à la catégorie
+    </a>
 </section>
 <?php if(!empty($images)): ?>
 <div class="carroussel-container my5" style="background: var(--bg-card);border: 1px solid var(--border)">

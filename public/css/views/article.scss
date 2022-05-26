@@ -1,7 +1,9 @@
 .article {
   @extend .big-section;
   @extend .stack;
-  padding-top:calc(var(--space-section) / 4) ;
+  grid-template-rows: 1fr auto;
+  padding-top:calc(var(--space-section) / 4);
+  height: fit-content;
 }
 
 .article__content {

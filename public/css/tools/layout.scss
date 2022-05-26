@@ -212,55 +212,55 @@
 @for $i from 0 through 5 {
   body {
     .p#{$i} {
-      padding: calc(1rem * $i);
+      padding: calc(var(--space) * $i);
     }
 
     .pt#{$i} {
-      padding-top: calc(1rem * $i);
+      padding-top: calc(var(--space) * $i);
     }
 
     .pb#{$i} {
-      padding-bottom: calc(1rem * $i);
+      padding-bottom: calc(var(--space) * $i);
     }
 
     .px#{$i} {
-      padding-left: calc(1rem * $i);
-      padding-right: calc(1rem * $i);
+      padding-left: calc(var(--space) * $i);
+      padding-right: calc(var(--space) * $i);
     }
 
     .py#{$i} {
-      padding-top: calc(1rem * $i);
-      padding-bottom: calc(1rem * $i);
+      padding-top: calc(var(--space) * $i);
+      padding-bottom: calc(var(--space) * $i);
     }
 
     .my#{$i} {
-      margin-top: calc(1rem * $i);
-      margin-bottom: calc(1rem * $i);
+      margin-top: calc(var(--space) * $i);
+      margin-bottom: calc(var(--space) * $i);
     }
 
     .m#{$i} {
-      margin: calc(1rem * $i);
+      margin: calc(var(--space) * $i);
     }
 
     .mx#{$i} {
-      margin-left: calc(1rem * $i);
-      margin-right: calc(1rem * $i);
+      margin-left: calc(var(--space) * $i);
+      margin-right: calc(var(--space) * $i);
     }
 
     .mt#{$i} {
-      margin-top: calc(1rem * $i);
+      margin-top: calc(var(--space) * $i);
     }
 
     .mb#{$i} {
-      margin-bottom: calc(1rem * $i);
+      margin-bottom: calc(var(--space) * $i);
     }
 
     .mr#{$i} {
-      margin-right: calc(1rem * $i);
+      margin-right: calc(var(--space) * $i);
     }
 
     .ml#{$i} {
-      margin-left: calc(1rem * $i);
+      margin-left: calc(var(--space) * $i);
     }
   }
 }
