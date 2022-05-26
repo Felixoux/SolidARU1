@@ -25,7 +25,7 @@
         <div class="danger-zone">
             <h4 class="alert mb1">Zone danger</h4>
             <a class="btn-alert mr2 mb2" href="<?= $router->url('post_thumbnail_delete', ['id' => $post->getID(), 'token' => $_SESSION['token']]) ?>">Supprimer l'image à la une</a>
-            <a class="btn-alert mr2 mb2" href="<?= $router->url('post_images_detach', ['id' => $post->getID(), 'token' => $_SESSION['token']]) ?>">Dissocier les images du contenu</a>
+            <a class="btn-alert mr2 mb2" href="<?= $router->url('post_images_detach', ['id' => $post->getID(), 'token' => $_SESSION['token']]) ?>">Dissocier les images</a>
             <a class="btn-alert" href="<?= $router->url('post_files_detach', ['id' => $post->getID(), 'token' => $_SESSION['token']]) ?>">Dissocier les documents</a>
         </div>
         <?php endif ?>

@@ -109,6 +109,8 @@ Auth::check();
         <ul>
             <li>Aller dans l’onglet “articles/catégories” de la navigation et cliquer sur le bouton “éditer”</li>
             <li>Là il vous suffit de modifier les champs que vous souhaitez changer et de cliquer sur le bouton “modifier” !</li>
+            <li>En plus de ça, vous pouvez supprimer l'image à la une de l'article et des catégories en cliquant sur le bouton <span class="alert">"supprimer l'image à la une"</span></li>
+            <li>Vous pouvez aussi dissocier les images et les documents du contenu en cliquant sur leur bouton respectif dans la section <span class="alert">"danger zone"</span>.</li>
         </ul>
     </div>
     <div id="delete-items" class="guide-group">
