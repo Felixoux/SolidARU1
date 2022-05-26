@@ -1,6 +1,6 @@
 <?php
 
-use App\{Auth, Connection, HTML\ListingQuery, Table\CategoryTable};
+use App\{Auth, Connection, HTML\Alert, HTML\ListingQuery, Table\CategoryTable};
 
 Auth::check();
 $pageTitle = 'Gestion des catégories';
@@ -8,17 +8,18 @@ $pdo = Connection::getPDO();
 $link = $router->url('admin_categories');
 [$items, $pagination] = (new CategoryTable($pdo))->findPaginated();
 
-?>
-<?php if (isset($_GET['delete'])): ?>
-    <p class="alert alert-success">La catégorie a bien été supprimée</p>
-<?php endif ?>
-<?php if (isset($_GET['created'])): ?>
-    <p class="alert alert-success">La catégorie a bien été créée</p>
-<?php endif ?>
-<?php if (isset($_GET['modified'])): ?>
-    <p class="alert alert-success">La catégorie a bien été modifiée</p>
-<?php endif ?>
-<?php
+// Get alerts
+$alert = new Alert();
+$alerts =
+    [
+        'delete' => "La catégorie a bien été supprimé",
+        'created' => "La catégorie a bien été créé",
+        'modified' => "La catégorie a bien été modifié"
+    ];
+foreach ($alerts as $get => $message) {
+    echo($alert->getAlert($get, $message));
+}
+
 $listingQuery = new listingQuery($items, $pagination, $link, 'category', 'catégorie', $router);
 echo($listingQuery->getHeaderListing()); // Display header
 foreach ($items as $item) {

@@ -49,8 +49,6 @@
 
 .header__search, .header__logout, .header__home {
   height: 16px;
-  align-items: center;
-  justify-content: flex-start;
   padding-right: calc(1 * var(--space));
   border-right: 1px solid var(--border);
 }

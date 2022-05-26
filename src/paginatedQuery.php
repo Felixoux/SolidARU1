@@ -54,7 +54,7 @@ final class paginatedQuery
         if ($currentPage <= 1) return null;
         if ($currentPage > 2) $link .= "?page=" . ($currentPage - 1);
         return <<<HTML
-        <a href="{$link}" class="btn-card">&lt;&nbsp; Page précédente</a>
+        <a href="{$link}" class="btn btn-secondary">&lt;&nbsp; Page précédente</a>
         HTML;
     }
 
@@ -65,13 +65,12 @@ final class paginatedQuery
         if ($currentPage >= $pages) return null;
         $link .= "?page=" . ($currentPage + 1);
         return <<<HTML
-        <a href="{$link}" class="ml-a"><button class="btn-card">Page suivante &nbsp;&gt;</button></a>
+        <a href="{$link}" class="ml-a"><button class="btn btn-secondary">Page suivante &nbsp;&gt;</button></a>
         HTML;
     }
 
     /**
      * get current page (int)
-     * @throws Exception
      */
     private function getCurrentPage(): int
     {

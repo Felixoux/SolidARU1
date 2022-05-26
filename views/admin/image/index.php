@@ -1,6 +1,6 @@
 <?php
 
-use App\{Auth, Connection, HTML\ListingQuery, Table\ImageTable};
+use App\{Auth, Connection, HTML\Alert, HTML\ListingQuery, Table\ImageTable};
 
 require ROOT_PATH . '/vendor/autoload.php';
 Auth::check();
@@ -9,20 +9,20 @@ $pdo = Connection::getPDO();
 
 [$items, $pagination] = (new ImageTable($pdo))->findPaginated();
 $link = $router->url('admin_images');
-?>
-<?php if (isset($_GET['delete'])): ?>
-    <p class="alert alert-success">Image supprimée avec succès</p>
-<?php endif ?>
-<?php if (isset($_GET['created'])): ?>
-    <p class="alert alert-success">Image(s) ajoutée(s) avec succès</p>
-<?php endif ?>
-<?php if (isset($_GET['duplicated'])): ?>
-    <p class="alert alert-danger">Image(s) déjà existante(s)</p>
-<?php endif ?>
-<?php if (isset($_GET['format'])): ?>
-    <p class="alert alert-danger">Mauvais format d'image</p>
-<?php endif ?>
-<?php
+
+// Get alerts
+$alert = new Alert();
+$alerts =
+    [
+        'delete' => "Image supprimée avec succès",
+        'created' => "Image(s) ajoutée(s) avec succès",
+        'duplicated/alert-danger' => "Image(s) déjà existante(s)",
+        'format/alert-danger' => "Mauvais format d'image"
+    ];
+foreach ($alerts as $get => $message) {
+    echo($alert->getAlert($get, $message));
+}
+
 $listingQuery = new listingQuery($items, $pagination, $link, 'image', 'image', $router);
 echo($listingQuery->getHeaderListing()); // Display header
 foreach ($items as $item) {

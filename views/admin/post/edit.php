@@ -1,6 +1,6 @@
 <?php
 
-use App\{Attachment\PostAttachment, Auth, Connection, HTML\Form, Model\Post, ObjectHelper, Table\CategoryTable, Table\FileTable, Table\ImageTable, Table\PostTable, Validators\PostValidator};
+use App\{Attachment\PostAttachment, Auth, Connection,  HTML\Alert, HTML\Form, Model\Post, ObjectHelper, Table\CategoryTable, Table\FileTable, Table\ImageTable, Table\PostTable, Validators\PostValidator};
 
 Auth::check();
 $pdo = Connection::getPDO();
@@ -51,21 +51,25 @@ $form = new Form($post, $errors);
     Éditer l'article "<?= $post->getName() ?>"
 </h2>
 <hr>
-<?php if (isset($_GET['delete_thumbnail'])): ?>
-    <p class="alert alert-success">L'image à la une à bien été supprimée</p>
-<?php endif ?>
-<?php if (isset($_GET['images_detach'])): ?>
-    <p class="alert alert-success">Les images ont bien été dissociées</p>
-<?php endif ?>
-<?php if (isset($_GET['files_detach'])): ?>
-    <p class="alert alert-success">Les documents ont bien été dissociés</p>
-<?php endif ?>
+<?php
+// Get alerts
+$alert = new Alert();
+$alerts =
+    [
+        'delete_thumbnail' => "L'image à la une à bien été supprimée",
+        'images_detach' => "Les images ont bien été dissociées",
+        'files_detach' => "Les documents ont bien été dissociés"
+    ];
+foreach ($alerts as $get => $message) {
+    echo($alert->getAlert($get, $message));
+}
+?>
 <?php require '_form.php' ?>
 
 <?php ob_start() ?>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.css">
 <?php $beforeBodyContent = ob_get_clean();
- ob_start() ?>
+ob_start() ?>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js"></script>
 <script src="/js/datePicker.js"></script>
 <?php $afterBodyContent = ob_get_clean() ?>

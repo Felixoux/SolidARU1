@@ -9,7 +9,7 @@
   --bg-card-footer: #1B1F44;
   --bg-light: #1A1F42;
   --bg-dark: #151938;
-  --bg-dark-seconday: #323d70;
+  --bg-dark-secondary: #323d70;
   --bg-transparent: #1a1f42f1;
 
   // ==== FONTS COLORS ====
@@ -45,7 +45,7 @@
     --bg-card-footer: #d9d9dc;
     --bg-light: #e3e6e8;
     --bg-dark: #f8fbfb;
-    --bg-dark-seconday: #dde2ff;
+    --bg-dark-secondary: #dde2ff;
     --bg-transparent: #d7d9e8f2;
     //==== FONTS COLORS ====
     --muted-text: #121c4299;
@@ -87,7 +87,7 @@
 
 html {
   scrollbar-width: auto;
-  scrollbar-color: var(--border) transparent;
+  scrollbar-color: var(--bg-dark-secondary) transparent;
 }
 
 // ==== Tools  ==== 

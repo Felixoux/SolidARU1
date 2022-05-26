@@ -1,23 +1,25 @@
 <?php
 
-use App\{Auth, Connection, HTML\ListingQuery, Table\PostTable};
+use App\{Auth, Connection, HTML\Alert, HTML\ListingQuery, Table\PostTable};
 
 Auth::check();
 $pageTitle = 'Gestion des articles';
 $pdo = Connection::getPDO();
 $link = $router->url('admin_posts');
 [$items, $pagination] = (new PostTable($pdo))->findPaginated();
-?>
-<?php if (isset($_GET['delete'])): ?>
-    <p class="alert alert-success">L'article a bien été supprimé</p>
-<?php endif ?>
-<?php if (isset($_GET['created'])): ?>
-    <p class="alert alert-success">L'article a bien été créé</p>
-<?php endif ?>
-<?php if (isset($_GET['modified'])): ?>
-    <p class="alert alert-success">L'article a bien été modifié</p>
-<?php endif ?>
-<?php
+
+// Get alerts
+$alert = new Alert();
+$alerts =
+    [
+        'delete' => "L'article a bien été supprimé",
+        'created' => "L'article a bien été créé",
+        'modified' => "L'article a bien été modifié"
+    ];
+foreach ($alerts as $get => $message) {
+    echo($alert->getAlert($get, $message));
+}
+
 $listingQuery = new listingQuery($items, $pagination, $link, 'post', 'article', $router);
 echo($listingQuery->getHeaderListing()); // Display header
 foreach ($items as $item) {
