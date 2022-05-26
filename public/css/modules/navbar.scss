@@ -1,10 +1,10 @@
 .header {
-  @extend %flex;
+  @extend .flex;
   position: fixed;
   top: 0;
   line-height: 1;
-  padding-top: calc(6 * var(--space));
-  padding-bottom: calc(6 * var(--space));
+  padding-top: calc(4.5 * var(--space));
+  padding-bottom: calc(4.5 * var(--space));
   z-index: 100;
   background: var(--bg-light);
   transition: all .3s;
@@ -177,7 +177,6 @@
 .header-admin {
   background: var(--bg-dark);
   border-bottom: 1px solid var(--border);
-  position: relative;
   box-shadow: 0 0 0 rgb(0,0,0);
 }
 

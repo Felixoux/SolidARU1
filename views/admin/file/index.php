@@ -15,7 +15,7 @@ $alerts =
         'delete' => "Document supprimé avec succès",
         'created' => "Document(s) ajouté(s) avec succès",
         'duplicated/alert-danger' => "Document(s) déjà existant(s)",
-        'format/alert-danger' => "Mauvais format d'image"
+        'format/alert-danger' => "Seulement le format (pdf) est accapté"
     ];
 foreach ($alerts as $get => $message) {
     echo($alert->getAlert($get, $message));

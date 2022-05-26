@@ -35,7 +35,7 @@ class ListingQuery
     {
         $pageName = ucfirst($this->name_to_display);
         return <<<HTML
-    <h2 class="medium-title mt2">
+    <h2 class="medium-title">
     {$this->getSvg()}
     {$pageName}
     </h2>

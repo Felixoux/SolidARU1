@@ -12,9 +12,9 @@ $link = $router->url('admin_categories');
 $alert = new Alert();
 $alerts =
     [
-        'delete' => "La catégorie a bien été supprimé",
+        'delete' => "La catégorie a bien été supprimée",
         'created' => "La catégorie a bien été créé",
-        'modified' => "La catégorie a bien été modifié"
+        'modified' => "La catégorie a bien été modifiée"
     ];
 foreach ($alerts as $get => $message) {
     echo($alert->getAlert($get, $message));

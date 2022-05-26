@@ -36,7 +36,7 @@ foreach ($nav_links as $name => $link) {
 echo($navbar->getBottom());
 ?>
 <div class="page-wrapper relative">
-    <div class="container my4">
+    <div class="container pt3 pb2">
         <?= $content ?>
     </div>
     <?php require VIEW_PATH.DIRECTORY_SEPARATOR.'layouts'.DIRECTORY_SEPARATOR.'footer.php'; ?>

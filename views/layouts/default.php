@@ -45,7 +45,7 @@ echo($navbar->getBottom());
         </button>
     </form>
 </div>
-<div class="page-wrapper relative" style="margin-top: 110px;">
+<div class="page-wrapper relative">
     <?= $content ?>
     <?php require 'footer.php' ?>
 </div>

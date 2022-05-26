@@ -17,7 +17,7 @@ $alerts =
         'delete' => "Image supprimée avec succès",
         'created' => "Image(s) ajoutée(s) avec succès",
         'duplicated/alert-danger' => "Image(s) déjà existante(s)",
-        'format/alert-danger' => "Mauvais format d'image"
+        'format/alert-danger' => "Seulement les formats (jpg, png, gif) sont acceptés"
     ];
 foreach ($alerts as $get => $message) {
     echo($alert->getAlert($get, $message));
