@@ -5,7 +5,7 @@ namespace App;
 use Exception;
 use PDO;
 
-class paginatedQuery
+final class paginatedQuery
 {
 
     private string $query;

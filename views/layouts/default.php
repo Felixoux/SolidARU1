@@ -20,71 +20,20 @@ App\Auth::remember();
 <div id="pre-loader" class="flex-center">
     <div class="loader"></div>
 </div>
-<nav class="header nav-down">
-    <ul class="header-nav">
-        <li class="header__home"><a class="underline" href="<?= $router->url('home') ?>">
-                <svg id="home">
-                    <use xlink:href="/img/svg/sprite.svg#home"></use>
-                </svg>
-            </a></li>
-        <li id="blog-anchor">
-            <h4>
-                <a href="<?= $router->url('home') . '#event' ?>">
-                    <svg>
-                        <use xlink:href="/img/svg/sprite.svg#post"></use>
-                    </svg>
-                    Blog
-                </a>
-            </h4>
-        </li>
-        <li>
-            <h4>
-                <a href="<?= $router->url('about') ?>">
-                    <svg>
-                        <use xlink:href="/img/svg/sprite.svg#pen"></use>
-                    </svg>
-                    A propos
-                </a>
-            </h4>
-        </li>
-        <li>
-            <h4>
-                <a href="<?= $router->url('contact') ?>">
-                    <svg>
-                        <use xlink:href="/img/svg/sprite.svg#phone"></use>
-                    </svg>
-                    Contact
-                </a>
-            </h4>
-        </li>
-        <?php if (App\Auth::is_connected() === true): ?>
-            <li>
-                <h4>
-                    <a href="<?= $router->url('admin_posts') ?>">
-                        <svg>
-                            <use xlink:href="/img/svg/sprite.svg#admin"></use>
-                        </svg>
-                        Admin
-                    </a>
-                </h4>
-            </li>
-        <?php endif ?>
-    </ul>
-    <ul class="header-side flex">
-        <li class="header__search" id="searchBtn">
-            <button>
-                <svg>
-                    <use xlink:href="/img/svg/sprite.svg#search"></use>
-                </svg>
-            </button>
-        </li>
-        <li class="header__burger">
-            <button id="js-burger">
-                <span>Afficher le menu</span>
-            </button>
-        </li>
-    </ul>
-</nav>
+<?php
+$navbar = new \App\HTML\Navbar($router);
+$nav_links = [
+    'Blog/post' => 'home',
+    'A propos/pen' => 'about',
+    'Contact/phone' => 'contact'
+];
+echo($navbar->getTop());
+foreach ($nav_links as $name => $link) {
+    echo($navbar->getLi($name, $link));
+}
+echo($navbar->getAdminLink());
+echo($navbar->getBottom());
+?>
 
 <div class="search-container">
     <form method="GET" action="<?= $router->url('search') ?>" onsubmit="removeSearch()">

@@ -4,7 +4,7 @@ namespace App;
 
 use Valitron\Validator as ValitronValidator;
 
-class Validator extends ValitronValidator
+final class Validator extends ValitronValidator
 {
     protected static $_lang = "fr";
 
@@ -19,7 +19,6 @@ class Validator extends ValitronValidator
             $finfo = new \finfo();
             $info = $finfo->file($value['tmp_name'], FILEINFO_MIME_TYPE);
             return in_array($info, $mimes);
-            return false;
         }, 'Le fichier n\'est pas une image valide');
     }
 }

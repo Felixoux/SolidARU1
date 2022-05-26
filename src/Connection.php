@@ -4,7 +4,7 @@ namespace App;
 
 use PDO;
 use Exception;
-class Connection
+final class Connection
 {
 
     /**
@@ -26,6 +26,4 @@ class Connection
     }
 
     }
-
-
 }

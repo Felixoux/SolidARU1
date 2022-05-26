@@ -2,7 +2,7 @@
 
 namespace App\HTML;
 
-class Form
+final class Form
 {
     private $data;
     private array $errors;

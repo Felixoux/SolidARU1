@@ -4,7 +4,7 @@ namespace App;
 
 use Exception;
 
-class URL
+final class URL
 {
 
     public static function getInt(string $name, ?int $default = null)
@@ -26,6 +26,4 @@ class URL
         }
         return $param;
     }
-
-
 }

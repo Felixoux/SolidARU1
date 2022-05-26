@@ -2,51 +2,35 @@
 
 namespace App\HTML;
 
+use App\Auth;
 use App\Router;
 
 class Navbar
 {
-
-    private array $names;
-    private array $links;
-    private array $svgs;
     private Router $router;
 
-    public function __construct(
-        array $links,
-        array $svgs,
-        Router $router
-    )
+    public function __construct($router)
     {
-        $this->names = $links;
-        $this->svgs = $svgs;
         $this->router = $router;
     }
 
-    public function getNav(): string
+    public function getTop(): string
     {
         return <<<HTML
-    <nav class="header">
-    <ul class="header-nav">
-        <li class="header__home"><a class="underline" href="{$this->getLink()}">
+        <nav class="header">
+            <ul class="header-nav">
+        <li class="header__home"><a class="underline" href="{$this->router->url('home')}">
                 <svg id="home">
                     <use xlink:href="/img/svg/sprite.svg#home"></use>
                 </svg>
             </a>
         </li>
-        {$this->getLi()}
-        {<?php if (App\Auth::is_connected() === true): ?>}
-            <li>
-                <h4>
-                    <a href="{$this->getLink()}">
-                        <svg>
-                            <use xlink:href="/img/svg/sprite.svg#admin"></use>
-                        </svg>
-                        Admin
-                    </a>
-                </h4>
-            </li>
-        {<?php endif ?>}
+HTML;
+    }
+
+    public function getBottom(): string
+    {
+        return <<<HTML
     </ul>
     <ul class="header-side flex">
         <li class="header__search" id="searchBtn">
@@ -67,35 +51,51 @@ HTML;
 
     }
 
-    private function getLi(): ?string
+    public function getLi(string $full_name, string $link): ?string
     {
-        foreach ($this->names as $name => $link) {
-            foreach ($this->svgs as $name_for_svg => $svg) {
-            return <<<HTML
+        $name_svg = explode('/', $full_name);
+        $name = $name_svg[0];
+        $svg = $name_svg[1];
+        return <<<HTML
         <li>
             <h4>
-                <a href="{$this->getLink()}">
+                <a href="{$this->getLink($name, $link)}">
                     <svg>
-                        <use xlink:href="/img/svg/sprite.svg#{$svg}"></use>
+                        <use xlink:href="/img/svg/sprite.svg#$svg"></use>
                     </svg>
-                    {$name}
+                    $name
                 </a>
             </h4>
         </li>
 HTML;
-            }
-        }
-        return null;
     }
 
-    private function getLink(): ?string
+    private function getLink(string $name, string $link): string
     {
-        foreach($this->names as $name => $link) {
-            return $this->router->url($link);
+        if ($name === 'Blog') {
+            return $this->router->url('home') . '#event';
+        }
+        return $this->router->url($link);
+    }
+
+    public function getAdminLink(): ?string
+    {
+        if (Auth::is_connected() === true) {
+            return <<<HTML
+        <li>
+            <h4>
+                <a href="{$this->router->url('admin_posts')}">
+                    <svg>
+                        <use xlink:href="/img/svg/sprite.svg#admin"></use>
+                    </svg>
+                    Admin
+                </a>
+            </h4>
+        </li>
+HTML;
+
         }
         return null;
     }
-
-
 
 }

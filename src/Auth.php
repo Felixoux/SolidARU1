@@ -4,9 +4,8 @@ namespace App;
 
 use App\Security\ForbidenException;
 use App\Table\UserTable;
-use App\Helper;
 
-class Auth
+final class Auth
 {
     /**
      * @throws ForbidenException
@@ -17,7 +16,7 @@ class Auth
             session_start();
         }
 
-        if(isset($_SESSION['auth']) && !isset($_SESSION['token'])) {
+        if (isset($_SESSION['auth']) && !isset($_SESSION['token'])) {
             $_SESSION['token'] = getToken(128);
         }
 
@@ -53,12 +52,12 @@ class Auth
     public static function remember()
     {
         $domain = C('domain');
-        if(isset($_COOKIE['auth']) && !isset($_SESSION['auth'])) {
+        if (isset($_COOKIE['auth']) && !isset($_SESSION['auth'])) {
             $auth = $_COOKIE['auth'];
             $auth = explode('-----', $auth);
             $user = (new UserTable(Connection::getPDO()))->findByUsername($auth[0]);
             $key = sha1($user->getUsername() . $user->getPassword() . $_SERVER['REMOTE_ADDR']);
-            if($key == $auth[1]) {
+            if ($key == $auth[1]) {
                 Helper::sessionStart();
                 $_SESSION['auth'] = 'connected';
                 $cookieValue = $user->getUsername() . '-----' . sha1($user->getUsername() . $user->getPassword() . $_SERVER['REMOTE_ADDR']);
@@ -66,7 +65,7 @@ class Auth
                 (new Helper())->createCookie('auth', $cookieValue, $domain, $duration);
             } else {
                 $cookieValue = $user->getUsername() . '-----' . sha1($user->getUsername() . $user->getPassword() . $_SERVER['REMOTE_ADDR']);
-                $duration = time() -3600;
+                $duration = time() - 3600;
                 (new Helper())->createCookie('auth', $cookieValue, $domain, $duration);
             }
         }

@@ -2,7 +2,7 @@
 
 namespace App;
 
-class ObjectHelper
+final class ObjectHelper
 {
     /**
      * Permet d'hydrater le post

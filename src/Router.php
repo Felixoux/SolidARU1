@@ -4,7 +4,7 @@ namespace App;
 
 use App\Security\ForbidenException;
 
-class Router
+final class Router
 {
     private string $viewPath;
 

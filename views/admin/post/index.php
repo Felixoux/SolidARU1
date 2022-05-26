@@ -23,6 +23,6 @@ echo($listingQuery->getHeaderListing()); // Display header
 foreach ($items as $item) {
     echo($listingQuery->getbodyListing($item)); // Display Items
 }
-echo($listingQuery->getFooterListing()); // Display pagination buttons
+echo($listingQuery->getFooterListing()); // Display pagination footer (buttons)
 ?>
 
