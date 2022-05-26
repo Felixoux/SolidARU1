@@ -155,6 +155,12 @@ abstract class Table
         return [$items, $paginatedQuery];
     }
 
+    /**
+     * To associate images and files to a post
+     * @param int $id
+     * @param array $items
+     * @return void
+     */
     public function attachItems(int $id, array $items): void
     {
         $join_table = 'post_' . $this->table;
@@ -166,6 +172,11 @@ abstract class Table
         }
     }
 
+    /**
+     * To detach images and files from a post
+     * @param int $id
+     * @return void
+     */
     public function detachItems(int $id): void
     {
         $join_table = 'post_' . $this->table;

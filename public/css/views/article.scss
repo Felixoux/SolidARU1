@@ -49,7 +49,7 @@ img.lazy {
   @extend %container-margin;
   max-width: 650px; // image size + 150px
   display: flex!important;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding:.5rem;
   background: var(--bg-light);

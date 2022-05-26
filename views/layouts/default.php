@@ -1,10 +1,6 @@
 <?php
 App\Helper::sessionStart();
 App\Auth::remember();
-if (isset($_COOKIE['theme']) && isset($_COOKIE['theme']) == 'light') {
-    $theme = 'light-theme';
-} elseif (isset($_COOKIE['theme']) && isset($_COOKIE['theme']) == 'dark')
-    $theme = "dark-theme"
 ?>
 <!DOCTYPE html>
 <html lang="fr" class="h-100">
@@ -26,14 +22,14 @@ if (isset($_COOKIE['theme']) && isset($_COOKIE['theme']) == 'light') {
 </div>
 <nav class="header nav-down">
     <ul class="header-nav">
-        <li class="header__home"><a class="underline" href="<?= $router->url('home') ?>">
+        <li class="header__home"><a class="underline" href="<?/*= $router->url('home') */?>">
                 <svg id="home">
                     <use xlink:href="/img/svg/sprite.svg#home"></use>
                 </svg>
             </a></li>
         <li id="blog-anchor">
             <h4>
-                <a href="<?= $router->url('home') . '#event' ?>">
+                <a href="<?/*= $router->url('home') . '#event' */?>">
                     <svg>
                         <use xlink:href="/img/svg/sprite.svg#post"></use>
                     </svg>
@@ -43,7 +39,7 @@ if (isset($_COOKIE['theme']) && isset($_COOKIE['theme']) == 'light') {
         </li>
         <li>
             <h4>
-                <a href="<?= $router->url('about') ?>">
+                <a href="<?/*= $router->url('about') */?>">
                     <svg>
                         <use xlink:href="/img/svg/sprite.svg#pen"></use>
                     </svg>
@@ -53,7 +49,7 @@ if (isset($_COOKIE['theme']) && isset($_COOKIE['theme']) == 'light') {
         </li>
         <li>
             <h4>
-                <a href="<?= $router->url('contact') ?>">
+                <a href="<?/*= $router->url('contact') */?>">
                     <svg>
                         <use xlink:href="/img/svg/sprite.svg#phone"></use>
                     </svg>
@@ -61,10 +57,10 @@ if (isset($_COOKIE['theme']) && isset($_COOKIE['theme']) == 'light') {
                 </a>
             </h4>
         </li>
-        <?php if (App\Auth::is_connected() === true): ?>
+        <?php /*if (App\Auth::is_connected() === true): */?>
             <li>
                 <h4>
-                    <a href="<?= $router->url('admin_posts') ?>">
+                    <a href="<?/*= $router->url('admin_posts') */?>">
                         <svg>
                             <use xlink:href="/img/svg/sprite.svg#admin"></use>
                         </svg>
@@ -72,7 +68,7 @@ if (isset($_COOKIE['theme']) && isset($_COOKIE['theme']) == 'light') {
                     </a>
                 </h4>
             </li>
-        <?php endif ?>
+        <?php /*endif */?>
     </ul>
     <ul class="header-side flex">
         <li class="header__search" id="searchBtn">
@@ -89,6 +85,7 @@ if (isset($_COOKIE['theme']) && isset($_COOKIE['theme']) == 'light') {
         </li>
     </ul>
 </nav>
+
 <div class="search-container">
     <form method="GET" action="<?= $router->url('search') ?>" onsubmit="removeSearch()">
         <input class="addFocus" type="text" name="q" placeholder="Rechercher du contenu" autofocus autocomplete="off">
