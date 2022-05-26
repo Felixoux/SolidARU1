@@ -133,7 +133,4 @@ abstract class Model
     {
         return $this->pendingUpload;
     }
-
-
-
 }
