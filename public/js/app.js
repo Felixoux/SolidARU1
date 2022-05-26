@@ -113,8 +113,8 @@ $(document).ready(function () {
 
 // blog event click
 blogBtn.click(function () {
-    let section = $('section.home-little-grid')
+    let section = $('section.event')
     $('html, body').animate({
-        scrollTop: section.offset().top + (section[0].scrollHeight - 500)
+        scrollTop: section.offset().top - 100
     })
 })
