@@ -16,7 +16,10 @@ class Post extends Model
     {
         $content = $this->content;
         if (str_contains($content, 'youtube.com/')) {
-            $content = Text::getIframe($content);
+            $content = Text::getDesktopIframe($content);
+            return Text::parseDown($content);
+        } elseif (str_contains($content, 'youtu.be/')) {
+            $content = Text::getPhoneIframe($content);
             return Text::parseDown($content);
         }
         return Text::parseDown($content);

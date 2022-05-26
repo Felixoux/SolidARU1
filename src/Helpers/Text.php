@@ -44,9 +44,30 @@ class Text
         return $parseDown->text($content);
     }
 
-    public static function getIframe(string $content): string
+    public static function getPhoneIframe(string $content): ?string
     {
-        return preg_replace("/\s*[a-zA-Z\/\/:\.]*youtube.com\/watch\?v=([a-zA-Z0-9\-_]+)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.]*)/i", "<div class='parent-ratio'><div class='ratio'><iframe src=\"//www.youtube.com/embed/$1\" allow='accelerometer;clipboard-write; encrypted-media;gyroscope; picture-in-picture' allowfullscreen></iframe></div></div>", $content);
+        $shortUrlRegex = '/youtu.be\/([a-zA-Z0-9_-]+)\??/i';
+        if (preg_match($shortUrlRegex, $content, $matches)) {
+            $youtube_id = $matches[count($matches) - 1];
+            $url = 'https://youtu.be/' . $youtube_id;
+            $new_url =  'https://www.youtube.com/embed/' . $youtube_id ;
+            $iframe = "<div class='parent-ratio'><div class='ratio'><iframe src=\"$new_url\" allow='accelerometer;clipboard-write; encrypted-media;gyroscope; picture-in-picture' allowfullscreen></iframe></div></div>";;
+            return str_replace($url, $iframe, $content);
+        }
+        return null;
+    }
+
+    public static function getDesktopIframe(string $content): ?string
+    {
+        $longUrlRegex = '/youtube.com\/((?:embed)|(?:watch))((?:\?v\=)|(?:\/))([a-zA-Z0-9_-]+)/i';
+        if (preg_match($longUrlRegex, $content, $matches)) {
+            $youtube_id_long = $matches[count($matches) - 1];
+            $url_long = 'https://www.youtube.com/watch?v=' . $youtube_id_long;
+            $new_url_long =  'https://www.youtube.com/embed/' . $youtube_id_long ;
+            $iframe = "<div class='parent-ratio'><div class='ratio'><iframe src=\"$new_url_long\" allow='accelerometer;clipboard-write; encrypted-media;gyroscope; picture-in-picture' allowfullscreen></iframe></div></div>";
+            return str_replace($url_long, $iframe, $content);
+        }
+        return null;
     }
 
     public static function noExt(string $string): string
