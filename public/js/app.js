@@ -12,8 +12,14 @@ $(".withSpace").keyup(function () {
     let result = replaceSpace.replace(/#|_| |@|'|<|>/g, "-")
         .replace(/é|ë|è|ê/g, "e")
         .replaceAll('?', "-")
-        .replaceAll('!', "-");
+        .replaceAll('!', "-")
+        .replaceAll(',', '-')
+        .replaceAll('à', '-')
+        .replaceAll('ù', '-')
+        .replaceAll('--', '-')
+        .replaceAll('.', '-');
     // update
+    result = result.toLowerCase()
     $(".withDash").val(result);
 });
 
