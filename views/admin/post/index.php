@@ -1,6 +1,6 @@
 <?php
 
-use App\{Auth, Connection, listingQuery, Table\PostTable};
+use App\{Auth, Connection, HTML\ListingQuery, Table\PostTable};
 
 Auth::check();
 $pageTitle = 'Gestion des articles';

@@ -70,7 +70,7 @@ final class paginatedQuery
     }
 
     /**
-     * Récupère la page courante
+     * get current page (int)
      * @throws Exception
      */
     private function getCurrentPage(): int

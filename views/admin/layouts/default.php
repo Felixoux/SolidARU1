@@ -22,10 +22,10 @@ App\Auth::remember();
 <?php
 $navbar = new \App\HTML\Navbar($router, 'header-admin');
 $nav_links = [
-    'Articles/post' => 'admin_posts',
-    'Catégories/category-title' => 'admin_categories',
-    'Images/image' => 'admin_images',
-    'Documents/document' => 'admin_files',
+    'Article/post' => 'admin_posts',
+    'Catégorie/category-title' => 'admin_categories',
+    'Image/image' => 'admin_images',
+    'Document/document' => 'admin_files',
     'Sécurité/lock' => 'security',
     'Guide/guide' => 'admin_guide',
 ];

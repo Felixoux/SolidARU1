@@ -1,6 +1,6 @@
 <?php
 
-use App\{Auth, Connection, listingQuery, Table\ImageTable};
+use App\{Auth, Connection, HTML\ListingQuery, Table\ImageTable};
 
 require ROOT_PATH . '/vendor/autoload.php';
 Auth::check();

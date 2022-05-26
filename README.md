@@ -22,8 +22,6 @@ Ceci est le site repertoriant tous les évenements liés à la solidarité au se
 
 - symfony/var-dumper v-5.4
 
-- Filp/whoops v2.14.5
-
 - fzaninotto/faker v-1.9
 
 - vlucas/valitron v-1.4

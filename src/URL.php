@@ -6,6 +6,7 @@ use Exception;
 
 final class URL
 {
+    // For paginatedQuery
 
     public static function getInt(string $name, ?int $default = null)
     {

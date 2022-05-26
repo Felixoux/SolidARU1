@@ -2,7 +2,7 @@
 
 namespace App\Table;
 
-use App\{Model\Category};
+use App\{Model\Category, Model\Post};
 use PDO;
 
 class CategoryTable extends Table
@@ -10,7 +10,7 @@ class CategoryTable extends Table
     protected $table = "category";
     protected $class = Category::class;
 
-    /** @param App\Model\Post[] $posts */
+    /** @param Post $posts[] */
     public function hydratePosts(array $posts): void
     {
         $postByID = [];

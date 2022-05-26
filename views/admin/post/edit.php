@@ -1,17 +1,11 @@
 <?php
-use App\{Attachment\PostAttachment,
-    Auth,
-    Connection,
-    HTML\Form,
-    Table\CategoryTable,
-    Table\FileTable,
-    Table\ImageTable,
-    Table\PostTable,
-    Validators\PostValidator};
+
+use App\{Attachment\PostAttachment, Auth, Connection, HTML\Form, Model\Post, ObjectHelper, Table\CategoryTable, Table\FileTable, Table\ImageTable, Table\PostTable, Validators\PostValidator};
 
 Auth::check();
 $pdo = Connection::getPDO();
 $postTable = new PostTable($pdo);
+/** @var Post|false $post */
 $post = $postTable->find($params['id']);
 
 // Files
@@ -31,7 +25,7 @@ $errors = [];
 if (!empty($_POST)) {
     $data = array_merge($_POST, $_FILES);
     $v = new PostValidator($data, $postTable, $post->getID(), $categories, $images, $files);
-    (new App\ObjectHelper)->hydrate($post, $data, ['name', 'content', 'slug', 'created_at', 'image']);
+    ObjectHelper::hydrate($post, $data, ['name', 'content', 'slug', 'created_at', 'image']);
 
     if ($v->validate()) {
         $pdo->beginTransaction();
@@ -54,17 +48,17 @@ $form = new Form($post, $errors);
     <svg class="svg-big">
         <use xlink:href="/img/svg/sprite.svg#edit"></use>
     </svg>
-    Editer l'article "<?= e($post->getName()) ?>"
+    Éditer l'article "<?= $post->getName() ?>"
 </h2>
 <hr>
 <?php if (isset($_GET['delete_thumbnail'])): ?>
     <p class="alert alert-success">L'image à la une à bien été supprimée</p>
 <?php endif ?>
 <?php if (isset($_GET['images_detach'])): ?>
-    <p class="alert alert-success">Les images ont bien été détachées</p>
+    <p class="alert alert-success">Les images ont bien été dissociées</p>
 <?php endif ?>
 <?php if (isset($_GET['files_detach'])): ?>
-    <p class="alert alert-success">Les documents ont bien été détachées</p>
+    <p class="alert alert-success">Les documents ont bien été dissociés</p>
 <?php endif ?>
 <?php require '_form.php' ?>
 

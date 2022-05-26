@@ -21,16 +21,16 @@
         <?= $form->select('images_ids', 'Images', $images) ?>
         <?= $form->select('files_ids', 'Documents', $files) ?>
         <?= $form->input('created_at', 'Date de publication', 'datepicker') ?>
-        <?php if ($post->getID() !== null): ?>
+        <?php if ($post->getID() !== 0): ?>
         <div class="danger-zone">
             <h4 class="alert mb1">Zone danger</h4>
-            <a class="btn-alert mr2 mb2" href="<?= $router->url('post_thumbnail_delete', ['id' => $post->getID(), 'token' => $_SESSION['token']]) ?>">Supprimer l'image à la une</a>
-            <a class="btn-alert mr2 mb2" href="<?= $router->url('post_images_detach', ['id' => $post->getID(), 'token' => $_SESSION['token']]) ?>">Dissocier les images</a>
-            <a class="btn-alert" href="<?= $router->url('post_files_detach', ['id' => $post->getID(), 'token' => $_SESSION['token']]) ?>">Dissocier les documents</a>
+            <a onclick="return confirm('Voulez vous vraiment supprimer l\'image à la une ?')" class="btn-alert mr2 mb2" href="<?= $router->url('post_thumbnail_delete', ['id' => $post->getID(), 'token' => $_SESSION['token']]) ?>">Supprimer l'image à la une</a>
+            <a onclick="return confirm('Voulez vous vraiment dissocier les images ?')" class="btn-alert mr2 mb2" href="<?= $router->url('post_images_detach', ['id' => $post->getID(), 'token' => $_SESSION['token']]) ?>">Dissocier les images</a>
+            <a onclick="return confirm('Voulez vous vraiment dissocier les documents à la une ?')" class="btn-alert" href="<?= $router->url('post_files_detach', ['id' => $post->getID(), 'token' => $_SESSION['token']]) ?>">Dissocier les documents</a>
         </div>
         <?php endif ?>
         <button type="submit" class="btn-primary">
-            <?php if ($post->getID() !== null): ?>
+            <?php if ($post->getID() !== 0): ?>
                 Modifier
             <?php else: ?>
                 Créer

@@ -1,8 +1,10 @@
 <?php
 
-namespace App;
+namespace App\HTML;
 
-class listingQuery
+use App\{paginatedQuery,Router};
+
+class ListingQuery
 {
 
     private array $items;
@@ -31,10 +33,11 @@ class listingQuery
 
     public function getHeaderListing(): string
     {
+        $pageName = ucfirst($this->name_to_display);
         return <<<HTML
     <h2 class="medium-title mt2">
     {$this->getSvg()}
-    Page {$this->name_to_display}
+    {$pageName}
     </h2>
     <p class="muted mt1">C'est ici que l'on s'occupe des {$this->name_to_display}s :)</p>
     <hr>

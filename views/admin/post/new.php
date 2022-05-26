@@ -1,14 +1,6 @@
 <?php
-use App\{Attachment\PostAttachment,
-    Auth,
-    Connection,
-    HTML\Form,
-    Model\Post,
-    Table\CategoryTable,
-    Table\FileTable,
-    Table\ImageTable,
-    Table\PostTable,
-    Validators\PostValidator};
+
+use App\{Attachment\PostAttachment, Auth, Connection, HTML\Form, Model\Post, ObjectHelper, Table\CategoryTable, Table\FileTable, Table\ImageTable, Table\PostTable, Validators\PostValidator};
 
 Auth::check();
 $pdo = Connection::getPDO();
@@ -23,7 +15,7 @@ if (!empty($_POST)) {
     $postTable = new PostTable($pdo);
     $data = array_merge($_POST, $_FILES);
     $v = new PostValidator($data, $postTable, $post->getID(), $categories, $images, $files);
-    (new App\ObjectHelper)->hydrate($post, $data, ['name', 'content', 'slug', 'created_at', 'image']);
+    ObjectHelper::hydrate($post, $data, ['name', 'content', 'slug', 'created_at', 'image']);
     if ($v->validate()) {
         $pdo->beginTransaction();
         (new PostAttachment)->upload($post);
@@ -37,15 +29,15 @@ if (!empty($_POST)) {
 }
 $form = new Form($post, $errors);
 ?>
-<h2 class="container mt4 medium-title">Créer un article</h2>
-<hr>
+    <h2 class="container mt4 medium-title">Créer un article</h2>
+    <hr>
 
 <?php require('_form.php'); ?>
 
 <?php ob_start() //Flatpickr ?>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.css">
 <?php $beforeBodyContent = ob_get_clean();
-ob_start()?>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js"></script>
-<script src="/js/datePicker.js"></script>
+ob_start() ?>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js"></script>
+    <script src="/js/datePicker.js"></script>
 <?php $afterBodyContent = ob_get_clean();

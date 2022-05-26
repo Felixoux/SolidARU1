@@ -20,7 +20,7 @@ if (!empty($_POST)) {
     $pdo = Connection::getPDO();
     $table = new CategoryTable($pdo);
     $v = new CategoryValidator($data, $table);
-    (new ObjectHelper)->hydrate($item, $data, $fields);
+    ObjectHelper::hydrate($item, $data, $fields);
 
     if ($v->validate()) {
         $categoryAttachment = new CategoryAttachment;

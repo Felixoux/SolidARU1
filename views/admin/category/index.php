@@ -1,6 +1,6 @@
 <?php
 
-use App\{Auth, Connection, listingQuery, Table\CategoryTable};
+use App\{Auth, Connection, HTML\ListingQuery, Table\CategoryTable};
 
 Auth::check();
 $pageTitle = 'Gestion des catégories';

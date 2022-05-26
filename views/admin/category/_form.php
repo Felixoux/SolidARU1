@@ -12,14 +12,14 @@
             <?php endif ?>
         </div>
         <?= $form->input('created_at', 'Date de publication', 'datepicker', null) ?>
-        <?php if ($item->getID() !== null): ?>
+        <?php if ($item->getID() !== 0): ?>
             <div class="danger-zone">
                 <h4 class="alert mb1">Zone danger</h4>
-                <a class="btn-alert mr2 mb2" href="<?= $router->url('category_thumbnail_delete', ['id' => $item->getID(), 'token' => $_SESSION['token']]) ?>">Supprimer l'image à la une</a>
+                <a onclick="return confirm('Voulez vous vraiment supprimer l\'image à la une ?')" class="btn-alert mr2 mb2" href="<?= $router->url('category_thumbnail_delete', ['id' => $item->getID(), 'token' => $_SESSION['token']]) ?>">Supprimer l'image à la une</a>
             </div>
         <?php endif ?>
         <button type="submit" class="btn-primary">
-            <?php if ($item->getID() !== null): ?>
+            <?php if ($item->getID() !== 0): ?>
                 Modifier
             <?php else: ?>
                 Créer

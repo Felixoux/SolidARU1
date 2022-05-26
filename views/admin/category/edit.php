@@ -1,18 +1,12 @@
 <?php
-use App\{Attachment\CategoryAttachment,
-    Auth,
-    Connection,
-    HTML\Form,
-    ObjectHelper,
-    Table\CategoryTable,
-    Validators\CategoryValidator
-};
+
+use App\{Attachment\CategoryAttachment, Auth, Connection, HTML\Form, Model\Category, ObjectHelper, Table\CategoryTable, Validators\CategoryValidator};
 
 Auth::check();
 $pdo = Connection::getPDO();
 $table = new CategoryTable($pdo);
+/** @var Category|false */
 $item = $table->find($params['id']);
-$success = false;
 $errors = [];
 $fields = ['name', 'slug', 'content', 'created_at', 'image', ];
 if (!empty($_POST)) {
@@ -38,7 +32,7 @@ $form = new Form($item, $errors);
     <svg class="svg-big">
         <use xlink:href="/img/svg/sprite.svg#edit"></use>
     </svg>
-    Editer la catégorie "<?= e($item->getName()) ?>"
+    Éditer la catégorie "<?= $item->getName() ?>"
 </h2>
 <hr>
 <?php if (isset($_GET['delete_thumbnail'])): ?>

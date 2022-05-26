@@ -1,6 +1,6 @@
 <?php
 
-use App\{Auth, Connection, listingQuery, Table\FileTable};
+use App\{Auth, Connection, HTML\ListingQuery, Table\FileTable};
 
 Auth::check();
 $pageTitle = 'Gestion des images';

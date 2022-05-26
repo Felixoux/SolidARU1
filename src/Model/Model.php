@@ -47,7 +47,7 @@ abstract class Model
 
     public function getName(): ?string
     {
-        return $this->name;
+        return e($this->name);
     }
 
     public function setName(?string $name): self
@@ -58,7 +58,7 @@ abstract class Model
 
     public function getPostID(): ?int
     {
-        return $this->post_id;
+        return e($this->post_id);
     }
 
     public function setPost(Post $post): void
@@ -97,7 +97,7 @@ abstract class Model
 
     public function getImage(): ?string
     {
-        return $this->image;
+        return e($this->image);
     }
 
     public function setImage($image): self
@@ -121,7 +121,8 @@ abstract class Model
         if (empty($this->image)) {
             return null;
         }
-        return '/uploads/' . $this->uploadFolder . '/' . $this->image . '_' . $format . '.jpg';
+        $url = '/uploads/' . $this->uploadFolder . '/' . $this->image . '_' . $format . '.jpg';
+        return e($url);
     }
 
     public function getOldImage(): ?string
