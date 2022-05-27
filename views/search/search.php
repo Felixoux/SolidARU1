@@ -128,4 +128,12 @@ HTML;
         }
     }
     ?>
+    <figure style="opacity: 0; cursor: pointer;">
+        <audio
+                controls
+                src="/img/oh_yeah.mp3">
+            Your browser does not support the
+            <code>audio</code> element.
+        </audio>
+    </figure>
 </section>
