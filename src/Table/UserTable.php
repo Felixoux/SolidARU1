@@ -29,6 +29,4 @@ class UserTable extends Table
         $query = $this->pdo->prepare('UPDATE ' . $this->table . ' SET password = :password');
         $query->execute(['password' => $password]);
     }
-
-
 }

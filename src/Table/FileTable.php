@@ -15,11 +15,7 @@ class FileTable extends Table
 
     public function hydratePosts(array $posts): void
     {
-        $postByID = [];
-        foreach ($posts as $post) {
-            $post->setFiles([]);
-            $postByID[$post->getID()] = $post;
-        }
+        $postByID = $this->getArr($posts);
         $files = $this->pdo
             ->query('
                 SELECT f.*, pf.post_id
@@ -31,5 +27,4 @@ class FileTable extends Table
             $postByID[$file->getPostID()]->addFile($file);
         }
     }
-
 }

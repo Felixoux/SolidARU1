@@ -14,11 +14,7 @@ class ImageTable extends Table
 
     public function hydratePosts(array $posts): void
     {
-        $postByID = [];
-        foreach ($posts as $post) {
-            $post->setImages([]);
-            $postByID[$post->getID()] = $post;
-        }
+        $postByID = $this->getArr($posts);
         $images = $this->pdo
             ->query('
                 SELECT i.*, pi.post_id
@@ -30,4 +26,5 @@ class ImageTable extends Table
             $postByID[$image->getPostID()]->addImage($image);
         }
     }
+
 }

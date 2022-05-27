@@ -51,7 +51,7 @@ class PostTable extends Table
      * @param $id
      * @return array
      */
-    public function getAttach($id)
+    public function getAttach($id): array
     {
         $images = (new ImageTable($this->pdo))->getAttachForPost($id);
         $files = (new FileTable($this->pdo))->getAttachForPost($id);

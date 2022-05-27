@@ -2,15 +2,9 @@
 
 namespace App\Table;
 
-use App\Connection;
-use App\paginatedQuery;
-use App\Query;
-use App\Table\Exception\NotFoundException;
+use App\{Connection, Model\File, paginatedQuery, Query, Table\Exception\NotFoundException};
 use PDO;
 
-/**
- *
- */
 abstract class Table
 {
 
@@ -224,4 +218,17 @@ abstract class Table
         WHERE pe.post_id = $id ")->fetchAll();
     }
 
+    /**
+     * @param array $posts
+     * @return array
+     */
+    public function getArr(array $posts): array
+    {
+        $postByID = [];
+        foreach ($posts as $post) {
+            $post->setImages([]);
+            $postByID[$post->getID()] = $post;
+        }
+        return $postByID;
+    }
 }

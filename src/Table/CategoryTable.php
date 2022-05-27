@@ -10,14 +10,12 @@ class CategoryTable extends Table
     protected $table = "category";
     protected $class = Category::class;
 
-    /** @param Post $posts[] */
+    /**
+     * @param array $posts []
+     */
     public function hydratePosts(array $posts): void
     {
-        $postByID = [];
-        foreach ($posts as $post) {
-            $post->setCategories([]);
-            $postByID[$post->getID()] = $post;
-        }
+        $postByID = $this->getArr($posts);
         $categories = null;
         try {
             $categories = $this->pdo
