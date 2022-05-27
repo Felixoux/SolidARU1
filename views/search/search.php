@@ -5,6 +5,10 @@ use App\{Connection, Model\Post};
 
 if (!empty($_GET['q'])) {
     $q = e($_GET['q']);
+    if ($q === "chainette") {
+        header('Location: http://www.artemath.com/');
+        exit();
+    }
     $pdo = Connection::getPDO();
     $keyWords = explode(' ', $q);
     $sql = 'SELECT * FROM post';
