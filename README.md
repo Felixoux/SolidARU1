@@ -1,6 +1,6 @@
 # Site de la Solidarité
 
-** Version 2.3.7
+** Version 2.3.8
 
 ## Description
 

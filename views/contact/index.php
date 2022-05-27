@@ -30,12 +30,5 @@ $pageTitle = 'contact';
             <li><a href="tel: +32 2 375 28 91">Fax : 02 375 28 91</a></li>
         </ul>
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2521.614043653439!2d4.356331615975724!3d50.80126096990542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3c503f0f2ad69%3A0x7a802c2952bdeeee!2sAv.%20Houzeau%2087%2C%201180%20Uccle!5e0!3m2!1sfr!2sbe!4v1652801724282!5m2!1sfr!2sbe" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        <div class="flex">
-            <a class="btn-primary" style="opacity:0; cursor: pointer" href="https://www.youtube.com/watch?v=PaGS-lB1z3E">C</a>
-            <button class="btn-primary hidden-btn-js" style="opacity:0; cursor: pointer">c</button>
-            <section class="hidden hide-content">
-                <p>Coucou</p>
-            </section>
-        </div>
     </section>
 </main>
