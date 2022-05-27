@@ -5,7 +5,7 @@ namespace App\Model;
 use App\Helpers\Text;
 use DateTime;
 
-class Post extends Model
+class Post extends ModelPC
 {
 
     private array $categories = [];

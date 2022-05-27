@@ -7,7 +7,6 @@ use DateTime;
 
 abstract class Model
 {
-
     protected int $id = 0;
     protected string $name = '';
     protected string $created_at = '';
@@ -15,10 +14,6 @@ abstract class Model
     protected int $post_id = 0;
     protected string $slug = '';
     protected string $content = '';
-    protected ?string $image = null;
-    protected ?string $oldImage = null;
-    protected bool $pendingUpload = false;
-    protected string $uploadFolder = 'posts';
 
     public function getId(): ?int
     {
@@ -64,74 +59,5 @@ abstract class Model
     public function setPost(Post $post): void
     {
         $this->post = $post;
-    }
-
-    // For PC only
-    public function getSlug(): ?string
-    {
-        return e($this->slug);
-    }
-
-    public function setSlug($slug): self
-    {
-        $this->slug = $slug;
-        return $this;
-    }
-
-    public function setContent(string $content): self
-    {
-        $this->content = $content;
-        return $this;
-    }
-
-    public function getContent(): ?string
-    {
-        return e($this->content);
-    }
-
-    public function getExerpt(int $limit = 60): string
-    {
-        $summary = Text::exerpt($this->content, $limit);
-        return Text::parseDown($summary);
-    }
-
-    public function getImage(): ?string
-    {
-        return e($this->image);
-    }
-
-    public function setImage($image): self
-    {
-        if (is_array($image) && !empty($image['tmp_name'])) {
-            if (!empty($this->image)) {
-                $this->oldImage = $this->image;
-            }
-            $this->pendingUpload = true;
-            $this->image = $image['tmp_name'];
-        }
-        if (is_string($image) && !empty($image)) {
-            $this->image = $image;
-        }
-
-        return $this;
-    }
-
-    public function getImageURL(string $format): ?string
-    {
-        if (empty($this->image)) {
-            return null;
-        }
-        $url = '/uploads/' . $this->uploadFolder . '/' . $this->image . '_' . $format . '.jpg';
-        return e($url);
-    }
-
-    public function getOldImage(): ?string
-    {
-        return $this->oldImage;
-    }
-
-    public function shouldUpload(): bool
-    {
-        return $this->pendingUpload;
     }
 }
