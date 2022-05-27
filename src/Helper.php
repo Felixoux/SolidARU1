@@ -17,14 +17,4 @@ class Helper
         setcookie($name, $value, $time, '/', $domain, false,
             true);
     }
-
-    public static function svg(string $name, ?string $classes = ""): string
-    {
-        return <<<HTML
-        <svg class="$classes">
-            <use xlink:href="/img/svg/sprite.svg#$name"></use>
-        </svg>
-HTML;
-
-    }
 }

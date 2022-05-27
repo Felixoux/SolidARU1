@@ -64,7 +64,9 @@ if (!empty($_GET['q'])) {
         <form method="GET">
             <input autofocus type="text" name="q" placeholder="Rechercher du contenu" autocomplete="off">
             <button type="submit">
-                <?= \App\Helper::svg('search') ?>
+                <svg>
+                    <use xlink:href="/img/svg/sprite.svg#search"></use>
+                </svg>
             </button>
         </form>
     </div>

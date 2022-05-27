@@ -2,7 +2,7 @@
 App\Helper::sessionStart();
 require AUTOLOAD_PATH;
 
-use App\{Connection, Helper, Helpers\Text, Model\Post, Table\PostTable};
+use App\{Connection, Helpers\Text, Model\Post, Table\PostTable};
 
 $id = (int)$params['id'];
 $slug = $params['slug'];
@@ -39,28 +39,32 @@ if ($post->getSlug() !== $slug) {
         </div>
     </header>
     <section class="article">
+        <?php if ($post->getImage()): ?>
+            <!--<img src="<? /*= $post->getImageURL('small') */ ?>" alt="">-->
+        <?php endif ?>
         <div class="article__content">
-            <?php /*if ($post->getImage()): */?><!--
-                <img src="<?/*= $post->getImageURL('small') */?>" alt="">
-            --><?php /*endif */?>
             <?= $post->getBody() ?>
         </div>
         <?php if (!empty($files)): ?>
             <div class="article__files">
                 <hr>
-                <h3 class="medium-title mb3">Document<?= isset($files[1]) ? 's' : '' ?> disponible<?= isset($files[1]) ? 's' : '' ?> :</h3>
+                <h3 class="medium-title mb3">Document(s) disponible(s) :</h3>
                 <?php foreach ($files as $k => $file) {
                     $name = $file['name'];
                     $link = '/uploads/files' . DIRECTORY_SEPARATOR . $file['name'];
                     echo <<<HTML
-                <p class="mb1"><a href="$link">$name</a></p>
+            <p class="mb1">
+                <a href="$link">$name</a>
+            </p>
             HTML;
                 }
                 ?>
             </div>
         <?php endif ?>
         <a class="article__button btn-primary-outline" href="<?= $_SESSION['category_link'] ?>">
-            <?= Helper::svg('category_card', 'mr1 edit-svg') ?>
+            <svg class="mr1 edit-svg">
+                <use xlink:href="/img/svg/sprite.svg#category_card"></use>
+            </svg>
             Revenir à la catégorie
         </a>
     </section>
@@ -94,7 +98,7 @@ $js_slick = <<<JS
     infinite: true,
     speed: 300,
     slidesToShow: 1
-        }))
+        })
              
     $('.slick-prev').html('&lt;')
     $('.slick-next').html('&gt;')

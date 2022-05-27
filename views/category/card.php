@@ -10,7 +10,9 @@
     <div class="card__body stack">
         <div class="card__header">
             <h2 class="card__title"><?= $category->getName() ?></h2>
-            <?= App\Helper::svg('category_card', 'card__svg') ?>
+            <svg class="card__svg">
+                <use xlink:href="/img/svg/sprite.svg#category_card"></use>
+            </svg>
         </div>
 
         <div class="card__description muted-text">
