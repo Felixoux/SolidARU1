@@ -2,8 +2,6 @@
 
 namespace App;
 
-use http\Cookie;
-
 class Helper
 {
 
@@ -19,6 +17,4 @@ class Helper
         setcookie($name, $value, $time, '/', $domain, false,
             true);
     }
-
-
 }

@@ -2,8 +2,7 @@
 
 namespace App;
 
-use App\Security\ForbidenException;
-use App\Table\UserTable;
+use App\{Security\ForbidenException, Table\UserTable};
 
 final class Auth
 {
@@ -49,7 +48,7 @@ final class Auth
         return false;
     }
 
-    public static function remember()
+    public static function remember(): void
     {
         $domain = C('domain');
         if (isset($_COOKIE['auth']) && !isset($_SESSION['auth'])) {
@@ -62,12 +61,11 @@ final class Auth
                 $_SESSION['auth'] = 'connected';
                 $cookieValue = $user->getUsername() . '-----' . sha1($user->getUsername() . $user->getPassword() . $_SERVER['REMOTE_ADDR']);
                 $duration = time() + 3600 * 24 * 3;
-                (new Helper())->createCookie('auth', $cookieValue, $domain, $duration);
             } else {
                 $cookieValue = $user->getUsername() . '-----' . sha1($user->getUsername() . $user->getPassword() . $_SERVER['REMOTE_ADDR']);
                 $duration = time() - 3600;
-                (new Helper())->createCookie('auth', $cookieValue, $domain, $duration);
             }
+            (new Helper())->createCookie('auth', $cookieValue, $domain, $duration);
         }
     }
 }

@@ -18,7 +18,8 @@
       "ext-json": "*",
       "ext-openssl": "*",
         "lichtner/fluentpdo": "^2.2",
-      "ext-gd": "*"
+      "ext-gd": "*",
+      "ext-http": "*"
     },
     "authors": [
       {

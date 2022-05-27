@@ -2,7 +2,7 @@
   @extend .big-section;
   @extend .stack;
   grid-template-rows: 1fr auto;
-  padding-top:calc(var(--space-section) / 4);
+  padding-top: calc(var(--space-section) / 4);
   height: fit-content;
 }
 
@@ -17,6 +17,7 @@
 
 .article a {
   color: var(--primary_b);
+
   &:hover {
     text-decoration: underline;
   }
@@ -43,24 +44,23 @@
 }
 
 img.lazy {
-  filter: blur(25px)!important;
+  filter: blur(25px) !important;
   opacity: 0;
 }
 
 .carousel-container {
   @extend %container-margin;
   max-width: 650px; // image size + 150px
-  display: flex!important;
+  display: flex !important;
   justify-content: center;
   align-items: center;
-  padding:.5rem;
+  padding: .5rem;
   background: var(--bg-light);
   border-radius: 8px;
 }
 
-.slick-track
-{
-  display: flex!important;
+.slick-track {
+  display: flex !important;
   align-items: center;
 }
 

@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Model\Post;
 use Exception;
 use PDO;
 
@@ -12,9 +13,12 @@ final class paginatedQuery
     private string $queryCount;
     private ?PDO $pdo;
     private int $perPage;
-    private $count;
+    private ?int $count = null;
     private ?array $items = null;
 
+    /**
+     * @throws Exception
+     */
     public function __construct(
         string $query,
         string $queryCount,
@@ -32,7 +36,9 @@ final class paginatedQuery
         $this->perPage = $perPage;
     }
 
-    /** @var Post[] */
+    /** @throws Exception
+     * @var Post[]
+     */
     public function getItems(string $classMapping): ?array
     {
         if ($this->items === null) {
@@ -48,6 +54,9 @@ final class paginatedQuery
         return $this->items;
     }
 
+    /**
+     * @throws Exception
+     */
     public function previousLink($link): ?string
     {
         $currentPage = $this->getCurrentPage();
@@ -58,6 +67,9 @@ final class paginatedQuery
         HTML;
     }
 
+    /**
+     * @throws Exception
+     */
     public function nextLink($link): ?string
     {
         $currentPage = $this->getCurrentPage();
@@ -71,6 +83,7 @@ final class paginatedQuery
 
     /**
      * get current page (int)
+     * @throws Exception
      */
     private function getCurrentPage(): int
     {

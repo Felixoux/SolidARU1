@@ -26,7 +26,7 @@ class Text
      * @param string $string
      * @return string
      */
-    public static function strong(int $position = 3, string $string): string
+    public static function strong(int $position, string $string): string
     {
         if (strlen($string) < 50) {
             return $string;

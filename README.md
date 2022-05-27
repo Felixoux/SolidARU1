@@ -8,7 +8,7 @@ Ceci est le site repertoriant tous les évenements liés à la solidarité au se
 
 ## Technologies utilisées 
 
-- Php v7.4.28       
+- Php v7.4.28 (vanilla)     
 
 - dart-sass v1.50.0
 
@@ -33,4 +33,4 @@ Ceci est le site repertoriant tous les évenements liés à la solidarité au se
 
 ## Credits 
 
-Ce projet à été créé par Georgeault Felix en compagnie de l'ASBL "les amis ARU1". 
+> Ce projet a été réalisé par Georgeault Felix. 

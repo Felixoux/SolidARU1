@@ -8,6 +8,9 @@ final class URL
 {
     // For paginatedQuery
 
+    /**
+     * @throws Exception
+     */
     public static function getInt(string $name, ?int $default = null)
     {
         if (!isset($_GET[$name])) return $default;
@@ -19,6 +22,9 @@ final class URL
         return (int)$_GET[$name];
     }
 
+    /**
+     * @throws Exception
+     */
     public static function getPositiveInt(string $name, ?int $default = null): ?int
     {
         $param = self::getInt($name, $default);
