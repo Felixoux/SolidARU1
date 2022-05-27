@@ -64,6 +64,7 @@ HTML;
      * @param string $full_name
      * @param string $link
      * @return string|null
+     * @throws \Exception
      */
     public function getLi(string $full_name, string $link): ?string
     {

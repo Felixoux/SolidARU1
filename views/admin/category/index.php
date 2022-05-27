@@ -19,12 +19,8 @@ $alerts =
 foreach ($alerts as $get => $message) {
     echo($alert->getAlert($get, $message));
 }
-
-$listingQuery = new listingQuery($items, $pagination, $link, 'category', 'catégorie', $router);
-echo($listingQuery->getHeaderListing()); // Display header
-foreach ($items as $item) {
-    echo($listingQuery->getbodyListing($item)); // Display Items
-}
-echo($listingQuery->getFooterListing()); // Display pagination buttons
-?>
+// Get listing page
+$data = ["category" => 'catégorie/category-title'];
+$listingQuery = new listingQuery($items, $pagination, $data, $link, $router);
+$listingQuery->getListing();
 

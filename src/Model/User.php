@@ -4,8 +4,8 @@ namespace App\Model;
 
 class User
 {
-    private ?string $username = null;
-    private ?string $password = null;
+    private string $username = '';
+    private string $password = '';
 
     public function getUsername(): ?string
     {

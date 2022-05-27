@@ -33,6 +33,11 @@ abstract class ModelPC extends Model
         return e($this->content);
     }
 
+    /**
+     * Get a portion of a string, length defined by int $limit.
+     * @param int $limit
+     * @return string
+     */
     public function getExerpt(int $limit = 60): string
     {
         $summary = Text::exerpt($this->content, $limit);

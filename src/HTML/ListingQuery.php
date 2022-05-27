@@ -2,44 +2,52 @@
 
 namespace App\HTML;
 
-use App\{paginatedQuery,Router};
+use App\{paginatedQuery, Router};
 
-class ListingQuery
+final class ListingQuery
 {
 
-    private array $items;
+    private $items;
     private paginatedQuery $pagination;
     private string $link;
     private string $name;
+    private string $display_name;
+    private string $svg;
     private Router $router;
-    private string $name_to_display;
 
     public function __construct(
         array          $items,
         paginatedQuery $pagination,
-        string         $link,
-        string         $name,
-        string         $name_to_display,
-        Router         $router
+        array $data,
+        string $link,
+        Router  $router
     )
     {
         $this->items = $items;
         $this->pagination = $pagination;
-        $this->link = $link;
-        $this->name = $name;
-        $this->name_to_display = $name_to_display;
         $this->router = $router;
+        $this->link = $link;
+        foreach ($data as $link => $name) {
+            $this->name = $link;
+
+            $name_svg = explode('/', $name);
+            $this->display_name = $name_svg[0];
+            $this->svg = $name_svg[1];
+        }
+
     }
 
-    public function getHeaderListing(): string
+    private function getHeaderListing(): string
     {
-        $pageName = ucfirst($this->name_to_display);
+        $pageName = ucfirst($this->display_name);
         return <<<HTML
     <h2 class="medium-title mt3">
-    {$this->getSvg()}
-    {$pageName}
+        <svg class="edit-svg svg-big">
+            <use xlink:href="/img/svg/sprite.svg#{$this->svg}"></use>
+        </svg>
+        {$pageName}
     </h2>
-    <p class="muted mt1">C'est ici que l'on s'occupe des {$this->name_to_display}s :)</p>
+    <p class="muted mt1">C'est ici que l'on s'occupe des {$this->display_name}s :)</p>
     <hr>
     <section class="post-listing">
         <div class="post-listing__header">
@@ -53,16 +61,16 @@ class ListingQuery
 HTML;
     }
 
-    public function getBodyListing($item): ?string
+    private function getBodyListing($item): ?string
     {
         return <<<HTML
             <div class="card-design admin-card">
             <h4 class="admin-card__id mobile-hidden">{$item->getID()}</h4>
             <h4 class="admin-card__title">
-                <a href="{$this->getEdit($item)}"> {$item->getName()}</a>
+                <a href="{$this->getEditLink($item)}"> {$item->getName()}</a>
             </h4>
             <div class="admin-card__option">
-            <a href="{$this->getEdit($item)}" class="btn-primary section-title {$this->getEditClass()}">
+            <a href="{$this->getEditLink($item)}" class="btn-primary section-title {$this->getEditClass()}">
             <svg class="edit-svg">
                     <use xlink:href="/img/svg/sprite.svg#edit"></use>
             </svg>
@@ -83,7 +91,7 @@ HTML;
         HTML;
     }
 
-    public function getFooterListing(): string
+    private function getFooterListing(): string
     {
         return <<<HTML
     </section>
@@ -95,71 +103,85 @@ HTML;
 HTML;
     }
 
+    /**
+     * Displays the entire listing
+     * @return void
+     */
+    public function getListing(): void
+    {
+        echo $this->getHeaderListing();
+
+        foreach ($this->items as $item) {
+            echo $this->getBodyListing($item);
+        }
+
+        echo $this->getFooterListing();
+    }
+
+    /**
+     * Get name of new button
+     * @return string|null
+     */
     private function getNewDisplay(): ?string
     {
-        if ($this->name_to_display === 'article') {
+        if ($this->display_name === 'article') {
             return 'un article';
-        } elseif ($this->name_to_display === "catégorie") {
+        } elseif ($this->display_name === "catégorie") {
             return 'une catégorie';
-        } elseif ($this->name_to_display === "image") {
+        } elseif ($this->display_name === "image") {
             return 'des images';
-        } elseif ($this->name_to_display === "document") {
+        } elseif ($this->display_name === "document") {
             return 'des documents';
         } else {
             return null;
         }
     }
 
+    /**
+     * Get name of delete button
+     * @return string|null
+     */
     private function getDeleteDisplay(): ?string
     {
-        if ($this->name_to_display === 'article') {
+        if ($this->display_name === 'article') {
             return "l\'article";
-        } elseif ($this->name_to_display === "catégorie") {
+        } elseif ($this->display_name === "catégorie") {
             return 'la catégorie';
-        } elseif ($this->name_to_display === "image") {
+        } elseif ($this->display_name === "image") {
             return "l\'image";
-        } elseif ($this->name_to_display === "document") {
+        } elseif ($this->display_name === "document") {
             return 'le document';
         }
         return null;
     }
 
-    private function getEdit($item): ?string
+    /**
+     * Get edit link for Post|Category items
+     * @param $item
+     * @return string|null
+     * @throws \Exception
+     */
+    private function getEditLink($item): ?string
     {
-        if ($this->name_to_display === 'article' || $this->name_to_display === 'catégorie') {
+        if ($this->display_name === 'article' || $this->display_name === 'catégorie') {
             return $this->router->url('admin_' . $this->name, ['id' => $item->getID()]);
-        } elseif($this->name_to_display === 'image') {
+        } elseif($this->display_name === 'image') {
             return $this->router->url('image') . "?name=" . $item->getName() . "&width=600&height=600";
-        } elseif($this->name_to_display === 'document') {
+        } elseif($this->display_name === 'document') {
             return $this->router->url('home') . 'uploads/files/' . $item->getName();
         }
         return null;
     }
 
+    /**
+     * Decide whether edit button visible or not
+     * @return string
+     */
     private function getEditClass(): string
     {
-        if ($this->name_to_display === 'article' || $this->name_to_display === 'catégorie') {
+        if ($this->display_name === 'article' || $this->display_name === 'catégorie') {
             return '';
         }
         return 'hidden';
-    }
-
-    private function getSvg(): string
-    {
-        if ($this->name_to_display === 'article') {
-            $svg = "post";
-        } elseif($this->name_to_display === 'catégorie') {
-            $svg = "category-title";
-        } elseif($this->name_to_display === 'image') {
-            $svg = "image";
-        } else {
-            $svg = 'document';
-        }
-        return <<<HTML
-    <svg class="edit-svg svg-big">
-                    <use xlink:href="/img/svg/sprite.svg#{$svg}"></use>
-    </svg>
-HTML;
-
     }
 }
