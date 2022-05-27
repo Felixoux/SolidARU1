@@ -39,9 +39,7 @@ echo($navbar->getBottom());
     <form method="GET" action="<?= $router->url('search') ?>" onsubmit="removeSearch()">
         <input class="addFocus" type="text" name="q" placeholder="Rechercher du contenu" autofocus autocomplete="off">
         <button type="submit">
-            <svg>
-                <use xlink:href="/img/svg/sprite.svg#search"></use>
-            </svg>
+            <?= \App\Helper::svg('search') ?>
         </button>
     </form>
 </div>

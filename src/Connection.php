@@ -8,7 +8,7 @@ final class Connection
 {
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public static function getPDO(): ?PDO
     {

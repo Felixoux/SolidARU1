@@ -6,7 +6,7 @@ $router
 ->get('/image', 'image', 'image')
 ->get('/e404', 'e404', 'e404')
 ->get('/recherche', 'search/search', 'search')
-->match('/contact', 'contact/index', 'contact')
+->match('/contact', 'contact', 'contact')
 ->get('/politique-de-confidentialite', 'RGPD', 'rgpd')
 ->get('/a-propos', 'about', 'about')
 // === ADMIN ===

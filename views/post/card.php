@@ -12,7 +12,7 @@
         </h2>
         <div class="card__description muted-text">
             <p>
-                <?php if ($post->getImage()): ?> <!--There is less text is image is on the card-->
+                <?php if ($post->getImage()): ?>
                     <?= $post->getExerpt(150) ?>
                 <?php else: ?>
                     <?= $post->getExerpt(380) ?>
