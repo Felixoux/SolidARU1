@@ -19,11 +19,6 @@ final class Navbar
         $this->admin = $admin;
     }
 
-    /**
-     * Get the content before the links
-     * @return string
-     * @throws \Exception
-     */
     public function getTop(): string
     {
         return <<<HTML
@@ -38,10 +33,6 @@ final class Navbar
 HTML;
     }
 
-    /**
-     * Get the content after the links
-     * @return string
-     */
     public function getBottom(): string
     {
         return <<<HTML

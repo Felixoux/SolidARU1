@@ -107,6 +107,7 @@
 // ==================
 .flex, %flex {
   display: flex !important;
+  display: -webkit-flex;
   align-items: center;
   justify-content: space-between;
 
@@ -137,6 +138,7 @@
 
 .flex-center, %flex-center {
   display: flex;
+  display: -webkit-flex;
   align-items: center;
   justify-content: center;
 }
@@ -175,6 +177,7 @@
 // grilles
 // ========================
 %grid, .grid {
+  display: inline-grid;
   display: -moz-inline-grid;
   grid-template-columns: 1fr;
   justify-content: flex-start;

@@ -1,7 +1,8 @@
 .header {
   @extend .flex;
+  @extend .absolute;
   position: fixed;
-  top: 0;
+  height: auto;
   line-height: 1;
   padding-top: calc(4.5 * var(--space));
   padding-bottom: calc(4.5 * var(--space));
@@ -28,9 +29,10 @@
   width: 16px;
   height: 16px;
   margin-right: calc(1 * var(--space));
-  transition: .3s;
   fill: var(--text);
 }
+
+
 
 .header__home {
   display: flex;
@@ -51,6 +53,10 @@
   height: 16px;
   padding-right: calc(1 * var(--space));
   border-right: 1px solid var(--border);
+}
+
+.header__search svg, .header__logout svg {
+    transition: .3s;
 }
 
 // Burger
