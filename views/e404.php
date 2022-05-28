@@ -1,5 +1,6 @@
 <?php
 http_response_code(404);
+$beforeBodyContent = ob_before('<meta content="noindex">');
 ?>
 <div class="container-404">
     <div class="mascott-404">
@@ -53,15 +54,9 @@ http_response_code(404);
 </svg>
     </div>
     <div class="div-404 stack">
-        <h1 class="big-title">Erreur 404 !</h1>
-        <h2 class="section-title">Oups... la page recherchée n’existe  :(</h2>
-        <h4>Vous pouvez revenir sur l’accueil en <a href="<?= $router->url('home') ?>">cliquant ici !</a> <br>
-            Vous pouvez aussi nous contacter si le problème persiste au <a href="mailto:lesamisaru1@gmail.com">lesamisaru1@gmail.com</a>
-        </h4>
+        <h2 class="section-title alert">Oups...la page recherchée n’existe  :(</h2>
+        <h3><a href="<?= $router->url('home') ?>">Cliquer ici</a> pour revenir sur l'accueil</h3>
+        <h3 class="mt2">Vous avez peut-être oublié où vous vouliez aller ? Cet article pourrait vous aider :)</h3>
+        <a href="https://www.lumni.fr/video/la-memoire-comment-ca-marche">Comment fonctionnne la mémoire ?</a>
     </div>
 </div>
-
-<?php ob_start(); ?>
-    <meta content="noindex">
-<?php $beforeBodyContent = ob_get_clean();
-
