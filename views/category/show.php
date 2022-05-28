@@ -9,6 +9,11 @@ $pdo = Connection::getPDO();
 /** @var Category|false */
 $category = (new CategoryTable($pdo))->find($id);
 
+if ($category === false) {
+    header('location: ' . $router->url('e404'));
+    exit();
+}
+
 $pageTitle = $category->getName(); // Tab name
 $pageSummary = $category->getExerpt(150);
 

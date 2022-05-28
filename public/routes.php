@@ -4,7 +4,7 @@ $router
 ->get('/category/[*:slug]-[i:id]', 'category/show', 'category')
 ->get('/blog/[*:slug]-[i:id]', 'post/show', 'post')
 ->get('/image', 'image', 'image')
-->get('/e404', 'e404', 'e404')
+->get('/page-introuvable', 'e404', 'e404')
 ->get('/recherche', 'search/search', 'search')
 ->match('/contact', 'contact/index', 'contact')
 ->get('/politique-de-confidentialite', 'RGPD', 'rgpd')

@@ -14,7 +14,8 @@ $post = $table->find($id);
 [$images, $files] = $table->getAttach($id);
 
 if ($post === false) {
-    header('location: /');
+    header('location: ' . $router->url('e404'));
+    exit();
 }
 
 $pageTitle = $post->getName();
