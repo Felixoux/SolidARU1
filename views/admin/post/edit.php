@@ -34,8 +34,7 @@ if (!empty($_POST)) {
         $postTable->attachAll($pdo, $post); // Attach categories | Images | Files
         $categoryTable->hydratePosts([$post]);
         $pdo->commit();
-        $success = true;
-        header('Location: ' . $router->url('admin_posts') . '?modified=1');
+        header('Location: ' . $router->url('admin_post', ['id' => $params['id']]) . '?modified=1');
     } else {
         $errors = $v->errors();
     }
@@ -58,7 +57,8 @@ $alerts =
     [
         'delete_thumbnail' => "L'image à la une à bien été supprimée",
         'images_detach' => "Les images ont bien été dissociées",
-        'files_detach' => "Les documents ont bien été dissociés"
+        'files_detach' => "Les documents ont bien été dissociés",
+        'modified' => "L'article a bien été modifié"
     ];
 foreach ($alerts as $get => $message) {
     echo($alert->getAlert($get, $message));

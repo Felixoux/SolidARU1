@@ -18,8 +18,7 @@ if (!empty($_POST)) {
         $categoryAttachment = new CategoryAttachment;
         $categoryAttachment->upload($item);
         $table->updatePC($item);
-        header('Location: ' . $router->url('admin_categories') . '?modified=1');
-        exit();
+        header('Location: ' . $router->url('admin_category', ['id' => $params['id']]) . '?modified=1');
     } else {
         $errors = $v->errors();
     }
@@ -35,6 +34,9 @@ $form = new Form($item, $errors);
     Éditer la catégorie "<?= $item->getName() ?>"
 </h2>
 <hr>
+<?php if (isset($_GET['modified'])): ?>
+    <p class="alert alert-success">La catégorie a bien été modifiée</p>
+<?php endif ?>
 <?php if (isset($_GET['delete_thumbnail'])): ?>
     <p class="alert alert-success">L'image à la une à bien été supprimée</p>
 <?php endif ?>

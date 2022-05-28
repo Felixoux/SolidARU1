@@ -13,8 +13,7 @@ $alert = new Alert();
 $alerts =
     [
         'delete' => "L'article a bien été supprimé",
-        'created' => "L'article a bien été créé",
-        'modified' => "L'article a bien été modifié"
+        'created' => "L'article a bien été créé"
     ];
 foreach ($alerts as $get => $message) {
     echo($alert->getAlert($get, $message));

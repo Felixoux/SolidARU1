@@ -13,8 +13,7 @@ $alert = new Alert();
 $alerts =
     [
         'delete' => "La catégorie a bien été supprimée",
-        'created' => "La catégorie a bien été créé",
-        'modified' => "La catégorie a bien été modifiée"
+        'created' => "La catégorie a bien été créé"
     ];
 foreach ($alerts as $get => $message) {
     echo($alert->getAlert($get, $message));
