@@ -61,12 +61,22 @@ if ($post->getSlug() !== $slug) {
                 ?>
             </div>
         <?php endif ?>
-        <a class="article__button btn-primary-outline" href="<?= $_SESSION['category_link'] ?>">
-            <svg class="mr1 edit-svg">
-                <use xlink:href="/img/svg/sprite.svg#category_card"></use>
-            </svg>
-            Revenir à la catégorie
-        </a>
+        <footer style="display: flex; justify-content: flex-end">
+            <?php if(\App\Auth::is_connected() === true): ?>
+            <a class="article__button btn-primary" href="<?= $router->url('admin_post', ['id' => $id]) ?>">
+                <svg class="mr1 edit-svg">
+                    <use xlink:href="/img/svg/sprite.svg#edit"></use>
+                </svg>
+                Éditer
+            </a>
+            <?php endif ?>
+            <a class="article__button btn-primary-outline ml3" href="<?= $_SESSION['category_link'] ?>">
+                <svg class="mr1 edit-svg">
+                    <use xlink:href="/img/svg/sprite.svg#category_card"></use>
+                </svg>
+                Revenir à la catégorie
+            </a>
+        </footer>
     </section>
 <?php if (!empty($images)): ?>
     <div class="carousel-container my5" style="background: var(--bg-card);border: 1px solid var(--border)">

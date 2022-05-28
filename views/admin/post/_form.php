@@ -1,11 +1,10 @@
 <section class="mt4">
-    <p class="alert mb3">* champs requis</p>
-    <a class="underline mt3" href="<?= $router->url('admin_guide') . "#md-guide" ?>">Guide d'écriture simplifié (pour le contenu
-        uniquement)</a>
+    <p class="mb3"><a class="btn-primary" href="<?= $router->url('post', ['id' => $post->getId(), 'slug' => $post->getSlug()]) ?>">Voir l'article</a></p>
     <form action="" method="POST" enctype="multipart/form-data" class="grid-form mt3">
         <?= $form->input('name', 'Titre', 'withSpace', 'required') ?>
         <?= $form->input('slug', 'URL', 'withDash', 'required') ?>
         <div class="content-form">
+            <p class="mb3"><a class="underline" href="<?= $router->url('admin_guide') . "#md-guide" ?>">Synthaxe simplifiée</a></p>
             <?= $form->textarea('content', 'Contenu') ?>
         </div>
         <div class="content-post">
