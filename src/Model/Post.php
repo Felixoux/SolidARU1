@@ -52,9 +52,10 @@ class Post extends ModelPC
         return $ids;
     }
 
-    public function setFiles(array $files): void
+    public function setFiles(array $files): self
     {
         $this->files = $files;
+        return $this;
     }
 
     public function getFilesIds(): array
