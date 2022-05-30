@@ -44,10 +44,21 @@
 
 @include up(1380) {
   .article__content {
-    float: left;
+    display: block!important;
+    & > * {
+      margin-bottom: 1rem;
+    }
+    hr {
+      margin: 2rem 0;
+    }
   }
   .post-image-wrapper {
     float: right;
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+  }
+  .article__footer {
+    margin-top: 2rem;
   }
 }
 

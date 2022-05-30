@@ -64,7 +64,7 @@ if ($post->getSlug() !== $slug) {
             </div>
         <?php endif ?>
     </div>
-    <footer style="display: flex; justify-content: flex-end">
+    <footer class="article__footer" style="display: flex; justify-content: flex-end">
         <?php if(\App\Auth::is_connected() === true): ?>
         <a class="article__button btn-primary" href="<?= $router->url('admin_post', ['id' => $id]) ?>">
             <svg class="mr1 edit-svg">
