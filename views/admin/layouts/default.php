@@ -9,7 +9,7 @@ App\Auth::remember();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="noindex">
-    <title>Solidarité | <?= isset($pageTitle) ? e($pageTitle) : 'Blog' ?></title>
+    <title><?= isset($pageTitle) ? e($pageTitle) : 'Blog' ?> | Admin</title>
     <link rel="shortcut icon" href="/img/svg/logo/favicon.svg">
     <link rel="stylesheet" href="/css/style.css">
     <?= $beforeBodyContent ?? '' ?>

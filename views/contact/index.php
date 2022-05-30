@@ -1,5 +1,5 @@
 <?php
-$pageTitle = 'contact';
+$pageTitle = 'Contact';
 ?>
 <h1 class="big-title page-header container">Nous <strong>contacter ?</strong></h1>
 <svg class="contact-wave" id="wave" style="transform:rotate(0deg); transition: 0.3s" viewBox="0 0 1440 490"

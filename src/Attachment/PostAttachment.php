@@ -15,7 +15,7 @@ class PostAttachment extends Attachment
         $filename = uniqid('', true);
         $manager = new ImageManager(['driver' => 'gd']);
         $this->getSave($manager, $image, $filename);
-        $this->getSave($manager, $image, $filename,'_large.jpg', 1280);
+        $this->getSave($manager, $image, $filename,'_large.jpg', 650);
         $item->setImage($filename);
     }
 }

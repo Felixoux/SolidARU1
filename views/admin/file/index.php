@@ -3,7 +3,7 @@
 use App\{Auth, Connection, HTML\Alert, HTML\ListingQuery, Table\FileTable};
 
 Auth::check();
-$pageTitle = 'Gestion des images';
+$pageTitle = 'Gestion des documents';
 $pdo = Connection::getPDO();
 [$items, $pagination] = (new FileTable($pdo))->findPaginated();
 $link = $router->url('admin_files');

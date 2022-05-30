@@ -11,7 +11,7 @@ App\Auth::remember();
     <meta name="description" content="<?= isset($pageSummary) ? e($pageSummary) : 'Ceci est un site répertoriant tous les articles de l\'ASBL les amis ARU1' ?>">
     <meta name="keywords" content="ARU1 aru1 solidaru1 solidarité felixoux alwaysdata site">
     <meta name="google-site-verification" content="-UejOj4iwCE1xZZHO3O9gncUUfsEczIaQIitaMI3z-w"/>
-    <title>Solidarité | <?= isset($pageTitle) ? e($pageTitle) : 'Blog' ?></title>
+    <title><?= isset($pageTitle) ? e($pageTitle) : 'Blog' ?> | Solidaru1</title>
     <link rel="shortcut icon" href="/img/favicon.ico">
     <link rel="stylesheet" href="/css/style.css">
     <?= $beforeBodyContent ?? '' ?>

@@ -1,6 +1,7 @@
 <?php
 http_response_code(404);
 $beforeBodyContent = ob_before('<meta content="noindex">');
+$pageTitle = "Page introuvable";
 ?>
 <div class="container-404">
     <div class="mascott-404">

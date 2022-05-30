@@ -1,8 +1,8 @@
 <?php
 use App\{Connection, Auth, HTML\Form, Model\User, Table\Exception\NotFoundException, Table\UserTable};
-
 Auth::check();
 
+$pageTitle = "Sécurité";
 $pdo = Connection::getPDO();
 $table = new UserTable($pdo);
 $user = $table->all()[0];

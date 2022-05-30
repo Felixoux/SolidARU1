@@ -4,7 +4,7 @@
         <?= $form->input('name', 'Titre', 'withSpace', 'required') ?>
         <?= $form->input('slug', 'URL', 'withDash', 'required') ?>
         <div class="content-form">
-            <p class="mb3"><a class="underline" href="<?= $router->url('admin_guide') . "#md-guide" ?>">Synthaxe simplifiée</a></p>
+            <p class="mb3"><a class="underline" href="<?= $router->url('admin_guide') . "#md-guide" ?>">Écriture stylisée</a></p>
             <?= $form->textarea('content', 'Contenu') ?>
         </div>
         <div class="content-post">

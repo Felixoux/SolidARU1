@@ -1,7 +1,6 @@
 <?php
-$pageTitle = "accueil";
-use App\Connection;
-use App\Table\CategoryTable;
+$pageTitle = "Accueil";
+use App\{Connection, Table\CategoryTable};
 
 $pdo = Connection::getPDO();
 
@@ -176,7 +175,7 @@ $link = $router->url('home');
         <p class="mobile-hidden muted">Mis à jour le 22/04/22</p>
     </header>
     <?php if (isset($_GET['empty'])): ?>
-        <p class="alert alert-danger">La catégorie ne contient aucun post</p>
+        <p class="alert alert-danger">La catégorie ne contient aucun article</p>
     <?php endif ?>
     <div class="big-grid-event">
         <?php  $colors = ["#FF883D", "#41CF7C", "#54aae8", "#8893C4"] ?>

@@ -4,6 +4,9 @@
   grid-template-rows: 1fr auto;
   padding-top: calc(var(--space-section) / 4);
   height: fit-content;
+  @include up(1380) {
+    display: block;
+  }
 }
 
 .article__content {
@@ -39,6 +42,16 @@
   justify-self: flex-end;
 }
 
+@include up(1380) {
+  .article__content {
+    float: left;
+  }
+  .post-image-wrapper {
+    float: right;
+  }
+}
+
+// slick images
 .blur-img {
   overflow: hidden;
 }

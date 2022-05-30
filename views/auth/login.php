@@ -1,6 +1,6 @@
 <?php
 use App\{Auth, Connection, HTML\Form, Model\User, Table\Exception\NotFoundException, Table\UserTable, Helper};
-
+$pageTitle = "Connection";
 $user = new User();
 $errors = [];
 

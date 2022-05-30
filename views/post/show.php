@@ -28,24 +28,25 @@ if ($post->getSlug() !== $slug) {
     exit();
 }
 ?>
-    <header class="article__header page-header flex">
-        <h1 class="article__title section-title">
-            <?= Text::strong(3, $post->getName()) ?>
-        </h1>
-        <div class="flex">
-            <svg class="mr2 card__svg mobile-hidden">
-                <use xlink:href="/img/svg/sprite.svg#calendar"></use>
-            </svg>
-            <p class="muted mobile-hidden"><?= $post->getCreatedAt()->format("d/m/Y") ?></p>
+<header class="article__header page-header flex">
+    <h1 class="article__title section-title">
+        <?= Text::strong(3, $post->getName()) ?>
+    </h1>
+    <div class="flex">
+        <svg class="mr2 card__svg mobile-hidden">
+            <use xlink:href="/img/svg/sprite.svg#calendar"></use>
+        </svg>
+        <p class="muted mobile-hidden"><?= $post->getCreatedAt()->format("d/m/Y") ?></p>
+    </div>
+</header>
+<section class="article">
+    <?php if ($post->getImage()): ?>
+        <div class="post-image-wrapper">
+            <img src="<?= $post->getImageURL('large') ?>" alt="">
         </div>
-    </header>
-    <section class="article">
-        <?php if ($post->getImage()): ?>
-            <!--<img src="<? /*= $post->getImageURL('small') */ ?>" alt="">-->
-        <?php endif ?>
-        <div class="article__content">
-            <?= $post->getBody() ?>
-        </div>
+    <?php endif ?>
+    <div class="article__content">
+        <?= $post->getBody() ?>
         <?php if (!empty($files)): ?>
             <div class="article__files">
                 <hr>
@@ -54,31 +55,32 @@ if ($post->getSlug() !== $slug) {
                     $name = $file['name'];
                     $link = '/uploads/files' . DIRECTORY_SEPARATOR . $file['name'];
                     echo <<<HTML
-            <p class="mb1">
-                <a href="$link">$name</a>
-            </p>
-            HTML;
+        <p class="mb1">
+            <a href="$link">$name</a>
+        </p>
+        HTML;
                 }
                 ?>
             </div>
         <?php endif ?>
-        <footer style="display: flex; justify-content: flex-end">
-            <?php if(\App\Auth::is_connected() === true): ?>
-            <a class="article__button btn-primary" href="<?= $router->url('admin_post', ['id' => $id]) ?>">
-                <svg class="mr1 edit-svg">
-                    <use xlink:href="/img/svg/sprite.svg#edit"></use>
-                </svg>
-                Éditer
-            </a>
-            <?php endif ?>
-            <a class="article__button btn-primary-outline ml3" href="<?= $_SESSION['category_link'] ?>">
-                <svg class="mr1 edit-svg">
-                    <use xlink:href="/img/svg/sprite.svg#category_card"></use>
-                </svg>
-                Revenir à la catégorie
-            </a>
-        </footer>
-    </section>
+    </div>
+    <footer style="display: flex; justify-content: flex-end">
+        <?php if(\App\Auth::is_connected() === true): ?>
+        <a class="article__button btn-primary" href="<?= $router->url('admin_post', ['id' => $id]) ?>">
+            <svg class="mr1 edit-svg">
+                <use xlink:href="/img/svg/sprite.svg#edit"></use>
+            </svg>
+            Éditer
+        </a>
+        <?php endif ?>
+        <a class="article__button btn-primary-outline ml3" href="<?= $_SESSION['category_link'] ?>">
+            <svg class="mr1 edit-svg">
+                <use xlink:href="/img/svg/sprite.svg#category_card"></use>
+            </svg>
+            Revenir à la catégorie
+        </a>
+    </footer>
+</section>
 <?php if (!empty($images)): ?>
     <div class="carousel-container my5" style="background: var(--bg-card);border: 1px solid var(--border)">
         <?php foreach ($images as $k => $image) {

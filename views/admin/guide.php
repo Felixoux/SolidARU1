@@ -1,8 +1,8 @@
 <?php
-
 use App\Auth;
 
 Auth::check();
+$pageTitle = "Guide";
 ?>
 
 <section class="guide">
@@ -101,16 +101,17 @@ Auth::check();
         </ul>
         <h4>Et maintenant, cliquez sur le bouton "ajouter" !</h4>
         <h4>Désormais vous allez pouvoir associer ces images et documents à vos articles</h4>
+        <p class="muted">Vous pouvez prévisualiser les images et les documents en cliquant sur leurs noms.</p>
     </div>
     <div id="edit-pc" class="guide-group">
         <h2>Édition des articles/catégories</h2>
         <hr>
         <h4>Pour éditer des articles/catégories, il faut: </h4>
         <ul>
-            <li>Aller dans l’onglet “articles/catégories” de la navigation et cliquer sur le bouton “éditer”</li>
+            <li>Aller dans l’onglet “articles/catégories” de la navigation et cliquer sur le bouton “éditer” OU cliquez sur le bouton "Éditer" directement sur la page de l'article</li>
             <li>Là il vous suffit de modifier les champs que vous souhaitez changer et de cliquer sur le bouton “modifier” !</li>
             <li>En plus de ça, vous pouvez supprimer l'image à la une de l'article et des catégories en cliquant sur le bouton <span class="alert">"supprimer l'image à la une"</span></li>
-            <li>Vous pouvez aussi dissocier les images et les documents du contenu en cliquant sur leur bouton respectif dans la section <span class="alert">"danger zone"</span>.</li>
+            <li>Vous pouvez aussi dissocier les images et les documents du contenu en cliquant sur leur bouton respectif dans la section <span class="alert">"Zone danger"</span>.</li>
         </ul>
     </div>
     <div id="delete-items" class="guide-group">
@@ -156,7 +157,6 @@ Auth::check();
     </div>
 
     <h2 id="md-guide">Guide d'écriture <strong>stylisée</strong></h2>
-    <hr>
     <div class="mini-header">
         <p class="muted mb1">Voici le guide pour vous apprendre à écrire un texte stylisé pour le contenu de vos articles</p>
         <p class="alert">Attention, l'espace entre les caractères spéciaux et le texte est très important !<br>
@@ -175,23 +175,10 @@ Auth::check();
     <div class="guide-control">
         <h3 class="guide-control__title">Résultat</h3>
         <div class="guide-control__content">
-            <h1>Titre</h1>
+            <h1 class="big-title">Titre</h1>
             <h2>Titre</h2>
-            <h3>Titre</h3>
+            <h3 class="medium-title">Titre</h3>
             <h4>Titre</h4>
-        </div>
-    </div>
-    <hr>
-    <div class="guide-control">
-        <h3 class="guide-control__title">Séparation</h3>
-        <div class="guide-control__content">
-            <p>----------</p>
-        </div>
-    </div>
-    <div class="guide-control">
-        <h3 class="guide-control__title">Résultat</h3>
-        <div class="guide-control__content">
-            <hr>
         </div>
     </div>
     <hr>
@@ -207,8 +194,22 @@ Auth::check();
         <h3 class="guide-control__title">Résultat</h3>
         <div class="guide-control__content">
             <p class="italic">Texte italique</p>
-            <p class="bold">Texte Gras</p>
-            <p class="italic bold">Texte italique et gras</p>
+            <strong class="bold">Texte Gras</strong> <br>
+            <strong class="bold italic">Texte italique et gras</strong>
+        </div>
+    </div>
+    <hr>
+    <div class="guide-control">
+        <h3 class="guide-control__title">Séparation</h3>
+        <h4 class="muted">3 tirets minimum</h4>
+        <div class="guide-control__content">
+            <p>---</p>
+        </div>
+    </div>
+    <div class="guide-control">
+        <h3 class="guide-control__title">Résultat</h3>
+        <div class="guide-control__content">
+            <hr>
         </div>
     </div>
     <hr>
@@ -247,28 +248,45 @@ Auth::check();
     </div>
     <hr>
     <div class="guide-control">
-        <h3 class="guide-control__title">Citation</h3>
-        <div class="guide-control__content">
-            <p>> Ceci est une citation de John Doe</p>
+        <h3 class="guide-control__title">Example d'article</h3>
+        <div class="guide-control__content stack">
+            <p># Voici un gros titre d'example</p>
+            <p>## Voici un sous-titre d'example avec **texte gras de couleur**</p>
+            <p>Voici un liste</p>
+            <ul>
+                <li>- élément 1</li>
+                <li>- élément 2</li>
+                <li>- élément 3</li>
+            </ul>
+            <p>### Ici un titre de section avec un mot en *italique*</p>
+            <p>juste en dessous une séparation</p>
+            <p>-------</p>
+            <p>[Voici un lien qui ramène vers youtube](https://www.youtube.com/).</p>
+            <p>------</p>
+            <p>Mieux qu'un lien vers youtube, une vidéo intégrée facile à mettre, comme ceci</p>
+            <p>https://www.youtube.com/watch?v=daFv-csZjjk</p>
+            <p>Voilà le gros example pour mieux comprendre est fini !</p>
         </div>
     </div>
     <div class="guide-control">
         <h3 class="guide-control__title">Résultat</h3>
-        <div class="guide-control__content">
-            <blockquote> "Ceci est une citation de John Doe"</blockquote>
-        </div>
-    </div>
-    <hr>
-    <div class="guide-control">
-        <h3 class="guide-control__title">Changer de couleur de fond</h3>
-        <div class="guide-control__content">
-            <p>`Texte fond clair`</p>
-        </div>
-    </div>
-    <div class="guide-control">
-        <h3 class="guide-control__title">Résultat</h3>
-        <div class="guide-control__content guide-control__content--code">
-            <code>Texte fond clair</code>
+        <div class="guide-control__content stack">
+            <h1 class="big-title" style="font-size: 40px">Voici un gros titre d'example</h1>
+            <h2 class="section-title" style="font-size: 35px">Voici un sous-titre d'example avec <strong>texte gras de couleur</strong></h2>
+            <p>Voici une liste</p>
+            <ul class="list-circle">
+                <li>Élément 1</li>
+                <li>Élément 2</li>
+                <li>Élément 3</li>
+            </ul>
+            <h3 class="medium-title">Ici un titre de section avec un mot en <em>italique</em></h3>
+            <p>juste en dessous une séparation</p>
+            <hr>
+            <a href="https://www.youtube.com/">Voici un lien qui ramène vers youtube</a>
+            <hr>
+            <p>Mieux qu'un lien vers youtube, une vidéo intégrée facile à mettre, comme ceci</p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/daFv-csZjjk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <p>Voilà le gros example pour mieux comprendre est fini !</p>
         </div>
     </div>
 </section>
