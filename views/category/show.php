@@ -32,7 +32,7 @@ $_SESSION['category_link'] = $router->url('category', ['id' => $category->getID(
 
 <main class="event big-section">
     <header class="header-section flex">
-        <h2 id="event" class="section-title">Voici les posts liés au thème <strong><?= $category->getName()
+        <h2 id="event" class="section-title">Voici les articles liés au thème <strong><?= $category->getName()
                 ?></strong>
     </header>
     <p class="js-hide mt1"><?= $category->getContent() ?></p>
