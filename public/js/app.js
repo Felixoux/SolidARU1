@@ -113,3 +113,10 @@ blogBtn.click(function () {
         scrollTop: section.offset().top - 100
     })
 })
+
+let droeImg = $('.droe-sifflet');
+let droeBtn = $('.droeBtn');
+
+droeBtn.click(function () {
+    droeImg.toggleClass('active')
+})

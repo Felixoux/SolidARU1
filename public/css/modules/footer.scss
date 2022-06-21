@@ -66,3 +66,11 @@
     margin-left: calc(var(--gap) * 2);
   }
 }
+
+img.droe-sifflet {
+  display: none;
+}
+
+img.droe-sifflet.active {
+  display: block;
+}

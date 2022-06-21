@@ -1,7 +1,5 @@
 <?php
 App\Helper::sessionStart();
-require AUTOLOAD_PATH;
-
 use App\{Connection, Helpers\Text, Model\Post, Table\PostTable};
 
 $id = (int)$params['id'];
@@ -73,12 +71,21 @@ if ($post->getSlug() !== $slug) {
             Éditer
         </a>
         <?php endif ?>
+        <?php if($_SESSION['category_link'] != "false"): ?>
         <a class="article__button btn-primary-outline ml3" href="<?= $_SESSION['category_link'] ?>">
             <svg class="mr1 edit-svg">
                 <use xlink:href="/img/svg/sprite.svg#category_card"></use>
             </svg>
             Revenir à la catégorie
         </a>
+        <?php else: ?>
+        <a class="article__button btn-primary-outline ml3" href="<?= $router->url('home') ?>">
+            <svg class="mr1 edit-svg">
+                <use xlink:href="/img/svg/sprite.svg#home"></use>
+            </svg>
+            Revenir à l'accueil
+        </a>
+        <?php endif ?>
     </footer>
 </section>
 <?php if (!empty($images)): ?>

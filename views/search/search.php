@@ -1,7 +1,9 @@
 <?php
-$pageTitle = 'recherche';
-
+App\Helper::sessionStart();
 use App\{Connection, Model\Post};
+
+$pageTitle = 'recherche';
+$_SESSION['category_link'] = "false";
 
 if (!empty($_GET['q'])) {
     $q = e($_GET['q']);

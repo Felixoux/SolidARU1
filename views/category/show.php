@@ -27,6 +27,7 @@ if ($category->getSlug() !== $slug) {
 
 $link = $router->url('category', ['id' => $category->getID(), 'slug' => $category->getSlug()]);
 $_SESSION['category_link'] = $router->url('category', ['id' => $category->getID(), 'slug' => $category->getSlug()]); // To remember the link
+
 ?>
 
 <main class="event big-section">
