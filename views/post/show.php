@@ -26,7 +26,7 @@ if ($post->getSlug() !== $slug) {
     exit();
 }
 ?>
-<header class="article__header page-header flex">
+<header class="article__header page-header flex" xmlns="http://www.w3.org/1999/html">
     <h1 class="article__title section-title">
         <?= Text::strong(3, $post->getName()) ?>
     </h1>
@@ -38,29 +38,29 @@ if ($post->getSlug() !== $slug) {
     </div>
 </header>
 <section class="article">
+    <div>
     <?php if(file_exists($img_path)): ?>
-        <div class="post-image-wrapper">
-            <img src="<?= $post->getImageURL('large') ?>" alt="">
-        </div>
+        <img src="<?= $post->getImageURL('large') ?>" alt="">
     <?php endif ?>
-    <div class="article__content">
-        <?= $post->getBody() ?>
-        <?php if (!empty($files)): ?>
-            <div class="article__files">
-                <hr>
-                <h3 class="medium-title mb3">Document(s) disponible(s) :</h3>
-                <?php foreach ($files as $k => $file) {
-                    $name = $file['name'];
-                    $link = '/uploads/files' . DIRECTORY_SEPARATOR . $file['name'];
-                    echo <<<HTML
-        <p class="mb1">
-            <a href="$link">$name</a>
-        </p>
-        HTML;
-                }
-                ?>
-            </div>
-        <?php endif ?>
+        <div class="article__content">
+            <?= $post->getBody() ?>
+            <?php if (!empty($files)): ?>
+                <div class="article__files">
+                    <hr>
+                    <h3 class="medium-title mb3">Document(s) disponible(s) :</h3>
+                    <?php foreach ($files as $k => $file) {
+                        $name = $file['name'];
+                        $link = '/uploads/files' . DIRECTORY_SEPARATOR . $file['name'];
+                        echo <<<HTML
+            <p class="mb1">
+                <a href="$link">$name</a>
+            </p>
+            HTML;
+                    }
+                    ?>
+                </div>
+            <?php endif ?>
+        </div>
     </div>
     <footer class="article__footer" style="display: flex; justify-content: flex-end">
         <?php if(\App\Auth::is_connected() === true): ?>

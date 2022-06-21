@@ -3,6 +3,10 @@
   gap: calc(2 * var(--gap));
 }
 
+.guide hr {
+  width: 100%;
+}
+
 .guide, .guide-control, .guide-group {
   @extend .stack;
 }
