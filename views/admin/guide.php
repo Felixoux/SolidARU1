@@ -3,6 +3,7 @@ use App\Auth;
 
 Auth::check();
 $pageTitle = "Guide";
+$domain = C('domain');
 ?>
 
 <section class="guide">
@@ -25,8 +26,8 @@ $pageTitle = "Guide";
     <hr>
     <h4>Pour se connecter il faut: </h4>
     <ul>
-        <li>Taper “/admin” à la fin du l’url de l’accueil, soit “felixoux.alwaysdata.net”.
-            Ce qui donne “felixoux.alwaysdata.net/admin”.</li>
+        <li>Taper “/admin” à la fin du l’url de l’accueil, soit “<?= $domain ?>”.
+            Ce qui donne “<?= $domain ?>/admin”.</li>
         <li>Ensuite entrer le nom d’utilisateur, par défaut “admin”.</li>
         <li>Et entrez le mot de passe, par défaut “admin”.</li>
         <li>Vous pouvez éventuellement cliquer sur “RESTER CONNECTER”.
