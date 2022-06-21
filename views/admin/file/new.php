@@ -22,7 +22,7 @@ if (isset($_POST['submit'])) {
         $item->setName($file);
 
         $f_maxsize = 41943040;
-        $f_ext_allowed = ['pdf'];
+        $f_ext_allowed = ['pdf', "PDF"];
 
         $f_name_2 = str_replace(" ", "_", htmlspecialchars($file));
         $f_size = $_FILES["file"]['size'][$i];
