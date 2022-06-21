@@ -15,7 +15,7 @@ if ($post === false) {
     header('location: ' . $router->url('e404'));
     exit();
 }
-
+$img_path =  UPLOAD_PATH . DIRECTORY_SEPARATOR . 'posts' . DIRECTORY_SEPARATOR . $post->getImage() . '_large.jpg';
 $pageTitle = $post->getName();
 $pageSummary = $post->getExerpt(150);
 
@@ -38,7 +38,7 @@ if ($post->getSlug() !== $slug) {
     </div>
 </header>
 <section class="article">
-    <?php if ($post->getImage()): ?>
+    <?php if(file_exists($img_path)): ?>
         <div class="post-image-wrapper">
             <img src="<?= $post->getImageURL('large') ?>" alt="">
         </div>

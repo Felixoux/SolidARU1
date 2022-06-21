@@ -114,9 +114,3 @@ blogBtn.click(function () {
     })
 })
 
-let droeImg = $('.droe-sifflet');
-let droeBtn = $('.droeBtn');
-
-droeBtn.click(function () {
-    droeImg.toggleClass('active')
-})
