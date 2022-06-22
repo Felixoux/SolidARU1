@@ -13,7 +13,7 @@
   margin-bottom: 1rem;
 }
 
-.article__content {
+.article__content p{
   @extend .stack;
   text-align: justify;
 }

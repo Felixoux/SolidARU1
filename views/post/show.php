@@ -47,7 +47,7 @@ if ($post->getSlug() !== $slug) {
             <?php if (!empty($files)): ?>
                 <div class="article__files">
                     <hr>
-                    <h3 class="medium-title mb3">Document(s) disponible(s) :</h3>
+                    <h3 class="medium-title mb3">Documents utiles :</h3>
                     <?php foreach ($files as $k => $file) {
                         $name = $file['name'];
                         $link = '/uploads/files' . DIRECTORY_SEPARATOR . $file['name'];
