@@ -25,7 +25,8 @@
             <h4 class="alert mb1">Zone danger</h4>
             <a onclick="return confirm('Voulez vous vraiment supprimer l\'image à la une ?')" class="btn-alert mr2 mb2" href="<?= $router->url('post_thumbnail_delete', ['id' => $post->getID(), 'token' => $_SESSION['token']]) ?>">Supprimer l'image à la une</a>
             <a onclick="return confirm('Voulez vous vraiment dissocier les images ?')" class="btn-alert mr2 mb2" href="<?= $router->url('post_images_detach', ['id' => $post->getID(), 'token' => $_SESSION['token']]) ?>">Dissocier les images</a>
-            <a onclick="return confirm('Voulez vous vraiment dissocier les documents à la une ?')" class="btn-alert" href="<?= $router->url('post_files_detach', ['id' => $post->getID(), 'token' => $_SESSION['token']]) ?>">Dissocier les documents</a>
+            <a onclick="return confirm('Voulez vous vraiment dissocier les documents à la une ?')" class="btn-alert mr2 mb2" href="<?= $router->url('post_files_detach', ['id' => $post->getID(), 'token' => $_SESSION['token']]) ?>">Dissocier les documents</a>
+            <a onclick="return confirm('Voulez vous vraiment supprimer l\'article ?')" class="btn-alert" href="<?= $router->url('admin_post_delete', ['id' => $post->getID(), 'token' => $_SESSION['token']]) ?>">Supprimer l'article</a>
         </div>
         <?php endif ?>
         <button type="submit" class="btn-primary">
