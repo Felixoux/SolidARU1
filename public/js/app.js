@@ -86,6 +86,7 @@ if(checkbox.is(":checked")) {
 // Search engine animation
 let searchBtn = $("#searchBtn");
 let searchContainer = $('.search-container');
+let searchBar = $('.search-container form');
 searchBtn.click(function (){
     searchContainer.addClass('active')
     $('.addFocus').focus()
@@ -96,8 +97,12 @@ function removeSearch() {
 $(document).on('keyup', function (e) { // Remove class from search container when press esc on keyboard
     if(e.key === 'Escape') searchContainer.removeClass('active')
 })
-$(searchContainer).click(function (){
+searchContainer.click(function () {
     searchContainer.removeClass('active')
+})
+
+searchBar.click(function () {
+    event.stopPropagation();
 })
 
 // Go to top Button
