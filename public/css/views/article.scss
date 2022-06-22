@@ -15,6 +15,7 @@
 
 .article__content {
   @extend .stack;
+  text-align: justify;
 }
 
 .article li {
