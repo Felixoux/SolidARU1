@@ -9,6 +9,10 @@
   }
 }
 
+.article__img {
+  margin-bottom: 1rem;
+}
+
 .article__content {
   @extend .stack;
 }
@@ -52,10 +56,9 @@
       margin: 2rem 0;
     }
   }
-  img {
+  .article__img {
     float: right;
     margin-left: 2rem;
-    margin-bottom: 1rem;
   }
   .article__footer {
     margin-top: 2rem;

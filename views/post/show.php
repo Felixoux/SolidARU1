@@ -40,7 +40,7 @@ if ($post->getSlug() !== $slug) {
 <section class="article">
     <div>
     <?php if(file_exists($img_path)): ?>
-        <img src="<?= $post->getImageURL('large') ?>" alt="">
+        <img class="article__img" src="<?= $post->getImageURL('large') ?>" alt="">
     <?php endif ?>
         <div class="article__content">
             <?= $post->getBody() ?>
