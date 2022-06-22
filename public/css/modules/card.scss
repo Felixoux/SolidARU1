@@ -2,13 +2,19 @@
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 3px;
+  -webkit-box-shadow: 0 2px 4px var(--shadow);
   box-shadow: 0 2px 4px var(--shadow);
+  -webkit-transition: .3s;
+  -o-transition: .3s;
   transition: .3s;
 }
 
 .card {
   position: relative;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   @extend %card;
 }
@@ -45,6 +51,8 @@
   @include absolute();
   @include border(1px, transparent, 3px);
   z-index: 2 !important;
+  -webkit-transition: .3s;
+  -o-transition: .3s;
   transition: .3s;
   cursor: pointer;
 
@@ -73,6 +81,8 @@ article.card h1, article.card h2, article.card h3 {
 }
 
 .card--category:hover img, .card--post:hover img {
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
     transform: scale(1.1);
 }
 
@@ -87,6 +97,8 @@ article.card h1, article.card h2, article.card h3 {
 
 .wrap-img-card img {
   margin: 0 auto;
+  -webkit-transition: .3s;
+  -o-transition: .3s;
   transition: .3s;
 }
 
@@ -104,24 +116,34 @@ article.card h1, article.card h2, article.card h3 {
 }
 
 .card--category::before {
+  -webkit-transform: translate(0px, 0px);
+  -ms-transform: translate(0px, 0px);
   transform: translate(0px, 0px);
 }
 
 .card--category::after {
+  -webkit-transform: translate(6px, 6px);
+  -ms-transform: translate(6px, 6px);
   transform: translate(6px, 6px);
 }
 
 .card--category img {
+  -webkit-transition: .2s ease-in-out;
+  -o-transition: .2s ease-in-out;
   transition: .2s ease-in-out;
 }
 
 .card--category:hover {
   &::before {
     opacity: 1;
+    -webkit-transform: translate(0, 0) rotate(-3deg);
+    -ms-transform: translate(0, 0) rotate(-3deg);
     transform: translate(0, 0) rotate(-3deg);
   }
 
   &::after {
+    -webkit-transform: translate(6px, 6px) rotate(3deg);
+    -ms-transform: translate(6px, 6px) rotate(3deg);
     transform: translate(6px, 6px) rotate(3deg);
   }
 }

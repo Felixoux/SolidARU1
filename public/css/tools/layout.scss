@@ -19,13 +19,20 @@
 .page-wrapper {
   min-height: 100vh;
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   margin-top:calc(80px);
+  overflow: hidden;
 }
 
 .fill-page {
   min-height: var(--page-height);
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -42,16 +49,10 @@
   overflow: auto;
 }
 
-.page-wrapper {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
-
 // Container
 // ==============
 %container, header, section, main, footer, nav, .container, .header, .footer, .main, form {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   width: 100%;
   padding-left: calc(50% - var(--container-width) / 2);
@@ -106,9 +107,15 @@
 // Horizontal
 // ==================
 .flex, %flex {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
   display: flex !important;
   display: -webkit-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
 
   & > * {
@@ -117,14 +124,21 @@
 }
 
 .flex-start {
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
   justify-content: flex-start;
 }
 
 .flex-end {
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
   justify-content: flex-end;
 }
 
 .flex-column {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
 }
 
@@ -133,17 +147,26 @@
 }
 
 .stretch {
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
   align-items: stretch;
 }
 
 .flex-center, %flex-center {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   display: -webkit-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
 }
 
 .nowrap {
+  -ms-flex-wrap: nowrap;
   flex-wrap: nowrap;
 }
 
@@ -177,9 +200,12 @@
 // grilles
 // ========================
 %grid, .grid {
+  display: -ms-inline-grid;
   display: inline-grid;
   display: -moz-inline-grid;
   grid-template-columns: 1fr;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
   justify-content: flex-start;
 }
 
@@ -198,6 +224,7 @@
 }
 
 .stack, %stack {
+  display: -ms-grid;
   display: grid;
   grid-template-columns: 1fr;
   align-content: flex-start;

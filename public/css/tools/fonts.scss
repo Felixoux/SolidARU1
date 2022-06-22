@@ -129,17 +129,9 @@ h5 {
   font-family: var(--font-m);
 }
 
-::placeholder { // Chrome, Firefox, Opera, Safari
+::placeholder, :-ms-input-placeholder, ::-ms-input-placeholder{
   color: var(--muted-text);
   opacity: 1; // Opacity for firefox !
-}
-
-:-ms-input-placeholder { // Internet explorer
-  color: var(--muted-text);
-}
-
-::-ms-input-placeholder { // Edge
-  color: var(--muted-text);
 }
 
 // Alignements

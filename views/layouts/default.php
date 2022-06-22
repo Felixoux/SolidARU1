@@ -17,9 +17,6 @@ App\Auth::remember();
     <?= $beforeBodyContent ?? '' ?>
 </head>
 <body>
-<div id="pre-loader" class="flex-center">
-    <div class="loader"></div>
-</div>
 <?php
 $navbar = new \App\HTML\Navbar($router);
 $nav_links = [
