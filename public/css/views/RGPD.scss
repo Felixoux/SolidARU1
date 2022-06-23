@@ -1,0 +1,12 @@
+.rgpd-article__title {
+  @extend .medium-title;
+}
+
+.rgpd-article__content {
+  @extend .stack;
+  margin: 1.5rem 0 2rem 0;
+  padding:  1rem;
+  background: var(--bg-card);
+  border-radius: 3px;
+
+}

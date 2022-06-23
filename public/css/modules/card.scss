@@ -92,7 +92,7 @@ article.card h1, article.card h2, article.card h3 {
   display: flex;
   align-items:center;
   overflow:hidden;
-  border-radius: 3px;
+  border-radius: 3px 3px 0 0;
 }
 
 .wrap-img-card img {

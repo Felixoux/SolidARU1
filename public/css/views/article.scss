@@ -18,6 +18,10 @@
   text-align: justify;
 }
 
+.article__content > * {
+  margin-bottom: 1rem;
+}
+
 .article li {
   list-style-type: circle;
   list-style-position: inside;
