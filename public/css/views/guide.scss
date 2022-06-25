@@ -3,6 +3,10 @@
   gap: calc(2 * var(--gap));
 }
 
+.guide p, .guide ul {
+  text-align: justify;
+}
+
 .guide hr {
   width: 100%;
 }
@@ -28,7 +32,7 @@
   margin:1rem 0;
 }
 
-.guide-group ul, .guide-control__content ul.list-circle {
+.guide-group ul, .guide-control__content ul.list-circle, .about-section ul {
   list-style-type: disc;
   list-style-position: inside;
 }
