@@ -7,7 +7,7 @@
 }
 
 .home-little-grid {
-  margin-bottom: calc(var(--space-section) * 1.25);
+  margin-bottom: calc(var(--space-section) / 2.5);
 
   @include up(775) {
     display: grid;
@@ -15,6 +15,7 @@
     grid-template-rows: 1fr 6.5fr .1fr;
     gap: var(--gap);
     margin-top: calc(-1 * calc(var(--gap) * 4.3));
+    margin-bottom: var(--space-section);
   }
 }
 
