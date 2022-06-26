@@ -8,10 +8,9 @@ $table = new CategoryTable($pdo);
 [$categories, $pagination] = $table->findPaginated();
 $postTable = new \App\Table\PostTable($pdo);
 $link = $router->url('home');
-
 ?>
 
-<img class="mobile-only" src="img/banner.jpg" alt="banner" width="1920">
+<img class="mobile-only" src="img/locker__outside--big.jpg" alt="bannière">
 <div class="banner mobile-hidden"></div>
 
 <section class="home-little-grid relative">

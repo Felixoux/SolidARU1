@@ -7,8 +7,8 @@ $_SESSION['category_link'] = "false";
 
 if (!empty($_GET['q'])) {
     $q = e($_GET['q']);
-    if ($q === "chainette") {
-        header('Location: http://www.artemath.com/');
+    if ($q === "chainette" || $q === "Chainette") {
+        header('Location: https://www.youtube.com/watch?v=PaGS-lB1z3E');
         exit();
     }
     $pdo = Connection::getPDO();
@@ -48,8 +48,6 @@ if (!empty($_GET['q'])) {
     $query = $pdo->query($sql);
     $countCategories = $pdo->query($sql)->rowCount(); // Number of results
     $categories = $query->fetchAll(PDO::FETCH_CLASS, Post::class);
-
-
 }
 ?>
 <div class="page-header search-header container">

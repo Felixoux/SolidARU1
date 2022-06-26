@@ -286,7 +286,10 @@ $domain = C('domain');
             <a href="https://www.youtube.com/">Voici un lien qui ramène vers youtube</a>
             <hr>
             <p>Mieux qu'un lien vers youtube, une vidéo intégrée facile à mettre, comme ceci</p>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/daFv-csZjjk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="ratio">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/daFv-csZjjk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                </iframe>
+            </div>
             <p>Voilà le gros example pour mieux comprendre est fini !</p>
         </div>
     </div>
