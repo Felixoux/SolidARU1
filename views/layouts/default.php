@@ -5,16 +5,18 @@ App\Auth::remember();
 <!DOCTYPE html>
 <html lang="fr" class="h-100">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="<?= isset($pageSummary) ? e($pageSummary) : 'Ceci est un site répertoriant tous les articles de l\'ASBL les amis ARU1' ?>">
-    <meta name="keywords" content="ARU1 aru1 solidaru1 solidarité felixoux alwaysdata site">
-    <meta name="google-site-verification" content="-UejOj4iwCE1xZZHO3O9gncUUfsEczIaQIitaMI3z-w"/>
-    <title><?= isset($pageTitle) ? e($pageTitle) : 'Blog' ?> | Solidaru1</title>
     <link rel="shortcut icon" href="/img/favicon.ico">
     <link rel="stylesheet" href="/css/style.css">
     <?= $beforeBodyContent ?? '' ?>
+    <meta charset="UTF-8">
+    <title><?= isset($pageTitle) ? e($pageTitle) : 'Blog' ?> | Solidaru1</title>
+    <meta name="keywords" content="ARU1 aru1 solidaru1 solidarité felixoux alwaysdata site">
+    <meta property="og:title" content="<?= isset($pageTitle) ? e($pageTitle) : 'Blog' ?> | Solidaru1">
+    <meta property="og:site_name" content="<?= C('domain') ?>">
+    <meta property="og:language" content="fr">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="-UejOj4iwCE1xZZHO3O9gncUUfsEczIaQIitaMI3z-w"/>
 </head>
 <body>
 <?php
