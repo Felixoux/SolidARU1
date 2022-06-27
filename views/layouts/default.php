@@ -11,6 +11,7 @@ App\Auth::remember();
     <meta charset="UTF-8">
     <title><?= isset($pageTitle) ? e($pageTitle) : 'Blog' ?> | Solidaru1</title>
     <meta name="keywords" content="ARU1 aru1 solidaru1 solidarité felixoux alwaysdata site">
+    <link rel="apple-touch-icon" sizes="128x128" href="/img/icon128x128.png">
     <meta property="og:title" content="<?= isset($pageTitle) ? e($pageTitle) : 'Blog' ?> | Solidaru1">
     <meta property="og:site_name" content="<?= C('domain') ?>">
     <meta property="og:language" content="fr">
