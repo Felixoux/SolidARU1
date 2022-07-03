@@ -28,13 +28,13 @@ $pageTitle = "Mentions légales et politique de confidentialité";
     <div class="rgpd-article">
         <h3 class="rgpd-article__title">Éditeur responsable, directeur de publication, responsable de la rédaction</h3>
         <div class="rgpd-article__content">
-            <p>L'éditeur responsable, le directeur de publication et le responsable de la rédaction du site est Madame Vanhessen, Directrice de l'association "Les Amis de l’Athénée Royal d’Uccle 1" - ADRESSE À DEMANDER PENDANT L'APPEL.</p>
+            <p>L'éditeur responsable, le directeur de publication et le responsable de la rédaction du site est Madame Vanhessen, Directrice de l'association "Les Amis de l’Athénée Royal d’Uccle 1"</p>
         </div>
     </div>
     <div class="rgpd-article">
         <h3 class="rgpd-article__title">Réclamation</h3>
         <div class="rgpd-article__content">
-            <p>Pour toute réclamation concernant le droit des personnes sur leur image, veuillez utiliser notre page "contact".</p>
+            <p>Pour toute réclamation concernant le droit des personnes sur leur image, veuillez utiliser notre page <a title="contact" href="<?= $router->url('contact') ?>">contact</a>.</p>
         </div>
     </div>
 </section>

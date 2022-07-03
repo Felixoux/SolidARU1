@@ -24,7 +24,7 @@ final class Navbar
         return <<<HTML
         <nav class="header {$this->admin}">
             <ul class="header-nav">
-        <li class="header__home"><a class="underline" href="{$this->router->url('home')}">
+        <li class="header__home"><a title="Accueil" class="underline" href="{$this->router->url('home')}">
                 <svg id="home">
                     <use xlink:href="/img/svg/sprite.svg#home"></use>
                 </svg>
@@ -102,7 +102,7 @@ HTML;
             return <<<HTML
         <li>
             <h4>
-                <a href="{$this->router->url('admin_posts')}">
+                <a title="Administration du site" href="{$this->router->url('admin_posts')}">
                     <svg>
                         <use xlink:href="/img/svg/sprite.svg#admin"></use>
                     </svg>
@@ -125,7 +125,7 @@ HTML;
     {
         if ($this->admin !== null) {
             return <<<HTML
-        <li class="header__logout">
+        <li title="Se déconnecter" class="header__logout">
             <form action="{$this->router->url('logout', ['token' => $_SESSION['token']])}" method="POST">
                 <button type="submit">
                     <svg>
@@ -138,7 +138,7 @@ HTML;
 
         }
         return <<<HTML
-        <li class="header__search" id="searchBtn">
+        <li title="Rechercher" class="header__search" id="searchBtn">
             <button>
                 <svg>
                     <use xlink:href="/img/svg/sprite.svg#search"></use>

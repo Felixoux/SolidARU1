@@ -87,6 +87,7 @@ final class Form
         <div class="form-group $class">
             <p class="{$this->getInputClass($key)}">{$this->getErrorFeedback($key)}</p>
             <label for="$key">$label $required_star</label>
+            <p class="mb1">Séléctionnez un(e) ou plusieurs $label si vous le souhaitez</p>
             <select name="{$key}[]" id="$key" $required multiple>$optionsHTML</select>
         </div>
         HTML;

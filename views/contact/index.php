@@ -13,7 +13,7 @@ $pageTitle = 'Contact';
 <?php endif ?>
 <main class="contact-wrapper">
     <section class="ASBL">
-        <h2 class="section-title">Coordonnées</h2>
+        <h2 class="section-title">Coordonnées des <strong>amis de l'ARU1</strong></h2>
         <div class="card stack p2">
             <p>Pour nous contacter, rien de plus simple. Il suffit de nous écrire via ce mail.</p>
             <h3 class="medium-title"><a href="mailto:lesamisaru1@gmail.com">lesamisaru1@gmail.com</a></h3>

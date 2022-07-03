@@ -14,8 +14,12 @@
     grid-template-columns: 1fr .7fr;
     grid-template-rows: 1fr 6.5fr .1fr;
     gap: var(--gap);
-    margin-top: calc(-1 * calc(var(--gap) * 4.3));
+    margin-top: calc(-1 * calc(var(--gap) * 8));
     margin-bottom: var(--space-section);
+  }
+
+  @include up(1475) {
+    margin-top: calc(-1 * calc(var(--gap) * 4.5));
   }
 }
 

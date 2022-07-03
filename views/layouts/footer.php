@@ -13,10 +13,10 @@ if (str_contains($_SERVER['REQUEST_URI'], 'admin')) {
         <?= $admin ? 'Vous êtes sur <strong>l\'administration</strong> du site' : 'Bienvenue sur le site de solid<strong>ARU1</strong>' ?>
     </h2>
     <ul class="footer-nav">
-        <li class="first"><a href="<?= $router->url('home') ?>">Accueil</a></li>
-        <li><a href="<?= $router->url('contact') ?>">Contact</a></li>
+        <li class="first"><a title="Accueil" href="<?= $router->url('home') ?>">Accueil</a></li>
+        <li><a title="Contact" href="<?= $router->url('contact') ?>">Contact</a></li>
     </ul>
-    <div class="RGPD-container flex-center">
+    <div title="Changer le thème" class="RGPD-container flex-center">
         <div class="theme-switcher-container">
             <div class="theme-switcher form-switch container">
                 <label for="theme-switcher">
@@ -25,6 +25,6 @@ if (str_contains($_SERVER['REQUEST_URI'], 'admin')) {
                 </label>
             </div>
         </div>
-        <p><a class="muted" href="<?= $router->url('rgpd') ?>">RGPD</a></p>
+        <p><a title="Mentions légales et politique de confidentialité" class="muted" href="<?= $router->url('rgpd') ?>">RGPD</a></p>
     </div>
 </footer>

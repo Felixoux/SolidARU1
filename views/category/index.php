@@ -22,8 +22,8 @@ $link = $router->url('home');
             Que vais-je trouver sur ce <strong>blog</strong> ?
         </h2>
         <h3>
-            Ici vous retrouverez tous les évenements se passant <br>
-            dans l’athénée concernant la solidarité, comme par exemple <br>
+            Ici vous retrouverez tous les évènements se passant <br>
+            dans L’Athénée royal d'Uccle 1 concernant la solidarité, comme par exemple <br>
             la semaine de la solidarité ou encore les shoeboxs.
         </h3>
     </div>
@@ -32,9 +32,9 @@ $link = $router->url('home');
             Comment ça <strong>fonctionne</strong> ?
         </h2>
         <h4 class="muted">
-            Ce site est en quelque sorte un journal des événements.
-            De nombreux posts vont être ajoutés au fil du temps pour en garder une trace.
-            Dans ces posts il y aura du texte, photos, vidéos voire même documents.
+            Ce site est en quelque sorte un journal de bord des évènements.
+            De nombreux articles vont être ajoutés au fil du temps pour en garder une trace.
+            Dans ceux-ci il y aura du texte, des photos, des vidéos, voire même des documents.
         </h4>
     </div>
 </section>
